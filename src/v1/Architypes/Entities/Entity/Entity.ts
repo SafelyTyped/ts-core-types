@@ -46,13 +46,13 @@
  */
 export interface Entity<ID, T> {
     /**
-     * idOf() returns this entity's identity.
+     * id returns this entity's identity.
      *
      * This is normally one (or more) fields from `T`.
      *
      * @returns the entity's ID
      */
-    idOf(): ID;
+    id: ID;
 
     /**
      * implementsEntity() is a helper function for the {@link isEntity}
