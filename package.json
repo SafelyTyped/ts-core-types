@@ -2,7 +2,7 @@
   "name": "@safelytyped/core-types",
   "version": "0.0.1",
   "description": "Core safe types for Typescript",
-  "repository": "github:safelytyped/ts-core-types",
+  "repository": "github:SafelyTyped/ts-core-types",
   "main": "lib/v1/index.js",
   "types": "lib/v1/index.d.ts",
   "scripts": {
