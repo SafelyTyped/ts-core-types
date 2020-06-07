@@ -12,7 +12,8 @@
     "prepack": "npm run build",
     "test": "npm run build && mocha -r ts-node/register \"src/**/*.spec.ts\"",
     "cover": "rimraf coverage && rimraf .nyc_output && nyc --cache=false npm run test",
-    "clean": "rimraf lib"
+    "clean": "rimraf lib",
+    "docs": "typedoc"
   },
   "contributors": [
     "Stuart Herbert <stuherbert@ganbarodigital.com> (https://ganbarodigital.com)"
@@ -45,6 +46,7 @@
     "rimraf": "^3.0.0",
     "ts-node": "^8.0.0",
     "tslint": "^6.0.0",
+    "typedoc": "^0.17.7",
     "typescript": "^3.9.5"
   }
 }
