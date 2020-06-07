@@ -47,11 +47,10 @@
  */
 export interface Value<T> {
     /**
-     * isValue() is a type-guard.
-     *
-     * It was added to help the `isValue()` type guard function.
+     * isValue() is a helper method for the {@link isValue()} type guard
+     * function.
      */
-    isValue(): this is Value<T>;
+    isValue(): boolean;
 
     /**
      * valueOf() returns the wrapped value.
