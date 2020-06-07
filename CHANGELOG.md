@@ -27,9 +27,11 @@ The following changes have been completed, and will be included in the next tagg
 
 * Archetypes
   - added `AnyBranded` type
+  - added `AnyFlavoured` type
   - added `Branded` union type
   - added `Entity` interface
   - added `EntityObject` base class
+  - added `Flavoured` type
   - added `Value` interface
   - added `ValueObject` base class
 
