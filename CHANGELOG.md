@@ -38,6 +38,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `ValueObject` base class
 * ErrorHandling
   - added `ExtraData` interface
+  - added `ExtraLogsOnlyData` interface
   - added `OnError` function signature
   - added `THROW_THE_ERROR` default error handler
 
