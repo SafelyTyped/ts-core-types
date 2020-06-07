@@ -37,6 +37,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `Value` interface
   - added `ValueObject` base class
 * ErrorHandling
+  - added `AllExtraData` union type
   - added `ExtraData` interface
   - added `ExtraLogsOnlyData` interface
   - added `ExtraPublicData` interface
