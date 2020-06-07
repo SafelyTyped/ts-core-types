@@ -32,6 +32,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `Entity` interface
   - added `EntityObject` base class
   - added `Flavoured` type
+  - added `SmartConstructor` function signature
   - added `Value` interface
   - added `ValueObject` base class
 
