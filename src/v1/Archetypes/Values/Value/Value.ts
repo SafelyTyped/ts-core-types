@@ -32,4 +32,32 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Value";
+/**
+ * Value<T> describes the behaviour of data that does have a value,
+ * but does not have an identity (a primary key).
+ *
+ * It is useful for ensuring all value objects have a *minimal* set
+ * of common behaviour, whether or not they share a common base class.
+ *
+ * Use {@link Entity} for data that does have an identity.
+ *
+ * @category Archetypes
+ * @template T the type that is wrapped
+ */
+export interface Value<T> {
+    /**
+     * implementsValue() is a helper method for the {@link isValue} type guard
+     * function.
+     */
+    implementsValue(): this is Value<T>;
+
+    /**
+     * valueOf() returns the wrapped value.
+     *
+     * For types passed by reference, we do NOT return a clone of any kind.
+     * You have to be careful not to accidentally change this value.
+     *
+     * @returns the wrapped value
+     */
+    valueOf(): T;
+}

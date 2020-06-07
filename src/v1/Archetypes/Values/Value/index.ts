@@ -33,6 +33,7 @@
 //
 
 /**
- * @category Architypes
+ * @category Archetypes
  */
-export * from "./ValueObject";
+export * from "./Value";
+export * from "./isValue";

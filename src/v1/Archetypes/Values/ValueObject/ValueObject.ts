@@ -31,59 +31,46 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { Entity } from "../Entity";
+import { Value } from "../Value";
 
 /**
- * EntityObject is the base class for defining your Entity hierarchies.
+ * ValueObject is the base class for defining your Value Object
+ * hierarchies.
  *
- * Every EntityObject:
+ * Every Value Object:
  *
- * - has an identity
- * - that you can access by an `id` property
  * - has a stored value
  * - that you can get the valueOf()
  *
- * Your child classes should implement readonly `get` accessors for
- * any fields of type `T` that you'd like to access without having
- * to call `valueOf()` all the time.
+ * We've deliberately kept this as minimal as possible. We're looking to
+ * support idiomatic TypeScript code, rather than functional programming.
  *
- * @category Architypes
- * @template ID the type of the entity's ID property
- * @template T the type of the wrapped data
+ * If you do want fully-functional programming, use one of the many
+ * excellent libraries that are out there instead.
+ *
+ * Use {@link EntityObject} for data that has an identity (a primary key).
+ *
+ * @category Archetypes
+ * @template T the type that's wrapped by this class
  */
-export abstract class EntityObject<ID, T> implements Entity<ID, T> {
+export class ValueObject<T> implements Value<T> {
     /**
-     * value is the data that we wrap
+     * value is the data that we wrap.
      *
      * Child classes are welcome to access it directly (to avoid the cost
-     * of a call to `valueOf()`), but should never modify the data at all.
+     * of a call to `valueOf()`), but must never modify the data at all.
+     *
+     * @returns the data that is stored in this object.
      */
     protected readonly value: T;
 
     /**
-     * Constructor stores the `input` as `EntityObject.value`.
+     * Constructor builds a new ValueObject.
+     *
+     * @param input the data to store in this object.
      */
     protected constructor(input: T) {
         this.value = input;
-    }
-
-    /**
-     * id returns this entity's identity.
-     *
-     * This is normally one (or more) fields from `T`.
-     *
-     * @returns the entity's ID
-     */
-    public abstract get id(): ID;
-
-    /**
-     * implementsEntity() is a helper function for the {@link isEntity}
-     * type guard function.
-     *
-     * @returns `true` every time.
-     */
-    public implementsEntity(): this is Entity<ID, T> {
-        return true;
     }
 
     /**
@@ -92,9 +79,17 @@ export abstract class EntityObject<ID, T> implements Entity<ID, T> {
      * For types passed by reference, we do NOT return a clone of any kind.
      * You have to be careful not to accidentally change this value.
      *
-     * @returns the wrapped value.
+     * @returns the data that is stored in this object.
      */
     public valueOf(): T {
         return this.value;
+    }
+
+    /**
+     * implementsValue() is a helper method for the {@link isValue} type guard
+     * function.
+     */
+    public implementsValue(): this is Value<T> {
+        return true;
     }
 }

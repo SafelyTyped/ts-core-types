@@ -31,47 +31,36 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { Value } from "../Value";
 
 /**
- * ValueObject is the base class for defining your Value Object
- * hierarchies.
+ * Entity describes the behaviour of data that has an identity.
  *
- * Every Value Object:
+ * It is useful for ensuring all entities have a *minimal* set
+ * of common behaviour, whether or not they share a common base class.
  *
- * - has a stored value
- * - that you can get the valueOf()
+ * Use {@link Value} for data that does not have an identity.
  *
- * We've deliberately kept this as minimal as possible. We're looking to
- * support idiomatic TypeScript code, rather than functional programming.
- *
- * If you do want fully-functional programming, use one of the many
- * excellent libraries that are out there instead.
- *
- * Use {@link EntityObject} for data that has an identity (a primary key).
- *
- * @category Architypes
- * @template T the type that's wrapped by this class
+ * @category Archetypes
+ * @template ID the type of the entity's ID property
+ * @template T the type of the wrapped data
  */
-export class ValueObject<T> implements Value<T> {
+export interface Entity<ID, T> {
     /**
-     * value is the data that we wrap.
+     * id returns this entity's identity.
      *
-     * Child classes are welcome to access it directly (to avoid the cost
-     * of a call to `valueOf()`), but must never modify the data at all.
+     * This is normally one (or more) fields from `T`.
      *
-     * @returns the data that is stored in this object.
+     * @returns the entity's ID
      */
-    protected readonly value: T;
+    id: ID;
 
     /**
-     * Constructor builds a new ValueObject.
+     * implementsEntity() is a helper function for the {@link isEntity}
+     * type guard function.
      *
-     * @param input the data to store in this object.
+     * @returns `true` every time.
      */
-    protected constructor(input: T) {
-        this.value = input;
-    }
+    implementsEntity(): boolean;
 
     /**
      * valueOf() returns the wrapped value.
@@ -79,17 +68,7 @@ export class ValueObject<T> implements Value<T> {
      * For types passed by reference, we do NOT return a clone of any kind.
      * You have to be careful not to accidentally change this value.
      *
-     * @returns the data that is stored in this object.
+     * @returns the wrapped value.
      */
-    public valueOf(): T {
-        return this.value;
-    }
-
-    /**
-     * implementsValue() is a helper method for the {@link isValue} type guard
-     * function.
-     */
-    public implementsValue(): this is Value<T> {
-        return true;
-    }
+    valueOf(): T;
 }

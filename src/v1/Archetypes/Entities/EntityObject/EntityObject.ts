@@ -31,20 +31,42 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { Entity } from "../Entity";
 
 /**
- * Entity describes the behaviour of data that has an identity.
+ * EntityObject is the base class for defining your Entity hierarchies.
  *
- * It is useful for ensuring all entities have a *minimal* set
- * of common behaviour, whether or not they share a common base class.
+ * Every EntityObject:
  *
- * Use {@link Value} for data that does not have an identity.
+ * - has an identity
+ * - that you can access by an `id` property
+ * - has a stored value
+ * - that you can get the valueOf()
  *
- * @category Architypes
+ * Your child classes should implement readonly `get` accessors for
+ * any fields of type `T` that you'd like to access without having
+ * to call `valueOf()` all the time.
+ *
+ * @category Archetypes
  * @template ID the type of the entity's ID property
  * @template T the type of the wrapped data
  */
-export interface Entity<ID, T> {
+export abstract class EntityObject<ID, T> implements Entity<ID, T> {
+    /**
+     * value is the data that we wrap
+     *
+     * Child classes are welcome to access it directly (to avoid the cost
+     * of a call to `valueOf()`), but should never modify the data at all.
+     */
+    protected readonly value: T;
+
+    /**
+     * Constructor stores the `input` as `EntityObject.value`.
+     */
+    protected constructor(input: T) {
+        this.value = input;
+    }
+
     /**
      * id returns this entity's identity.
      *
@@ -52,7 +74,7 @@ export interface Entity<ID, T> {
      *
      * @returns the entity's ID
      */
-    id: ID;
+    public abstract get id(): ID;
 
     /**
      * implementsEntity() is a helper function for the {@link isEntity}
@@ -60,7 +82,9 @@ export interface Entity<ID, T> {
      *
      * @returns `true` every time.
      */
-    implementsEntity(): boolean;
+    public implementsEntity(): this is Entity<ID, T> {
+        return true;
+    }
 
     /**
      * valueOf() returns the wrapped value.
@@ -70,5 +94,7 @@ export interface Entity<ID, T> {
      *
      * @returns the wrapped value.
      */
-    valueOf(): T;
+    public valueOf(): T {
+        return this.value;
+    }
 }

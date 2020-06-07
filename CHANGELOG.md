@@ -25,7 +25,7 @@ The following changes have been completed, and will be included in the next tagg
 
 ### New
 
-* Architypes
+* Archetypes
   - added `Entity` interface
   - added `EntityObject` base class
   - added `Value` interface
