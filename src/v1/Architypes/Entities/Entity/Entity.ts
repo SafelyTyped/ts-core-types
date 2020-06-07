@@ -55,12 +55,12 @@ export interface Entity<ID, T> {
     idOf(): ID;
 
     /**
-     * isEntity() is a helper function for the `isEntity()` type guard
-     * function.
+     * implementsEntity() is a helper function for the {@link isEntity}
+     * type guard function.
      *
      * @returns `true` every time.
      */
-    isEntity(): boolean;
+    implementsEntity(): boolean;
 
     /**
      * valueOf() returns the wrapped value.

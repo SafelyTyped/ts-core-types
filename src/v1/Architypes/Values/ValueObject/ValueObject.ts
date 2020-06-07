@@ -86,10 +86,10 @@ export class ValueObject<T> implements Value<T> {
     }
 
     /**
-     * isValue() is a helper method for the isValue() type guard
+     * implementsValue() is a helper method for the {@link isValue} type guard
      * function.
      */
-    public isValue(): boolean {
+    public implementsValue(): this is Value<T> {
         return true;
     }
 }

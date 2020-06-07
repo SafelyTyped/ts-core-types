@@ -46,10 +46,10 @@
  */
 export interface Value<T> {
     /**
-     * isValue() is a helper method for the isValue() type guard
+     * implementsValue() is a helper method for the {@link isValue} type guard
      * function.
      */
-    isValue(): boolean;
+    implementsValue(): this is Value<T>;
 
     /**
      * valueOf() returns the wrapped value.
