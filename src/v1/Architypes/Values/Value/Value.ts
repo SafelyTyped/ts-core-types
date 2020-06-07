@@ -42,12 +42,11 @@
  * Use {@link Entity} for data that does have an identity.
  *
  * @category Architypes
- * @template T
- *           the type that is wrapped
+ * @template T the type that is wrapped
  */
 export interface Value<T> {
     /**
-     * isValue() is a helper method for the {@link isValue()} type guard
+     * isValue() is a helper method for the isValue() type guard
      * function.
      */
     isValue(): boolean;
