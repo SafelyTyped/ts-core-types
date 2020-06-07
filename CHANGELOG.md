@@ -39,6 +39,7 @@ The following changes have been completed, and will be included in the next tagg
 * ErrorHandling
   - added `ExtraData` interface
   - added `ExtraLogsOnlyData` interface
+  - added `ExtraPublicData` interface
   - added `OnError` function signature
   - added `THROW_THE_ERROR` default error handler
 
