@@ -32,8 +32,7 @@
     "LICENSE.md"
   ],
   "license": "BSD-3-Clause",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.2.8",
     "@types/mocha": "^7.0.1",
