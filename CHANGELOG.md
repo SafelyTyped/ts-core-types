@@ -36,6 +36,8 @@ The following changes have been completed, and will be included in the next tagg
   - added `SmartConstructor` function signature
   - added `Value` interface
   - added `ValueObject` base class
+* ErrorHandling
+  - added `OnError` function signature
 
 ### Fixes
 
