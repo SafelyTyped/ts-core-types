@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnError } from "../../ErrorHandling";
+import { OnErrorOption } from "../../ErrorHandling";
+import { FunctionalOption } from "./FunctionalOption";
 
 /**
  * SmartConstructor is a function signature. It describes a function that
@@ -44,7 +45,11 @@ import { OnError } from "../../ErrorHandling";
  * @template IN The data type that the smart constructor accepts.
  * @template OUT The data type that the smart constructor produces.
  */
-export type SmartConstructor<IN, OUT> = (input: IN, onError?: OnError) => OUT;
+export type SmartConstructor<IN, OUT> = (
+    input: IN,
+    { onError }: OnErrorOption,
+    ...fnOptions: FunctionalOption<OUT>[]
+) => OUT;
 
 /**
  * AnySmartConstructor is a type alias. Use it in function signatures
