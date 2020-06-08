@@ -31,7 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { OnError } from "./OnError";
 
-export * from "./OnError";
-export * from "./OnErrorOption";
-export * from "./ErrorHandlers";
+/**
+ * `OnErrorOption` is an option type. Use it for any function that
+ * accepts an {@link OnError} handler as part of its options.
+ */
+export type OnErrorOption = {} & { onError?: OnError };
