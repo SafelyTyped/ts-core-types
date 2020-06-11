@@ -35,24 +35,46 @@ import { OnErrorOptions } from "../../ErrorHandling";
 import { FunctionalOption } from "./FunctionalOption";
 
 /**
- * SmartConstructor is a function signature. It describes a function that
- * creates a smart type from the given input.
+ * `SmartConstructorOptions` is the user-supplied options type for
+ * {@link SmartConstructor}.
+ *
+ * @category Archetypes
+ */
+export type SmartConstructorOptions = OnErrorOptions;
+
+/**
+ * `SmartConstructor` is a function signature. It describes a function that
+ * creates a ssafe type from the given input.
  *
  * If anything goes wrong, the user-supplied `onError` handler is called,
  * with details about the error that occurred.
  *
  * @category Archetypes
- * @template IN The data type that the smart constructor accepts.
- * @template OUT The data type that the smart constructor produces.
+ * @template IN
+ * The data type that the smart constructor accepts.
+ * @template OUT
+ * The data type that the smart constructor produces.
+ * @template FN
+ * The data type that the functional options can process.
+ * {@link makeNominalType} sets this to `IN|OUT`
+ * Defaults to OUT.
+ * @param input
+ * The data to use to build our safe type.
+ * @param onError
+ * The OnError handler to call if something goes wrong.
+ * @param fnOptions
+ * User-supplied functional options.
+ * @returns
+ * The constructed type.
  */
-export type SmartConstructor<IN, OUT> = (
+export type SmartConstructor<IN, OUT, FN = OUT> = (
     input: IN,
-    { onError }: OnErrorOptions,
-    ...fnOptions: FunctionalOption<OUT>[]
+    options?: SmartConstructorOptions,
+    ...fnOptions: FunctionalOption<FN>[]
 ) => OUT;
 
 /**
- * AnySmartConstructor is a type alias. Use it in function signatures
+ * `AnySmartConstructor` is a type alias. Use it in function signatures
  * when your function will accept any possible SmartConstructor as
  * a parameter.
  *
