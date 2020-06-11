@@ -33,5 +33,5 @@
 //
 
 export * from "./OnError";
-export * from "./OnErrorOption";
+export * from "./OnErrorOptions";
 export * from "./ErrorHandlers";

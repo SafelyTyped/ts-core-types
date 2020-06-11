@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnErrorOption } from "../../ErrorHandling";
+import { OnErrorOptions } from "../../ErrorHandling";
 import { FunctionalOption } from "./FunctionalOption";
 
 /**
@@ -47,7 +47,7 @@ import { FunctionalOption } from "./FunctionalOption";
  */
 export type SmartConstructor<IN, OUT> = (
     input: IN,
-    { onError }: OnErrorOption,
+    { onError }: OnErrorOptions,
     ...fnOptions: FunctionalOption<OUT>[]
 ) => OUT;
 

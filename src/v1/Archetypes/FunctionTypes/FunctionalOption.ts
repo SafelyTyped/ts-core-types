@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnErrorOption } from "../../ErrorHandling";
+import { OnErrorOptions } from "../../ErrorHandling";
 
 /**
  * FunctionalOption is a function signature. It describes a function that
@@ -43,7 +43,7 @@ import { OnErrorOption } from "../../ErrorHandling";
  * @category Archetypes
  * @template T The data type that the functional option accepts and returns.
  */
-export type FunctionalOption<T> = (input: T, { onError }: OnErrorOption) => T;
+export type FunctionalOption<T> = (input: T, { onError }: OnErrorOptions) => T;
 
 /**
  * AnyFunctionalOption is a type alias. Use it in function signatures
