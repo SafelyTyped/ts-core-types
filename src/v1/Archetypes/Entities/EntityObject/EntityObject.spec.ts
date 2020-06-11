@@ -97,7 +97,7 @@ describe("v2 Entity", () => {
         });
     });
 
-    describe(".isEntity()", () => {
+    describe(".implementsEntity()", () => {
         it("returns true", () => {
             const inputEntity: ExampleRecord = {
                 id: 100,
@@ -106,7 +106,7 @@ describe("v2 Entity", () => {
             const expectedValue = true;
 
             const unit = ExampleEntity.from(inputEntity);
-            const actualValue = unit.isEntity();
+            const actualValue = unit.implementsEntity();
 
             expect(actualValue).to.equal(expectedValue);
         });
