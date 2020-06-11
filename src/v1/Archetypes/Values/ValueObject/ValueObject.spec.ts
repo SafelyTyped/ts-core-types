@@ -73,7 +73,7 @@ describe("Value", () => {
             const expectedValue = true;
 
             const unit = ExampleValue.from(inputValue);
-            const actualValue = unit.isValue();
+            const actualValue = unit.implementsValue();
 
             expect(actualValue).to.equal(expectedValue);
         });
