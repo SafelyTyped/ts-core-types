@@ -62,7 +62,7 @@ export class ValueObject<T> implements Value<T> {
      *
      * @returns the data that is stored in this object.
      */
-    protected readonly value: T;
+    protected readonly _value: T;
 
     /**
      * Constructor builds a new ValueObject.
@@ -70,7 +70,7 @@ export class ValueObject<T> implements Value<T> {
      * @param input the data to store in this object.
      */
     protected constructor(input: T) {
-        this.value = input;
+        this._value = input;
     }
 
     /**
@@ -82,7 +82,7 @@ export class ValueObject<T> implements Value<T> {
      * @returns the data that is stored in this object.
      */
     public valueOf(): T {
-        return this.value;
+        return this._value;
     }
 
     /**
