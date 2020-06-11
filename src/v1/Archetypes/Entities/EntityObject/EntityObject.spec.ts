@@ -46,7 +46,7 @@ class ExampleEntity extends EntityObject<number, ExampleRecord> {
         return new ExampleEntity(input);
     }
 
-    public idOf() {
+    get id() {
         return this.value.id;
     }
 }
@@ -91,7 +91,7 @@ describe("v2 Entity", () => {
             const expectedValue = 100;
 
             const unit = ExampleEntity.from(inputEntity);
-            const actualValue = unit.idOf();
+            const actualValue = unit.id;
 
             expect(actualValue).to.equal(expectedValue);
         });
