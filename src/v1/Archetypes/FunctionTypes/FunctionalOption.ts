@@ -41,9 +41,12 @@ import { OnErrorOptions } from "../../ErrorHandling";
  * with details about the error that occurred.
  *
  * @category Archetypes
- * @template T The data type that the functional option accepts and returns.
+ * @template T
+ * The data type that the functional option accepts and returns.
+ * @template OPT
+ * What type of options does the Functional Option accept (if any)?
  */
-export type FunctionalOption<T> = (input: T, { onError }: OnErrorOptions) => T;
+export type FunctionalOption<T, OPT=OnErrorOptions> = (input: T, options?: OPT) => T;
 
 /**
  * AnyFunctionalOption is a type alias. Use it in function signatures
@@ -52,4 +55,4 @@ export type FunctionalOption<T> = (input: T, { onError }: OnErrorOptions) => T;
  *
  * @category Archetypes
  */
-export type AnyFunctionalOption = FunctionalOption<any>;
+export type AnyFunctionalOption = FunctionalOption<any, any>;
