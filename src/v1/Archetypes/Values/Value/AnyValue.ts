@@ -32,9 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { Value } from "./Value";
+
 /**
+ * `AnyValue` is shorthand for any possible {@link Value}
+ *
  * @category Archetypes
  */
-export * from "./Value";
-export * from "./AnyValue";
-export * from "./isValue";
+export type AnyValue = Value<any>;
