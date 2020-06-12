@@ -45,6 +45,8 @@ import { OnErrorOptions } from "../../ErrorHandling";
  * The data type that the functional option accepts and returns.
  * @template OPT
  * What type of options does the Functional Option accept (if any)?
+ * @returns
+ * The possibly modified / possibly replaced input value.
  */
 export type FunctionalOption<T, OPT=OnErrorOptions> = (input: T, options?: OPT) => T;
 
