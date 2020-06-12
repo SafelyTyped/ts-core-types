@@ -32,10 +32,33 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataGuarantee";
-export * from "./DataGuard";
-export * from "./FunctionalOption";
-export * from "./applyFunctionalOptions";
-export * from "./SmartConstructor";
-export * from "./TypeGuard";
-export * from "./TypeGuarantee";
+import { FunctionalOption } from "./FunctionalOption";
+
+/**
+ * `applyFunctionalOptions()` is a helper function. Wrap this around
+ * your class's smart constructor, to add support for functional options.
+ *
+ * @category Archetypes
+ * @template T
+ * `T` is the input & output type that your functional options must support
+ * @template OPT
+ * `OPT` is the type of user-supplied options that your functional options
+ * must support
+ * @param input
+ * The initial value to apply functional options to.
+ * @param fnOpts
+ * The list of functional options to apply.
+ * @returns
+ * The (possibly) modified `input`.
+ */
+export const applyFunctionalOptions = <T, OPT>(
+    input: T,
+    options: OPT,
+    ...fnOpts: FunctionalOption<T,OPT>[]
+) => {
+    // apply the options (if we have any)
+    fnOpts.forEach((fnOpt) => { input = fnOpt(input, options)});
+
+    // all done
+    return input;
+};
