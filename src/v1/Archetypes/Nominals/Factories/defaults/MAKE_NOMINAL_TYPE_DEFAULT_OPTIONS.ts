@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { THROW_THE_ERROR } from "../../../../ErrorHandling";
-import { MakeModuleNameOptions } from "../../../../MiscTypes";
+import { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
 
 /**
  * `MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS` is a set of reasonable defaults
@@ -42,6 +42,6 @@ import { MakeModuleNameOptions } from "../../../../MiscTypes";
  *
  * @category Archetypes
  */
-export const MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS: MakeModuleNameOptions = {
+export const MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS: MakeNominalTypeOptions = {
     onError: THROW_THE_ERROR,
 };
