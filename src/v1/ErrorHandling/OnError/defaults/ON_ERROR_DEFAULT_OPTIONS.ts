@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { THROW_THE_ERROR } from "../ErrorHandlers";
+import { THROW_THE_ERROR } from "./THROW_THE_ERROR";
 import { OnErrorOptions } from "../OnErrorOptions";
 
 /**

@@ -35,4 +35,4 @@
 export * from "./OnError";
 export * from "./OnErrorOptions";
 export * from "./defaults/ON_ERROR_DEFAULT_OPTIONS";
-export * from "./ErrorHandlers";
+export * from "./defaults/THROW_THE_ERROR";

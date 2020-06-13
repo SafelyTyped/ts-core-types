@@ -31,17 +31,17 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnError } from "./OnError";
+import { OnError } from "../OnError";
 
 /**
- * THROW_THE_ERROR is a predefined error handler. It is often used as the
+ * `THROW_THE_ERROR()` is a predefined error handler. It is often used as the
  * default {@link OnError} handler.
  *
  * It just throws whatever error it was given.
  *
  * @category ErrorHandling
  * @param e
- * The error to throw
+ * The error to throw.
  */
 export const THROW_THE_ERROR: OnError = (e) => {
     throw e;
