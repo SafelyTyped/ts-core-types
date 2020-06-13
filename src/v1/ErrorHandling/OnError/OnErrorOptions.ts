@@ -36,5 +36,7 @@ import { OnError } from "./OnError";
 /**
  * `OnErrorOption` is an option type. Use it for any function that
  * accepts an {@link OnError} handler as part of its options.
+ *
+ * Use {@link ON_ERROR_DEFAULT_OPTIONS} as a sensible default value.
  */
 export type OnErrorOptions = {} & { onError?: OnError };

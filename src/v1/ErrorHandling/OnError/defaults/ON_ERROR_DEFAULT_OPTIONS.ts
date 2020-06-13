@@ -31,8 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { THROW_THE_ERROR } from "../ErrorHandlers";
+import { OnErrorOptions } from "../OnErrorOptions";
 
-export * from "./OnError";
-export * from "./OnErrorOptions";
-export * from "./defaults/ON_ERROR_DEFAULT_OPTIONS";
-export * from "./ErrorHandlers";
+/**
+ * `ON_ERROR_DEFAULT_OPTIONS` are the default user-supplied options
+ * for anywhere that accepts {@link OnErrorOptions}.
+ *
+ * @category ErrorHandling
+ */
+export const ON_ERROR_DEFAULT_OPTIONS: OnErrorOptions = {
+    onError: THROW_THE_ERROR,
+};
