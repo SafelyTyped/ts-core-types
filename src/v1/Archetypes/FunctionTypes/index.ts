@@ -35,6 +35,7 @@
 export * from "./DataGuarantee";
 export * from "./DataGuard";
 export * from "./FunctionalOption";
+export * from "./AnyFunctionalOption";
 export * from "./applyFunctionalOptions";
 export * from "./SmartConstructor";
 export * from "./TypeGuard";
