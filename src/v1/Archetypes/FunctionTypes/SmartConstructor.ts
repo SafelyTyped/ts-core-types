@@ -83,4 +83,4 @@ export type SmartConstructor<IN, OUT, OPT = SmartConstructorOptions, FN = OUT> =
  *
  * @category Archetypes
  */
-export type AnySmartConstructor = SmartConstructor<any, any>;
+export type AnySmartConstructor = SmartConstructor<any, any, any, any>;
