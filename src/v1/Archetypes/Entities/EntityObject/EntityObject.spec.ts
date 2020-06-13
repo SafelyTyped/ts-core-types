@@ -51,7 +51,7 @@ class ExampleEntity extends EntityObject<number, ExampleRecord> {
     }
 }
 
-describe("v2 Entity", () => {
+describe("Entity", () => {
     describe("constructor", () => {
         it("stores the input inside the Entity object", () => {
             const inputEntity: ExampleRecord = {
