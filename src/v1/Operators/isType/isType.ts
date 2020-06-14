@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeValidator } from "../../Archetypes/";
+import { TypeValidator } from "../../Archetypes";
 import { DataPath } from "../../SupportingTypes";
 
 /**
@@ -48,7 +48,7 @@ import { DataPath } from "../../SupportingTypes";
  * - `true` if input is successfully validated
  * - `false` otherwise
  *
- * @category Archetypes
+ * @category Operators
  */
 export function isType<T>(validator: TypeValidator<T>, input: unknown): input is T {
     return !((validator("input" as DataPath, input)) instanceof Error);
