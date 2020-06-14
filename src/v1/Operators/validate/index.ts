@@ -32,8 +32,5 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isData";
-export * from "./isType";
-export * from "./recast";
-export * from "./mustBe";
+export * from "./ValidationPipelineStep";
 export * from "./validate";
