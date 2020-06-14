@@ -32,24 +32,4 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { TypeValidator } from "../TypeValidator/TypeValidator";
-
-/**
- * `isType()` is a helper function. Use it to quickly build {@link TypeGuard}
- * functions out of your {@link TypeValidator} functions.
- *
- * @template T
- * This is the type that you are validating
- * @param validator
- * This is the {@link TypeValidator} function to use
- * @param input
- * This is value to inspect
- * @returns
- * - `true` if input is successfully validated
- * - `false` otherwise
- *
- * @category Archetypes
- */
-export function isType<T>(validator: TypeValidator<T>, input: unknown): input is T {
-    return !((validator("input", input)) instanceof Error);
-}
+export * from "./isType";
