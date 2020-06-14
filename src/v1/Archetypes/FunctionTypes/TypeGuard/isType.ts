@@ -32,20 +32,24 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { TypeValidator } from "../TypeValidator/TypeValidator";
+
 /**
- * A `TypeGuard` inspects a piece of data to see if the data is the given
- * type.
- *
- * If the given data is the given type, the function returns `true`.
- * It returns `false` otherwise.
- *
- * TypeGuards are a form of runtime robustness check. They're used to
- * make sure that the given input is the type you think it is, before you
- * try and use that input. They help prevent runtime errors.
+ * `isType()` is a helper function. Use it to quickly build {@link TypeGuard}
+ * functions out of your {@link TypeValidator} functions.
  *
  * @template T
- * `T` is the type we certify that `input` is (or isn't)
+ * This is the type that you are validating
+ * @param validator
+ * This is the {@link TypeValidator} function to use
  * @param input
- * `input` is the data to inspect
+ * This is value to inspect
+ * @returns
+ * - `true` if input is successfully validated
+ * - `false` otherwise
+ *
+ * @category Archetypes
  */
-export type TypeGuard<T> = (input: unknown) => input is T;
+export function isType<T>(validator: TypeValidator<T>, input: unknown): input is T {
+    return !((validator("input", input)) instanceof Error);
+}
