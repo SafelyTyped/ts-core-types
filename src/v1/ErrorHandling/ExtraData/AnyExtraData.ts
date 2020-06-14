@@ -31,10 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ExtraData } from "./ExtraData";
+import { NoExtraData } from "./NoExtraData";
 
-export * from "./AllExtraData";
-export * from "./ExtraData";
-export * from "./ExtraLogsOnlyData";
-export * from "./ExtraPublicData";
-export * from "./NoExtraData";
-export * from "./AnyExtraData";
+/**
+ * `AnyExtraData` represents all supported types of per-instance error data.
+ * Use this for function parameters and generic types.
+ *
+ * See {@link ExtraData} to learn about `public` and `logsOnly` error data.
+ *
+ * @category ErrorHandling
+ */
+export type AnyExtraData = ExtraData | NoExtraData;
