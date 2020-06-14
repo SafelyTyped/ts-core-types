@@ -33,5 +33,3 @@
 //
 
 export * from "./isData";
-export * from "./isType";
-export * from "./recast";

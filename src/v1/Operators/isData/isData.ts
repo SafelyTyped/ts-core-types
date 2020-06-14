@@ -31,7 +31,27 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { DataValidator } from "../../Archetypes";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./isData";
-export * from "./isType";
-export * from "./recast";
+/**
+ * `isData()` is a helper function. Use it to quickly build {@link TypeGuard}
+ * functions out of your {@link TypeValidator} functions.
+ *
+ * @template IN
+ * This is the type that your validator expects
+ * @template T
+ * This is the type that your validator returns
+ * @param validator
+ * This is the {@link TypeValidator} function to use
+ * @param input
+ * This is value to inspect
+ * @returns
+ * - `true` if input is successfully validated
+ * - `false` otherwise
+ *
+ * @category Operators
+ */
+export function isData<IN, T>(validator: DataValidator<IN, T>, input: IN): boolean {
+    return !((validator("input" as DataPath, input)) instanceof Error);
+}
