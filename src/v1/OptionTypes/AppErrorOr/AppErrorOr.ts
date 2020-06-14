@@ -32,10 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { AnyAppError } from "../../ErrorHandling";
+
 /**
- * `ErrorOr` is an option type. It describes a type that be one of:
+ * `AppErrorOr` is an option type. It describes a type that be one of:
  *
- * - Error
+ * - AnyAppError
  * - T
  *
  * Use this as the return type of functions that validate data.
@@ -43,4 +45,4 @@
  * @template T
  * the other type to use in the option
  */
-export type ErrorOr<T> = Error | T;
+export type AppErrorOr<T> = AnyAppError | T;

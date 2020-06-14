@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { ErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../../SupportingTypes/DataPath/DataPath";
+import { AppErrorOr } from "../../../OptionTypes";
+import { DataPath } from "../../../SupportingTypes";
 
 /**
  * `DataValidator` is a function type. It describes the type signature of
@@ -57,4 +57,4 @@ import { DataPath } from "../../../SupportingTypes/DataPath/DataPath";
  *
  * @category Archetypes
  */
-export type DataValidator<IN, T> = (path: DataPath, input: IN) => ErrorOr<T>;
+export type DataValidator<IN, T> = (path: DataPath, input: IN) => AppErrorOr<T>;
