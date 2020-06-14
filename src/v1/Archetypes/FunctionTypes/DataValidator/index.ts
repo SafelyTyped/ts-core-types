@@ -32,11 +32,4 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataGuarantee";
-export * from "./DataGuard";
 export * from "./DataValidator";
-export * from "./FunctionalOption";
-export * from "./SmartConstructor";
-export * from "./TypeGuard";
-export * from "./TypeGuarantee";
-export * from "./TypeValidator";

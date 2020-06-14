@@ -32,11 +32,29 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataGuarantee";
-export * from "./DataGuard";
-export * from "./DataValidator";
-export * from "./FunctionalOption";
-export * from "./SmartConstructor";
-export * from "./TypeGuard";
-export * from "./TypeGuarantee";
-export * from "./TypeValidator";
+import { ErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../../SupportingTypes/DataPath/DataPath";
+
+/**
+ * `DataValidator` is a function type. It describes the type signature of
+ * any function that inspects a data value.
+ *
+ * These functions return:
+ *
+ * - the input value on success, or
+ * - an Error explaining why the validation failed
+ *
+ * `DataValidator`s are used to validate data received from untrusted sources,
+ * such as:
+ *
+ * - HTTP request objects
+ * - datastores
+ *
+ * @template IN
+ * This is the type that your validator expects
+ * @template T
+ * This is the type that your validator returns
+ *
+ * @category Archetypes
+ */
+export type DataValidator<IN, T> = (path: DataPath, input: IN) => ErrorOr<T>;
