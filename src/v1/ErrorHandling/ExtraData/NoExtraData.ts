@@ -38,4 +38,4 @@
  *
  * @category ErrorHandling
  */
-export type NoExtraData = null;
+export type NoExtraData = undefined;
