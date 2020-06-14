@@ -33,7 +33,7 @@
 //
 
 /**
- * ExtraLogsOnlyData holds internal data captured when an error occurs.
+ * `ExtraLogsOnlyData` holds internal data captured when an error occurs.
  *
  * Extend this interface if your {@link AppError} only accepts `logsOnly`
  * data.

@@ -36,8 +36,8 @@ import { ExtraLogsOnlyData } from "./ExtraLogsOnlyData";
 import { ExtraPublicData } from "./ExtraPublicData";
 
 /**
- * AllExtraData represents error data that includes both `public` and
- * `logsOnly` segments.
+ * `AllExtraData` represents error data that requires both `public` and
+ * `logsOnly` values.
  *
  * See {@link ExtraData} to learn about `public` and `logsOnly` error data.
  *

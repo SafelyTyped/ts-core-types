@@ -33,10 +33,10 @@
 //
 
 /**
- * ExtraData is the internal data captured when an error occurs.
+ * `ExtraData` is the internal data captured when an error occurs.
  *
- * This is mostly used as the base type for generic parameters in the
- * ErrorHandling types.
+ * This type isn't extended or implemented by your own data types. It's
+ * used to construct constraints on accepted generic types.
  *
  * Do not use this in your own {@link AppError} classes. Use one of:
  * {@link ExtraPublicData}, {@link ExtraLogsOnlyData}, {@link AllExtraData}

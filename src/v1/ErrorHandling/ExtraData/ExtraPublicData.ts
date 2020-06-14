@@ -33,7 +33,7 @@
 //
 
 /**
- * ExtraPublicdata holds internal data captured when an error occurs.
+ * `ExtraPublicData` holds internal data captured when an error occurs.
  *
  * Extend this interface if your {@link AppError} only accepts `public`
  * data.
