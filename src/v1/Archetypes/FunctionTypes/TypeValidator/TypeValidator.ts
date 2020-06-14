@@ -32,10 +32,23 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataGuarantee";
-export * from "./DataGuard";
-export * from "./FunctionalOption";
-export * from "./SmartConstructor";
-export * from "./TypeGuard";
-export * from "./TypeGuarantee";
-export * from "./TypeValidator";
+import { ErrorOr } from "../../OptionTypes";
+
+/**
+ * `TypeValidator` is a function type. It describes the type signature of
+ * any function that inspects a data value.
+ *
+ * These functions return:
+ *
+ * - the input value on success, or
+ * - an Error explaining why the validation failed
+ *
+ * `TypeValidator`s are used to validate data received from untrusted sources,
+ * such as:
+ *
+ * - HTTP request objects
+ * - datastores
+ *
+ * @category Archetypes
+ */
+export type TypeValidator<T> = (path: string, input: unknown) => ErrorOr<T>;
