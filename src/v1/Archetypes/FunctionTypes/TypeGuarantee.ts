@@ -55,4 +55,4 @@ import { OnErrorOptions } from "../../ErrorHandling";
  * We call this if `input` fails the inspection.
  */
 export type TypeGuarantee<T>
-    = (input: unknown, options?: OnErrorOptions) => input is T;
+    = (input: unknown, options?: OnErrorOptions) => T;
