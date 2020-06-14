@@ -33,11 +33,14 @@
 //
 
 /**
- * @category Archetypes
- * @preferred
+ * `ErrorOr` is an option type. It describes a type that be one of:
+ *
+ * - Error
+ * - T
+ *
+ * Use this as the return type of functions that validate data.
+ *
+ * @template T
+ * the other type to use in the option
  */
-export * from "./Entities";
-export * from "./FunctionTypes";
-export * from "./Nominals";
-export * from "./OptionTypes";
-export * from "./Values";
+export type ErrorOr<T> = Error | T;

@@ -32,12 +32,4 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-/**
- * @category Archetypes
- * @preferred
- */
-export * from "./Entities";
-export * from "./FunctionTypes";
-export * from "./Nominals";
-export * from "./OptionTypes";
-export * from "./Values";
+export * from "./ErrorOr";
