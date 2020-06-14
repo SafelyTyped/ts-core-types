@@ -36,4 +36,5 @@ export * from "./Archetypes";
 export * from "./ErrorHandling";
 export * from "./Errors";
 export * from "./RefinedTypes";
+export * from "./Operators";
 export * from "./SupportingTypes";

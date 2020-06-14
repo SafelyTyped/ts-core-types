@@ -33,6 +33,7 @@
 //
 
 import { ErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../../SupportingTypes/DataPath/DataPath";
 
 /**
  * `TypeValidator` is a function type. It describes the type signature of
@@ -51,4 +52,4 @@ import { ErrorOr } from "../../OptionTypes";
  *
  * @category Archetypes
  */
-export type TypeValidator<T> = (path: string, input: unknown) => ErrorOr<T>;
+export type TypeValidator<T> = (path: DataPath, input: unknown) => ErrorOr<T>;
