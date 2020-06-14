@@ -31,13 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorParams, makeStructuredProblemReport } from "../../ErrorHandling";
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 import { NeverABrandedUuidData } from "./NeverABrandedUuidData";
 
 export class NeverABrandedUuidError extends AppError<NeverABrandedUuidData>{
-    public constructor(params: AppErrorParams = {}) {
+    public constructor(params: AppErrorData = {}) {
         const srp = makeStructuredProblemReport<NeverABrandedUuidData>({
             definedBy: MODULE_NAME,
             description: "value is not a branded Uuid",

@@ -31,21 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
-import { NeverAdultAgeData } from "./NeverAdultAgeData";
+import { AppError } from "./AppError";
+import { AnyExtraData } from "../ExtraData";
 
-export class NeverAdultAgeError extends AppError<NeverAdultAgeData>{
-    public constructor(params: AppErrorData & NeverAdultAgeData) {
-        const srp = makeStructuredProblemReport<NeverAdultAgeData>({
-            definedBy: MODULE_NAME,
-            description: "value is lower than minimum adult age",
-            errorId: params.errorId,
-            extra: { public: params.public },
-            status: makeHttpStatusCode(422),
-        });
-
-        super(srp);
-    }
-}
+/**
+ * represents any instance of AppError, including subclasses
+ *
+ * use this in generic type constraints
+ */
+export type AnyAppError = AppError<AnyExtraData>;

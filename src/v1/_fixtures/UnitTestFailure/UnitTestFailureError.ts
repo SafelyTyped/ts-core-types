@@ -31,13 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorParams, makeStructuredProblemReport } from "../../ErrorHandling";
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
 import { UnitTestFailureData } from "./UnitTestFailureData";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 
 export class UnitTestFailureError extends AppError<UnitTestFailureData> {
-   public constructor(params: UnitTestFailureData & AppErrorParams) {
+   public constructor(params: UnitTestFailureData & AppErrorData) {
         const srp = makeStructuredProblemReport<UnitTestFailureData>({
             definedBy: MODULE_NAME,
             description: "this code should never execute",

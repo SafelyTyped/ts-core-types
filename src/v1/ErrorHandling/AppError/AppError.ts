@@ -31,21 +31,42 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
-import { NeverAdultAgeData } from "./NeverAdultAgeData";
+import { AnyExtraData } from "../ExtraData";
+import { StructuredProblemReport } from "../StructuredProblemReport";
 
-export class NeverAdultAgeError extends AppError<NeverAdultAgeData>{
-    public constructor(params: AppErrorData & NeverAdultAgeData) {
-        const srp = makeStructuredProblemReport<NeverAdultAgeData>({
-            definedBy: MODULE_NAME,
-            description: "value is lower than minimum adult age",
-            errorId: params.errorId,
-            extra: { public: params.public },
-            status: makeHttpStatusCode(422),
-        });
+/**
+ * `AppError` is a base class for throwable Javascript Errors.
+ *
+ * It includes structured information about the error that is being
+ * reported. This information is designed to support your app's
+ * logging approach.
+ *
+ * When dumped to console() or equivalent, the object's name includes
+ * the module where the Error was defined. This makes it easier to write
+ * documentation for production systems.
+ *
+ * @category ErrorHandling
+ * @template E
+ * This is the extra data that this class of error will store.
+ */
+export class AppError<E extends AnyExtraData> extends Error {
+    /**
+     * `details` is a full description of what happened
+     */
+    public readonly details: StructuredProblemReport<E>;
 
-        super(srp);
+    /**
+     * `Constructor` builds a new `AppError` instance.
+     */
+    protected constructor(details: StructuredProblemReport<E>) {
+        // set the Error message
+        super(details.description);
+
+        // stash our StructuredProblemReport
+        this.details = details;
+
+        // make it clear where this error came from,
+        // if anyone dumps it to console.log()
+        this.name = this.details.definedBy + "/" + this.constructor.name;
     }
 }

@@ -31,21 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
-import { NeverAdultAgeData } from "./NeverAdultAgeData";
+import { AppError } from "./AppError";
+import { AnyAppError } from "./AnyAppError";
 
-export class NeverAdultAgeError extends AppError<NeverAdultAgeData>{
-    public constructor(params: AppErrorData & NeverAdultAgeData) {
-        const srp = makeStructuredProblemReport<NeverAdultAgeData>({
-            definedBy: MODULE_NAME,
-            description: "value is lower than minimum adult age",
-            errorId: params.errorId,
-            extra: { public: params.public },
-            status: makeHttpStatusCode(422),
-        });
-
-        super(srp);
-    }
+/**
+ * `isAppError()` is a type guard. It confirms if the given input is
+ * actually one of our {@link AppError}s or not.
+ *
+ * @category ErrorHandling
+ */
+export function isAppError(input: unknown): input is AnyAppError {
+    return (input instanceof AppError);
 }

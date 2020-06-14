@@ -31,21 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
-import { NeverAdultAgeData } from "./NeverAdultAgeData";
 
-export class NeverAdultAgeError extends AppError<NeverAdultAgeData>{
-    public constructor(params: AppErrorData & NeverAdultAgeData) {
-        const srp = makeStructuredProblemReport<NeverAdultAgeData>({
-            definedBy: MODULE_NAME,
-            description: "value is lower than minimum adult age",
-            errorId: params.errorId,
-            extra: { public: params.public },
-            status: makeHttpStatusCode(422),
-        });
-
-        super(srp);
-    }
-}
+export * from "./AppError";
+export * from "./AppErrorData";
+export * from "./AnyAppError";

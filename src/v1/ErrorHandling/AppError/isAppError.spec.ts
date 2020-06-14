@@ -31,21 +31,37 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
-import { NeverAdultAgeData } from "./NeverAdultAgeData";
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export class NeverAdultAgeError extends AppError<NeverAdultAgeData>{
-    public constructor(params: AppErrorData & NeverAdultAgeData) {
-        const srp = makeStructuredProblemReport<NeverAdultAgeData>({
-            definedBy: MODULE_NAME,
-            description: "value is lower than minimum adult age",
-            errorId: params.errorId,
-            extra: { public: params.public },
-            status: makeHttpStatusCode(422),
+import { UnitTestFailureError } from "../../_fixtures";
+import { isAppError } from "./isAppError";
+
+describe("isAppError()", () => {
+    it("is a type-guard for AppError objects", () => {
+        const unit = new UnitTestFailureError({
+            public: {
+                field1: "first field",
+            },
+            logsOnly: {
+                field2: "second field",
+            },
         });
 
-        super(srp);
-    }
-}
+        if (isAppError(unit)) {
+            expect(true).to.equal(true);
+        } else {
+            expect(false).to.equal(true, "isAppError() type-guard failed");
+        }
+    });
+
+    it("rejects other objects", () => {
+        const unit = {};
+
+        if (isAppError(unit)) {
+            expect(false).to.equal(true, "isAppError() type-guard failed");
+        } else {
+            expect(true).to.equal(true);
+        }
+    });
+});
