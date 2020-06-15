@@ -57,4 +57,8 @@ import { DataPath } from "../../../SupportingTypes";
  *
  * @category Archetypes
  */
-export type DataValidator<IN, T> = (path: DataPath, input: IN) => AppErrorOr<T>;
+export type DataValidator<IN, T, OPT extends object = object> = (
+    path: DataPath,
+    input: IN,
+    options: OPT
+) => AppErrorOr<T>;
