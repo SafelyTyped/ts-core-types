@@ -33,6 +33,7 @@
 //
 
 import { DEFAULT_ERROR_REASON } from "./defaults/DEFAULT_ERROR_REASON";
+import { implementsOwnToString } from "../../Protocols";
 
 /**
  * `extractReasonFromCaught()` is a helper function. Use it to turn a value
@@ -99,43 +100,9 @@ export function extractReasonFromCaught(
     //
     // at this point, we are almost certainly dealing with an object,
     // but we still have to play it safe
-    if (!implementsToString(e)) {
+    if (!implementsOwnToString(e)) {
         return reason;
     }
-
-    // the default `.toString()` function doesn't produce
-    // a useful error reason, so we avoid calling that
-    if (e.toString !== Object.prototype.toString) {
-        reason = e.toString();
-    }
-
     // all done
     return reason;
-}
-
-/**
- * `ToString` is a protocol. It describes an object that has the function
- * `.toString()`.
- *
- * @internal
- * @ignore
- */
-interface ToString {
-    toString(): string;
-}
-
-/**
- * `hasToString()` is a type guard. Use it to prove that the input:
- *
- * - is an object
- * - that has a `.toString()` method
- *
- * @param input
- * the value to inspect
- */
-function implementsToString(input: unknown): input is ToString {
-    if ((input as object).toString === undefined) {
-        return false;
-    }
-    return (typeof (input as object).toString === "function");
 }
