@@ -32,5 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./IsDataOptions";
-export * from "./isData";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `IsDataOptions` describes the user-supplied options that must be passed
+ * into any {@link isData} function call.
+ *
+ * @category Operators
+ */
+export interface IsDataOptions {
+    path: DataPath;
+}

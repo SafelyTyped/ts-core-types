@@ -31,6 +31,14 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
 
-export * from "./IsDataOptions";
-export * from "./isData";
+/**
+ * `IS_DATA_DEFAULT_OPTIONS` are the default options you can pass to
+ * {@link isData}.
+ *
+ * @category Operators
+ */
+export const IS_DATA_DEFAULT_OPTIONS = {
+    path: DEFAULT_DATA_PATH,
+}
