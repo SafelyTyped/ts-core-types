@@ -31,7 +31,6 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
 import { AppErrorOr } from "../../../OptionTypes";
 import { DataPath } from "../../../SupportingTypes";
 
@@ -51,5 +50,13 @@ import { DataPath } from "../../../SupportingTypes";
  * - datastores
  *
  * @category Archetypes
+ * @template T
+ * This is the type of data that will be returned on success
+ * @template OPT
+ * This is the type of options that the validator accepts
  */
-export type TypeValidator<T> = (path: DataPath, input: unknown) => AppErrorOr<T>;
+export type TypeValidator<T, OPT extends object = object> = (
+    path: DataPath,
+    input: unknown,
+    options?: OPT
+) => AppErrorOr<T>;
