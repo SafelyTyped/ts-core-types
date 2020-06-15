@@ -32,7 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
-export * from "./defaults/DEFAULT_DATA_PATH";
-export * from "./isDataPathData";
-export * from "./validateDataPathData";
+import { DataPath } from "../DataPath";
+
+/**
+ * `DEFAULT_DATA_PATH` is the `path` value we use when we're not validating
+ * through a nested data structure.
+ *
+ * @category DataPath
+ */
+export const DEFAULT_DATA_PATH = "input" as DataPath;
