@@ -46,8 +46,16 @@ import { ToString } from "./ToString";
  * @category Protocols
  */
 export function implementsToString(input: unknown): input is ToString {
+    // special case
+    if (input === null || input === undefined) {
+        return false;
+    }
+
+    // everything else is worth a look
     if ((input as object).toString === undefined) {
         return false;
     }
+
+    // just in case someone is being a bit of a clown
     return (typeof (input as object).toString === "function");
 }
