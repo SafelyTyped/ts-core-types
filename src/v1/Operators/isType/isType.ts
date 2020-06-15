@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { TypeValidator } from "../../Archetypes";
-import { DataPath } from "../../SupportingTypes";
+import { IsTypeOptions } from "./IsTypeOptions";
 
 /**
  * `isType()` is a helper function. Use it to quickly build {@link TypeGuard}
@@ -53,7 +53,7 @@ import { DataPath } from "../../SupportingTypes";
 export function isType<T, OPT extends object = object>(
     validator: TypeValidator<T, OPT>,
     input: unknown,
-    { path = "input" as DataPath }: { path?: DataPath } & Partial<OPT> = {}
+    options: IsTypeOptions & OPT
 ): input is T {
-    return !((validator(path, input)) instanceof Error);
+    return !((validator(options.path, input, options)) instanceof Error);
 }

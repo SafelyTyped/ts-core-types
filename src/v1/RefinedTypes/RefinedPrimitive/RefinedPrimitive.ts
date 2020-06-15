@@ -46,6 +46,9 @@ import { AnyPrimitiveType } from "../AnyPrimitiveType";
  * This is the type of user-supplied options that the `contract`
  * (parameter to the constructor) accepts.
  */
-export abstract class RefinedPrimitive<T extends AnyPrimitiveType, OPT> extends RefinedType<T, OPT> {
+export abstract class RefinedPrimitive<
+    T extends AnyPrimitiveType,
+    OPT extends object = object
+> extends RefinedType<T, OPT> {
     public abstract [Symbol.toPrimitive](hint: string): AnyPrimitiveType;
 }

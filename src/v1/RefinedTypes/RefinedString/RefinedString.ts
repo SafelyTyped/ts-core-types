@@ -42,8 +42,8 @@ import { RefinedPrimitive } from "../RefinedPrimitive";
  * This is the type of user-supplied options that the `contract`
  * (parameter to the constructor) accepts.
  */
-export class RefinedString<OPT> extends RefinedPrimitive<string, OPT> {
-    public [Symbol.toPrimitive](hint: string): string|null {
+export class RefinedString<OPT extends object = object> extends RefinedPrimitive<string, OPT> {
+    public [Symbol.toPrimitive](hint: string): string | null {
         if (hint === "number") {
             return null;
         }

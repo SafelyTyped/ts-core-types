@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { DataGuarantee, FunctionalOption } from "../../FunctionTypes";
-import { OnErrorOptions } from "../../../ErrorHandling";
+import { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
 
 /**
  * `makeNominalType()` converts your input type into a branded or
@@ -59,10 +59,10 @@ import { OnErrorOptions } from "../../../ErrorHandling";
  * @template OPT
  * The data type for the user-supplied options.
  */
-export function makeNominalType<IN, OUT, OPT extends object = OnErrorOptions>(
-    contract: DataGuarantee<IN>,
+export function makeNominalType<IN, OUT, OPT extends object = object>(
+    contract: DataGuarantee<IN, OPT>,
     input: IN,
-    options: OPT,
+    options: MakeNominalTypeOptions & OPT,
     ...fnOpts: FunctionalOption<IN|OUT, OPT>[]
 ): OUT {
     // enforce the contract

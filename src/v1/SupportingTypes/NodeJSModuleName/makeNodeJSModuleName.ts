@@ -31,12 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FunctionalOption, SmartConstructor } from "../../Archetypes";
-import { makeNominalType } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
-import { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
-import { NodeJSModuleName } from "./NodeJSModuleName";
+import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Archetypes";
+import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
+import { NodeJSModuleName } from "./NodeJSModuleName";
 
 /**
  * `makeNodeJSModuleName()` is a smart constructor. It verifies that the
@@ -56,11 +54,11 @@ import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
  * @returns
  * The validated input string, as a NodeJSModuleName type.
  */
-export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, MakeNodeJSModuleNameOptions, string|NodeJSModuleName> = (
+export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, OnErrorOptions, string | NodeJSModuleName> = (
     input: string,
-    { onError = THROW_THE_ERROR }: MakeNodeJSModuleNameOptions = {},
-    ...fnOpts: FunctionalOption<string|NodeJSModuleName>[]
-): NodeJSModuleName => makeNominalType<string, NodeJSModuleName>(
+    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {},
+    ...fnOpts: FunctionalOption<string | NodeJSModuleName, OnErrorOptions>[]
+): NodeJSModuleName => makeNominalType<string, NodeJSModuleName, OnErrorOptions>(
     mustBeNodeJSModuleNameData,
     input,
     { onError },

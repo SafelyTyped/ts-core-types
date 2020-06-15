@@ -48,7 +48,7 @@ import { DataGuarantee, ValueObject } from "../../Archetypes";
  * @template OPT
  * This is the type of user-supplied options that the `contract` accepts.
  */
-export class RefinedType<T, OPT> extends ValueObject<T> {
+export class RefinedType<T, OPT extends object = object> extends ValueObject<T> {
     /**
      * Constructor. Creates a new `RefinedType`.
      *
@@ -70,7 +70,7 @@ export class RefinedType<T, OPT> extends ValueObject<T> {
      * error handler.
      */
     public constructor(
-        contract: DataGuarantee<T>,
+        contract: DataGuarantee<T, OPT>,
         input: T,
         options: OPT,
     ) {

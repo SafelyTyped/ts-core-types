@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { DataValidator } from "../../Archetypes";
-import { DataPath } from "../../SupportingTypes";
+import { IsDataOptions } from "./IsDataOptions";
 
 /**
  * `isData()` is a helper function. Use it to quickly build {@link TypeGuard}
@@ -46,12 +46,18 @@ import { DataPath } from "../../SupportingTypes";
  * This is the {@link TypeValidator} function to use
  * @param input
  * This is value to inspect
+ * @param path
+ * Where are we in the data structure that you are validating?
  * @returns
  * - `true` if input is successfully validated
  * - `false` otherwise
  *
  * @category Operators
  */
-export function isData<IN, T>(validator: DataValidator<IN, T>, input: IN): boolean {
-    return !((validator("input" as DataPath, input)) instanceof Error);
+export function isData<IN, T, OPT extends object = object>(
+    validator: DataValidator<IN, T>,
+    input: IN,
+    options: IsDataOptions & OPT,
+): boolean {
+    return !((validator(options.path, input, options)) instanceof Error);
 }

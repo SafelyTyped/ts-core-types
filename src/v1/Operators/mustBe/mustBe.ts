@@ -24,10 +24,9 @@
 //
 // We (Ganbaro Digital) have modified it to short-circuit if the value
 // has become an Error.
-
-import { MustBePipelineStep } from "./MustBePipelineStep";
-import { OnErrorOptions, THROW_THE_ERROR, AppError } from "../../ErrorHandling";
+import { AppError, OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import { AppErrorOr } from "../../OptionTypes";
+import { MustBePipelineStep } from "./MustBePipelineStep";
 
 /**
  * `mustBe()` executes a series of functions, one after the next.
@@ -49,7 +48,7 @@ import { AppErrorOr } from "../../OptionTypes";
  */
 export function mustBe<T>(
     val: AppErrorOr<T>,
-    { onError = THROW_THE_ERROR}: OnErrorOptions = {}
+    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
 ): MustBePipelineStep<T> {
     // these we can delegate
     if (val instanceof AppError) {

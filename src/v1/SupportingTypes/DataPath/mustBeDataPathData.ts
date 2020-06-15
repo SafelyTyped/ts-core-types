@@ -31,9 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataPath } from ".";
-import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { DataGuaranteeOptions } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
+import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 import { validateDataPathData } from "./validateDataPathData";
 
 /**
@@ -53,7 +54,10 @@ import { validateDataPathData } from "./validateDataPathData";
  */
 export const mustBeDataPathData = (
     input: string,
-    { onError = THROW_THE_ERROR }: OnErrorOptions = {},
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<DataGuaranteeOptions> = {},
 ) => mustBe(input, { onError })
-    .next((x) => validateDataPathData("input" as DataPath, x))
+    .next((x) => validateDataPathData(path, x))
     .value();

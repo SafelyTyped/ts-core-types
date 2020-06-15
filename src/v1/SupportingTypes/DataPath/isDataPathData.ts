@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { validateDataPathData } from "./validateDataPathData";
 import { isData } from "../../Operators";
+import { IS_DATA_DEFAULT_OPTIONS } from "../../Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
+import { validateDataPathData } from "./validateDataPathData";
 
 /**
  * `isDataPathData()` is a {@link DataGuard}. Use it to prove that an unknown
@@ -44,4 +45,4 @@ import { isData } from "../../Operators";
  * the value you want to prove is a valid {@link DataPath} input
  */
 export const isDataPathData = (input: string): boolean =>
-    isData(validateDataPathData, input)
+    isData(validateDataPathData, input, IS_DATA_DEFAULT_OPTIONS)

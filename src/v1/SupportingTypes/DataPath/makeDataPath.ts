@@ -52,7 +52,9 @@ import { mustBeDataPathData } from "./mustBeDataPathData";
  */
 export const makeDataPath = (
     input: string,
-    { onError = THROW_THE_ERROR }: OnErrorOptions = {},
+    {
+        onError = THROW_THE_ERROR,
+    }: Partial<OnErrorOptions> = {},
     ...fnOpts: FunctionalOption<string|DataPath>[]
 ) => makeNominalType<string, DataPath, OnErrorOptions>(
     mustBeDataPathData,

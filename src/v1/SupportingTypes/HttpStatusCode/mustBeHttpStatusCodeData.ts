@@ -32,9 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { isHttpStatusCodeData } from ".";
-import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { DataGuaranteeOptions } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { HttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfRange";
 import { NotAnIntegerError } from "../../Errors/NotAnInteger";
+import { DEFAULT_DATA_PATH } from "../DataPath";
 
 /**
  * `mustBeHttpStatusCodeData` is a data guarantee. It ensures that `input` is
@@ -46,7 +48,10 @@ import { NotAnIntegerError } from "../../Errors/NotAnInteger";
  */
 export function mustBeHttpStatusCodeData(
     input: number,
-    { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<DataGuaranteeOptions> = {}
 ): void {
     // make sure that `input` is an integer
     //

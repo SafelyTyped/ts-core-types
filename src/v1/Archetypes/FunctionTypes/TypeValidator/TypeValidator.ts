@@ -58,5 +58,5 @@ import { DataPath } from "../../../SupportingTypes";
 export type TypeValidator<T, OPT extends object = object> = (
     path: DataPath,
     input: unknown,
-    options?: OPT
+    options: OPT
 ) => AppErrorOr<T>;

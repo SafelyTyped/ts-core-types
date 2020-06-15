@@ -39,4 +39,4 @@ import { OnError } from "./OnError";
  *
  * Use {@link ON_ERROR_DEFAULT_OPTIONS} as a sensible default value.
  */
-export type OnErrorOptions = {} & { onError?: OnError };
+export type OnErrorOptions = { onError: OnError };
