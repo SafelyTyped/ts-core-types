@@ -100,8 +100,8 @@ export function extractReasonFromCaught(
     //
     // at this point, we are almost certainly dealing with an object,
     // but we still have to play it safe
-    if (!implementsOwnToString(e)) {
-        return reason;
+    if (implementsOwnToString(e)) {
+        return e.toString();
     }
     // all done
     return reason;
