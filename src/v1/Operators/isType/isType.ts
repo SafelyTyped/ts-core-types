@@ -50,6 +50,10 @@ import { DataPath } from "../../SupportingTypes";
  *
  * @category Operators
  */
-export function isType<T>(validator: TypeValidator<T>, input: unknown): input is T {
-    return !((validator("input" as DataPath, input)) instanceof Error);
+export function isType<T>(
+    validator: TypeValidator<T>,
+    input: unknown,
+    { path = "input" as DataPath }: { path?: DataPath } = {}
+): input is T {
+    return !((validator(path, input)) instanceof Error);
 }
