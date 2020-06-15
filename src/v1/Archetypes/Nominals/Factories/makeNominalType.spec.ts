@@ -51,7 +51,7 @@ function mustBeBrandedUuid(input: string): void {
     return;
 }
 
-function neverABrandedUuid(input: string, { onError = THROW_THE_ERROR }: OnErrorOptions = {}): void {
+function neverABrandedUuid(input: string, { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}): void {
     throw onError(new NeverABrandedUuidError());
 }
 
@@ -77,7 +77,7 @@ describe("makeNominalType()", () => {
 
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
         ) => makeNominalType<string, BrandedUuid>(
                 mustBeBrandedUuid,
                 x,
@@ -101,7 +101,7 @@ describe("makeNominalType()", () => {
         // if there is a defect, the test will fail to compile
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
         ) => makeNominalType<string, BrandedUuid>(
             mustBeBrandedUuid,
             x,
@@ -124,7 +124,7 @@ describe("makeNominalType()", () => {
         // if there is a defect, the test will fail to compile
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
         ) => makeNominalType<string, FlavouredUuid>(
             mustBeFlavouredUuid,
             x,
@@ -140,7 +140,7 @@ describe("makeNominalType()", () => {
     it("calls the provided functional options", () => {
         const uuidFrom = (
             input: string,
-            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
         ) => makeNominalType<string, BrandedUuid>(
             mustBeBrandedUuid,
             input,
@@ -160,7 +160,7 @@ describe("makeNominalType()", () => {
     it("calls the default error handler when the guarantee fails", () => {
         const uuidFrom = (
             x: string,
-            { onError = defaultErrorHandler }: OnErrorOptions = {}
+            { onError = defaultErrorHandler }: Partial<OnErrorOptions> = {}
         ) => makeNominalType<string, BrandedUuid>(
             neverABrandedUuid,
             x,
@@ -178,7 +178,7 @@ describe("makeNominalType()", () => {
 
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
         ) => makeNominalType<string, BrandedUuid>(
             neverABrandedUuid,
             x,

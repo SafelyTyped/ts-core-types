@@ -43,7 +43,7 @@ function mustBeUuid(input: string): void {
     return;
 }
 
-function neverAUuid(input: string, { onError = THROW_THE_ERROR }: OnErrorOptions = {}): never {
+function neverAUuid(input: string, { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}): never {
     throw onError(new NeverABrandedUuidError());
 }
 

@@ -43,7 +43,7 @@ function mustBeAdultAge(input: number): void {
     return;
 }
 
-function neverAdultAge(input: number, { onError = THROW_THE_ERROR }: OnErrorOptions = {}): never {
+function neverAdultAge(input: number, { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}): never {
     throw onError(new NeverAdultAgeError({public: { input }}));
 }
 
@@ -53,7 +53,7 @@ function defaultOnErrorHandler(e: AnyAppError): never {
 
 export const makeAdultAge = (
     input: number,
-    { onError = THROW_THE_ERROR }: OnErrorOptions = {},
+    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {},
     ...fnOpts: FunctionalOption<AdultAge>[]
 ) => applyFunctionalOptions(
     new AdultAge(input, { onError }),
@@ -69,7 +69,7 @@ class AdultAge extends RefinedNumber<OnErrorOptions> {
 
 export const makeNeverAdultAge = (
     input: number,
-    { onError = THROW_THE_ERROR }: OnErrorOptions = {},
+    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {},
     ...fnOpts: FunctionalOption<AdultAge>[]
 ) => applyFunctionalOptions(
     new NeverAdultAge(input, { onError }),
