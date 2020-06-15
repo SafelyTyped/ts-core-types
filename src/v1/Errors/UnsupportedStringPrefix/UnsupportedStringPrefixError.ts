@@ -31,10 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { makeHttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { UnsupportedStringPrefixData } from "./UnsupportedStringPrefixData";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotAnInteger";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `UnsupportedStringPrefixError` is a throwable Error. It is thrown when
+ * a string does not have the prefix we required.
+ *
+ * @category BasicTypes
+ */
+export class UnsupportedStringPrefixError extends AppError<UnsupportedStringPrefixData> {
+    public constructor(params: UnsupportedStringPrefixData & AppErrorData) {
+        const spr = makeStructuredProblemReport<UnsupportedStringPrefixData>({
+            definedBy: MODULE_NAME,
+            description: "validation failed; expected prefix not present",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: makeHttpStatusCode(422),
+        });
+        super(spr);
+    }
+}
