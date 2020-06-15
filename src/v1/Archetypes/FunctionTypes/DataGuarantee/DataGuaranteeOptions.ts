@@ -31,32 +31,16 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnErrorOptions } from "../../ErrorHandling";
+import { OnError } from "../../../ErrorHandling";
+import { DataPath } from "../../../SupportingTypes";
 
 /**
- * A `DataGuarantee` inspects the given data, to see if the given data
- * meets a defined contract / specification.
+ * `DataGuaranteeOptions` describes the user-supplied options supported
+ * by all {@link DataGuarantee}s.
  *
- * If the given data does meet the given contract / specification, the
- * DataGuarantee returns the given data.
- *
- * If the given data does not meet the given contract / specification,
- * the DataGuarantee calls the supplied {@link OnError} handler. The
- * {@link OnError} handler must throw an {@link AppError} of some kind.
- *
- * `T` is the type of data to be inspected
- *
- * When you implement a DataGuarantee, make it a wrapper around one or more
- * {@link TypeGuard}s and/or {@link DataGuard}s - and even other
- * DataGuarantees if appropriate. It's the best way to make your code
- * as reusable as possible.
- *
- * @template T
- * The acceptable data type to inspect.
- * @param input
- * The data to guarantee.
- * @param onError
- * We call this if `input` fails the inspection.
+ * @category Archetypes
  */
-export type DataGuarantee<T = unknown>
-  = (input: T, options?: OnErrorOptions) => void;
+export interface DataGuaranteeOptions {
+    onError?: OnError,
+    path?: DataPath
+}
