@@ -41,6 +41,6 @@ import { DataPath } from "../../../SupportingTypes";
  * @category Archetypes
  */
 export interface DataGuaranteeOptions {
-    onError?: OnError,
-    path?: DataPath
+    onError: OnError,
+    path: DataPath
 }
