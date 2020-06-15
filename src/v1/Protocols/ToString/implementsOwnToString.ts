@@ -33,6 +33,7 @@
 //
 
 import { ToString } from "./ToString";
+import { implementsToString } from "./implementsToString";
 
 /**
  * `implementsOwnToString()` is a type guard. Use it to prove that the input:
@@ -47,7 +48,7 @@ import { ToString } from "./ToString";
  * @category Protocols
  */
 export function implementsOwnToString(input: unknown): input is ToString {
-    if (!implementsOwnToString(input)) {
+    if (!implementsToString(input)) {
         return false;
     }
 
