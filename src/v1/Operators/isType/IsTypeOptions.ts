@@ -32,6 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./IsTypeOptions";
-export * from "./isType";
-export * from "./defaults/IS_TYPE_DEFAULT_OPTIONS";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `IsTypeOptions` describes the user-supplied options that must be passed
+ * into any {@link isType} function call.
+ *
+ * @category Operators
+ */
+export interface IsTypeOptions {
+    path: DataPath;
+}
