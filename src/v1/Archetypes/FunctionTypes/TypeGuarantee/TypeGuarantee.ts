@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnErrorOptions } from "../../ErrorHandling";
+import { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
 
 /**
  * A `TypeGuarantee` inspects a piece of data to see if the data is the given
@@ -53,6 +53,8 @@ import { OnErrorOptions } from "../../ErrorHandling";
  * The data to guarantee.
  * @param options.onError
  * We call this if `input` fails the inspection.
+ * @param options.path
+ * We use this in thrown Errors to provide a meaningful name for `input`
  */
 export type TypeGuarantee<T>
-    = (input: unknown, options?: OnErrorOptions) => T;
+    = (input: unknown, options?: TypeGuaranteeOptions) => T;
