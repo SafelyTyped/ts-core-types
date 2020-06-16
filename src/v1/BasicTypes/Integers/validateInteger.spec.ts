@@ -40,13 +40,18 @@ import { validateInteger } from "./validateInteger";
 
 
 describe("validateInteger()", () => {
-    it("returns `input` when given a integer", () => {
-        const inputValue = 100;
-        const expectedValue = inputValue;
+    [
+        -100,
+        0,
+        100
+    ].forEach((inputValue) => {
+        it("returns `input` when given a integer", () => {
+            const expectedValue = inputValue;
 
-        const actualValue = validateInteger(DEFAULT_DATA_PATH, inputValue);
-        expect(actualValue).to.eql(expectedValue);
-    })
+            const actualValue = validateInteger(DEFAULT_DATA_PATH, inputValue);
+            expect(actualValue).to.eql(expectedValue);
+        });
+    });
 
     it("returns an `AppError` for non-integer numbers", () => {
         [

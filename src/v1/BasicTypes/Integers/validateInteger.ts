@@ -53,9 +53,8 @@ export function validateInteger(path: DataPath, input: unknown): AppErrorOr<numb
         return res;
     }
 
-    // this bitshift is the fastest way to prove that we have an integer
-    // tslint:disable-next-line: no-bitwise
-    if (res >>> 0 !== res) {
+    // slower than bitwise operations, but always safe
+    if (Math.trunc(res) !== res) {
         return new UnsupportedTypeError({
             public: {
                 name: path,
