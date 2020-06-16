@@ -57,7 +57,7 @@ export function mustBe<T>(
 
     // these we know nothing about, but must watch out for
     if (val instanceof Error) {
-        throw Error;
+        throw val;
     }
 
     return {
