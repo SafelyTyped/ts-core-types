@@ -38,10 +38,9 @@ import { implementsToString } from "./implementsToString";
 /**
  * `implementsOwnToString()` is a type guard. Use it to prove that the input:
  *
- * - is an object
+ * - is an object (not null, not an array, not a primitive type)
  * - that has a `.toString()` method
  * - that isn't the default `Object.toString()` method
- * - that isn't the default `Array.toString()` method
  *
  * @param input
  * the value to inspect
@@ -49,17 +48,11 @@ import { implementsToString } from "./implementsToString";
  * @category Protocols
  */
 export function implementsOwnToString(input: unknown): input is ToString {
+    // make sure there's a `.toString()' function in the first place
     if (!implementsToString(input)) {
         return false;
     }
 
-    if (input.toString === Object.prototype.toString) {
-        return false;
-    }
-
-    if (input.toString === Array.prototype.toString) {
-        return false;
-    }
-
-    return true;
+    // is it likely to be their own?
+    return input.toString !== Object.prototype.toString;
 }
