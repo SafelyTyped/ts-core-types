@@ -32,6 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { isData } from "../../Operators";
+import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
+import { DEFAULT_DATA_PATH } from "../DataPath";
+
 /**
  * `isHttpStatusCodeData()` is a data guard. It checks to see if the `input`
  * value is in the range of valid HTTP status codes.
@@ -43,6 +47,5 @@
  * - `true` if `input` is an integer between 100 and 599 inclusive.
  * - `false` otherwise
  */
-export function isHttpStatusCodeData(input: number): boolean {
-    return (input >= 100 && input <= 599);
-}
+export const isHttpStatusCodeData = (input: number): boolean =>
+    isData(validateHttpStatusCodeData, input, { path: DEFAULT_DATA_PATH });
