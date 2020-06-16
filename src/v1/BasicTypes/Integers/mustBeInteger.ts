@@ -31,7 +31,33 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { TypeGuarantee, TypeGuaranteeOptions } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
+import { mustBe } from "../../Operators";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateInteger } from "./validateInteger";
 
-export * from "./isInteger";
-export * from "./mustBeInteger";
-export * from "./validateInteger";
+/**
+ * `mustBeInteger()` is a {@link TypeGuarantee}. It returns the given `input`
+ * as a `integer` if all is well.
+ *
+ * If the `input` is not a integer, an Error is thrown.
+ *
+ * @param input
+ * the value to inspect
+ * @param onError
+ * the error handler we will call if `input` fails validation
+ * @returns
+ * `input`, cast as a `integer` to keep the compiler happy
+ *
+ * @category BasicTypes
+ */
+export const mustBeInteger: TypeGuarantee<number> = (
+    input: unknown,
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<TypeGuaranteeOptions> = {}
+): number => mustBe(input, { onError })
+    .next((x) => validateInteger(path, x))
+    .value();
