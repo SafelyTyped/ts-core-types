@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { implementsStack } from "../../Protocols";
+
 /**
  * `extractStackFromCaught()` is a helper method. Use it to get the stack
  * trace from a value caught by a `catch()` statement, if it has one!
@@ -58,16 +60,4 @@ export function extractStackFromCaught(input: unknown): string {
     // if `stack` isn't a strack trace, there's not much we
     // can do about it
     return input.stack.substring(input.stack.indexOf("\n") + 1);
-}
-
-interface Stack {
-    stack: string;
-}
-
-function implementsStack(input: unknown): input is Stack {
-    if (!(input instanceof Object)) {
-        return false;
-    }
-
-    return (typeof (input as any).stack === "string");
 }
