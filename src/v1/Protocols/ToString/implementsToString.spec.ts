@@ -31,31 +31,42 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-import { ToString } from "./ToString";
-import { isObject } from "../../BasicTypes";
+import { implementsToString } from "./implementsToString";
 
-/**
- * `implementsToString()` is a type guard. Use it to prove that the input:
- *
- * - is an object
- * - that has a `.toString()` method
- *
- * @param input
- * the value to inspect
- *
- * @category Protocols
- */
-export function implementsToString(input: unknown): input is ToString {
-    if (!isObject(input)) {
-        return false;
-    }
+describe("implementsToString()", () => {
+    [
+        null,
+        undefined,
+        true,
+        false,
+        [ 1, 2, 3, 4, 5],
+    ].forEach((inputValue) => {
+        it("returns `false` for `" + inputValue + "`", () => {
+            const expectedValue = false;
 
-    // everything else is worth a look
-    if (input.toString === undefined) {
-        return false;
-    }
+            const actualValue = implementsToString(inputValue);
+            expect(actualValue).to.equal(expectedValue);
+        });
+    });
 
-    // just in case someone is being a bit of a clown
-    return (typeof (input as object).toString === "function");
-}
+    it("returns `false` for objects where their .toString() is not a function", () => {
+        const inputValue = {};
+        Object.setPrototypeOf(inputValue, null);
+        expect(inputValue.toString).to.equal(undefined);
+        const expectedValue = false;
+
+        const actualValue = implementsToString(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    });
+
+    it("returns `true` for objects that have a .toString() function", () => {
+        const inputValue = {};
+        const expectedValue = true;
+
+        const actualValue = implementsToString(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    })
+});
