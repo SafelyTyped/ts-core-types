@@ -31,8 +31,17 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { NonEmptyArray } from "./NonEmptyArray";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
+/**
+ * `isArray()` is a {@link TypeGuard}. Use it to prove to the compiler that
+ * the unknown `input` is an array of some kind.
+ *
+ * @param input
+ * the value to inspect
+ *
+ * @category BasicTypes
+ */
+export const isNonEmptyArray = <T = any>(input: T[]): input is NonEmptyArray<T> => {
+    return input.length > 0;
+}
