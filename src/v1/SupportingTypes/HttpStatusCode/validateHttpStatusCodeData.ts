@@ -31,12 +31,27 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { validate } from "../../Operators";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "..";
+import { validateInteger } from "../../BasicTypes";
+import { validateHttpStatusCodeDataRange } from "./validateHttpStatusCodeDataRange";
 
-export * from "./HttpStatusCode";
-export * from "./MakeHttpStatusCodeOptions";
-export * from "./defaults/MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS";
-export * from "./makeHttpStatusCode";
-export * from "./isHttpStatusCodeData";
-export * from "./mustBeHttpStatusCodeData";
-export * from "./validateHttpStatusCodeData";
-export * from "./validateHttpStatusCodeDataRange";
+/**
+ * `validateHttpStatusCodeData()` is a {@link DataValidator}. Use it to
+ * prove that the given input is a legal HTTP status code value.
+ *
+ * @param path
+ * @param input
+ *
+ * @category HttpStatusCode
+ */
+export function validateHttpStatusCodeData (
+    path: DataPath,
+    input: unknown
+): AppErrorOr<number> {
+    return validate(input)
+        .next((x) => validateInteger(path, x))
+        .next((x) => validateHttpStatusCodeDataRange(path, x))
+        .value();
+}

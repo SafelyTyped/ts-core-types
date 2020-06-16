@@ -31,12 +31,39 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./HttpStatusCode";
-export * from "./MakeHttpStatusCodeOptions";
-export * from "./defaults/MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS";
-export * from "./makeHttpStatusCode";
-export * from "./isHttpStatusCodeData";
-export * from "./mustBeHttpStatusCodeData";
-export * from "./validateHttpStatusCodeData";
-export * from "./validateHttpStatusCodeDataRange";
+import { HttpStatusCodeOutOfRangeError, UnsupportedTypeError } from "../../Errors";
+import { DEFAULT_DATA_PATH } from "../DataPath";
+import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
+
+describe("validateHttpStatusCodeData()", () => {
+    it("accepts integers in the range 100-599 inclusive", () => {
+        for (let inputValue = 100; inputValue < 600; inputValue++) {
+            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            expect(actualValue).to.equal(inputValue);
+        }
+    });
+
+    it("rejects non-integers in the range 100-599 inclusive", () => {
+        for (let inputValue = 100.5; inputValue < 600; inputValue++) {
+            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
+        }
+    });
+
+    it("rejects numbers below 100", () => {
+        for (let inputValue = -100; inputValue < 100; inputValue++) {
+            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            expect(actualValue).to.be.instanceOf(HttpStatusCodeOutOfRangeError);
+        }
+    });
+
+    it("rejects numbers above 599", () => {
+        for (let inputValue = 600; inputValue < 1000; inputValue++) {
+            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            expect(actualValue).to.be.instanceOf(HttpStatusCodeOutOfRangeError);
+        }
+    });
+});
