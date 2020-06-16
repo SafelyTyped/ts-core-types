@@ -31,15 +31,40 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError } from "../../ErrorHandling";
+import { UnsupportedTypeError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { validateNumber } from "../Numbers";
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-// export * from "./Hashmaps";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Strings";
-// export * from "./Unions";
-export * from "./Unknowns";
+/**
+ * `validateInteger()` is a {@link TypeValidator}. Use it to prove that
+ * the given input is really a `number`, or to find out why we think it
+ * isn't a number.
+ *
+ * @param path
+ * @param input
+ *
+ * @category BasicTypes
+ */
+export function validateInteger(path: DataPath, input: unknown): AppErrorOr<number> {
+    const res = validateNumber(path, input);
+    if (res instanceof AppError) {
+        return res;
+    }
+
+    // this bitshift is the fastest way to prove that we have an integer
+    // tslint:disable-next-line: no-bitwise
+    if (res >>> 0 !== res) {
+        return new UnsupportedTypeError({
+            public: {
+                name: path,
+                expected: "number (with an integer value)",
+                actual: "number (with a non-integer value)"
+            }
+        });
+    }
+
+    // all done
+    return res;
+}
