@@ -35,7 +35,6 @@
 export * from "./defaults/MODULE_NAME";
 export * from "./HttpStatusCodeOutOfRange";
 export * from "./InvalidNodeJSModuleName";
-export * from "./NotAnInteger";
 export * from "./UnsupportedBooleanishValue";
 export * from "./UnsupportedType";
 export * from "./UnsupportedStringPrefix";
