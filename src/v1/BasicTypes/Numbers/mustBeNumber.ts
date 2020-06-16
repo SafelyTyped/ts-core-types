@@ -31,7 +31,33 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { TypeGuarantee, TypeGuaranteeOptions } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
+import { mustBe } from "../../Operators";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateNumber } from "./validateNumber";
 
-export * from "./isNumber";
-export * from "./mustBeNumber";
-export * from "./validateNumber";
+/**
+ * `mustBeNumber()` is a {@link TypeGuarantee}. It returns the given `input`
+ * as a `number` if all is well.
+ *
+ * If the `input` is not a number, an Error is thrown.
+ *
+ * @param input
+ * the value to inspect
+ * @param onError
+ * the error handler we will call if `input` fails validation
+ * @returns
+ * `input`, cast as a `number` to keep the compiler happy
+ *
+ * @category BasicTypes
+ */
+export const mustBeNumber: TypeGuarantee<number> = (
+    input: unknown,
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<TypeGuaranteeOptions> = {}
+): number => mustBe(input, { onError })
+    .next((x) => validateNumber(path, x))
+    .value();

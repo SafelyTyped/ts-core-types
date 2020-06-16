@@ -31,7 +31,53 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./isNumber";
-export * from "./mustBeNumber";
-export * from "./validateNumber";
+import { UnsupportedTypeError } from "../../Errors";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { mustBeNumber } from "./mustBeNumber";
+
+
+describe("mustBeNumber()", () => {
+    it("returns `input` when given a number", () => {
+        const inputValue = 0;
+        const expectedValue = inputValue;
+
+        const actualValue = mustBeNumber(inputValue);
+        expect(actualValue).to.eql(expectedValue);
+    })
+
+    it("throws an `AppError` otherwise", () => {
+        [
+            null,
+            [ 1, 2, 3, 4, 5 ],
+            true,
+            false,
+            {
+                foo: "bar"
+            },
+            "0",
+        ].forEach((val) => {
+            const expectedValue = new UnsupportedTypeError({
+                public: {
+                    name: DEFAULT_DATA_PATH,
+                    expected: "number",
+                    actual: typeof val,
+                }
+            })
+
+            let actualValue: any = false;
+            try {
+                mustBeNumber(val);
+            } catch (e) {
+                actualValue = e;
+            }
+
+            expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
+            if (actualValue instanceof UnsupportedTypeError) {
+                expect(actualValue.details).to.eql(expectedValue.details, "failed on " + val);
+            }
+        })
+    })
+});
