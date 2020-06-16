@@ -51,13 +51,14 @@ import { AppError } from "../../ErrorHandling";
 export function validate<T>(
     val: AppErrorOr<T>
 ): ValidationPipelineStep<T> {
-    // no reason to continue
-    if (val instanceof AppError) {
-        return validate<T>(val);
-    }
-
     return {
-        next: (fn) => validate(fn(val)),
+        next: (fn) => {
+            if (val instanceof AppError) {
+                return validate<any>(val);
+            }
+
+            return validate(fn(val));
+        },
         value: () => val
     };
 }

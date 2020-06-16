@@ -39,7 +39,7 @@ export interface ValidationPipelineStep<T> {
      *
      * Use this to get a result from the end of the pipeline.
      */
-    readonly value: () => T;
+    readonly value: () => AppErrorOr<T>;
 
     /**
      * `.next()` defines the next step of the pipeline.
