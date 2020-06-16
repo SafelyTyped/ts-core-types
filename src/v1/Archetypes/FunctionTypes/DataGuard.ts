@@ -45,6 +45,7 @@
  * That makes them very reusable, and it allows you to build up rich
  * error reporting in your code.
  *
+ * @category Archetypes
  * @template T
  * `T` is the type of data to be inspected.
  * @param input

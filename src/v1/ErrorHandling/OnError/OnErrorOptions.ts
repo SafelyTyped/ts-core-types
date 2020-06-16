@@ -38,5 +38,7 @@ import { OnError } from "./OnError";
  * accepts an {@link OnError} handler as part of its options.
  *
  * Use {@link ON_ERROR_DEFAULT_OPTIONS} as a sensible default value.
+ *
+ * @category ErrorHandling
  */
 export type OnErrorOptions = { onError: OnError };

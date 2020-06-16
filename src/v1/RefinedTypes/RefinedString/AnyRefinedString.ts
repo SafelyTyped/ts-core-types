@@ -38,5 +38,7 @@ import { RefinedString } from "./RefinedString";
  * `AnyRefinedString` represents all possible {@link RefinedString} types.
  *
  * Use it in function parameters and in generic type constraints.
+ *
+ * @category RefinedTypes
  */
 export type AnyRefinedString = RefinedString<any>;

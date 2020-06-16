@@ -47,6 +47,8 @@ import { DataPath } from "./DataPath";
  * @returns
  * - `input`, recast as a {@link DataPath}
  * - or an {@link AppError} explaining why validation failed
+ *
+ * @category DataPath
  */
 export function validateDataPathData(path: DataPath, input: string): AppErrorOr<DataPath> {
     return validate(input)

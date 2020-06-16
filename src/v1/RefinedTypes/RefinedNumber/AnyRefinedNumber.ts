@@ -38,5 +38,7 @@ import { RefinedNumber } from "./RefinedNumber";
  * `AnyRefinedNumber` represents all possible {@link RefinedNumber} types.
  *
  * Use it in function parameters and in generic type constraints.
+ *
+ * @category RefinedTypes
  */
 export type AnyRefinedNumber = RefinedNumber<any>;

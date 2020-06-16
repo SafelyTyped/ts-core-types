@@ -47,6 +47,8 @@ import { AppErrorOr } from "../../OptionTypes";
  * @returns
  * - `input` if it is an array, or
  * - an AppError explaining why validation failed
+ *
+ * @category BasicTypes
  */
 export function validateArray(path: DataPath, input: unknown): AppErrorOr<any[]> {
     // do we have an array?

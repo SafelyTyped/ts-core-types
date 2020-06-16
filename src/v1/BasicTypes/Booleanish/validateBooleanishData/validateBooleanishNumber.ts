@@ -57,6 +57,8 @@ export interface BooleanishNumbers {
  * @returns
  * - `true` or `false` on success
  * - an {@link AppError} explaining why conversion failed otherwise
+ *
+ * @category BasicTypes
  */
 export function validateBooleanishNumber(
     booleanish: BooleanishNumbers,

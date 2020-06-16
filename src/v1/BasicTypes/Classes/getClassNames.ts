@@ -43,6 +43,8 @@
  * the object to inspect
  * @returns
  * the object's class, plus a list of all of its parents
+ *
+ * @category BasicTypes
  */
 export function getClassNames(
     input: object

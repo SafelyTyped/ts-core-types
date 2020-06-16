@@ -45,6 +45,8 @@ import { DataPath } from "../../../SupportingTypes";
  * @returns
  * - `true` or `false` on success
  * - an {@link AppError} explaining why conversion failed otherwise
+ *
+ * @category BasicTypes
  */
 export function validateBooleanishBoolean(
     path: DataPath,

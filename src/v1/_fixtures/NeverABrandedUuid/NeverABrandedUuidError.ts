@@ -36,6 +36,9 @@ import { MODULE_NAME } from "../../Errors";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 import { NeverABrandedUuidData } from "./NeverABrandedUuidData";
 
+/**
+ * @ignore
+ */
 export class NeverABrandedUuidError extends AppError<NeverABrandedUuidData>{
     public constructor(params: AppErrorData = {}) {
         const srp = makeStructuredProblemReport<NeverABrandedUuidData>({

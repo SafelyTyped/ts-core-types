@@ -34,6 +34,14 @@
 
 import { Stack } from "./Stack";
 
+/**
+ * `implementsStack()` is a type guard. It proves to the compiler that
+ * the `input` is an object that has a string `.stack` property.
+ *
+ * @category Protocols
+ * @param input
+ * the value to examine
+ */
 export function implementsStack(input: unknown): input is Stack {
     if (!(input instanceof Object)) {
         return false;

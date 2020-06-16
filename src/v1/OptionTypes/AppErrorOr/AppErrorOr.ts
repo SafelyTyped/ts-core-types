@@ -44,5 +44,7 @@ import { AnyAppError } from "../../ErrorHandling";
  *
  * @template T
  * the other type to use in the option
+ *
+ * @category OptionTypes
  */
 export type AppErrorOr<T> = AnyAppError | T;

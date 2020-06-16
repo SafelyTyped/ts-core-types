@@ -51,6 +51,7 @@ import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
  * DataGuarantees if appropriate. It's the best way to make your code
  * as reusable as possible.
  *
+ * @category Archetypes
  * @template T
  * The acceptable data type to inspect.
  * @param input

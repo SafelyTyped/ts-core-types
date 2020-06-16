@@ -33,6 +33,9 @@
 //
 import { ExtraPublicData } from "../../ErrorHandling";
 
+/**
+ * @ignore
+ */
 export interface NeverAdultAgeData extends ExtraPublicData {
     public: {
         input: number;

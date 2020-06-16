@@ -45,6 +45,8 @@ import { UnsupportedStringPrefixError } from "../../Errors/UnsupportedStringPref
  * @returns
  * - `input` if the input successfully validates
  * - an Error explaining why the input did not validate
+ *
+ * @category BasicTypes
  */
 export function validateStringStartsWith(searchTerm: string, path: DataPath, input: string): AppErrorOr<string> {
     // does our input string validate?

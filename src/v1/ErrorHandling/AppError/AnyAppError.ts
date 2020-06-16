@@ -38,5 +38,7 @@ import { AnyExtraData } from "../ExtraData";
  * represents any instance of AppError, including subclasses
  *
  * use this in generic type constraints
+ *
+ * @category ErrorHandling
  */
 export type AnyAppError = AppError<AnyExtraData>;

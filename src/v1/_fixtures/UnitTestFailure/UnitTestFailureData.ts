@@ -33,6 +33,9 @@
 //
 import { AllExtraData } from "../../ErrorHandling";
 
+/**
+ * @ignore
+ */
 export interface UnitTestFailureData extends AllExtraData {
     public: {
         field1: string;

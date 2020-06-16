@@ -51,7 +51,7 @@ import { DataPath } from "../../../SupportingTypes";
  * - an {@link AppError} explaining why the input failed validation
  *
  * @category BasicTypes
- * @internal
+ * @ignore
  */
 export function createUnsupportedTypeError(
     path: DataPath,

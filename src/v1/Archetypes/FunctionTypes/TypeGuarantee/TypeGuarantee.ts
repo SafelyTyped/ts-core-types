@@ -47,6 +47,7 @@ import { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
  *
  * Internally, TypeGuarantees re-use existing {@link TypeGuard} functions.
  *
+ * @category Archetypes
  * @template T
  * `T` is the type of data we are guaranteeing.
  * @param input

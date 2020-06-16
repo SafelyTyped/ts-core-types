@@ -36,6 +36,9 @@ import { MODULE_NAME } from "../../Errors";
 import { UnitTestFailureData } from "./UnitTestFailureData";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 
+/**
+ * @ignore
+ */
 export class UnitTestFailureError extends AppError<UnitTestFailureData> {
    public constructor(params: UnitTestFailureData & AppErrorData) {
         const srp = makeStructuredProblemReport<UnitTestFailureData>({

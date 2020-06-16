@@ -41,6 +41,8 @@ import { DataPath } from "../../../SupportingTypes";
  *
  * - a `true`/`false` boolean, or
  * - an `AppError` explaining why it couldn't do the conversion
+ *
+ * @category BasicTypes
  */
 export type BooleanishValidator<T, OPT extends object = object> = (
     path: DataPath,

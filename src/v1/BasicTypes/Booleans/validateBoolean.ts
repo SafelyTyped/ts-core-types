@@ -47,6 +47,8 @@ import { UnsupportedTypeError } from "../../Errors";
  * @returns
  * - `input` if validation passes, or
  * - an {@link AppError} explaining why validation failed
+ *
+ * @category BasicTypes
  */
 export function validateBoolean(path: DataPath, input: unknown): AppErrorOr<boolean> {
     if (typeof input === "boolean") {

@@ -36,6 +36,9 @@ import { MODULE_NAME } from "../../Errors";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 import { NeverAdultAgeData } from "./NeverAdultAgeData";
 
+/**
+ * @ignore
+ */
 export class NeverAdultAgeError extends AppError<NeverAdultAgeData>{
     public constructor(params: AppErrorData & NeverAdultAgeData) {
         const srp = makeStructuredProblemReport<NeverAdultAgeData>({

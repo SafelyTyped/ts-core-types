@@ -57,6 +57,8 @@ export interface BooleanishStrings {
  * @returns
  * - `true` or `false` on success, or
  * - an {@link AppError} explaining why conversion failed
+ *
+ * @category BasicTypes
  */
 export function validateBooleanishString(
     booleanish: BooleanishStrings,

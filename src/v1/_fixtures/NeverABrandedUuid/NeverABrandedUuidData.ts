@@ -33,4 +33,7 @@
 //
 import { NoExtraData } from "../..";
 
+/**
+ * @ignore
+ */
 export type NeverABrandedUuidData = NoExtraData;

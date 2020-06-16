@@ -42,7 +42,7 @@ import { NoExtraData, ExtraData } from "../ExtraData";
  * {@link makeStructuredProblemReport} when you create problem reports in
  * the constructor of your {@link AppError}.
  *
- * @category ErrorHandler
+ * @category ErrorHandling
  * @template E
  * This is the type that describes your error's per-instance data
  * (the unique data about the error that has occurred).

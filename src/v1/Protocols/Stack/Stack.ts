@@ -47,6 +47,13 @@
  *   and error message that normally live on the first line)
  * - an empty string otherwise
  */
-export interface Stack {
+
+ /**
+  * `Stack` is a protocol. It describes objects that (hopefully!) contain
+  * a stack trace of some kind.
+  *
+  * @category Protocols
+  */
+ export interface Stack {
     stack: string;
 }

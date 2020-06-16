@@ -54,6 +54,8 @@ import { BooleanishStrings, validateBooleanishString } from "./validateBooleanis
  * @returns
  * - `true` or `false` on success
  * - an {@link AppError} explaining why conversion failed otherwise
+ *
+ * @category BasicTypes
  */
 export function validateBooleanishObject(
     booleanish: BooleanishStrings,
