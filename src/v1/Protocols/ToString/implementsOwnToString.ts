@@ -41,6 +41,7 @@ import { implementsToString } from "./implementsToString";
  * - is an object
  * - that has a `.toString()` method
  * - that isn't the default `Object.toString()` method
+ * - that isn't the default `Array.toString()` method
  *
  * @param input
  * the value to inspect
@@ -53,6 +54,10 @@ export function implementsOwnToString(input: unknown): input is ToString {
     }
 
     if (input.toString === Object.prototype.toString) {
+        return false;
+    }
+
+    if (input.toString === Array.prototype.toString) {
         return false;
     }
 
