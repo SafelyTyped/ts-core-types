@@ -82,18 +82,24 @@ export function extractReasonFromCaught(
     //
     // these either:
     // - cause a runtime error if we check for `.toString()`,
-    // - or they have a `.toString()` that we do not want to use
+    // - don't have a `toString()` that we can use
+    // - have a default `toString()` that we'll end up ignoring later on
     if (e === null) {
         return reason;
     }
     if (e === undefined) {
         return reason;
     }
-    if (typeof e === "number" && isNaN(e)) {
-        return reason;
-    }
-    if (typeof e === "boolean") {
-        return reason;
+    switch(typeof e) {
+        case "number":
+            if (isNaN(e)) {
+                return reason;
+            }
+            return e.toString();
+        case "string":
+            return e;
+        case "boolean":
+            return reason;
     }
 
     // do we have something we can ask?
