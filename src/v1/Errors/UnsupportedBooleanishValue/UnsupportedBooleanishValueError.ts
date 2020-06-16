@@ -32,10 +32,29 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotAnInteger";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { UnsupportedBooleanishValueData } from "./UnsupportedBooleanishValueData";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { makeHttpStatusCode } from "../../SupportingTypes";
+
+/**
+ * `UnsupportedBooleanishValueError` is a throwable Error. It is thrown
+ * whenever we've given a value that we can't convert into a `true|false`.
+ *
+ * @category Errors
+ */
+export class UnsupportedBooleanishValueError extends AppError<UnsupportedBooleanishValueData> {
+    public constructor(params: UnsupportedBooleanishValueData & AppErrorData) {
+        const spr = makeStructuredProblemReport<UnsupportedBooleanishValueData>({
+            definedBy: MODULE_NAME,
+            description: "cannot convert to a boolean value",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: makeHttpStatusCode(422),
+        });
+
+        super(spr);
+    }
+}
