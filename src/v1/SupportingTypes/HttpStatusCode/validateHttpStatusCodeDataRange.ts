@@ -31,11 +31,35 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { DataPath } from "..";
+import { HttpStatusCodeOutOfRangeError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
 
-export * from "./HttpStatusCode";
-export * from "./MakeHttpStatusCodeOptions";
-export * from "./defaults/MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS";
-export * from "./makeHttpStatusCode";
-export * from "./isHttpStatusCodeData";
-export * from "./mustBeHttpStatusCodeData";
-export * from "./validateHttpStatusCodeDataRange";
+/**
+ * `validateHttpStatusCodeDataRange()` is a {@link DataValidator}. It proves
+ * that the given `input` is within the range of legal HTTP status codes.
+ *
+ * NOTE: we do not prove that:
+ * - `input` is an integer, or
+ * - `input` is an official HTTP code at all
+ *
+ * @param path
+ * @param input
+ *
+ * @category HttpStatusCode
+ */
+export function validateHttpStatusCodeDataRange (
+    path: DataPath,
+    input: number
+): AppErrorOr<number> {
+    if (input < 100 || input >= 600) {
+        return new HttpStatusCodeOutOfRangeError({
+            public: {
+                name: path,
+                input: input,
+            }
+        });
+    }
+
+    return input;
+}
