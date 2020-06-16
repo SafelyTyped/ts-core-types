@@ -34,45 +34,42 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { makeHttpStatusCode } from ".";
-import { AnyAppError } from "../../ErrorHandling";
-import { OnError } from "../../ErrorHandling";
+import { AnyAppError, OnError } from "../../ErrorHandling";
+import { UnsupportedTypeError, HttpStatusCodeOutOfRangeError } from "../../Errors";
+import { makeHttpStatusCode } from "./makeHttpStatusCode";
 
 describe("makeHttpStatusCode()", () => {
+    const expectedMessage = "UNIT TEST ERROR HANDLER CALLED!!";
     const onError: OnError = (e: AnyAppError): never => {
-        throw new Error(JSON.stringify(e.details.extra));
+        throw new Error(expectedMessage);
     };
 
     it("converts integers in the range 100-599 inclusive", () => {
         for (let inputValue = 100; inputValue < 600; inputValue++) {
-            const actualValue = makeHttpStatusCode(inputValue, { onError });
+            const actualValue = makeHttpStatusCode(inputValue);
             expect(actualValue).to.equal(inputValue);
         }
     });
 
     it("rejects non-integers in the range 100-599 inclusive", () => {
         for (let inputValue = 100.5; inputValue < 600; inputValue++) {
-            const expectedMessage = "{\"input\":" + inputValue + "}";
-            expect(() => makeHttpStatusCode(inputValue, { onError })).to.throw(expectedMessage);
+            expect(() => makeHttpStatusCode(inputValue)).to.throw(UnsupportedTypeError);
         }
     });
 
     it("rejects numbers below 100", () => {
         for (let inputValue = -100; inputValue < 100; inputValue++) {
-            const expectedMessage = "{\"input\":" + inputValue + "}";
-            expect(() => makeHttpStatusCode(inputValue, { onError })).to.throw(expectedMessage);
+            expect(() => makeHttpStatusCode(inputValue)).to.throw(HttpStatusCodeOutOfRangeError);
         }
     });
 
     it("rejects numbers above 599", () => {
         for (let inputValue = 600; inputValue < 1000; inputValue++) {
-            const expectedMessage = "{\"input\":" + inputValue + "}";
-            expect(() => makeHttpStatusCode(inputValue, { onError })).to.throw(expectedMessage);
+            expect(() => makeHttpStatusCode(inputValue)).to.throw(HttpStatusCodeOutOfRangeError);
         }
     });
 
-    it("has a default error handler", () => {
-        const expectedMessage = "input falls outside the range of a valid HTTP status code";
-        expect(() => makeHttpStatusCode(700)).to.throw(expectedMessage);
+    it("uses the user-supplied error handler", () => {
+        expect(() => makeHttpStatusCode(700, { onError })).to.throw(expectedMessage);
     });
 });

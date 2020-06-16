@@ -33,9 +33,9 @@
 //
 import { isHttpStatusCodeData } from ".";
 import { DataGuaranteeOptions } from "../../Archetypes";
+import { mustBeInteger } from "../../BasicTypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { HttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfRange";
-import { NotAnIntegerError } from "../../Errors/NotAnInteger";
 import { DEFAULT_DATA_PATH } from "../DataPath";
 
 /**
@@ -53,15 +53,8 @@ export function mustBeHttpStatusCodeData(
         path = DEFAULT_DATA_PATH,
     }: Partial<DataGuaranteeOptions> = {}
 ): void {
-    // make sure that `input` is an integer
-    //
-    // if anyone passes in a massive number, this will report a false
-    // error ... but the performance increase that comes from the bitshift
-    // operation is more than worth it
-    // tslint:disable-next-line: no-bitwise
-    if (input >>> 0 !== input) {
-        throw onError(new NotAnIntegerError({public: {input}}));
-    }
+    // make sure we have an integer!
+    mustBeInteger(input, { onError, path });
 
     if (!isHttpStatusCodeData(input)) {
         throw onError(new HttpStatusCodeOutOfRangeError({public: {input}}));
