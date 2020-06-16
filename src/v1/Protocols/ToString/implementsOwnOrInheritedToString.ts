@@ -47,7 +47,7 @@ import { implementsToString } from "./implementsToString";
  *
  * @category Protocols
  */
-export function implementsOwnToString(input: unknown): input is ToString {
+export function implementsOwnOrInheritedToString(input: unknown): input is ToString {
     // make sure there's a `.toString()' function in the first place
     if (!implementsToString(input)) {
         return false;

@@ -34,4 +34,4 @@
 
 export * from "./ToString";
 export * from "./implementsToString";
-export * from "./implementsOwnToString";
+export * from "./implementsOwnOrInheritedToString";

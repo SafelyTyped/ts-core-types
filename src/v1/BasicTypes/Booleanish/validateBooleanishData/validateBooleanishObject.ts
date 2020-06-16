@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppErrorOr } from "../../../OptionTypes";
-import { implementsOwnToString } from "../../../Protocols";
+import { implementsOwnOrInheritedToString } from "../../../Protocols";
 import { DataPath, extendDataPath } from "../../../SupportingTypes";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
 import { BooleanishStrings, validateBooleanishString } from "./validateBooleanishString";
@@ -65,7 +65,7 @@ export function validateBooleanishObject(
     //
     // we believe that it's more useful to treat those objects
     // as unsupported types
-    if (implementsOwnToString(input)) {
+    if (implementsOwnOrInheritedToString(input)) {
         return validateBooleanishString(
             booleanish,
             extendDataPath(path, "toString()"),

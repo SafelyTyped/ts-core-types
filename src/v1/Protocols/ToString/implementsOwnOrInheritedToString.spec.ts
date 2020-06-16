@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { implementsOwnToString } from "./implementsOwnToString";
+import { implementsOwnOrInheritedToString } from "./implementsOwnOrInheritedToString";
 
 describe("implementsOwnToString()", () => {
     [
@@ -47,7 +47,7 @@ describe("implementsOwnToString()", () => {
         it("returns `false` for `" + inputValue + "`", () => {
             const expectedValue = false;
 
-            const actualValue = implementsOwnToString(inputValue);
+            const actualValue = implementsOwnOrInheritedToString(inputValue);
             expect(actualValue).to.equal(expectedValue);
         });
     });
@@ -58,7 +58,7 @@ describe("implementsOwnToString()", () => {
         expect(inputValue.toString).to.equal(undefined);
         const expectedValue = false;
 
-        const actualValue = implementsOwnToString(inputValue);
+        const actualValue = implementsOwnOrInheritedToString(inputValue);
         expect(actualValue).to.equal(expectedValue);
     });
 
@@ -66,7 +66,7 @@ describe("implementsOwnToString()", () => {
         const inputValue = {};
         const expectedValue = false;
 
-        const actualValue = implementsOwnToString(inputValue);
+        const actualValue = implementsOwnOrInheritedToString(inputValue);
         expect(actualValue).to.equal(expectedValue);
     });
 
@@ -74,7 +74,7 @@ describe("implementsOwnToString()", () => {
         const inputValue: string[] = [];
         const expectedValue = false;
 
-        const actualValue = implementsOwnToString(inputValue);
+        const actualValue = implementsOwnOrInheritedToString(inputValue);
         expect(actualValue).to.equal(expectedValue);
     });
 
@@ -82,7 +82,7 @@ describe("implementsOwnToString()", () => {
         const inputValue = { toString: () => "hello world!"};
         const expectedValue = true;
 
-        const actualValue = implementsOwnToString(inputValue);
+        const actualValue = implementsOwnOrInheritedToString(inputValue);
         expect(actualValue).to.equal(expectedValue);
     });
 });

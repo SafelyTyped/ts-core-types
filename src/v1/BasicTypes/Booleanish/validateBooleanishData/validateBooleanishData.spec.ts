@@ -37,7 +37,7 @@ import { describe } from "mocha";
 import { UnsupportedTypeError, UnsupportedBooleanishValueError } from "../../../Errors";
 import { DEFAULT_DATA_PATH, DataPath } from "../../../SupportingTypes";
 import { validateBooleanishData } from "./validateBooleanishData";
-import { implementsOwnToString } from "../../../Protocols";
+import { implementsOwnOrInheritedToString } from "../../../Protocols";
 import { BooleanishRules } from "../BooleanishRules";
 import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
 
@@ -136,7 +136,7 @@ describe("validateBooleanishData()", () => {
             ].forEach((inputValue) => {
                 const expectedValue = new UnsupportedBooleanishValueError({
                     public: {
-                        name: typeof inputValue === "object" && implementsOwnToString(inputValue) ? "input.toString()" as DataPath : DEFAULT_DATA_PATH,
+                        name: typeof inputValue === "object" && implementsOwnOrInheritedToString(inputValue) ? "input.toString()" as DataPath : DEFAULT_DATA_PATH,
                         type: "string",
                         expected: "0 | false | no | 1 | true | yes",
                         actual: typeof inputValue === "object" ? inputValue.toString() : inputValue,

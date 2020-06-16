@@ -33,7 +33,7 @@
 //
 
 import { DEFAULT_ERROR_REASON } from "./defaults/DEFAULT_ERROR_REASON";
-import { implementsOwnToString } from "../../Protocols";
+import { implementsOwnOrInheritedToString } from "../../Protocols";
 
 /**
  * `extractReasonFromCaught()` is a helper function. Use it to turn a value
@@ -106,7 +106,7 @@ export function extractReasonFromCaught(
     //
     // at this point, we are almost certainly dealing with an object,
     // but we still have to play it safe
-    if (implementsOwnToString(e)) {
+    if (implementsOwnOrInheritedToString(e)) {
         return e.toString();
     }
     // all done
