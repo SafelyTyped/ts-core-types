@@ -31,15 +31,46 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-// export * from "./Hashmaps";
-// export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Strings";
-// export * from "./Unions";
-export * from "./Unknowns";
+import { UnsupportedTypeError } from "../../Errors";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateNumber } from "./validateNumber";
+
+
+describe("validateNumber()", () => {
+    it("returns `input` when given a number", () => {
+        const inputValue = 100;
+        const expectedValue = inputValue;
+
+        const actualValue = validateNumber(DEFAULT_DATA_PATH, inputValue);
+        expect(actualValue).to.eql(expectedValue);
+    })
+
+    it("returns an `AppError` otherwise", () => {
+        [
+            null,
+            [ 1, 2, 3, 4, 5 ],
+            true,
+            false,
+            {
+                foo: "bar"
+            },
+            "111",
+        ].forEach((val) => {
+            const expectedValue = new UnsupportedTypeError({
+                public: {
+                    name: DEFAULT_DATA_PATH,
+                    expected: "number",
+                    actual: typeof val,
+                }
+            })
+            const actualValue = validateNumber(DEFAULT_DATA_PATH, val);
+            expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
+            if (actualValue instanceof UnsupportedTypeError) {
+                expect(actualValue.details).to.eql(expectedValue.details, "failed on " + val);
+            }
+        })
+    })
+});

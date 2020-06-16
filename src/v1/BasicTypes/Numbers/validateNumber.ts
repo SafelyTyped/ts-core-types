@@ -31,15 +31,32 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { UnsupportedTypeError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-// export * from "./Hashmaps";
-// export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Strings";
-// export * from "./Unions";
-export * from "./Unknowns";
+/**
+ * `validateNumber()` is a {@link TypeValidator}. Use it to prove that
+ * the given input is really a `number`, or to find out why we think it
+ * isn't a number.
+ *
+ * @param path
+ * @param input
+ *
+ * @category BasicTypes
+ */
+export function validateNumber(path: DataPath, input: unknown): AppErrorOr<number> {
+    // does the input validate?
+    if (typeof input !== "number") {
+        return new UnsupportedTypeError({
+            public: {
+                name: path,
+                expected: "number",
+                actual: typeof input
+            }
+        });
+    }
+
+    // all done
+    return input;
+}
