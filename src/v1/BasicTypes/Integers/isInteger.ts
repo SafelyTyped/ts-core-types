@@ -32,5 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isInteger";
-export * from "./validateInteger";
+import { validateInteger } from "./validateInteger";
+import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+
+/**
+ * `isInteger()` is a {@link TypeGuard}. Use it to prove to the Typescript
+ * compiler that `input` is indeed a integer.
+ *
+ * @param input
+ * the value to inspect
+ *
+ * @category BasicTypes
+ */
+export const isInteger = (input: unknown): input is number =>
+    isType(validateInteger, input, IS_TYPE_DEFAULT_OPTIONS);

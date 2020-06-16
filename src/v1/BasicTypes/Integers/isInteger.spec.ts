@@ -32,5 +32,32 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isInteger";
-export * from "./validateInteger";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { isInteger } from "./isInteger";
+
+describe("isInteger()", () => {
+    it("returns `true` when given a integer", () => {
+        const inputValue = 100;
+        const expectedValue = true;
+
+        const actualValue = isInteger(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    })
+
+    it("returns `false` otherwise", () => {
+        [
+            null,
+            [ 1,2, 3, 4, 5 ],
+            true,
+            false,
+            3.1415927,
+            {
+                foo: "bar"
+            },
+            "0",
+        ].forEach((val) => {
+            expect(isInteger(val)).to.equal(false, "failed on " + val);
+        })
+    })
+});
