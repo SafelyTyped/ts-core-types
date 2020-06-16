@@ -31,13 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
+import { expect } from "chai";
 import { describe } from "mocha";
+
+import { UnitTestErrorMessageError } from "../../_fixtures/";
+import { isObject } from "../../BasicTypes";
+import { AnyAppError, OnError } from "../../ErrorHandling";
 import { UnsupportedTypeError } from "../../Errors";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { expect } from "chai";
 import { mustBe } from "./mustBe";
-import { isObject } from "../../BasicTypes";
 
 describe("mustBe()", () => {
     it("if the input is an AppError, it throws that error", () => {
@@ -63,5 +65,25 @@ describe("mustBe()", () => {
         expect(isObject(actualValue)).to.equal(true);
         expect(typeof actualValue.next).to.equal("function");
         expect(typeof actualValue.value).to.equal("function");
+    });
+
+    it("uses the supplied onError handler", () => {
+        const myError: OnError = (e: AnyAppError): never => {
+            throw new Error("myOnError called!");
+        };
+
+        const unit = () => {
+            mustBe("hello", { onError: myError })
+            .next((x) => 100)
+            .next((x) => new UnitTestErrorMessageError({
+                public: {
+                    message: "an error occurred!"
+                },
+                logsOnly: {}
+            }))
+            .value();
+        };
+
+        expect(unit).to.throw("myOnError called!");
     });
 });
