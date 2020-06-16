@@ -33,4 +33,4 @@
 //
 
 export * from "./Stack";
-export * from "./ToString";
+export * from "./implementsStack";

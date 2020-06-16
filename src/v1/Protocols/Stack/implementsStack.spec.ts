@@ -32,5 +32,42 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Stack";
-export * from "./ToString";
+import { describe } from "mocha";
+import { implementsStack } from "./implementsStack";
+import { expect } from "chai";
+
+describe("implementsStack()", () => {
+    it("returns `true` for an Error", () => {
+        const inputValue = new TypeError("this is just a test");
+        const expectedValue = true;
+
+        const actualValue = implementsStack(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    });
+
+    it("returns `true` for an object with a string `stack` property", () => {
+        const inputValue = { stack: "this isn't really a stack"};
+        const expectedValue = true;
+
+        const actualValue = implementsStack(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    });
+
+    [
+        null,
+        undefined,
+        [ 1, 2, 3, ],
+        100,
+        3.14,
+        { },
+        { stack: 100 },
+        "hello world!",
+    ].forEach((inputValue) => {
+        it("returns `false` otherwise", () => {
+            const expectedValue = false;
+
+            const actualValue = implementsStack(inputValue);
+            expect(actualValue).to.equal(expectedValue);
+        });
+    })
+})

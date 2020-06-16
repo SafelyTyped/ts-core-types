@@ -32,5 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Stack";
-export * from "./ToString";
+import { Stack } from "./Stack";
+
+export function implementsStack(input: unknown): input is Stack {
+    if (!(input instanceof Object)) {
+        return false;
+    }
+
+    return (typeof (input as any).stack === "string");
+}
