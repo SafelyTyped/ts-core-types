@@ -35,12 +35,14 @@ import { expect } from "chai";
 import { describe } from "mocha";
 
 import { HttpStatusCodeOutOfRangeError } from "./HttpStatusCodeOutOfRangeError";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 
 describe("HttpStatusCodeOutOfRangeError", () => {
     describe(".constructor()", () => {
         it("creates a Javascript error", () => {
             const unit = new HttpStatusCodeOutOfRangeError({
                 public: {
+                    name: DEFAULT_DATA_PATH,
                     input: 600,
                 },
             });

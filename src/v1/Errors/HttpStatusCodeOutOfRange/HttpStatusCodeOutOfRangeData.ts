@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
 
 /**
  * `HttpStatusCodeOutOfRangeData` defines the data that every
@@ -41,6 +42,7 @@ import { ExtraPublicData } from "../../ErrorHandling";
  */
 export interface HttpStatusCodeOutOfRangeData extends ExtraPublicData {
     public: {
+        name: DataPath;
         input: number;
     };
 }

@@ -57,7 +57,12 @@ export function mustBeHttpStatusCodeData(
     mustBeInteger(input, { onError, path });
 
     if (!isHttpStatusCodeData(input)) {
-        throw onError(new HttpStatusCodeOutOfRangeError({public: {input}}));
+        throw onError(new HttpStatusCodeOutOfRangeError({
+            public: {
+                name: path,
+                input
+            }
+        }));
     }
 
     // if we get here, all is good
