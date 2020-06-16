@@ -32,13 +32,38 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-// export * from "./Hashmaps";
-// export * from "./Integers";
-// export * from "./Numbers";
-export * from "./Objects";
-export * from "./Strings";
-// export * from "./Unions";
+/**
+ * `getClassNames()` returns a list of the classes that this object was
+ * built from.
+ *
+ * The list is ordered so that child classes come before parent classes.
+ * 'Object' is always the final class in the list.
+ *
+ * @param input
+ * the object to inspect
+ * @returns
+ * the object's class, plus a list of all of its parents
+ */
+export function getClassNames(
+    input: object
+): string[] {
+    // our return value
+    const retval: string[] = [];
+
+    // special case
+    if (input === null) {
+        return retval;
+    }
+
+    // we need to keep track of where we are in the inheritence chain
+    let item = Object.getPrototypeOf(input);
+
+    // walk the inheritence chain
+    while (item !== null) {
+        retval.push(item.constructor.name);
+        item = Object.getPrototypeOf(item);
+    }
+
+    // all done
+    return retval;
+}
