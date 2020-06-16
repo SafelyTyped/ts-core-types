@@ -31,11 +31,17 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ExtraPublicData } from "../../ErrorHandling";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `UnreachableCodeData` is the input data that {@link UnreachableCodeError}
+ * requires.
+ *
+ * @category Errors
+ */
+export interface UnreachableCodeData extends ExtraPublicData {
+    public: {
+        reason: string;
+    };
+}
+

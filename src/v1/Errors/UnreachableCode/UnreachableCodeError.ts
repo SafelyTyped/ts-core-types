@@ -31,11 +31,30 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { UnreachableCodeData } from "./UnreachableCodeData";
+import { makeHttpStatusCode } from "../../SupportingTypes";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `UnreachableCodeError` is thrown whenever we end up falling out of
+ * the expected logic.
+ *
+ * It's handy in `default` clauses of `switch()` statements, to catch
+ * problems introduced in the future.
+ *
+ * @category Errors
+ */
+export class UnreachableCodeError extends AppError<UnreachableCodeData> {
+    public constructor(params: UnreachableCodeData & AppErrorData) {
+        const spr = makeStructuredProblemReport<UnreachableCodeData>({
+            definedBy: MODULE_NAME,
+            description: "input must be an integer",
+            errorId: params.errorId,
+            extra: { public: params.public },
+            status: makeHttpStatusCode(422)
+        });
+
+        super(spr);
+    }
+}
