@@ -34,10 +34,9 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnitTestErrorMessageError } from "../../_fixtures/";
 import { isObject } from "../../BasicTypes";
 import { AnyAppError, OnError } from "../../ErrorHandling";
-import { UnsupportedTypeError } from "../../Errors";
+import { UnreachableCodeError, UnsupportedTypeError } from "../../Errors";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { mustBe } from "./mustBe";
 
@@ -75,11 +74,10 @@ describe("mustBe()", () => {
         const unit = () => {
             mustBe("hello", { onError: myError })
             .next((x) => 100)
-            .next((x) => new UnitTestErrorMessageError({
+            .next((x) => new UnreachableCodeError({
                 public: {
-                    message: "an error occurred!"
+                    reason: "this is a test"
                 },
-                logsOnly: {}
             }))
             .value();
         };
