@@ -34,5 +34,6 @@
 
 export * from "./DataPath";
 export * from "./defaults/DEFAULT_DATA_PATH";
+export * from "./extendDataPath";
 export * from "./isDataPathData";
 export * from "./validateDataPathData";
