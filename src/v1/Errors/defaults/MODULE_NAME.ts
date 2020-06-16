@@ -31,13 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { makeNodeJSModuleName } from "../../SupportingTypes";
+import { NodeJSModuleName } from "../../SupportingTypes";
 
 /**
  * `MODULE_NAME` is used by all of our errors to show which package they
  * were defined in.
  *
+ * Unfortunately, we've started to get a cyclic dependency if we call
+ * {@link makeNodeJSModuleName} here, so we have to type-cast it instead.
+ *
  * @category Errors
  */
-export const MODULE_NAME = makeNodeJSModuleName("@safelytyped/core-types/lib/v1");
+export const MODULE_NAME = "@safelytyped/core-types/lib/v1" as NodeJSModuleName;
