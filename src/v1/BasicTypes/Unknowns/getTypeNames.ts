@@ -32,14 +32,34 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-// export * from "./Hashmaps";
-// export * from "./Integers";
-// export * from "./Numbers";
-export * from "./Objects";
-export * from "./Strings";
-// export * from "./Unions";
-export * from "./Unknowns";
+import { getClassNames } from "../Classes";
+
+/**
+ * `getTypeNames()` is an inspector. It returns a list of all possible
+ * types that the given input could be.
+ *
+ * For objects, this includes a list of all the class names from their
+ * class hierarchy, ending in `Object`.
+ *
+ * @param input
+ * the value to examine
+ * @returns
+ * a list of all possible type names
+ *
+ * @category BasicTypes
+ */
+export function getTypeNames(input: unknown): string[] {
+    // special cases
+    if (input === null) {
+        return [ "null" ];
+    }
+    if (input === undefined) {
+        return [ "undefined" ];
+    }
+    if (typeof input === "object") {
+        return getClassNames(input as object);
+    }
+
+    // general case
+    return [ typeof input ];
+}
