@@ -31,12 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { isHttpStatusCodeData } from ".";
 import { DataGuaranteeOptions } from "../../Archetypes";
-import { mustBeInteger } from "../../BasicTypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
-import { HttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfRange";
+import { mustBe, recast } from "../../Operators";
 import { DEFAULT_DATA_PATH } from "../DataPath";
+import { HttpStatusCode } from "./HttpStatusCode";
+import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
 
 /**
  * `mustBeHttpStatusCodeData` is a data guarantee. It ensures that `input` is
@@ -46,24 +46,14 @@ import { DEFAULT_DATA_PATH } from "../DataPath";
  * @param input
  * the number to validate
  */
-export function mustBeHttpStatusCodeData(
+export const mustBeHttpStatusCodeData =(
     input: number,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
     }: Partial<DataGuaranteeOptions> = {}
-): void {
-    // make sure we have an integer!
-    mustBeInteger(input, { onError, path });
-
-    if (!isHttpStatusCodeData(input)) {
-        throw onError(new HttpStatusCodeOutOfRangeError({
-            public: {
-                name: path,
-                input
-            }
-        }));
-    }
-
-    // if we get here, all is good
-}
+): HttpStatusCode =>
+    mustBe(input, { onError })
+    .next((x) => validateHttpStatusCodeData(path, x))
+    .next((x) => recast<number, HttpStatusCode>(x))
+    .value();
