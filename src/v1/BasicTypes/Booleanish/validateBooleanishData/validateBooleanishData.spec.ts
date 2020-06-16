@@ -39,6 +39,7 @@ import { DEFAULT_DATA_PATH, DataPath } from "../../../SupportingTypes";
 import { validateBooleanishData } from "./validateBooleanishData";
 import { implementsOwnToString } from "../../../Protocols";
 import { BooleanishRules } from "../BooleanishRules";
+import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
 
 class UnitTestTrue {
     public toString() { return "yes"; }
@@ -163,7 +164,7 @@ describe("validateBooleanishData()", () => {
                 const expectedValue = new UnsupportedTypeError({
                     public: {
                         name: DEFAULT_DATA_PATH,
-                        expected: "boolean | number | string | object",
+                        expected: Object.keys(DEFAULT_BOOLEANISH_RULES).join(" | "),
                         actual: typeof inputValue,
                     }
                 })

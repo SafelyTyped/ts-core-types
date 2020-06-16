@@ -41,6 +41,12 @@ import { BooleanishStrings, validateBooleanishString } from "./validateBooleanis
  * `validateBooleanishObject()` converts the `input` into a boolean
  * (if possible).
  *
+ * We convert the result of `input.toString()`, provided:
+ * - `.toString()` isn't the default Object.toString(), and
+ * - `.toString()` isn't the default Array.toString() either
+ *
+ * See {@link implementsOwnToString} for the definitive list of rules.
+ *
  * @param path
  * where we are in the data structure you are validating
  * @param input

@@ -40,7 +40,11 @@ import { BooleanishValidator } from "./BooleanishValidator";
  *
  * `key` is either:
  * - a class name, or
+ * - Object (the root of all objects), or
  * - a `typeof` value
+ *
+ * IMPORTANT: for all objects, use a key of 'Object' and NOT `object`
+ * (because all objects inherit from the 'Object' prototype)
  *
  * See {@link DEFAULT_BOOLEANISH_RULES} to see an example.
  * See {@link validateBooleanishData} to see it in action.

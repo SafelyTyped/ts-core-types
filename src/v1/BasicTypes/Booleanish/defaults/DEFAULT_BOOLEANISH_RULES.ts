@@ -67,7 +67,7 @@ export const DEFAULT_BOOLEANISH_RULES: BooleanishRules = {
         path,
         input,
     ),
-    object: (path, input, { supportedTypes }) => validateBooleanishObject(
+    Object: (path, input, { supportedTypes }) => validateBooleanishObject(
         DEFAULT_STRING_RULES,
         supportedTypes,
         path,

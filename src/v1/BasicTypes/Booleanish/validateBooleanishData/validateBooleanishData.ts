@@ -32,8 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppErrorOr, DataPath } from "../../..";
-import { isObject } from "../../Objects";
-import { AnyBooleanishValidator, BooleanishRules } from "../BooleanishRules";
+import { getTypeNames } from "../../Unknowns";
 import { BooleanishDataOptions } from "../BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
@@ -67,43 +66,17 @@ export function validateBooleanishData(
     // we need a list of supported types
     const supportedTypes = Object.keys(booleanish);
 
-    // special case - null / undefined
-    if (input === null || input === undefined) {
-        return createUnsupportedTypeError(path, input, { supportedTypes });
-    }
+    // we need a list of rules to look for
+    const possibleRuleNames = getTypeNames(input);
 
-    // special case - classes with their own rules
-    if (isObject(input)) {
-        const maybeClassValidator = findClassValidator(input, booleanish);
-        if (maybeClassValidator !== null) {
-            return maybeClassValidator(path, input, { supportedTypes });
+    // do we have a matching rule?
+    for (const possibleRuleName of possibleRuleNames) {
+        if (booleanish[possibleRuleName]) {
+            return booleanish[possibleRuleName](path, input, { supportedTypes });
         }
-    }
-
-    // general case
-    const inputType = typeof input;
-    if (booleanish[inputType]) {
-        return booleanish[inputType](path, input, { supportedTypes });
     }
 
     // if we get to here, then we have an `input` that we don't know
     // know how to process
     return createUnsupportedTypeError(path, input, { supportedTypes });
-}
-
-function findClassValidator(
-    input: object,
-    booleanish: BooleanishRules
-) : AnyBooleanishValidator | null {
-    let item = input;
-
-    while (item.constructor !== Object.prototype.constructor) {
-        if (booleanish[item.constructor.name]) {
-            return booleanish[item.constructor.name];
-        }
-
-        item = Object.getPrototypeOf(Object.getPrototypeOf(item));
-    }
-
-    return null;
 }
