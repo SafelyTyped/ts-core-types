@@ -32,5 +32,31 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isNumber";
-export * from "./validateNumber";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { isNumber } from "./isNumber";
+
+describe("isNumber()", () => {
+    it("returns `true` when given a number", () => {
+        const inputValue = 100;
+        const expectedValue = true;
+
+        const actualValue = isNumber(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    })
+
+    it("returns `false` otherwise", () => {
+        [
+            null,
+            [ 1,2, 3, 4, 5 ],
+            true,
+            false,
+            {
+                foo: "bar"
+            },
+            "0",
+        ].forEach((val) => {
+            expect(isNumber(val)).to.equal(false, "failed on " + val);
+        })
+    })
+});

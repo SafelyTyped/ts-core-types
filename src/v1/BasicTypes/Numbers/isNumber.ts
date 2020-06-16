@@ -32,5 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isNumber";
-export * from "./validateNumber";
+import { validateNumber } from "./validateNumber";
+import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+
+/**
+ * `isNumber()` is a {@link TypeGuard}. Use it to prove to the Typescript
+ * compiler that `input` is indeed a number.
+ *
+ * @param input
+ * the value to inspect
+ *
+ * @category BasicTypes
+ */
+export const isNumber = (input: unknown): input is number =>
+    isType(validateNumber, input, IS_TYPE_DEFAULT_OPTIONS);
