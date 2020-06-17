@@ -1,6 +1,6 @@
 {
   "name": "@safelytyped/core-types",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Core safe types for Typescript",
   "repository": "github:SafelyTyped/ts-core-types",
   "main": "lib/v1/index.js",
@@ -20,11 +20,22 @@
   ],
   "keywords": [
     "architypes",
+    "booleanish",
+    "contracts",
+    "data guarantees",
+    "data guards",
+    "defensive programming",
     "entities",
     "error reporting",
+    "hashmap",
     "nominals",
+    "operators",
+    "protocols",
     "refined types",
+    "safe types",
+    "type guards",
     "type refinement",
+    "validation",
     "value objects"
   ],
   "files": [
