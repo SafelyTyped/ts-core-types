@@ -34,6 +34,7 @@
 import { OnError, THROW_THE_ERROR } from "../../ErrorHandling";
 import { InvalidNodeJSModuleNameError } from "../../Errors/InvalidNodeJSModuleName";
 import { isNodeJSModuleNameData } from "./isNodeJSModuleNameData";
+import { DEFAULT_DATA_PATH } from "../DataPath";
 
 /**
  * `mustBeNodeJSModuleNameData()` is a data guarantee. It calls the supplied
@@ -50,7 +51,8 @@ export function mustBeNodeJSModuleNameData(
     if (!isNodeJSModuleNameData(name)) {
         onError(new InvalidNodeJSModuleNameError({
             public: {
-                moduleName: name
+                name: DEFAULT_DATA_PATH,
+                invalidName: name
             }
         }));
     }

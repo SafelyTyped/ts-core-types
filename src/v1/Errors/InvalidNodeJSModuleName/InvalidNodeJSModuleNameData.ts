@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
 
 /**
  * `InvalidNodeJSModuleNameData` defines the data that every
@@ -41,7 +42,8 @@ import { ExtraPublicData } from "../../ErrorHandling";
  */
 export interface InvalidNodeJSModuleNameData extends ExtraPublicData {
     public: {
-        moduleName: string;
+        name: DataPath;
+        invalidName: string;
     };
 }
 

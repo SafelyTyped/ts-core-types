@@ -35,13 +35,15 @@ import { expect } from "chai";
 import { describe } from "mocha";
 
 import { InvalidNodeJSModuleNameError } from "./InvalidNodeJSModuleNameError";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 
 describe("InvalidNodeJSModuleNameError", () => {
     describe(".constructor()", () => {
         it("creates a Javascript error", () => {
             const unit = new InvalidNodeJSModuleNameError({
                 public: {
-                    moduleName: "invalid",
+                    name: DEFAULT_DATA_PATH,
+                    invalidName: "invalid",
                 },
             });
 
