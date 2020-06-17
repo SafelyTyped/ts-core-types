@@ -42,7 +42,7 @@ describe("HttpStatusCodeOutOfRangeError", () => {
         it("creates a Javascript error", () => {
             const unit = new HttpStatusCodeOutOfRangeError({
                 public: {
-                    name: DEFAULT_DATA_PATH,
+                    dataPath: DEFAULT_DATA_PATH,
                     input: 600,
                 },
             });

@@ -50,7 +50,7 @@ export function validateString(path: DataPath, input: unknown): AppErrorOr<strin
     if (typeof input !== "string") {
         return new UnsupportedTypeError({
             public: {
-                name: path,
+                dataPath: path,
                 expected: "string",
                 actual: typeof input
             }

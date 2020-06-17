@@ -42,7 +42,7 @@ describe("UnsupportedTypeError", () => {
         it("creates a Javascript error", () => {
             const unit = new UnsupportedTypeError({
                 public: {
-                    name: DEFAULT_DATA_PATH,
+                    dataPath: DEFAULT_DATA_PATH,
                     expected: "string",
                     actual: "number",
                 },

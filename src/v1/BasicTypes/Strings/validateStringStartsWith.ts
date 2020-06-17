@@ -56,7 +56,7 @@ export function validateStringStartsWith(searchTerm: string, path: DataPath, inp
 
     // let's give them the bad news
     return new UnsupportedStringPrefixError({ public: {
-        name: path,
+        dataPath: path,
         expectedPrefix: searchTerm,
         actualPrefix: input.substring(0, searchTerm.length),
     }});

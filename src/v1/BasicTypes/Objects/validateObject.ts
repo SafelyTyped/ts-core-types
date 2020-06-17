@@ -59,7 +59,7 @@ export function validateObject(path: DataPath, input: unknown): AppErrorOr<objec
     if (typeof input !== "object") {
         return new UnsupportedTypeError({
             public: {
-                name: path,
+                dataPath: path,
                 expected: expectedMsg,
                 actual: typeof input
             }
@@ -70,7 +70,7 @@ export function validateObject(path: DataPath, input: unknown): AppErrorOr<objec
     if (Array.isArray(input)) {
         return new UnsupportedTypeError({
             public: {
-                name: path,
+                dataPath: path,
                 expected: expectedMsg,
                 actual: "array"
             }
@@ -81,7 +81,7 @@ export function validateObject(path: DataPath, input: unknown): AppErrorOr<objec
     if (input === null) {
         return new UnsupportedTypeError({
             public: {
-                name: path,
+                dataPath: path,
                 expected: expectedMsg,
                 actual: "null"
             }

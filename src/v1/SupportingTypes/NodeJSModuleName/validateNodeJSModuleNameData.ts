@@ -59,7 +59,7 @@ export function validateNodeJSModuleNameData (
     if (!NodeJSModuleNameDataRegex.test(input)) {
         return new InvalidNodeJSModuleNameError({
             public: {
-                name: path,
+                dataPath: path,
                 invalidName: input
             }
         });

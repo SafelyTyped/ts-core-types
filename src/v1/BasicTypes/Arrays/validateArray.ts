@@ -59,7 +59,7 @@ export function validateArray(path: DataPath, input: unknown): AppErrorOr<any[]>
     // hate to be the bearer of bad news ...
     return new UnsupportedTypeError({
         public: {
-            name: path,
+            dataPath: path,
             expected: "array",
             actual: typeof input,
         }

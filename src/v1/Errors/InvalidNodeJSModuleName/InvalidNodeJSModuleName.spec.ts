@@ -42,7 +42,7 @@ describe("InvalidNodeJSModuleNameError", () => {
         it("creates a Javascript error", () => {
             const unit = new InvalidNodeJSModuleNameError({
                 public: {
-                    name: DEFAULT_DATA_PATH,
+                    dataPath: DEFAULT_DATA_PATH,
                     invalidName: "invalid",
                 },
             });

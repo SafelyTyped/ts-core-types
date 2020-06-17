@@ -57,7 +57,7 @@ export function validateBoolean(path: DataPath, input: unknown): AppErrorOr<bool
 
     return new UnsupportedTypeError({
         public: {
-            name: path,
+            dataPath: path,
             expected: "boolean",
             actual: typeof input
         }

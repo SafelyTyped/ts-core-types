@@ -77,7 +77,7 @@ export function validateBooleanishString(
 
     return new UnsupportedBooleanishValueError({
         public: {
-            name: path,
+            dataPath: path,
             type: "string",
             expected: [ ...booleanish.false, ...booleanish.true].join(" | "),
             actual: input

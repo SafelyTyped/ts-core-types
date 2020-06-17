@@ -61,7 +61,7 @@ describe("mustBeNumber()", () => {
         ].forEach((val) => {
             const expectedValue = new UnsupportedTypeError({
                 public: {
-                    name: DEFAULT_DATA_PATH,
+                    dataPath: DEFAULT_DATA_PATH,
                     expected: "number",
                     actual: typeof val,
                 }

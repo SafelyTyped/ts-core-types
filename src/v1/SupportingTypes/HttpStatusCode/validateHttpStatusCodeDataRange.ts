@@ -55,7 +55,7 @@ export function validateHttpStatusCodeDataRange (
     if (input < 100 || input >= 600) {
         return new HttpStatusCodeOutOfRangeError({
             public: {
-                name: path,
+                dataPath: path,
                 input: input,
             }
         });

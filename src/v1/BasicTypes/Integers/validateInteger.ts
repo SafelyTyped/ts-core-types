@@ -57,7 +57,7 @@ export function validateInteger(path: DataPath, input: unknown): AppErrorOr<numb
     if (Math.trunc(res) !== res) {
         return new UnsupportedTypeError({
             public: {
-                name: path,
+                dataPath: path,
                 expected: "number (with an integer value)",
                 actual: "number (with a non-integer value)"
             }

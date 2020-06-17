@@ -44,7 +44,7 @@ describe("mustBe()", () => {
     it("if the input is an AppError, it throws that error", () => {
         const inputValue = new UnsupportedTypeError({
             public: {
-                name: DEFAULT_DATA_PATH,
+                dataPath: DEFAULT_DATA_PATH,
                 expected: "any",
                 actual: "unknown"
             }

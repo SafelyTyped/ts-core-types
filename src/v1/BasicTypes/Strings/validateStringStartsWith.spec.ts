@@ -58,7 +58,7 @@ describe("validateString()", () => {
         const inputValue = "goodbye for now!";
         const expectedValue = new UnsupportedStringPrefixError({
             public: {
-                name: DEFAULT_DATA_PATH,
+                dataPath: DEFAULT_DATA_PATH,
                 expectedPrefix: searchTerm,
                 actualPrefix: "goo",
             }

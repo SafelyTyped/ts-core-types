@@ -50,7 +50,7 @@ export function validateNumber(path: DataPath, input: unknown): AppErrorOr<numbe
     if (typeof input !== "number") {
         return new UnsupportedTypeError({
             public: {
-                name: path,
+                dataPath: path,
                 expected: "number",
                 actual: typeof input
             }

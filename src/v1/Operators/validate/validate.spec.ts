@@ -74,7 +74,7 @@ describe("validate()", () => {
 
         const expectedValue= new UnsupportedTypeError({
             public: {
-                name: DEFAULT_DATA_PATH,
+                dataPath: DEFAULT_DATA_PATH,
                 expected: "something",
                 actual: "nothing"
             }

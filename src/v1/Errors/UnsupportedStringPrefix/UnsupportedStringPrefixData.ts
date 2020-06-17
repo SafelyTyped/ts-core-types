@@ -43,7 +43,7 @@ import { DataPath } from "../../SupportingTypes";
  */
 export interface UnsupportedStringPrefixData extends ExtraPublicData {
     public: {
-        name: DataPath,
+        dataPath: DataPath,
         expectedPrefix: string;
         actualPrefix: string;
     }

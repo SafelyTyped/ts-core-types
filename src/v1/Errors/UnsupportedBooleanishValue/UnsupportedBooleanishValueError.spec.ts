@@ -42,7 +42,7 @@ describe("UnsupportedBooleanishValueError", () => {
         it("creates a Javascript error", () => {
             const unit = new UnsupportedBooleanishValueError({
                 public: {
-                    name: DEFAULT_DATA_PATH,
+                    dataPath: DEFAULT_DATA_PATH,
                     type: "string",
                     expected: "1",
                     actual: "fred",

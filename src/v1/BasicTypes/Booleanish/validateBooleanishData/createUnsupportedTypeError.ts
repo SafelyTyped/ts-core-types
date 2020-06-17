@@ -60,7 +60,7 @@ export function createUnsupportedTypeError(
 ): AppErrorOr<boolean> {
     return new UnsupportedTypeError({
         public: {
-            name: path,
+            dataPath: path,
             expected: supportedTypes.join(" | "),
             actual: typeof input
         }

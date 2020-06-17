@@ -74,7 +74,7 @@ export function validateBooleanishNumber(
 
     return new UnsupportedBooleanishValueError({
         public: {
-            name: path,
+            dataPath: path,
             type: "number",
             expected: booleanish.false + " | " + booleanish.true,
             actual: input

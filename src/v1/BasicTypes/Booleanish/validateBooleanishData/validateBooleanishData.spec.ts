@@ -115,7 +115,7 @@ describe("validateBooleanishData()", () => {
             ].forEach((inputValue) => {
                 const expectedValue = new UnsupportedBooleanishValueError({
                     public: {
-                        name: DEFAULT_DATA_PATH,
+                        dataPath: DEFAULT_DATA_PATH,
                         type: "number",
                         expected: "0 | 1",
                         actual: inputValue,
@@ -136,7 +136,7 @@ describe("validateBooleanishData()", () => {
             ].forEach((inputValue) => {
                 const expectedValue = new UnsupportedBooleanishValueError({
                     public: {
-                        name: typeof inputValue === "object" && implementsOwnOrInheritedToString(inputValue) ? "input.toString()" as DataPath : DEFAULT_DATA_PATH,
+                        dataPath: typeof inputValue === "object" && implementsOwnOrInheritedToString(inputValue) ? "input.toString()" as DataPath : DEFAULT_DATA_PATH,
                         type: "string",
                         expected: "0 | false | no | 1 | true | yes",
                         actual: typeof inputValue === "object" ? inputValue.toString() : inputValue,
@@ -163,7 +163,7 @@ describe("validateBooleanishData()", () => {
             ].forEach((inputValue) => {
                 const expectedValue = new UnsupportedTypeError({
                     public: {
-                        name: DEFAULT_DATA_PATH,
+                        dataPath: DEFAULT_DATA_PATH,
                         expected: Object.keys(DEFAULT_BOOLEANISH_RULES).join(" | "),
                         actual: typeof inputValue,
                     }

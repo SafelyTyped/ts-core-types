@@ -42,7 +42,7 @@ describe("UnsupportedStringPrefixError", () => {
         it("creates a Javascript error", () => {
             const unit = new UnsupportedStringPrefixError({
                 public: {
-                    name: DEFAULT_DATA_PATH,
+                    dataPath: DEFAULT_DATA_PATH,
                     expectedPrefix: "hello",
                     actualPrefix: "goodb"
                 },

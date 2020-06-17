@@ -42,7 +42,7 @@ import { DataPath } from "../../SupportingTypes";
  */
 export interface InvalidNodeJSModuleNameData extends ExtraPublicData {
     public: {
-        name: DataPath;
+        dataPath: DataPath;
         invalidName: string;
     };
 }

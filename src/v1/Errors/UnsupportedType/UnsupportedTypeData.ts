@@ -43,7 +43,7 @@ import { DataPath } from "../../SupportingTypes";
  */
 export interface UnsupportedTypeData extends ExtraPublicData {
     public: {
-        name: DataPath;
+        dataPath: DataPath;
         expected: string;
         actual: string;
     }

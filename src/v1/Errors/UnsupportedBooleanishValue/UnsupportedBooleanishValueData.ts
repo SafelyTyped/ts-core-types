@@ -43,7 +43,7 @@ import { DataPath } from "../../SupportingTypes";
  */
 export interface UnsupportedBooleanishValueData extends ExtraPublicData {
     public: {
-        name: DataPath,
+        dataPath: DataPath,
         type: string,
         expected: string,
         actual: any,

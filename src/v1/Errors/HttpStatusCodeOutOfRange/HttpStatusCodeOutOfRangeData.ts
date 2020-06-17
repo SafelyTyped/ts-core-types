@@ -42,7 +42,7 @@ import { DataPath } from "../../SupportingTypes";
  */
 export interface HttpStatusCodeOutOfRangeData extends ExtraPublicData {
     public: {
-        name: DataPath;
+        dataPath: DataPath;
         input: number;
     };
 }
