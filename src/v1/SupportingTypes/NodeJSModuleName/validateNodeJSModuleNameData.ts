@@ -31,12 +31,40 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { DataPath } from "../DataPath";
+import { AppErrorOr } from "../../OptionTypes";
+import { NodeJSModuleName } from "./NodeJSModuleName";
+import { NodeJSModuleNameDataRegex } from "./regexes";
+import { InvalidNodeJSModuleNameError } from "../../Errors";
 
-export * from "./MakeNodeJSModuleNameOptions";
-export * from "./defaults/MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS";
-export * from "./NodeJSModuleName";
-export * from "./isNodeJSModuleNameData";
-export * from "./mustBeNodeJSModuleNameData";
-export * from "./makeNodeJSModuleName";
-export * from "./regexes";
-export * from "./validateNodeJSModuleNameData";
+/**
+ * `validateNodeJSModuleNameData()` is a {@link DataValidator}. Use it to
+ * prove that the given input is a legal NodeJS module name.
+ *
+ * @param path
+ * where are we in the data structure that you are validating?
+ * @param input
+ * the value to validate
+ * @returns
+ * - `input` (type-cast to a NodeJSModuleName) if validation succeeds, or
+ * - an `AppError` explaining why validation failed
+ *
+ * @category HttpStatusCode
+ */
+export function validateNodeJSModuleNameData (
+    path: DataPath,
+    input: string
+): AppErrorOr<NodeJSModuleName> {
+    // what does our regex say?
+    if (!NodeJSModuleNameDataRegex.test(input)) {
+        return new InvalidNodeJSModuleNameError({
+            public: {
+                name: path,
+                invalidName: input
+            }
+        });
+    }
+
+    // all done
+    return input as NodeJSModuleName;
+}
