@@ -32,9 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { OnError, THROW_THE_ERROR } from "../../ErrorHandling";
-import { InvalidNodeJSModuleNameError } from "../../Errors/InvalidNodeJSModuleName";
-import { isNodeJSModuleNameData } from "./isNodeJSModuleNameData";
-import { DEFAULT_DATA_PATH } from "../DataPath";
+import { mustBe } from "../../Operators";
+import { DataPath, DEFAULT_DATA_PATH } from "../DataPath";
+import { NodeJSModuleName } from "./NodeJSModuleName";
+import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
 
 /**
  * `mustBeNodeJSModuleNameData()` is a data guarantee. It calls the supplied
@@ -43,19 +44,16 @@ import { DEFAULT_DATA_PATH } from "../DataPath";
  *
  * @category NodeJSModuleName
  */
-export function mustBeNodeJSModuleNameData(
-    name: string,
-    { onError = THROW_THE_ERROR }: { onError?: OnError } = {},
-): void {
-    // what does the spec say?
-    if (!isNodeJSModuleNameData(name)) {
-        onError(new InvalidNodeJSModuleNameError({
-            public: {
-                name: DEFAULT_DATA_PATH,
-                invalidName: name
-            }
-        }));
-    }
-
-    // if we get here, all is well
-}
+export const mustBeNodeJSModuleNameData = (
+    input: string,
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: {
+        onError?: OnError,
+        path?: DataPath,
+    } = {},
+): NodeJSModuleName =>
+    mustBe(input, { onError })
+        .next((x) => validateNodeJSModuleNameData(path, x))
+        .value();
