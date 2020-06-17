@@ -32,13 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-export * from "./HashMaps";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Strings";
-export * from "./Unknowns";
+/**
+ * `HashMap` describes an object that doesn't have a set list of keys.
+ *
+ * It's very handy for convincing the Typescript compiler to let us
+ * iterate over the contents of a data bag.
+ *
+ * @category BasicTypes
+ */
+export interface HashMap<T> {
+    [key: string]: T
+}
