@@ -31,20 +31,20 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { NodeJSModuleNameDataRegex } from "./regexes";
+import { isData } from "../../Operators";
+import { DEFAULT_DATA_PATH } from "../DataPath";
+import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
 
 /**
  * `isNodeJSModuleNameData()` is a data guard. It confirms if a proposed name for
  * a NodeJSModuleName is a valid NodeJS module name.
  *
  * @category NodeJSModuleName
- * @param moduleName
+ * @param input
  * The input data to validate.
  * @returns
  * - `true` if `moduleName` is a valid NodeJS module name.
  * - `false` otherwise.
  */
-export function isNodeJSModuleNameData(moduleName: string): boolean {
-    return NodeJSModuleNameDataRegex.test(moduleName);
-}
+export const isNodeJSModuleNameData = (input: string): boolean =>
+    isData(validateNodeJSModuleNameData, input, { path: DEFAULT_DATA_PATH });
