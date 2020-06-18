@@ -21,10 +21,14 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.1
+
+Released Thursday, 18th June 2020.
+
 ### Fixes
 
 * Operators
-  - we now export IS_DATA_DEFAULT_OPTIONS
+  - we now export `IS_DATA_DEFAULT_OPTIONS`
 
 ## v0.1.0
 
