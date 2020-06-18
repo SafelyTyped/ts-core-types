@@ -34,3 +34,4 @@
 
 export * from "./IsDataOptions";
 export * from "./isData";
+export * from "./defaults/IS_DATA_DEFAULT_OPTIONS";
