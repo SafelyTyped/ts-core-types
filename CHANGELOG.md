@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.2
+
+Released Friday, 19th June 2020.
+
 ### Fixes
 
 * Basic Types
