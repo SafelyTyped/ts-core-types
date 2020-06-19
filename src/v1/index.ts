@@ -33,6 +33,7 @@
 //
 
 export * from "./Archetypes";
+export * from "./BasicTypes";
 export * from "./ErrorHandling";
 export * from "./Errors";
 export * from "./OptionTypes";
