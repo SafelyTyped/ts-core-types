@@ -49,10 +49,10 @@ export class UnreachableCodeError extends AppError<UnreachableCodeData> {
     public constructor(params: UnreachableCodeData & AppErrorData) {
         const spr = makeStructuredProblemReport<UnreachableCodeData>({
             definedBy: MODULE_NAME,
-            description: "input must be an integer",
+            description: "unreachable code has been executed",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: 422 as HttpStatusCode,
+            status: 500 as HttpStatusCode,
         });
 
         super(spr);

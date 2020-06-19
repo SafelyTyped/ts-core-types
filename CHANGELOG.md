@@ -25,6 +25,10 @@ The following changes have been completed, and will be included in the next tagg
 
 * Resolve circular-dependency problems
   - only occurs when using `@safelytyped/core-types` in another package
+* Errors
+  - UnreachableCodeError
+    - corrected the 'details' field
+    - changed the 'status' field to be '500'
 
 ## v0.1.2
 
