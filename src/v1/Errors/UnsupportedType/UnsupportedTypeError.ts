@@ -31,11 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { UnsupportedTypeData } from "./UnsupportedTypeData";
+import { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { makeHttpStatusCode } from "../../SupportingTypes";
+import { UnsupportedTypeData } from "./UnsupportedTypeData";
 
 /**
  * `NotAStringError` is a throwable Error. It's thrown whenever basic
@@ -52,7 +51,7 @@ export class UnsupportedTypeError extends AppError<UnsupportedTypeData> {
             extra: {
                 public: params.public
             },
-            status: makeHttpStatusCode(422),
+            status: 422 as HttpStatusCode,
         });
 
         super(spr);

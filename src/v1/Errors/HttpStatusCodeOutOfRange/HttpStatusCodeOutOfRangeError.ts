@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { makeHttpStatusCode } from "../../SupportingTypes";
+import { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
 
@@ -49,7 +49,7 @@ export class HttpStatusCodeOutOfRangeError extends AppError<HttpStatusCodeOutOfR
             description: "input falls outside the range of a valid HTTP status code",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: makeHttpStatusCode(422),
+            status: 422 as HttpStatusCode,
         });
 
         super(srp);

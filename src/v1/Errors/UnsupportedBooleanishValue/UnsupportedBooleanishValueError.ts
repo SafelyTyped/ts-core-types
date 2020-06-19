@@ -31,11 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { UnsupportedBooleanishValueData } from "./UnsupportedBooleanishValueData";
+import { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { makeHttpStatusCode } from "../../SupportingTypes";
+import { UnsupportedBooleanishValueData } from "./UnsupportedBooleanishValueData";
+
 
 /**
  * `UnsupportedBooleanishValueError` is a throwable Error. It is thrown
@@ -52,7 +52,7 @@ export class UnsupportedBooleanishValueError extends AppError<UnsupportedBoolean
             extra: {
                 public: params.public
             },
-            status: makeHttpStatusCode(422),
+            status: 422 as HttpStatusCode,
         });
 
         super(spr);

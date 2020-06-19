@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import { UnreachableCodeData } from "./UnreachableCodeData";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 
 /**
  * `UnreachableCodeError` is thrown whenever we end up falling out of
@@ -52,7 +52,7 @@ export class UnreachableCodeError extends AppError<UnreachableCodeData> {
             description: "input must be an integer",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: makeHttpStatusCode(422)
+            status: 422 as HttpStatusCode,
         });
 
         super(spr);
