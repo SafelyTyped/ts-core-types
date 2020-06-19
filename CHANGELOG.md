@@ -21,6 +21,19 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.3
+
+Released Friday, 19th June 2020.
+
+### Fixes
+
+* Resolve circular-dependency problems
+  - only occurs when using `@safelytyped/core-types` in another package
+* Errors
+  - UnreachableCodeError
+    - corrected the 'details' field
+    - changed the 'status' field to be '500'
+
 ## v0.1.2
 
 Released Friday, 19th June 2020.

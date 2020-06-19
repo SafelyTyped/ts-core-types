@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import { UnreachableCodeData } from "./UnreachableCodeData";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 
 /**
  * `UnreachableCodeError` is thrown whenever we end up falling out of
@@ -49,10 +49,10 @@ export class UnreachableCodeError extends AppError<UnreachableCodeData> {
     public constructor(params: UnreachableCodeData & AppErrorData) {
         const spr = makeStructuredProblemReport<UnreachableCodeData>({
             definedBy: MODULE_NAME,
-            description: "input must be an integer",
+            description: "unreachable code has been executed",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: makeHttpStatusCode(422)
+            status: 500 as HttpStatusCode,
         });
 
         super(spr);

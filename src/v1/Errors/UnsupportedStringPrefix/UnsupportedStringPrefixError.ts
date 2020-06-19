@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { makeHttpStatusCode } from "../../SupportingTypes";
+import { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import { UnsupportedStringPrefixData } from "./UnsupportedStringPrefixData";
 
@@ -51,7 +51,7 @@ export class UnsupportedStringPrefixError extends AppError<UnsupportedStringPref
             extra: {
                 public: params.public
             },
-            status: makeHttpStatusCode(422),
+            status: 422 as HttpStatusCode,
         });
         super(spr);
     }
