@@ -21,6 +21,11 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### Fixes
+
+* SmartConstuctor
+  - new generic parameter `FN_OPT` added
+
 ## v0.1.3
 
 Released Friday, 19th June 2020.
