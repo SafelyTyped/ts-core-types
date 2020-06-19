@@ -50,7 +50,9 @@ import { SmartConstructorOptions } from "./SmartConstructorOptions";
  * The data type for the user-supplied options.
  * Defaults to `SmartConstructorOptions`.
  * @template FN
- * The data type that the functional options can process.
+ * The input data type that the functional options can process.
+ * @template FN_OPT
+ * The type of user-supplied options that the functional options can process.
  * {@link makeNominalType} sets this to `IN|OUT`
  * Defaults to OUT.
  * @param input
@@ -62,8 +64,8 @@ import { SmartConstructorOptions } from "./SmartConstructorOptions";
  * @returns
  * The constructed type.
  */
-export type SmartConstructor<IN, OUT, OPT extends object = object, FN = OUT> = (
+export type SmartConstructor<IN, OUT, OPT extends object = object, FN = OUT, FN_OPT = OPT> = (
     input: IN,
     options?: SmartConstructorOptions & OPT,
-    ...fnOptions: FunctionalOption<FN, SmartConstructorOptions & OPT>[]
+    ...fnOptions: FunctionalOption<FN, SmartConstructorOptions & FN_OPT>[]
 ) => OUT;
