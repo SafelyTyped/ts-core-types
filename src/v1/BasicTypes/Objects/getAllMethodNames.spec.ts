@@ -126,4 +126,15 @@ describe("getAllMethodNames()", () => {
         const actualValue = getAllMethodNames(unit).sort();
         expect(actualValue).to.eql(expectedValue);
     });
+
+    it("returns an empty list for objects with no prototype", () => {
+        const expectedValue: string[] = [];
+
+        const unit = {};
+        Object.setPrototypeOf(unit, null);
+
+        const actualValue = getAllMethodNames(unit).sort();
+        expect(actualValue).to.eql(expectedValue);
+    });
 });
+
