@@ -36,6 +36,7 @@ The following changes have been completed, and will be included in the next tagg
     - added `getMissingMethodNames()`
     - added `getPublicMethods()`
     - added `getPublicMethodNames()`
+    - added `isAttributeName()`
     - added `isGetterName()`
     - added `isMethodName()`
     - added `validateObjectHasAllMethodsCalled()`
