@@ -31,14 +31,47 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { isMethodName } from "./isMethodName";
 
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethodNames";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
+/**
+ * `getAllMethods()` is a data filter. It returns a list of all methods
+ * implemented by `target`, including methods inherited from any parent
+ * classes and from `Object.prototype`.
+ *
+ * @template T
+ * The type of object to inspect. This is used internally to convince
+ * the Typescript compiler to let us access individual properties on
+ * `target`. You shouldn't have to supply this yourself. The Typescript
+ * compiler's type-inference should handle this auto-magically.
+ * @param target
+ * The object to inspect.
+ * @returns
+ * - a map of all methods found. The list will not contain duplicate names.
+ *
+ * @category BasicTypes
+ */
+export function getAllMethods<T extends object>(target: T): Map<string, PropertyDescriptor> {
+    // our return value
+    const retval = new Map();
+
+    // what we're currently inspecting
+    let obj = target;
+
+    // continue until we run out of prototype!
+    while(obj !== null) {
+        // what does this prototype have for us today?
+        const propNames = Object.getOwnPropertyNames(obj).filter(
+            (name) => isMethodName(obj, name as keyof T) && !retval.has(name)
+        );
+        // let's get them added into our result
+        for (const propName of propNames) {
+            retval.set(propName, Object.getOwnPropertyDescriptor(obj, propName));
+        }
+
+        // next prototype!
+        obj = Object.getPrototypeOf(obj);
+    }
+
+    // all done
+    return retval;
+}

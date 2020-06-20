@@ -25,6 +25,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * BasicTypes
   * Objects
+    - added `getAllMethods()`
     - added `getAllMethodNames()`
     - added `getMissingMethodNames()`
     - added `getPublicMethodNames()`
