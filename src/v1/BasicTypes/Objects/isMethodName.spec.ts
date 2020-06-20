@@ -58,7 +58,7 @@ class UnitTestExample extends UnitTestBaseClass {
     }
 }
 
-describe("isMethod()", () => {
+describe("isMethodName()", () => {
     it("returns `false` for getters", () => {
         const unit = new UnitTestExample();
         const actualValue = isMethodName(unit, "attr2");
@@ -83,5 +83,10 @@ describe("isMethod()", () => {
     it("returns `true` for inherited methods", () => {
         const unit = new UnitTestExample();
         expect(isMethodName(unit, "fn1")).to.equal(true);
+    });
+
+    it("returns `false` for properties that do not exist", () => {
+        const unit = new UnitTestExample();
+        expect(isMethodName(unit, "DOES_NOT_EXIST")).to.equal(false);
     });
 });

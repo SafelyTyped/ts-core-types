@@ -31,9 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AnyHashMap } from "../HashMaps";
 
 /**
- * `isMethod()` is a data guard. Use it to prove that property
+ * `isMethodName()` is a data guard. Use it to prove that property
  * `target.propName` is actually a method on that object.
  *
  * @param target
@@ -43,14 +44,9 @@
  * @returns
  * - `true` if `target.propName()` is a callable function.
  * - `false` otherwise
- *  * @template T
- * This is the type of object to inspect. We need it so that `propName`
- * is correctly typed / enforced by the compiler. You shouldn't need to
- * provide `T` yourself; the compiler's type-inference should handle it
- * for you automagically.
  *
  * @category BasicTypes
  */
-export function isMethodName<T extends object>(target: T, propName: keyof T ): boolean {
-    return typeof target[propName] === "function";
+export function isMethodName(target: AnyHashMap, propName: string): boolean {
+    return target[propName] !== undefined && typeof target[propName] === "function";
 }
