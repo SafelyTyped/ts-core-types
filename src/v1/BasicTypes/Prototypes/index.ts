@@ -32,15 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-export * from "./Filters";
-export * from "./HashMaps";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Prototypes";
-export * from "./Strings";
-export * from "./Unknowns";
+export * from "./NextPrototypeChain";
+export * from "./defaults/NEXT_PROTOTYPE";
+export * from "./defaults/STOP_AT_OBJECT_PROTOTYPE";
