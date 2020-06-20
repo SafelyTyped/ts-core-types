@@ -44,6 +44,7 @@ The following changes have been completed, and will be included in the next tagg
       - added `PropertyFilter`
       - added `PropertyFilterData`
       - added `FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES`
+      - added `FIND_PROPERTIES_FILTER_KEEP_METHODS`
   * Protocols
     - added `Has` protocol
   * Prototypes (new module!)
