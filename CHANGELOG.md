@@ -37,6 +37,7 @@ The following changes have been completed, and will be included in the next tagg
 * ProtocolsExtensions (new module!)
   - added `ProtocolDefinition`
   - added `makeProtocolDefinition()`
+  - added `validateImplementsProtocol()`
 
 ## v0.1.4
 
