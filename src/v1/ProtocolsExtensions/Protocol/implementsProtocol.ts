@@ -46,6 +46,19 @@ import { validateImplementsProtocol } from "./validateImplementsProtocol";
  * - that the methods have the right type signatures
  * - for Symbols
  *
+ * @param target
+ * The object to inspect
+ * @param protocol
+ * The list of methods that `target` must implement
+ * @param path
+ * Where are we in the data structure that you are inspecting?
+ * @returns
+ * - `true` if `target` can be used as type `T`
+ * - `false` otherwise
+ * @template T
+ * The interface that defines the protocol. You need to provide this value,
+ * to keep the Typescript compiler happy.
+ *
  * @category ProtocolsExtensions
  */
 export function implementsProtocol<T>(
