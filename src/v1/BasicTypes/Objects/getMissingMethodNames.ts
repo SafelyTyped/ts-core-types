@@ -31,13 +31,31 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { HashMap } from "../HashMaps";
+import { isMethodName } from "./isMethodName";
 
-export * from "./getAllMethodNames";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethodNames";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
+
+/**
+ * `getMissingMethodNames()` is a data filter. Use it to produce a list
+ * of methods that aren't on the `target` object.
+ *
+ * Supports methods inherited from parent classes.
+ *
+ * @param target
+ * The object to inspect.
+ * @param names
+ * The list of names to look for.
+ * @returns
+ * Anything in `names` that isn't a method on `target`
+ *
+ * @category BasicTypes
+ */
+export function getMissingMethodNames(
+    target: object,
+    names: string[]
+): string[] {
+    // what's missing?
+    return names.filter(
+        (name) => !isMethodName(target as HashMap<any>, name)
+    );
+}
