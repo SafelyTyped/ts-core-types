@@ -40,6 +40,8 @@ The following changes have been completed, and will be included in the next tagg
     - added `isGetterName()`
     - added `isMethodName()`
     - added `validateObjectHasAllMethodsCalled()`
+    * Filters
+      - added `PropertyFilterData`
   * Protocols
     - added `Has` protocol
   * Prototypes (new module!)
