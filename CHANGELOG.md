@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * BasicTypes
   * Filters (new module!)
     - added `Filter` function signature
+    - added `everyFilter()` method
   * Objects
     - added `getAllMethods()`
     - added `getAllMethodNames()`
