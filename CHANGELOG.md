@@ -52,6 +52,7 @@ The following changes have been completed, and will be included in the next tagg
       - added `FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES`
       - added `FIND_PROPERTIES_FILTER_KEEP_METHODS`
       - added `FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE`
+      - added `findAttributeNames()`
       - added `findMethodNames()`
       - added `findPropertyNames()`
   * Protocols
