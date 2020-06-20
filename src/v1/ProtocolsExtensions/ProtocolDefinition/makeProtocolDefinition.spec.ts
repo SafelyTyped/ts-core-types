@@ -88,7 +88,7 @@ describe("makeProtocolDefinition()", () => {
 
         const GuessMediaTypeProtocol = makeProtocolDefinition(UnitTestGuessMediaType.prototype);
 
-        const actualValue = implementsProtocol<GuessMediaType>(GuessMediaTypeProtocol, unit);
+        const actualValue = implementsProtocol<GuessMediaType>(unit, GuessMediaTypeProtocol);
         expect(actualValue).to.equal(true);
     });
 
