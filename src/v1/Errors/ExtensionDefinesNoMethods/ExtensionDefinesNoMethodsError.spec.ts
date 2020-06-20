@@ -31,13 +31,21 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { ExtensionDefinesNoMethodsError } from "./ExtensionDefinesNoMethodsError";
+
+describe("ExtensionDefinesNoMethodsError", () => {
+    describe(".constructor()", () => {
+        it("creates a Javascript error", () => {
+            const unit = new ExtensionDefinesNoMethodsError({
+                public: {
+                    extension: "this is a test",
+                },
+            });
+
+            expect(unit).to.be.instanceOf(Error);
+        });
+    });
+});
