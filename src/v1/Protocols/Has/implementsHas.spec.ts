@@ -32,6 +32,34 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Has";
-export * from "./Stack";
-export * from "./ToString";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { implementsHas } from "./implementsHas";
+
+describe("implementsHas()", () => {
+    it("returns `true` if an object has a method called `has()`", () => {
+        const inputValue = {
+            has: (x: string) => true
+        }
+        expect(implementsHas(inputValue)).to.equal(true);
+    });
+
+    it("returns `false` if an object has an attribute called `has()`", () => {
+        const inputValue = {
+            has: true
+        }
+        expect(implementsHas(inputValue)).to.equal(false);
+    });
+
+    it("returns `false` if an object has no property called `has()`", () => {
+        const inputValue = {
+            hasNot: true
+        }
+        expect(implementsHas(inputValue)).to.equal(false);
+    });
+
+    it("returns `false` if the input is not an object", () => {
+        const inputValue = true;
+        expect(implementsHas(inputValue)).to.equal(false);
+    });
+});

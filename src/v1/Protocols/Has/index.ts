@@ -33,5 +33,4 @@
 //
 
 export * from "./Has";
-export * from "./Stack";
-export * from "./ToString";
+export * from "./implementsHas";
