@@ -42,6 +42,7 @@ The following changes have been completed, and will be included in the next tagg
     - added `validateObjectHasAllMethodsCalled()`
   * Prototypes (new module!)
     - added `NextPrototypeChain`
+    - added `NEXT_PROTOTYPE`
 * Errors
   - added `ExtensionDefinesNoMethodsError`
   - added `ObjectHasMissingMethodsError`
