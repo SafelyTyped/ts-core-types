@@ -88,12 +88,25 @@ export function getAllMethodNames<T extends object>(target: T): string[] {
  * @internal
  */
 function extractMethodNames<T extends object>(target: T): string[] {
-    return (
-        // this ensures we stop when we reach 'null'
-        target
-        && Object.getOwnPropertyNames(target).filter(
-            (name) => isMethod(target, name as keyof T)
-        )
-        .concat(extractMethodNames(Object.getPrototypeOf(target)))
-     ) || [];
+    // our return value
+    let retval: string[] = [];
+
+    // what we're currently inspecting
+    let obj = target;
+
+    // continue until we run out of prototype!
+    while(obj !== null) {
+        // what does this prototype have for us today?
+        const propNames = Object.getOwnPropertyNames(obj).filter(
+            (name) => isMethod(obj, name as keyof T)
+        );
+        // let's get them added into our result
+        retval = retval.concat(propNames);
+
+        // next prototype!
+        obj = Object.getPrototypeOf(obj);
+    }
+
+    // all done
+    return retval;
 }
