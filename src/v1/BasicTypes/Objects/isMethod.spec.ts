@@ -32,9 +32,56 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-// export * from "./ObjectProperties";
-export * from "./isGetter";
-export * from "./isMethod";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
+import { describe } from "mocha";
+import { expect } from "chai";
+
+import { isMethod } from "./isMethod";
+
+class UnitTestBaseClass {
+    public fn1(): string {
+        return "hello world";
+    }
+}
+
+// tslint:disable-next-line: max-classes-per-file
+class UnitTestExample extends UnitTestBaseClass {
+    public attr1: string = "";
+    public get attr2(): string {
+        return "hello world";
+    }
+    public set attr3(x: string) {
+        // do nothing
+    }
+
+    public fn2(): string {
+        return "hello world";
+    }
+}
+
+describe("isMethod()", () => {
+    it("returns `false` for getters", () => {
+        const unit = new UnitTestExample();
+        const actualValue = isMethod(unit, "attr2");
+        expect(actualValue).to.equal(false);
+    });
+
+    it("returns `false` for setters", () => {
+        const unit = new UnitTestExample();
+        expect(isMethod(unit, "attr3")).to.equal(false);
+    });
+
+    it("returns `false` for attributes", () => {
+        const unit = new UnitTestExample();
+        expect(isMethod(unit, "attr1")).to.equal(false);
+    });
+
+    it("returns `true` for normal methods", () => {
+        const unit = new UnitTestExample();
+        expect(isMethod(unit, "fn2")).to.equal(true);
+    });
+
+    it("returns `true` for inherited methods", () => {
+        const unit = new UnitTestExample();
+        expect(isMethod(unit, "fn1")).to.equal(true);
+    });
+});

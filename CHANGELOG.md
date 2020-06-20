@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * BasicTypes
   * Objects
     - added `isGetter()`
+    - added `isMethod()`
 
 ## v0.1.4
 
