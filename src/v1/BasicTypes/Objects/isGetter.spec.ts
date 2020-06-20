@@ -72,4 +72,9 @@ describe("isGetter()", () => {
         const unit = new UnitTestExample();
         expect(isGetter(unit, "fn1")).to.equal(false);
     });
+
+    it("returns `false` for properties that do not exist", () => {
+        const unit = new UnitTestExample();
+        expect(isGetter(unit, "DOES_NOT_EXIST" as keyof UnitTestExample)).to.equal(false);
+    });
 });
