@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isGetter } from "./isGetter";
+import { isGetterName } from "./isGetterName";
 
 class UnitTestExample {
     public attr1: string = "";
@@ -54,27 +54,27 @@ class UnitTestExample {
 describe("isGetter()", () => {
     it("returns `true` for getters", () => {
         const unit = new UnitTestExample();
-        const actualValue = isGetter(unit, "attr2");
+        const actualValue = isGetterName(unit, "attr2");
         expect(actualValue).to.equal(true);
     });
 
     it("returns `false` for setters", () => {
         const unit = new UnitTestExample();
-        expect(isGetter(unit, "attr3")).to.equal(false);
+        expect(isGetterName(unit, "attr3")).to.equal(false);
     });
 
     it("returns `false` for attributes", () => {
         const unit = new UnitTestExample();
-        expect(isGetter(unit, "attr1")).to.equal(false);
+        expect(isGetterName(unit, "attr1")).to.equal(false);
     });
 
     it("returns `false` for normal methods", () => {
         const unit = new UnitTestExample();
-        expect(isGetter(unit, "fn1")).to.equal(false);
+        expect(isGetterName(unit, "fn1")).to.equal(false);
     });
 
     it("returns `false` for properties that do not exist", () => {
         const unit = new UnitTestExample();
-        expect(isGetter(unit, "DOES_NOT_EXIST" as keyof UnitTestExample)).to.equal(false);
+        expect(isGetterName(unit, "DOES_NOT_EXIST" as keyof UnitTestExample)).to.equal(false);
     });
 });

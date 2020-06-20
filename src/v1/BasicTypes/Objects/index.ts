@@ -34,7 +34,7 @@
 
 export * from "./getAllMethodNames";
 export * from "./getPublicMethodNames";
-export * from "./isGetter";
+export * from "./isGetterName";
 export * from "./isMethodName";
 export * from "./isObject";
 export * from "./mustBeObject";

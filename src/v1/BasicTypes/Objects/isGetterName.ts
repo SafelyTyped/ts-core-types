@@ -55,7 +55,7 @@
  *
  * @category BasicTypes
  */
-export function isGetter<T extends object>(target: T, methodName: keyof T): boolean {
+export function isGetterName<T extends object>(target: T, methodName: keyof T): boolean {
     // this is the object we are going to be looking at
     let obj = target;
 
