@@ -51,6 +51,6 @@
  *
  * @category BasicTypes
  */
-export function isMethod<T extends object>(target: T, propName: keyof T ): boolean {
+export function isMethodName<T extends object>(target: T, propName: keyof T ): boolean {
     return typeof target[propName] === "function";
 }

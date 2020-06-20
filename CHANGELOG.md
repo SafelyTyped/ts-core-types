@@ -28,7 +28,7 @@ The following changes have been completed, and will be included in the next tagg
     - added `getAllMethodNames()`
     - added `getPublicMethodNames()`
     - added `isGetter()`
-    - added `isMethod()`
+    - added `isMethodName()`
 
 ## v0.1.4
 

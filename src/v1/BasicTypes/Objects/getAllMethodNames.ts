@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { isMethod } from "./isMethod";
+import { isMethodName } from "./isMethodName";
 
 
 // This code has been adapted from:
@@ -98,7 +98,7 @@ function extractMethodNames<T extends object>(target: T): string[] {
     while(obj !== null) {
         // what does this prototype have for us today?
         const propNames = Object.getOwnPropertyNames(obj).filter(
-            (name) => isMethod(obj, name as keyof T)
+            (name) => isMethodName(obj, name as keyof T)
         );
         // let's get them added into our result
         retval = retval.concat(propNames);

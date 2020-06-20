@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isMethod } from "./isMethod";
+import { isMethodName } from "./isMethodName";
 
 class UnitTestBaseClass {
     public fn1(): string {
@@ -61,27 +61,27 @@ class UnitTestExample extends UnitTestBaseClass {
 describe("isMethod()", () => {
     it("returns `false` for getters", () => {
         const unit = new UnitTestExample();
-        const actualValue = isMethod(unit, "attr2");
+        const actualValue = isMethodName(unit, "attr2");
         expect(actualValue).to.equal(false);
     });
 
     it("returns `false` for setters", () => {
         const unit = new UnitTestExample();
-        expect(isMethod(unit, "attr3")).to.equal(false);
+        expect(isMethodName(unit, "attr3")).to.equal(false);
     });
 
     it("returns `false` for attributes", () => {
         const unit = new UnitTestExample();
-        expect(isMethod(unit, "attr1")).to.equal(false);
+        expect(isMethodName(unit, "attr1")).to.equal(false);
     });
 
     it("returns `true` for normal methods", () => {
         const unit = new UnitTestExample();
-        expect(isMethod(unit, "fn2")).to.equal(true);
+        expect(isMethodName(unit, "fn2")).to.equal(true);
     });
 
     it("returns `true` for inherited methods", () => {
         const unit = new UnitTestExample();
-        expect(isMethod(unit, "fn1")).to.equal(true);
+        expect(isMethodName(unit, "fn1")).to.equal(true);
     });
 });
