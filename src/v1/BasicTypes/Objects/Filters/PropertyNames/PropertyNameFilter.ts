@@ -39,5 +39,7 @@ import { PropertyNameFilterData } from "./PropertyNameFilterData";
  * et al.
  *
  * It tightens up the definition originally from {@link PropertyFilter}.
+ *
+ * @category BasicTypes
  */
 export type PropertyNameFilter = (input: PropertyNameFilterData) => boolean;
