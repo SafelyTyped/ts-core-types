@@ -32,5 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./HashMap";
-export * from "./AnyHashMap";
+import { HashMap } from "./HashMap";
+
+/**
+ * `AnyHashMap` describes any object that has properties.
+ *
+ * It's very handy for convincing the Typescript compiler to let us
+ * iterate over the contents of a data bag.
+ *
+ * @category BasicTypes
+ */
+export type AnyHashMap = HashMap<any>;

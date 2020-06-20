@@ -28,6 +28,8 @@ The following changes have been completed, and will be included in the next tagg
     - added `Filter` function signature
     - added `everyFilter()` method
     - added `someFilters()` method
+  * HashMaps
+    - added `AnyHashMap`
   * Objects
     - added `getAllMethods()`
     - added `getAllMethodNames()`
