@@ -36,6 +36,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `ObjectHasMissingMethodsError`
 * ProtocolsExtensions (new module!)
   - added `ProtocolDefinition`
+  - added `makeProtocolDefinition()`
 
 ## v0.1.4
 
