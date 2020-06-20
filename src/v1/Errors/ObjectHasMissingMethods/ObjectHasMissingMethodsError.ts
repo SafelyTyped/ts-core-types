@@ -31,12 +31,30 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { ObjectHasMissingMethodsData } from "./ObjectHasMissingMethodsData";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `ObjectHasMissingMethodsError` is thrown whenever we encounter an object
+ * that doesn't have all the methods that we expect.
+ *
+ * This is normally seen when we're trying to use a runtime Protocol and
+ * Extension.
+ *
+ * @category Errors
+ */
+export class ObjectHasMissingMethodsError extends AppError<ObjectHasMissingMethodsData> {
+    public constructor(params: ObjectHasMissingMethodsData & AppErrorData) {
+        const spr = makeStructuredProblemReport<ObjectHasMissingMethodsData>({
+            definedBy: MODULE_NAME,
+            description: "object has missing methods",
+            errorId: params.errorId,
+            extra: { public: params.public },
+            status: 500 as HttpStatusCode,
+        });
+
+        super(spr);
+    }
+}

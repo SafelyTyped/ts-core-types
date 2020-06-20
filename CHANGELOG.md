@@ -29,6 +29,8 @@ The following changes have been completed, and will be included in the next tagg
     - added `getPublicMethodNames()`
     - added `isGetterName()`
     - added `isMethodName()`
+* Errors
+  - added `ObjectHasMissingMethodsError`
 
 ## v0.1.4
 
