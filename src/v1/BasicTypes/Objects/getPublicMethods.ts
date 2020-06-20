@@ -31,15 +31,46 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { getAllMethods } from "./getAllMethods";
 
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
+
+// This code has been adapted from:
+//
+// https://stackoverflow.com/a/47714550
+
+/**
+ * `getPublicMethodNames()` is a data filter. It returns a list of all
+ * methods that form the object's public API.
+ *
+ * - all methods defined on `target` and its base classes (inc
+ *   Object.prototype)
+ * - that aren't constructors, and
+ * - that don't start with an underscore (ie suggest they're protected
+ *   or private)
+ *
+ * Getters and Setters are NOT treated as public methods, because they're
+ * not callable.
+ *
+ * @param target
+ * The object to inspect.
+ * @returns
+ * A list of all method names that exist on the object instance. Order of
+ * the list is not guaranteed. The list will not contain duplicates.
+ */
+export function getPublicMethods(
+    target: object
+): Map<string, PropertyDescriptor> {
+    // what do we have?
+    const retval = getAllMethods(target);
+
+    // one day, we'll be able to replace this with Map.filter() ...
+    const keysToRemove = Array.from(retval.keys()).filter(
+        (name) => name === "constructor" || name.startsWith( "_" )
+    );
+    for (const key of keysToRemove) {
+        retval.delete(key);
+    }
+
+    // all done
+    return retval;
+}
