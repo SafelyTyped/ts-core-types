@@ -43,6 +43,7 @@ The following changes have been completed, and will be included in the next tagg
     * Filters
       - added `PropertyFilter`
       - added `PropertyFilterData`
+      - added `PropertyNameFilter`
       - added `PropertyNameFilterData`
       - added `FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES`
       - added `FIND_PROPERTIES_FILTER_KEEP_METHODS`

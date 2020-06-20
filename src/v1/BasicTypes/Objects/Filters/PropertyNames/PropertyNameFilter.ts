@@ -31,17 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { PropertyFilterData } from "../PropertyFilterData";
+import { PropertyNameFilterData } from "./PropertyNameFilterData";
 
 /**
- * `PropertyNameFilterData` describes the data that a
- * {@link PropertyNameFilter} requires.
+ * `PropertyNameFilter` is a function signature. It describes a
+ * function that can be used as a filter for {@link findPropertyNames}
+ * et al.
  *
- * It tightens up the definition originally from {@link PropertyFilterData}.
- *
- * @category BasicTypes
+ * It tightens up the definition originally from {@link PropertyFilter}.
  */
-export type PropertyNameFilterData = PropertyFilterData & {
-    found: Set<string>
-};
+export type PropertyNameFilter = (input: PropertyNameFilterData) => boolean;
