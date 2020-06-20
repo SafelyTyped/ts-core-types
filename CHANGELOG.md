@@ -41,6 +41,7 @@ The following changes have been completed, and will be included in the next tagg
     - added `isMethodName()`
     - added `validateObjectHasAllMethodsCalled()`
     * Filters
+      - added `PropertyFilter`
       - added `PropertyFilterData`
   * Protocols
     - added `Has` protocol
