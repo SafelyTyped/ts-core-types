@@ -32,11 +32,49 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./getAllMethodNames";
-export * from "./getPublicMethodNames";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
+import { HashMap } from "../HashMaps";
+import { isMethodName } from "./isMethodName";
+import { AppErrorOr } from "../../OptionTypes";
+import { ObjectHasMissingMethodsError } from "../../Errors";
+import { DataPath } from "../../SupportingTypes";
+import { isNonEmptyArray } from "../Arrays";
+
+/**
+ * `hasAllMethodsCalled()` is a data guard. Use it to make sure that the
+ * given `target` object defines all of the named methods.
+ *
+ * Supports methods inherited from parent classes.
+ *
+ * @param target
+ * The object to inspect.
+ * @param names
+ * The list of names to look for.
+ * @returns
+ * - `true` if all of the names are methods on `target`
+ * - `false` otherwise
+ *
+ * @category BasicTypes
+ */
+export function validateObjectHasAllMethodsCalled<T extends object>(
+    path: DataPath,
+    target: object,
+    names: string[],
+): AppErrorOr<T> {
+    // what's missing?
+    const missingMethods = names.filter(
+        (name) => !isMethodName(target as HashMap<any>, name)
+    );
+
+    // anything?
+    if (isNonEmptyArray(missingMethods)) {
+        return new ObjectHasMissingMethodsError({
+            public: {
+                path,
+                missingMethods
+            }
+        });
+    }
+
+    // if we get here, we're all good
+    return target as T;
+}
