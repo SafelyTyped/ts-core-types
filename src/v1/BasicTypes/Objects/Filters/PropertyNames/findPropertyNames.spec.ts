@@ -36,6 +36,7 @@ import { describe } from "mocha";
 import { expect } from "chai";
 
 import { findPropertyNames } from "./findPropertyNames";
+import { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS } from "./defaults/FIND_PROPERTY_NAMES_DEFAULT_OPTIONS";
 
 class UnitTestBaseClass {
     public fn1(): string {
@@ -139,6 +140,21 @@ describe("findPropertyNames()", () => {
         Object.setPrototypeOf(unit, null);
 
         const actualValue = findPropertyNames(unit).sort();
+        expect(actualValue).to.eql(expectedValue);
+    });
+
+    it("supports user-supplied filters", () => {
+        const expectedValue = [
+            "attr1",
+            "fn1",
+        ].sort();
+
+        const unit = new UnitTestExample();
+        const actualValue = findPropertyNames(
+            unit,
+            FIND_PROPERTY_NAMES_DEFAULT_OPTIONS,
+            (x) => x.propName.search(/1/) > -1
+        ).sort();
         expect(actualValue).to.eql(expectedValue);
     });
 });
