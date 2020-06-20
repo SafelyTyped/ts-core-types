@@ -31,17 +31,16 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { HashMap } from "../HashMaps";
-import { isMethodName } from "./isMethodName";
-import { AppErrorOr } from "../../OptionTypes";
 import { ObjectHasMissingMethodsError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
 import { DataPath } from "../../SupportingTypes";
 import { isNonEmptyArray } from "../Arrays";
+import { getMissingMethodNames } from "./getMissingMethodNames";
+
 
 /**
- * `hasAllMethodsCalled()` is a data guard. Use it to make sure that the
- * given `target` object defines all of the named methods.
+ * `validateObjectHasMethodsCalled()` is a data guard. Use it to make sure
+ * that the given `target` object defines all of the named methods.
  *
  * Supports methods inherited from parent classes.
  *
@@ -61,9 +60,7 @@ export function validateObjectHasAllMethodsCalled<T extends object>(
     names: string[],
 ): AppErrorOr<T> {
     // what's missing?
-    const missingMethods = names.filter(
-        (name) => !isMethodName(target as HashMap<any>, name)
-    );
+    const missingMethods = getMissingMethodNames(target, names);
 
     // anything?
     if (isNonEmptyArray(missingMethods)) {
