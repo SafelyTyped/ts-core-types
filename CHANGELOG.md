@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * BasicTypes
   * Objects
     - added `getAllMethodNames()`
+    - added `getPublicMethodNames()`
     - added `isGetter()`
     - added `isMethod()`
 

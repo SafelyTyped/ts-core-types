@@ -33,6 +33,7 @@
 //
 
 export * from "./getAllMethodNames";
+export * from "./getPublicMethodNames";
 export * from "./isGetter";
 export * from "./isMethod";
 export * from "./isObject";

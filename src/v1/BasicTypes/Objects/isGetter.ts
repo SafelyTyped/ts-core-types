@@ -56,17 +56,20 @@
  * @category BasicTypes
  */
 export function isGetter<T extends object>(target: T, methodName: keyof T): boolean {
-    // make sure we haven't reached `null` in the prototype chain
-    if (!target) {
-        return false;
+    // this is the object we are going to be looking at
+    let obj = target;
+
+    // we continue until we run out of prototypes to examine
+    while (obj !== null) {
+        // do we have a winner?
+        const propDesc = Object.getOwnPropertyDescriptor(obj, methodName);
+        if (propDesc) {
+            return propDesc.get !== undefined;
+        }
+
+        // next prototype!
+        obj = Object.getPrototypeOf(obj);
     }
 
-    // step 1: has this been defined by the object itself?
-    const propDesc = Object.getOwnPropertyDescriptor(target, methodName);
-    if (propDesc) {
-        return propDesc.get !== undefined;
-    }
-
-    // step 2: has this been defined by the object's parent?
-    return isGetter(Object.getPrototypeOf(target), methodName);
+    return false;
 }
