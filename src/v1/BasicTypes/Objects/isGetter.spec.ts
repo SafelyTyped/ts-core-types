@@ -32,8 +32,44 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-// export * from "./ObjectProperties";
-export * from "./isGetter";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
+import { describe } from "mocha";
+import { expect } from "chai";
+
+import { isGetter } from "./isGetter";
+
+class UnitTestExample {
+    public attr1: string = "";
+    public get attr2(): string {
+        return "hello world";
+    }
+    public set attr3(x: string) {
+        // do nothing
+    }
+
+    public fn1(): string {
+        return "hello world";
+    }
+}
+
+describe("isGetter()", () => {
+    it("returns `true` for getters", () => {
+        const unit = new UnitTestExample();
+        const actualValue = isGetter(unit, "attr2");
+        expect(actualValue).to.equal(true);
+    });
+
+    it("returns `false` for setters", () => {
+        const unit = new UnitTestExample();
+        expect(isGetter(unit, "attr3")).to.equal(false);
+    });
+
+    it("returns `false` for attributes", () => {
+        const unit = new UnitTestExample();
+        expect(isGetter(unit, "attr1")).to.equal(false);
+    });
+
+    it("returns `false` for normal methods", () => {
+        const unit = new UnitTestExample();
+        expect(isGetter(unit, "fn1")).to.equal(false);
+    });
+});

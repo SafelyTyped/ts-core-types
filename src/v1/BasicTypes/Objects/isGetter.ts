@@ -32,8 +32,41 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-// export * from "./ObjectProperties";
-export * from "./isGetter";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
+// This code has been adapted from:
+//
+// https://stackoverflow.com/a/47714550
+
+/**
+ * `isGetter()` is a data guard. Use it to determine if the named method
+ * is a data accessor.
+ *
+ * @param target
+ * the object to inspect
+ * @param methodName
+ * the name of the method to inspect
+ * @returns
+ * - `true` if `target.methodName()` is a getter.
+ * - `false` otherwise
+ * @template T
+ * This is the type of object to inspect. We need it so that `methodName`
+ * is correctly typed / enforced by the compiler. You shouldn't need to
+ * provide `T` yourself; the compiler's type-inference should handle it
+ * for you automagically.
+ *
+ * @category BasicTypes
+ */
+export function isGetter<T extends object>(target: T, methodName: keyof T): boolean {
+    // make sure we haven't reached `null` in the prototype chain
+    if (!target) {
+        return false;
+    }
+
+    // step 1: has this been defined by the object itself?
+    const propDesc = Object.getOwnPropertyDescriptor(target, methodName);
+    if (propDesc) {
+        return propDesc.get !== undefined;
+    }
+
+    // step 2: has this been defined by the object's parent?
+    return isGetter(Object.getPrototypeOf(target), methodName);
+}
