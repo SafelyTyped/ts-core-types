@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-// export * from "./ObjectProperties";
+export * from "./getAllMethodNames";
 export * from "./isGetter";
 export * from "./isMethod";
 export * from "./isObject";
