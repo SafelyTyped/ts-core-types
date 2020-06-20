@@ -48,6 +48,8 @@ import { Filter } from "./Filter";
  * @returns
  * - `true` if every filter returns `true`
  * - `false` otherwise
+ *
+ * @category BasicTypes
  */
 export function everyFilter<T>(input: T, filters: Filter<T>[]): boolean {
     for (const filter of filters) {
