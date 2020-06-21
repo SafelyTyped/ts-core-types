@@ -33,5 +33,7 @@
 //
 
 export * from "./numerical";
+export * from "./NumericalConversionRules";
+export * from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
 export * from "./resolveNumerical";
 export * from "./validateNumericalData";
