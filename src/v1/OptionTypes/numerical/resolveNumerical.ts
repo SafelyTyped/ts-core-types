@@ -31,10 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ComposableFunction } from "../../Archetypes";
-import { implementsToPrimitive, implementsToString } from "../../Protocols";
-import { FunctionPointerTable, searchFunctionPointerTable } from "../../SupportingTypes";
+import { searchFunctionPointerTable } from "../../SupportingTypes";
+import { DEFAULT_NUMERICAL_RULES } from "./defaults/DEFAULT_NUMERICAL_RULES";
 import { numerical } from "./numerical";
+import { NumericalRules } from "./NumericalRules";
 
 /**
  * `resolveNumerical()` is an option type resolver. It attempts to convert
@@ -56,35 +56,16 @@ import { numerical } from "./numerical";
  * @category OptionTypes
  */
 export function resolveNumerical(
-    input: numerical
+    input: numerical,
+    {
+        fpTable = DEFAULT_NUMERICAL_RULES
+    }: {
+        fpTable?: NumericalRules
+    } = {}
 ): number {
     return searchFunctionPointerTable(
-        NumericalResolvesTable,
+        fpTable,
         [ typeof input ],
         () => NaN,
     )(input);
-}
-
-type NumericalLookupTableKeys = "boolean" | "number" | "object" | "string";
-
-type NumericalLookupTable = FunctionPointerTable<
-    NumericalLookupTableKeys,
-    ComposableFunction<any, number>
->;
-
-const NumericalResolvesTable: NumericalLookupTable = {
-    boolean: (x: boolean) => x ? 1 : 0,
-    number: (x: number) => x,
-    object: (x: object) => {
-        if (implementsToPrimitive(x)) {
-            return Number(+x);
-        }
-
-        if (implementsToString(x)) {
-            return Number(x.toString());
-        }
-
-        return NaN;
-    },
-    string: (x: string) => Number(x),
 }
