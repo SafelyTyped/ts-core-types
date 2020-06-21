@@ -33,7 +33,18 @@
 //
 import { ToPrimitive } from "./ToPrimitive";
 
-
+/**
+ * `implementsToPrimitive()` is a type guard. Use it to prove that the
+ * `input` object implements the {@link ToPrimitive} interface.
+ *
+ * @param input
+ * the object to inspect
+ * @returns
+ * - `true` if input implements the {@link ToPrimitive} interface
+ * - `false` otherwise
+ *
+ * @category Protocols
+ */
 export function implementsToPrimitive(input: unknown): input is object & ToPrimitive {
     // special case - prevents runtime errors below
     if (typeof input !== "object" || input === null || input === undefined) {
