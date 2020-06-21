@@ -31,12 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { isMethodName } from "./isMethodName";
-
-
-// This code has been adapted from:
-//
-// https://stackoverflow.com/a/47714550
+import { findMethodNames } from "./Filters";
 
 /**
  * `getAllMethodNames()` is a data filter. It returns a list of all methods
@@ -57,56 +52,5 @@ import { isMethodName } from "./isMethodName";
  * @category BasicTypes
  */
 export function getAllMethodNames<T extends object>(target: T): string[] {
-    // this list will include duplicate names if:
-    //
-    // - a method has been overridden in a child class
-    const allMethods = extractMethodNames(target);
-
-    // so lets dedupe it before we return it!
-    return Array.from(new Set(allMethods));
-}
-
-/**
- * `extractMethodNames()` returns a list of all methods found in:
- *
- * - target
- * - target's base classes
- * - and the Object.prototype
- *
- * @template T
- * The type of object to inspect. This is used internally to convince
- * the Typescript compiler to let us access individual properties on
- * `target`. You shouldn't have to supply this yourself. The Typescript
- * compiler's type-inference should handle this auto-magically.
- * @param target
- * The object to inspect.
- * @returns
- * - a list of all methods found. The order of the results is not
- *   guaranteed. The list CAN contain duplicate names.
- *
- * @ignore
- * @internal
- */
-function extractMethodNames<T extends object>(target: T): string[] {
-    // our return value
-    let retval: string[] = [];
-
-    // what we're currently inspecting
-    let obj = target;
-
-    // continue until we run out of prototype!
-    while(obj !== null) {
-        // what does this prototype have for us today?
-        const propNames = Object.getOwnPropertyNames(obj).filter(
-            (name) => isMethodName(obj, name as keyof T)
-        );
-        // let's get them added into our result
-        retval = retval.concat(propNames);
-
-        // next prototype!
-        obj = Object.getPrototypeOf(obj);
-    }
-
-    // all done
-    return retval;
+    return findMethodNames(target);
 }
