@@ -34,6 +34,7 @@
 
 import { AppErrorOr } from "../../../OptionTypes";
 import { DataPath } from "../../../SupportingTypes";
+import { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
 
 /**
  * `BooleanishValidator` is a function signature. It describes a function
@@ -47,5 +48,5 @@ import { DataPath } from "../../../SupportingTypes";
 export type BooleanishValidator<T, OPT extends object = object> = (
     path: DataPath,
     input: T,
-    options: { supportedTypes: string[] } & OPT
+    options: BooleanishValidatorOptions<OPT>
 ) => AppErrorOr<boolean>;

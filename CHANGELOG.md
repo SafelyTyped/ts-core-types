@@ -54,6 +54,12 @@ The following changes have been completed, and will be included in the next tagg
 * RefinedTypes
   - `RefinedString` now supports auto-conversion to a number
 
+### Refactorings
+
+* BasicTypes
+  - the Booleanish module now uses the `FunctionPointerTable`
+    - replaces its own, bespoke approach
+
 ## v0.1.6
 
 Released Sunday, 21st June 2020.
