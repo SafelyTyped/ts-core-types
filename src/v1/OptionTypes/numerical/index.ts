@@ -32,5 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AppErrorOr";
 export * from "./numerical";
+export * from "./resolveNumerical";
+export * from "./validateNumericalData";
