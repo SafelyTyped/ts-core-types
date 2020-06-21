@@ -55,6 +55,7 @@ The following changes have been completed, and will be included in the next tagg
       - added `FIND_PROPERTY_NAMES_DEFAULT_OPTIONS`
       - added `findAttributeNames()`
       - added `findMethodNames()`
+      - added `findProperties()`
       - added `findPropertyNames()`
   * Protocols
     - added `Has` protocol
