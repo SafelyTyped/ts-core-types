@@ -25,6 +25,14 @@ The following changes have been completed, and will be included in the next tagg
 
 * Protocols
   - added `ToPrimitive` protocol
+* RefinedTypes
+  - `RefinedNumber` now implements `ToPrimitive`
+  - `RefinedString` now implements `ToPrimitive`
+
+### Fix
+
+* RefinedTypes
+  - `RefinedString` now supports auto-conversion to a number
 
 ## v0.1.6
 

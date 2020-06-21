@@ -89,10 +89,11 @@ describe("RefinedString", () => {
     });
 
     it("does not auto-convert to a number", () => {
-        const inputValue = "123e4567-e89b-12d3-a456-426655440000";
+        const inputValue = "hello world!"
         const uuid = Uuid.from(inputValue);
 
         const actualValue = uuid[Symbol.toPrimitive]("number");
-        expect(actualValue).to.equal(null);
+        // tslint:disable-next-line: no-unused-expression
+        expect(actualValue).to.be.NaN;
     });
 });
