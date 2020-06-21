@@ -54,6 +54,7 @@ The following changes have been completed, and will be included in the next tagg
       - added `FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE`
       - added `FIND_PROPERTY_NAMES_DEFAULT_OPTIONS`
       - added `findAttributeNames()`
+      - added `findMethods()`
       - added `findMethodNames()`
       - added `findProperties()`
       - added `findPropertyNames()`
