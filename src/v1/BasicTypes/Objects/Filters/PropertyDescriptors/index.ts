@@ -32,16 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./Filters";
+export * from "./PropertyDescriptorFilter";
+export * from "./PropertyDescriptorFilterData";
+export * from "./PropertyDescriptorFilterOptions";
+export * from "./defaults/FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS";
+export * from "./findAttributes";
+export * from "./findMethods";
+export * from "./findProperties";
