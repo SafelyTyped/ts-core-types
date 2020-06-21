@@ -31,8 +31,21 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ToPrimitive } from "./ToPrimitive";
 
-export * from "./Has";
-export * from "./Stack";
-export * from "./ToPrimitive";
-export * from "./ToString";
+
+export function implementsToPrimitive(input: unknown): input is object & ToPrimitive {
+    // special case - prevents runtime errors below
+    if (typeof input !== "object" || input === null || input === undefined) {
+        return false;
+    }
+
+    if (
+        (input as ToPrimitive)[Symbol.toPrimitive]
+        && typeof (input as ToPrimitive)[Symbol.toPrimitive] === "function"
+    ) {
+        return true;
+    }
+
+    return false;
+}

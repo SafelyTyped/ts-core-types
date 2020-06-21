@@ -32,7 +32,5 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Has";
-export * from "./Stack";
 export * from "./ToPrimitive";
-export * from "./ToString";
+export * from "./implementsToPrimitive";

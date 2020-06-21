@@ -32,7 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Has";
-export * from "./Stack";
-export * from "./ToPrimitive";
-export * from "./ToString";
+/**
+ * `ToPrimitive` is a protocol. It describes an object that supports the
+ * `ToPrimitive` abstract operation.
+ *
+ * @category Protocols
+ */
+export interface ToPrimitive {
+    [Symbol.toPrimitive]: (hint: "string" | "number" | "default") => string | number | null;
+}
