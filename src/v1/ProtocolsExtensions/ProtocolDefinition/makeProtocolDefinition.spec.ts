@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { addExtensions } from "../Extensions";
+import { addExtension } from "../Extensions";
 import { makeProtocolDefinition } from "./makeProtocolDefinition";
 import { implementsProtocol } from "../Protocol";
 import { getPublicMethodNames } from "../../BasicTypes";
@@ -81,7 +81,7 @@ describe("makeProtocolDefinition()", () => {
     });
 
     it("can be used with implementsProtocol()", () => {
-        const unit = addExtensions(
+        const unit = addExtension(
             new UnitTestExample("text/html"),
             UnitTestGuessMediaType.prototype,
         );
