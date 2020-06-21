@@ -32,13 +32,28 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AnyFunction";
-export * from "./ComposableFunction";
-export * from "./DataGuarantee";
-export * from "./DataGuard";
-export * from "./DataValidator";
-export * from "./FunctionalOption";
-export * from "./SmartConstructor";
-export * from "./TypeGuard";
-export * from "./TypeGuarantee";
-export * from "./TypeValidator";
+/**
+ * A `ComposableFunction` is any function that:
+ *
+ * - has one input,
+ * - one output,
+ * - no internal state
+ * - no side-effects (don't modify the input value at all!)
+ *
+ * We can't enforce all of that in TypeScript (yet), but who knows?
+ * Maybe one day :)
+ *
+ * @template IN
+ * `IN` is the type of data that the function accepts
+ * @template OUT
+ * `OUT` is the type of data that the function produces
+ * @template OPT
+ * `OPT` is the type of user-supplied options that the function accepts
+ * @param input
+ * The data that the function accepts
+ * @returns
+ * That depends entirely on what the function does
+ *
+ * @category Archetypes
+ */
+export type ComposableFunction<IN, OUT, OPT = object> = (input: IN, options?: OPT) => OUT;
