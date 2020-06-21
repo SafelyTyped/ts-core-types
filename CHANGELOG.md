@@ -25,6 +25,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * Protocols
   - added `ToPrimitive` protocol
+  - added `PrimitiveHint` type
 * RefinedTypes
   - `RefinedNumber` now implements `ToPrimitive`
   - `RefinedString` now implements `ToPrimitive`

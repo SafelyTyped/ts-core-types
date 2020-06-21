@@ -32,6 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./ToPrimitive";
-export * from "./implementsToPrimitive";
-export * from "./PrimitiveHint";
+/**
+ * `PrimitiveHint` describes the valid inputs into a [Symbol.toPrimitive]
+ * handler on an object.
+ *
+ * @category Protocols
+ */
+export type PrimitiveHint = "string" | "number" | "default";
