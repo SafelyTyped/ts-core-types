@@ -21,6 +21,25 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.6
+
+Released Sunday, 21st June 2020.
+
+### New
+
+* Errors
+  - added `NumberOutOfRangeError`
+* Basic Types
+  - added `validateNumberRange()`
+
+### Refactor
+
+* HttpStatusCode
+  - now built on `validateNumberRange()`
+* HttpStatusCodeError
+  - now also an instance of `NumberOutOfRangeError`
+  - now includes `minInc` and `maxInc` fields
+
 ## v0.1.5
 
 Released Sunday, 21st June 2020.

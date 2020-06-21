@@ -31,25 +31,39 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { expect } from "chai";
-import { describe } from "mocha";
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
 
-import { HttpStatusCodeOutOfRangeError } from "./HttpStatusCodeOutOfRangeError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+/**
+ * `NumberOutOfRangeData` defines the data that every
+ * {@link NumberOutOfRangeError} requires.
+ *
+ * @category Errors
+ */
+export interface NumberOutOfRangeData extends ExtraPublicData {
+    public: {
+        /**
+         * `dataPath` is your location in the data structure
+         * you are validating. Use {@link DEFAULT_DATA_PATH}
+         * if you are not inside a nested data structure.
+         */
+        dataPath: DataPath;
 
-describe("HttpStatusCodeOutOfRangeError", () => {
-    describe(".constructor()", () => {
-        it("creates a Javascript error", () => {
-            const unit = new HttpStatusCodeOutOfRangeError({
-                public: {
-                    dataPath: DEFAULT_DATA_PATH,
-                    input: 70000,
-                    minInc: 0,
-                    maxInc: 65535
-                },
-            });
+        /**
+         * `input` is the value that failed the range check/
+         */
+        input: number;
 
-            expect(unit).to.be.instanceOf(Error);
-        });
-    });
-});
+        /**
+         * `minInc` is the smallest number that's permitted in
+         * this range
+         */
+        minInc: number;
+
+        /**
+         * `maxInc` is the largest number that's permitted in
+         * this range
+         */
+        maxInc: number;
+    };
+}

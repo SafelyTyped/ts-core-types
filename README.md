@@ -37,3 +37,5 @@ Here's a link to all the documentation about this project.
 
 * [Current Maintainers](MAINTAINERS.md)
 * [All contributors to date](AUTHORS.md)
+
+Follow us on [Twitter](https://twitter.com/SafelyTyped)!

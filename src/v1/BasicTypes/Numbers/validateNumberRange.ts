@@ -31,25 +31,38 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { expect } from "chai";
-import { describe } from "mocha";
+import { NumberOutOfRangeError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
 
-import { HttpStatusCodeOutOfRangeError } from "./HttpStatusCodeOutOfRangeError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-
-describe("HttpStatusCodeOutOfRangeError", () => {
-    describe(".constructor()", () => {
-        it("creates a Javascript error", () => {
-            const unit = new HttpStatusCodeOutOfRangeError({
-                public: {
-                    dataPath: DEFAULT_DATA_PATH,
-                    input: 70000,
-                    minInc: 0,
-                    maxInc: 65535
-                },
-            });
-
-            expect(unit).to.be.instanceOf(Error);
+/**
+ * `validateNumberRange()` is a {@link TypeValidator}. Use it to prove that
+ * the given input falls within the range of values you require.
+ *
+ * @param path
+ * @param input
+ *
+ * @category BasicTypes
+ */
+export function validateNumberRange(
+    path: DataPath,
+    input: number,
+    minInc: number,
+    maxInc: number,
+    { rangeError = NumberOutOfRangeError } = {}
+): AppErrorOr<number> {
+    // just your basic range check
+    if (input < minInc || input > maxInc) {
+        return new rangeError({
+            public: {
+                dataPath: path,
+                input,
+                minInc,
+                maxInc,
+            }
         });
-    });
-});
+    }
+
+    // all done
+    return input;
+}

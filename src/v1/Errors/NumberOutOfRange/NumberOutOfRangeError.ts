@@ -31,25 +31,34 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { expect } from "chai";
-import { describe } from "mocha";
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { NumberOutOfRangeData } from "./NumberOutOfRangeData";
+import { HttpStatusCode } from "../../SupportingTypes";
 
-import { HttpStatusCodeOutOfRangeError } from "./HttpStatusCodeOutOfRangeError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-
-describe("HttpStatusCodeOutOfRangeError", () => {
-    describe(".constructor()", () => {
-        it("creates a Javascript error", () => {
-            const unit = new HttpStatusCodeOutOfRangeError({
-                public: {
-                    dataPath: DEFAULT_DATA_PATH,
-                    input: 70000,
-                    minInc: 0,
-                    maxInc: 65535
-                },
-            });
-
-            expect(unit).to.be.instanceOf(Error);
+/**
+ * `NumberOutOfRangeError` is thrown whenever we're given a number that
+ * has failed a range change.
+ *
+ * @category Errors
+ */
+export class NumberOutOfRangeError extends AppError<NumberOutOfRangeData> {
+    public constructor(
+        params: NumberOutOfRangeData & AppErrorData,
+        {
+            description = "input falls outside the permitted range"
+        }: {
+            description?: string
+        } = {}
+    ) {
+        const spr = makeStructuredProblemReport<NumberOutOfRangeData>({
+            definedBy: MODULE_NAME,
+            description: description,
+            errorId: params.errorId,
+            extra: { public: params.public },
+            status: 422 as HttpStatusCode,
         });
-    });
-});
+
+        super(spr);
+    }
+}

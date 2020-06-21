@@ -34,18 +34,18 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { HttpStatusCodeOutOfRangeError } from "./HttpStatusCodeOutOfRangeError";
+import { NumberOutOfRangeError } from "./NumberOutOfRangeError";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 
-describe("HttpStatusCodeOutOfRangeError", () => {
+describe("NumberOutOfRangeError", () => {
     describe(".constructor()", () => {
         it("creates a Javascript error", () => {
-            const unit = new HttpStatusCodeOutOfRangeError({
+            const unit = new NumberOutOfRangeError({
                 public: {
                     dataPath: DEFAULT_DATA_PATH,
-                    input: 70000,
+                    input: 600,
                     minInc: 0,
-                    maxInc: 65535
+                    maxInc: 1,
                 },
             });
 

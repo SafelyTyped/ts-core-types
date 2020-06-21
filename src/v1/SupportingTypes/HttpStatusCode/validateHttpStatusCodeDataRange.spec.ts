@@ -50,8 +50,8 @@ describe("validateHttpStatusCodeRange()", () => {
         }
     });
 
-    it("accepts non-integers in the range 100-599 inclusive", () => {
-        for (let inputValue = 100.1; inputValue < 600; inputValue++) {
+    it("accepts non-integers in the range 100-598 inclusive", () => {
+        for (let inputValue = 100.1; inputValue < 599; inputValue++) {
             const actualValue = validateHttpStatusCodeDataRange(
                 DEFAULT_DATA_PATH,
                 inputValue

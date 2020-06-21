@@ -31,25 +31,6 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { expect } from "chai";
-import { describe } from "mocha";
 
-import { HttpStatusCodeOutOfRangeError } from "./HttpStatusCodeOutOfRangeError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-
-describe("HttpStatusCodeOutOfRangeError", () => {
-    describe(".constructor()", () => {
-        it("creates a Javascript error", () => {
-            const unit = new HttpStatusCodeOutOfRangeError({
-                public: {
-                    dataPath: DEFAULT_DATA_PATH,
-                    input: 70000,
-                    minInc: 0,
-                    maxInc: 65535
-                },
-            });
-
-            expect(unit).to.be.instanceOf(Error);
-        });
-    });
-});
+export * from "./NumberOutOfRangeData";
+export * from "./NumberOutOfRangeError";

@@ -36,6 +36,7 @@ export * from "./defaults/MODULE_NAME";
 export * from "./ExtensionDefinesNoMethods";
 export * from "./HttpStatusCodeOutOfRange";
 export * from "./InvalidNodeJSModuleName";
+export * from "./NumberOutOfRange";
 export * from "./ObjectHasMissingMethods";
 export * from "./UnreachableCode";
 export * from "./UnsupportedBooleanishValue";

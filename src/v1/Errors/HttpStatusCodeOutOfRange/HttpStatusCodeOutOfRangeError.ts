@@ -31,9 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { HttpStatusCode } from "../../SupportingTypes";
-import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { AppErrorData } from "../../ErrorHandling";
+import { NumberOutOfRangeError } from "../NumberOutOfRange";
 import { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
 
 /**
@@ -42,16 +41,11 @@ import { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
  *
  * @category Errors
  */
-export class HttpStatusCodeOutOfRangeError extends AppError<HttpStatusCodeOutOfRangeData> {
+export class HttpStatusCodeOutOfRangeError extends NumberOutOfRangeError {
     public constructor(params: HttpStatusCodeOutOfRangeData & AppErrorData) {
-        const srp = makeStructuredProblemReport<HttpStatusCodeOutOfRangeData>({
-            definedBy: MODULE_NAME,
-            description: "input falls outside the range of a valid HTTP status code",
-            errorId: params.errorId,
-            extra: { public: params.public },
-            status: 422 as HttpStatusCode,
-        });
-
-        super(srp);
+        super(
+            params,
+            { description: "input falls outside the range of a valid HTTP status code" }
+        );
     }
 }

@@ -35,3 +35,4 @@
 export * from "./isNumber";
 export * from "./mustBeNumber";
 export * from "./validateNumber";
+export * from "./validateNumberRange";
