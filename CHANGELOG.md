@@ -32,6 +32,7 @@ The following changes have been completed, and will be included in the next tagg
   * numerical (new type!)
     - added `numerical` option type
     - added `NumericalRules` function pointer table
+    - added `DEFAULT_NUMERICAL_RULES`
     - added `resolveNumerical()`
     - added `validateNumericalData()`
 * Protocols
