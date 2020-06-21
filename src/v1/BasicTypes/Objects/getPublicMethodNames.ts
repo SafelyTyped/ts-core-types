@@ -31,12 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-// This code has been adapted from:
-//
-// https://stackoverflow.com/a/47714550
-
-import { getAllMethodNames } from "./getAllMethodNames";
+import { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS, findMethodNames } from "./Filters";
+import { FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS";
+import { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
 
 /**
  * `getPublicMethodNames()` is a data filter. It returns a list of all
@@ -48,8 +45,7 @@ import { getAllMethodNames } from "./getAllMethodNames";
  * - that don't start with an underscore (ie suggest they're protected
  *   or private)
  *
- * Getters and Setters are NOT treated as public methods, because they're
- * not callable.
+ * Getters and Setters are NOT treated as public methods.
  *
  * @param target
  * The object to inspect.
@@ -60,8 +56,10 @@ import { getAllMethodNames } from "./getAllMethodNames";
 export function getPublicMethodNames(
     target: object
 ): string[] {
-    return getAllMethodNames(target)
-        .filter(
-            (name) => name !== "constructor" && !name.startsWith( "_" )
-        );
+    return findMethodNames(
+        target,
+        FIND_PROPERTY_NAMES_DEFAULT_OPTIONS,
+        FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS,
+        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
+    );
 }
