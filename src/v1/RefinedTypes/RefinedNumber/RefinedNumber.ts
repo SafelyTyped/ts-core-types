@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive } from "../../Protocols";
+import { ToPrimitive, PrimitiveHint } from "../../Protocols";
 
 /**
  * `RefinedString` is a base class for defining a subset of numbers.
@@ -47,7 +47,7 @@ export class RefinedNumber<OPT extends object = object>
     extends RefinedPrimitive<number, OPT>
     implements ToPrimitive {
 
-    public [ Symbol.toPrimitive ](hint: "string" | "number" | "default"): string | number {
+    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
         if (hint === "string") {
             return this._value.toString();
         }
