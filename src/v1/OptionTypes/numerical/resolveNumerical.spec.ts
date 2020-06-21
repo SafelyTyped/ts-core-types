@@ -37,6 +37,7 @@ import { describe } from "mocha";
 
 import { ValueObject } from "../../Archetypes";
 import { RefinedNumber, RefinedString } from "../../RefinedTypes";
+import { NumericalConversionRules } from "./NumericalConversionRules";
 import { resolveNumerical } from "./resolveNumerical";
 
 const noPrototype = {}
@@ -227,5 +228,13 @@ describe("resolveNumericToNumber()", () => {
                 expect(resolveNumerical(inputValue)).to.be.NaN;
             });
         });
+
+        // special case - the only way to trigger the fallback is to
+        // remove all the rules
+        it("returns `NaN` when the fallback rule is triggered", () => {
+            const fpTable: NumericalConversionRules = {};
+            // tslint:disable-next-line: no-unused-expression
+            expect(resolveNumerical("this is a test", { fpTable })).to.be.NaN;
+        })
     });
 });
