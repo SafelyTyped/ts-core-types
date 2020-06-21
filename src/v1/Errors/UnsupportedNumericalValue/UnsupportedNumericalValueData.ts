@@ -32,14 +32,18 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `UnsupportedNumericalValueData()` describes the input required by
+ * {@link UnsupportedNumericalValueError}.
+ *
+ * @category Errors
+ */
+export interface UnsupportedNumericalValueData extends ExtraPublicData {
+    public: {
+        dataPath: DataPath,
+        value: any,
+    }
+}

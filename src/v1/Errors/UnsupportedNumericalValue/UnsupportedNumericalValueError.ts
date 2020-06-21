@@ -31,15 +31,30 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { UnsupportedNumericalValueData } from "./UnsupportedNumericalValueData";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+
+/**
+ * `UnsupportedNumericalValueError` is a throwable Error. It is thrown
+ * whenever we've given a value that we can't convert into a `number`.
+ *
+ * @category Errors
+ */
+export class UnsupportedNumericalValueError extends AppError<UnsupportedNumericalValueData> {
+    public constructor(params: UnsupportedNumericalValueData & AppErrorData) {
+        const spr = makeStructuredProblemReport<UnsupportedNumericalValueData>({
+            definedBy: MODULE_NAME,
+            description: "cannot convert to a number value",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: 422 as HttpStatusCode,
+        });
+
+        super(spr);
+    }
+}
