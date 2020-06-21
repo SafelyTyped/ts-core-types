@@ -31,7 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ComposableFunction } from "../../Archetypes";
 import { implementsToPrimitive, implementsToString } from "../../Protocols";
+import { FunctionPointerTable, searchFunctionPointerTable } from "../../SupportingTypes";
 import { numerical } from "./numerical";
 
 /**
@@ -56,20 +58,21 @@ import { numerical } from "./numerical";
 export function resolveNumerical(
     input: numerical
 ): number {
-    const inputType = typeof input;
-    if (NumericalResolversTable[inputType]) {
-        return NumericalResolversTable[inputType](input);
-    }
-
-    // if we get here, we don't know how to process what we've got
-    return NaN;
+    return searchFunctionPointerTable(
+        NumericalResolvesTable,
+        [ typeof input ],
+        () => NaN,
+    )(input);
 }
 
-type NumericalResolversList = {
-    [key: string]: (x: any) => number;
-}
+type NumericalLookupTableKeys = "boolean" | "number" | "object" | "string";
 
-const NumericalResolversTable: NumericalResolversList = {
+type NumericalLookupTable = FunctionPointerTable<
+    NumericalLookupTableKeys,
+    ComposableFunction<any, number>
+>;
+
+const NumericalResolvesTable: NumericalLookupTable = {
     boolean: (x: boolean) => x ? 1 : 0,
     number: (x: number) => x,
     object: (x: object) => {
