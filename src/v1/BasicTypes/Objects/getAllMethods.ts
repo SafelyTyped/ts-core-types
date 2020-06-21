@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { isMethodName } from "./isMethodName";
+import { findMethods } from "./Filters";
 
 /**
  * `getAllMethods()` is a data filter. It returns a list of all methods
@@ -51,27 +51,5 @@ import { isMethodName } from "./isMethodName";
  * @category BasicTypes
  */
 export function getAllMethods<T extends object>(target: T): Map<string, PropertyDescriptor> {
-    // our return value
-    const retval = new Map();
-
-    // what we're currently inspecting
-    let obj = target;
-
-    // continue until we run out of prototype!
-    while(obj !== null) {
-        // what does this prototype have for us today?
-        const propNames = Object.getOwnPropertyNames(obj).filter(
-            (name) => isMethodName(obj, name as keyof T) && !retval.has(name)
-        );
-        // let's get them added into our result
-        for (const propName of propNames) {
-            retval.set(propName, Object.getOwnPropertyDescriptor(obj, propName));
-        }
-
-        // next prototype!
-        obj = Object.getPrototypeOf(obj);
-    }
-
-    // all done
-    return retval;
+    return findMethods(target);
 }
