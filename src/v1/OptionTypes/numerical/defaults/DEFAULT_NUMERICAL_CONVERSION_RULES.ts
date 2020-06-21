@@ -31,19 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ComposableFunction } from "../../Archetypes";
-import { FunctionPointerTable } from "../../SupportingTypes";
+import { implementsToPrimitive, implementsToString } from "../../../Protocols";
+import { NumericalConversionRules } from "../NumericalConversionRules";
 
 /**
- * `NumericalRules` describes the table that tells {@link resolveNumerical}
- * how to convert any given type to a `number`.
- *
- * Use {@link DEFAULT_NUMERICAL_RULES} if you ever need to pass the
- * default ruleset into a function.
+ * `DEFAULT_NUMERICAL_CONVERSION_RULES` are the default rules that
+ * {@link resolveNumerical} uses to convert different types to numbers.
  *
  * @category OptionTypes
  */
-export type NumericalRules = FunctionPointerTable<
-    any,
-    ComposableFunction<any, number>
->;
+export const DEFAULT_NUMERICAL_CONVERSION_RULES: NumericalConversionRules = {
+    boolean: (x: boolean) => x ? 1 : 0,
+    number: (x: number) => x,
+    object: (x: object) => {
+        if (implementsToPrimitive(x)) {
+            return Number(+x);
+        }
+
+        if (implementsToString(x)) {
+            return Number(x.toString());
+        }
+
+        return NaN;
+    },
+    string: (x: string) => Number(x),
+}
