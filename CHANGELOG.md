@@ -25,6 +25,8 @@ The following changes have been completed, and will be included in the next tagg
 
 * Errors
   - added `NumberOutOfRangeError`
+* Basic Types
+  - added `validateNumberRange()`
 
 ## v0.1.5
 
