@@ -26,6 +26,8 @@ The following changes have been completed, and will be included in the next tagg
 * Archetypes
   - added `AnyFunction`
   - added `ComposableFunction`
+* BasicTypes
+  - added `BooleanishValidatorOptions`
 * Errors
   - added `UnsupportedNumericalValueError`
 * Option Types
