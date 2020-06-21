@@ -31,27 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import { ToPrimitive, ToString } from "../../Protocols";
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * `numerical` is an option type. Use it to represent a value that
+ * can be converted into a Javascript `number` on-demand.
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @category OptionTypes
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
-
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
-        }
-
-        return this._value;
-    }
-}
+export type numerical = boolean|string|number|ToPrimitive|ToString;

@@ -31,27 +31,51 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import { AppErrorOr } from "..";
+import { UnsupportedNumericalValueError } from "../../Errors";
+import { DataPath } from "../../SupportingTypes";
+import { numerical } from "./numerical";
+import { resolveNumerical } from "./resolveNumerical";
+import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
+import { NumericalConversionRules } from "./NumericalConversionRules";
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * `validateNumericalData()` is a data validator. Use it to prove that
+ * the input data can be converted to a valid number.
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @param path
+ * where are you in the data structure that you're validating?
+ * Use {@link DEFAULT_DATA_PATH} if you're not looking at a nested structure.
+ * @param input
+ * the value to validate
+ * @returns
+ * - `input` converted to its number value on success, or
+ * - an AppError explaining why validation failed
+ *
+ * @category OptionTypes
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
+export function validateNumericalData(
+    path: DataPath,
+    input: numerical,
+    {
+        conversionRules = DEFAULT_NUMERICAL_CONVERSION_RULES
+    }: {
+        conversionRules?: NumericalConversionRules
+    } = {}
+): AppErrorOr<numerical> {
+    // convert it!
+    const n = resolveNumerical(input, { conversionRules });
 
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
-        }
-
-        return this._value;
+    // do we like the results?
+    if (isNaN(n) || !isFinite(n)) {
+        return new UnsupportedNumericalValueError({
+            public: {
+                dataPath: path,
+                value: input,
+            }
+        });
     }
+
+    // all good
+    return n;
 }

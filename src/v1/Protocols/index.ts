@@ -34,4 +34,5 @@
 
 export * from "./Has";
 export * from "./Stack";
+export * from "./ToPrimitive";
 export * from "./ToString";

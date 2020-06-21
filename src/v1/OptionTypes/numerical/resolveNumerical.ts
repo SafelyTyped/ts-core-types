@@ -31,27 +31,41 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import { searchFunctionPointerTable } from "../../SupportingTypes";
+import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
+import { numerical } from "./numerical";
+import { NumericalConversionRules } from "./NumericalConversionRules";
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * `resolveNumerical()` is an option type resolver. It attempts to convert
+ * the input value to be a `number`:
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * - numbers remain as numbers
+ * - booleans become 0|1
+ * - strings get converted to a number
+ * - objects, we try methods in this order:
+ *   - `[Symbol.toPrimitive]("number")`
+ *   - `toString()`
+ *
+ * @param input
+ * the value to be converted
+ * @returns
+ * - a `number` on success, or
+ * - `NaN` on failure
+ *
+ * @category OptionTypes
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
-
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
-        }
-
-        return this._value;
-    }
+export function resolveNumerical(
+    input: numerical,
+    {
+        conversionRules = DEFAULT_NUMERICAL_CONVERSION_RULES
+    }: {
+        conversionRules?: NumericalConversionRules
+    } = {}
+): number {
+    return searchFunctionPointerTable(
+        conversionRules,
+        [ typeof input ],
+        () => NaN,
+    )(input);
 }

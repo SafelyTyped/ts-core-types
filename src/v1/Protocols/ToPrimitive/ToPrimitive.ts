@@ -31,27 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * `ToPrimitive` is a protocol. It describes an object that supports the
+ * `ToPrimitive` abstract operation.
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @category Protocols
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
-
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
-        }
-
-        return this._value;
-    }
+export interface ToPrimitive {
+    [Symbol.toPrimitive]: (hint: "string" | "number" | "default") => string | number | null;
 }

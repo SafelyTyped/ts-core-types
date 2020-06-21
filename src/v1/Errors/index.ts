@@ -40,5 +40,6 @@ export * from "./NumberOutOfRange";
 export * from "./ObjectHasMissingMethods";
 export * from "./UnreachableCode";
 export * from "./UnsupportedBooleanishValue";
+export * from "./UnsupportedNumericalValue";
 export * from "./UnsupportedType";
 export * from "./UnsupportedStringPrefix";

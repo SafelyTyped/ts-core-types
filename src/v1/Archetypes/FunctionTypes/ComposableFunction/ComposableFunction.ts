@@ -31,27 +31,29 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * A `ComposableFunction` is any function that:
  *
- * @category RefinedTypes
+ * - has one input,
+ * - one output,
+ * - no internal state
+ * - no side-effects (don't modify the input value at all!)
+ *
+ * We can't enforce all of that in TypeScript (yet), but who knows?
+ * Maybe one day :)
+ *
+ * @template IN
+ * `IN` is the type of data that the function accepts
+ * @template OUT
+ * `OUT` is the type of data that the function produces
  * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * `OPT` is the type of user-supplied options that the function accepts
+ * @param input
+ * The data that the function accepts
+ * @returns
+ * That depends entirely on what the function does
+ *
+ * @category Archetypes
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
-
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
-        }
-
-        return this._value;
-    }
-}
+export type ComposableFunction<IN, OUT, OPT = object> = (input: IN, options?: OPT) => OUT;

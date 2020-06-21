@@ -31,27 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import { implementsToPrimitive, implementsToString } from "../../../Protocols";
+import { NumericalConversionRules } from "../NumericalConversionRules";
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * `DEFAULT_NUMERICAL_CONVERSION_RULES` are the default rules that
+ * {@link resolveNumerical} uses to convert different types to numbers.
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @category OptionTypes
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
-
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
+export const DEFAULT_NUMERICAL_CONVERSION_RULES: NumericalConversionRules = {
+    boolean: (x: boolean) => x ? 1 : 0,
+    number: (x: number) => x,
+    object: (x: object) => {
+        if (implementsToPrimitive(x)) {
+            return Number(+x);
         }
 
-        return this._value;
-    }
+        if (implementsToString(x)) {
+            return Number(x.toString());
+        }
+
+        return NaN;
+    },
+    string: (x: string) => Number(x),
 }

@@ -33,3 +33,4 @@
 //
 
 export * from "./AppErrorOr";
+export * from "./numerical";

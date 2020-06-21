@@ -33,6 +33,7 @@
 //
 import { RefinedType } from "../RefinedType";
 import { AnyPrimitiveType } from "../AnyPrimitiveType";
+import { PrimitiveHint } from "../../Protocols";
 
 /**
  * `RefinedPrimitive` is a base class for defining a subset of any primitive
@@ -50,5 +51,5 @@ export abstract class RefinedPrimitive<
     T extends AnyPrimitiveType,
     OPT extends object = object
 > extends RefinedType<T, OPT> {
-    public abstract [Symbol.toPrimitive](hint: string): AnyPrimitiveType;
+    public abstract [Symbol.toPrimitive](hint: PrimitiveHint): AnyPrimitiveType;
 }

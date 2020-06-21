@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./AnyFunction";
+export * from "./ComposableFunction";
 export * from "./DataGuarantee";
 export * from "./DataGuard";
 export * from "./DataValidator";

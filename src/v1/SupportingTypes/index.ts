@@ -33,5 +33,6 @@
 //
 
 export * from "./DataPath";
+export * from "./FunctionPointerTable";
 export * from "./HttpStatusCode";
 export * from "./NodeJSModuleName";

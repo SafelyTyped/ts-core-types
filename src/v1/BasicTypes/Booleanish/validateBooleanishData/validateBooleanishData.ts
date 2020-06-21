@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr, DataPath } from "../../..";
+import { AppErrorOr } from "../../../OptionTypes";
+import { DataPath, searchFunctionPointerTable } from "../../../SupportingTypes";
 import { getTypeNames } from "../../Unknowns";
 import { BooleanishDataOptions } from "../BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
@@ -69,14 +70,14 @@ export function validateBooleanishData(
     // we need a list of rules to look for
     const possibleRuleNames = getTypeNames(input);
 
-    // do we have a matching rule?
-    for (const possibleRuleName of possibleRuleNames) {
-        if (booleanish[possibleRuleName]) {
-            return booleanish[possibleRuleName](path, input, { supportedTypes });
-        }
-    }
-
-    // if we get to here, then we have an `input` that we don't know
-    // know how to process
-    return createUnsupportedTypeError(path, input, { supportedTypes });
+    // find and execute the matching rule
+    return searchFunctionPointerTable(
+        booleanish,
+        possibleRuleNames,
+        () => createUnsupportedTypeError(path, input, { supportedTypes })
+    )(
+        path,
+        input,
+        { supportedTypes }
+    );
 }

@@ -21,6 +21,49 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.7
+
+Released Sunday, 21st June 2020.
+
+### New
+
+* Archetypes
+  - added `AnyFunction`
+  - added `ComposableFunction`
+* BasicTypes
+  - added `BooleanishValidatorOptions`
+* Errors
+  - added `UnsupportedNumericalValueError`
+* Option Types
+  * numerical (new type!)
+    - added `numerical` option type
+    - added `NumericalConversionRules` function pointer table
+    - added `DEFAULT_NUMERICAL_CONVERSION_RULES`
+    - added `resolveNumerical()`
+    - added `validateNumericalData()`
+* Protocols
+  - added `ToPrimitive` protocol
+  - added `PrimitiveHint` type
+* RefinedTypes
+  - `RefinedNumber` now implements `ToPrimitive`
+  - `RefinedString` now implements `ToPrimitive`
+* SupportingTypes
+  * FunctionPointerTable (new type!)
+    - added `FunctionPointerTable`
+    - added `AnyFunctionPointerTable`
+    - added `searchFunctionPointerTable`
+
+### Fix
+
+* RefinedTypes
+  - `RefinedString` now supports auto-conversion to a number
+
+### Refactorings
+
+* BasicTypes
+  - the Booleanish module now uses the `FunctionPointerTable`
+    - replaces its own, bespoke approach
+
 ## v0.1.6
 
 Released Sunday, 21st June 2020.

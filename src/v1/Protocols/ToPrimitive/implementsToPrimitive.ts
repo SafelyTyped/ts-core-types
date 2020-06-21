@@ -31,27 +31,32 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import { ToPrimitive } from "./ToPrimitive";
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * `implementsToPrimitive()` is a type guard. Use it to prove that the
+ * `input` object implements the {@link ToPrimitive} interface.
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @param input
+ * the object to inspect
+ * @returns
+ * - `true` if input implements the {@link ToPrimitive} interface
+ * - `false` otherwise
+ *
+ * @category Protocols
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
-
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
-        }
-
-        return this._value;
+export function implementsToPrimitive(input: unknown): input is object & ToPrimitive {
+    // special case - prevents runtime errors below
+    if (typeof input !== "object" || input === null || input === undefined) {
+        return false;
     }
+
+    if (
+        (input as ToPrimitive)[Symbol.toPrimitive]
+        && typeof (input as ToPrimitive)[Symbol.toPrimitive] === "function"
+    ) {
+        return true;
+    }
+
+    return false;
 }

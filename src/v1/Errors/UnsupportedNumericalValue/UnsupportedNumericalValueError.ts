@@ -31,27 +31,30 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { UnsupportedNumericalValueData } from "./UnsupportedNumericalValueData";
+
 
 /**
- * `RefinedString` is a base class for defining a subset of strings.
- * The subset is enforced by a {@link DataGuarantee}.
+ * `UnsupportedNumericalValueError` is a throwable Error. It is thrown
+ * whenever we've given a value that we can't convert into a `number`.
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @category Errors
  */
-export class RefinedString<OPT extends object = object>
-    extends RefinedPrimitive<string, OPT>
-    implements ToPrimitive {
+export class UnsupportedNumericalValueError extends AppError<UnsupportedNumericalValueData> {
+    public constructor(params: UnsupportedNumericalValueData & AppErrorData) {
+        const spr = makeStructuredProblemReport<UnsupportedNumericalValueData>({
+            definedBy: MODULE_NAME,
+            description: "cannot convert to a number value",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: 422 as HttpStatusCode,
+        });
 
-    public [ Symbol.toPrimitive ](hint: PrimitiveHint): string | number {
-        if (hint === "number") {
-            return Number(this._value);
-        }
-
-        return this._value;
+        super(spr);
     }
 }
