@@ -31,14 +31,27 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { NumberOutOfRangeData } from "./NumberOutOfRangeData";
+import { HttpStatusCode } from "../../SupportingTypes";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `NumberOutOfRangeError` is thrown whenever we're given a number that
+ * has failed a range change.
+ *
+ * @category Errors
+ */
+export class NumberOutOfRangeError extends AppError<NumberOutOfRangeData> {
+    public constructor(params: NumberOutOfRangeData & AppErrorData) {
+        const spr = makeStructuredProblemReport<NumberOutOfRangeData>({
+            definedBy: MODULE_NAME,
+            description: "input falls outside the permitted range",
+            errorId: params.errorId,
+            extra: { public: params.public },
+            status: 422 as HttpStatusCode,
+        });
+
+        super(spr);
+    }
+}

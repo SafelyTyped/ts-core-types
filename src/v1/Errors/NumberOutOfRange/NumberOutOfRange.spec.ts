@@ -31,14 +31,25 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { NumberOutOfRangeError } from "./NumberOutOfRangeError";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+
+describe("NumberOutOfRangeError", () => {
+    describe(".constructor()", () => {
+        it("creates a Javascript error", () => {
+            const unit = new NumberOutOfRangeError({
+                public: {
+                    dataPath: DEFAULT_DATA_PATH,
+                    input: 600,
+                    minInc: 0,
+                    maxInc: 1,
+                },
+            });
+
+            expect(unit).to.be.instanceOf(Error);
+        });
+    });
+});

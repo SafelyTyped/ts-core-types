@@ -31,14 +31,39 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `NumberOutOfRangeData` defines the data that every
+ * {@link NumberOutOfRangeError} requires.
+ *
+ * @category Errors
+ */
+export interface NumberOutOfRangeData extends ExtraPublicData {
+    public: {
+        /**
+         * `dataPath` is your location in the data structure
+         * you are validating. Use {@link DEFAULT_DATA_PATH}
+         * if you are not inside a nested data structure.
+         */
+        dataPath: DataPath;
+
+        /**
+         * `input` is the value that failed the range check/
+         */
+        input: number;
+
+        /**
+         * `minInc` is the smallest number that's permitted in
+         * this range
+         */
+        minInc: number;
+
+        /**
+         * `maxInc` is the largest number that's permitted in
+         * this range
+         */
+        maxInc: number;
+    };
+}
