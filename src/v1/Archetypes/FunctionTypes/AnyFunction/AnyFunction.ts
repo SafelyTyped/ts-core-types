@@ -32,12 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AnyFunction";
-export * from "./DataGuarantee";
-export * from "./DataGuard";
-export * from "./DataValidator";
-export * from "./FunctionalOption";
-export * from "./SmartConstructor";
-export * from "./TypeGuard";
-export * from "./TypeGuarantee";
-export * from "./TypeValidator";
+/**
+ * `AnyFunction` represents all possible functions. It's very handy
+ * for using as a generic type parameter.
+ *
+ * @category Archetypes
+ */
+export type AnyFunction = (...args: any) => any;
