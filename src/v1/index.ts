@@ -40,4 +40,5 @@ export * from "./OptionTypes";
 export * from "./RefinedTypes";
 export * from "./Operators";
 export * from "./Protocols";
+export * from "./ProtocolsExtensions";
 export * from "./SupportingTypes";
