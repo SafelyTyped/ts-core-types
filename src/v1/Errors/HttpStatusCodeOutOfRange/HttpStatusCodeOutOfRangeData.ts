@@ -1,3 +1,4 @@
+// tslint:disable: no-empty-interface
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -31,8 +32,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ExtraPublicData } from "../../ErrorHandling";
-import { DataPath } from "../../SupportingTypes";
+import { NumberOutOfRangeData } from "../NumberOutOfRange";
 
 /**
  * `HttpStatusCodeOutOfRangeData` defines the data that every
@@ -40,9 +40,4 @@ import { DataPath } from "../../SupportingTypes";
  *
  * @category Errors
  */
-export interface HttpStatusCodeOutOfRangeData extends ExtraPublicData {
-    public: {
-        dataPath: DataPath;
-        input: number;
-    };
-}
+export interface HttpStatusCodeOutOfRangeData extends NumberOutOfRangeData {};

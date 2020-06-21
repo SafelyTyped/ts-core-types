@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { DataPath } from "..";
+import { validateNumberRange } from "../../BasicTypes";
 import { HttpStatusCodeOutOfRangeError } from "../../Errors";
 import { AppErrorOr } from "../../OptionTypes";
 
@@ -52,14 +53,11 @@ export function validateHttpStatusCodeDataRange (
     path: DataPath,
     input: number
 ): AppErrorOr<number> {
-    if (input < 100 || input >= 600) {
-        return new HttpStatusCodeOutOfRangeError({
-            public: {
-                dataPath: path,
-                input: input,
-            }
-        });
-    }
-
-    return input;
+    return validateNumberRange(
+        path,
+        input,
+        100,
+        599,
+        { rangeError: HttpStatusCodeOutOfRangeError }
+    );
 }

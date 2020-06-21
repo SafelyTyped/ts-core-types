@@ -43,7 +43,9 @@ describe("HttpStatusCodeOutOfRangeError", () => {
             const unit = new HttpStatusCodeOutOfRangeError({
                 public: {
                     dataPath: DEFAULT_DATA_PATH,
-                    input: 600,
+                    input: 70000,
+                    minInc: 0,
+                    maxInc: 65535
                 },
             });
 

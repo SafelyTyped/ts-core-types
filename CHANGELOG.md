@@ -28,6 +28,14 @@ The following changes have been completed, and will be included in the next tagg
 * Basic Types
   - added `validateNumberRange()`
 
+### Refactor
+
+* HttpStatusCode
+  - now built on `validateNumberRange()`
+* HttpStatusCodeError
+  - now also an instance of `NumberOutOfRangeError`
+  - now includes `minInc` and `maxInc` fields
+
 ## v0.1.5
 
 Released Sunday, 21st June 2020.

@@ -43,10 +43,17 @@ import { HttpStatusCode } from "../../SupportingTypes";
  * @category Errors
  */
 export class NumberOutOfRangeError extends AppError<NumberOutOfRangeData> {
-    public constructor(params: NumberOutOfRangeData & AppErrorData) {
+    public constructor(
+        params: NumberOutOfRangeData & AppErrorData,
+        {
+            description = "input falls outside the permitted range"
+        }: {
+            description?: string
+        } = {}
+    ) {
         const spr = makeStructuredProblemReport<NumberOutOfRangeData>({
             definedBy: MODULE_NAME,
-            description: "input falls outside the permitted range",
+            description: description,
             errorId: params.errorId,
             extra: { public: params.public },
             status: 422 as HttpStatusCode,
