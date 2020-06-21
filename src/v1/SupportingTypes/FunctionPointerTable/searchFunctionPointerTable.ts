@@ -1,3 +1,4 @@
+// tslint:disable: ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,7 +33,47 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
-export * from "./FunctionPointerTable";
-export * from "./HttpStatusCode";
-export * from "./NodeJSModuleName";
+import { AnyFunction } from "../../Archetypes";
+import { FunctionPointerTable } from "./FunctionPointerTable";
+
+/**
+ * `searchFunctionPointerTable()` will iterate through `keysToTry`
+ * in order. When we find a matching key in `table`, we'll return the
+ * corresponding function from `table`.
+ *
+ * If no match is found, we'll return `fallback()` instead.
+ *
+ * See {@link resolveNumeric} and {@link validateBooleanData} for two
+ * examples of how this function can be used.
+ *
+ * @param table
+ * the map of functions that we can search
+ * @param keysToTry
+ * the list of keys to check. Whichever one exists first on `table`, wins.
+ * @param fallback
+ * The function to return if none of the `keysToTry` exist on `table`.
+ * If you want to throw an {@link AppError}, `fallback()` is the place to
+ * do so.
+ *
+ * @template F
+ * The function signature of the functions in `table`, and also the function
+ * signature of `fallback`.
+ *
+ * @category FunctionPointerTable
+ */
+ export function searchFunctionPointerTable<F extends AnyFunction>(
+    table: FunctionPointerTable<any, F>,
+    keysToTry: string[],
+    fallback: F,
+): F {
+    // do we have any of the requested keys?
+    for (const keyToTry of keysToTry) {
+        if (table[keyToTry]) {
+            // we have a winner!
+            return table[keyToTry];
+        }
+    }
+
+    // no, we do not :(
+    return fallback;
+}

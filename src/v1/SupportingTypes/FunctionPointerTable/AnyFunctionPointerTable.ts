@@ -1,3 +1,4 @@
+// tslint:disable: ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,7 +33,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
-export * from "./FunctionPointerTable";
-export * from "./HttpStatusCode";
-export * from "./NodeJSModuleName";
+import { AnyFunction } from "../../Archetypes";
+import { FunctionPointerTable } from "./FunctionPointerTable";
+
+/**
+ * `AnyFunctionPointerTable` represents all possible
+ * {@link FunctionPointerTable}s. Use it for function parameters and in
+ * generic type parameters.
+ *
+ * @category FunctionPointerTable
+ */
+export type AnyFunctionPointerTable = FunctionPointerTable<any, AnyFunction>;

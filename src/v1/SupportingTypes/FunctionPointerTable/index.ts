@@ -1,3 +1,4 @@
+// tslint:disable: ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,7 +33,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
 export * from "./FunctionPointerTable";
-export * from "./HttpStatusCode";
-export * from "./NodeJSModuleName";
+export * from "./AnyFunctionPointerTable";
+export * from "./searchFunctionPointerTable";

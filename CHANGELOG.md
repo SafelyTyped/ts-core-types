@@ -39,6 +39,11 @@ The following changes have been completed, and will be included in the next tagg
 * RefinedTypes
   - `RefinedNumber` now implements `ToPrimitive`
   - `RefinedString` now implements `ToPrimitive`
+* SupportingTypes
+  * FunctionPointerTable (new type!)
+    - added `FunctionPointerTable`
+    - added `AnyFunctionPointerTable`
+    - added `searchFunctionPointerTable`
 
 ### Fix
 
