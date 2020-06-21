@@ -79,6 +79,13 @@ class UnitTestGetterExample {
     }
 }
 
+// tslint:disable-next-line: max-classes-per-file
+class UnitTestSetterExample {
+    public set attr3(x: string) {
+        // do nothing
+    }
+}
+
 const ObjectProperties = [
     "__defineGetter__",
     "__defineSetter__",
@@ -132,6 +139,18 @@ describe("findPropertyNames()", () => {
         const actualValue = findPropertyNames(unit).sort();
         expect(actualValue).to.eql(expectedValue);
     });
+
+    it("does treat setters as properties", () => {
+        const expectedValue = [
+            ...ObjectProperties,
+            "attr3",
+        ].sort();
+
+        const unit = new UnitTestSetterExample();
+        const actualValue = findPropertyNames(unit).sort();
+        expect(actualValue).to.eql(expectedValue);
+    });
+
 
     it("returns an empty list for objects with no prototype", () => {
         const expectedValue: string[] = [];
