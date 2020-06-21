@@ -25,6 +25,9 @@ The following changes have been completed, and will be included in the next tagg
 
 * Errors
   - added `UnsupportedNumericalValueError`
+* Option Types
+  * numerical (new type!)
+    - added `numerical` option type
 * Protocols
   - added `ToPrimitive` protocol
   - added `PrimitiveHint` type
