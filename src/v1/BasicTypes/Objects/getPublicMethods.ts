@@ -31,25 +31,25 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { getAllMethods } from "./getAllMethods";
-
-
-// This code has been adapted from:
-//
-// https://stackoverflow.com/a/47714550
+import { FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS, findMethods } from "./Filters";
+import {
+    FIND_PROPERTIES_FILTER_DROP_INTERNAL,
+} from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
 
 /**
- * `getPublicMethodNames()` is a data filter. It returns a list of all
+ * `getPublicMethods()` is a data filter. It returns a list of all
  * methods that form the object's public API.
  *
  * - all methods defined on `target` and its base classes (inc
  *   Object.prototype)
- * - that aren't constructors, and
  * - that don't start with an underscore (ie suggest they're protected
  *   or private)
  *
- * Getters and Setters are NOT treated as public methods, because they're
- * not callable.
+ * Getters and Setters are NOT treated as public methods.
+ *
+ * NOTE: unlike {@link getPublicMethodNames}, we keep the object's
+ * constructor (if it has one). It's useful for getting the name of
+ * the underlying class.
  *
  * @param target
  * The object to inspect.
@@ -60,17 +60,9 @@ import { getAllMethods } from "./getAllMethods";
 export function getPublicMethods(
     target: object
 ): Map<string, PropertyDescriptor> {
-    // what do we have?
-    const retval = getAllMethods(target);
-
-    // one day, we'll be able to replace this with Map.filter() ...
-    const keysToRemove = Array.from(retval.keys()).filter(
-        (name) => name === "constructor" || name.startsWith( "_" )
+    return findMethods(
+        target,
+        FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS,
+        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
     );
-    for (const key of keysToRemove) {
-        retval.delete(key);
-    }
-
-    // all done
-    return retval;
 }

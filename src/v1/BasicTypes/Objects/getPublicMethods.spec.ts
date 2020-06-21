@@ -79,6 +79,7 @@ class UnitTestGetterExample {
 }
 
 const ObjectMethods = [
+    "constructor",
     "hasOwnProperty",
     "isPrototypeOf",
     "propertyIsEnumerable",
