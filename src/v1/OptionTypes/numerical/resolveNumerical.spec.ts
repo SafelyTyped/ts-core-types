@@ -232,9 +232,9 @@ describe("resolveNumericToNumber()", () => {
         // special case - the only way to trigger the fallback is to
         // remove all the rules
         it("returns `NaN` when the fallback rule is triggered", () => {
-            const fpTable: NumericalConversionRules = {};
+            const conversionRules: NumericalConversionRules = {};
             // tslint:disable-next-line: no-unused-expression
-            expect(resolveNumerical("this is a test", { fpTable })).to.be.NaN;
+            expect(resolveNumerical("this is a test", { conversionRules })).to.be.NaN;
         })
     });
 });

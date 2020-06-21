@@ -36,6 +36,8 @@ import { UnsupportedNumericalValueError } from "../../Errors";
 import { DataPath } from "../../SupportingTypes";
 import { numerical } from "./numerical";
 import { resolveNumerical } from "./resolveNumerical";
+import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
+import { NumericalConversionRules } from "./NumericalConversionRules";
 
 /**
  * `validateNumericalData()` is a data validator. Use it to prove that
@@ -54,10 +56,15 @@ import { resolveNumerical } from "./resolveNumerical";
  */
 export function validateNumericalData(
     path: DataPath,
-    input: numerical
+    input: numerical,
+    {
+        conversionRules = DEFAULT_NUMERICAL_CONVERSION_RULES
+    }: {
+        conversionRules?: NumericalConversionRules
+    } = {}
 ): AppErrorOr<numerical> {
     // convert it!
-    const n = resolveNumerical(input);
+    const n = resolveNumerical(input, { conversionRules });
 
     // do we like the results?
     if (isNaN(n) || !isFinite(n)) {

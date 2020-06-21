@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { searchFunctionPointerTable } from "../../SupportingTypes";
-import { DEFAULT_NUMERICAL_RULES } from "./defaults/DEFAULT_NUMERICAL_RULES";
+import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
 import { numerical } from "./numerical";
-import { NumericalRules } from "./NumericalRules";
+import { NumericalConversionRules } from "./NumericalConversionRules";
 
 /**
  * `resolveNumerical()` is an option type resolver. It attempts to convert
@@ -58,13 +58,13 @@ import { NumericalRules } from "./NumericalRules";
 export function resolveNumerical(
     input: numerical,
     {
-        fpTable = DEFAULT_NUMERICAL_RULES
+        conversionRules = DEFAULT_NUMERICAL_CONVERSION_RULES
     }: {
-        fpTable?: NumericalRules
+        conversionRules?: NumericalConversionRules
     } = {}
 ): number {
     return searchFunctionPointerTable(
-        fpTable,
+        conversionRules,
         [ typeof input ],
         () => NaN,
     )(input);
