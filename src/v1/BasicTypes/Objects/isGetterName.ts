@@ -32,12 +32,44 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+// This code has been adapted from:
+//
+// https://stackoverflow.com/a/47714550
+
+/**
+ * `isGetter()` is a data guard. Use it to determine if the named method
+ * is a data accessor.
+ *
+ * @param target
+ * the object to inspect
+ * @param methodName
+ * the name of the method to inspect
+ * @returns
+ * - `true` if `target.methodName()` is a getter.
+ * - `false` otherwise
+ * @template T
+ * This is the type of object to inspect. We need it so that `methodName`
+ * is correctly typed / enforced by the compiler. You shouldn't need to
+ * provide `T` yourself; the compiler's type-inference should handle it
+ * for you automagically.
+ *
+ * @category BasicTypes
+ */
+export function isGetterName<T extends object>(target: T, methodName: keyof T): boolean {
+    // this is the object we are going to be looking at
+    let obj = target;
+
+    // we continue until we run out of prototypes to examine
+    while (obj !== null) {
+        // do we have a winner?
+        const propDesc = Object.getOwnPropertyDescriptor(obj, methodName);
+        if (propDesc) {
+            return propDesc.get !== undefined;
+        }
+
+        // next prototype!
+        obj = Object.getPrototypeOf(obj);
+    }
+
+    return false;
+}

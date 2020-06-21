@@ -32,12 +32,16 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { PropertyFilterData } from "../PropertyFilterData";
+
+/**
+ * `PropertyNameFilterData` describes the data that a
+ * {@link PropertyNameFilter} requires.
+ *
+ * It tightens up the definition originally from {@link PropertyFilterData}.
+ *
+ * @category BasicTypes
+ */
+export type PropertyNameFilterData = PropertyFilterData & {
+    found: Set<string>
+};

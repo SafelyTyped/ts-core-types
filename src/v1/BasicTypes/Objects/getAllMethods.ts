@@ -31,13 +31,25 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { findMethods } from "./Filters";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `getAllMethods()` is a data filter. It returns a list of all methods
+ * implemented by `target`, including methods inherited from any parent
+ * classes and from `Object.prototype`.
+ *
+ * @template T
+ * The type of object to inspect. This is used internally to convince
+ * the Typescript compiler to let us access individual properties on
+ * `target`. You shouldn't have to supply this yourself. The Typescript
+ * compiler's type-inference should handle this auto-magically.
+ * @param target
+ * The object to inspect.
+ * @returns
+ * - a map of all methods found. The list will not contain duplicate names.
+ *
+ * @category BasicTypes
+ */
+export function getAllMethods<T extends object>(target: T): Map<string, PropertyDescriptor> {
+    return findMethods(target);
+}

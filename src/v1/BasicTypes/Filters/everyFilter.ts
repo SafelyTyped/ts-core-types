@@ -32,12 +32,31 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { Filter } from "./Filter";
+
+/**
+ * `everyFilter()` is a data filter. Use it to apply a set of filters to
+ * the `input` value.
+ *
+ * We stop (and return `false`) as soon as the first filter we apply
+ * returns `false`.
+ *
+ * @param input
+ * the value to be inspected
+ * @param filters
+ * a list of filters to be applied
+ * @returns
+ * - `true` if every filter returns `true`
+ * - `false` otherwise
+ *
+ * @category BasicTypes
+ */
+export function everyFilter<T>(input: T, filters: Filter<T>[]): boolean {
+    for (const filter of filters) {
+        if (!filter(input)) {
+            return false;
+        }
+    }
+
+    return true;
+}

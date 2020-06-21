@@ -32,12 +32,25 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `Has` is a protocol. It describes an object that has the function
+ * `.has()`.
+ *
+ * This is implemented by both {@link Map} and {@link Set}.
+ *
+ * @category Protocols
+ */
+export interface Has<T> {
+    /**
+     * `has()` is a data search on a collection of some kind.
+     *
+     * @param keyOrValue
+     * The data to look for. Whether this is a search for a key or
+     * a value depends on the collection and the context you're using
+     * it in.
+     * @returns
+     * - `true` if the collection includes `keyOrValue`
+     * - `false` otherwise
+     */
+    has(keyOrValue: T): boolean;
+}

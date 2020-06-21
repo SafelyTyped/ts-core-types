@@ -31,13 +31,45 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { NEXT_PROTOTYPE } from "../../../Prototypes";
+import { FIND_PROPERTIES_FILTER_KEEP_METHODS } from "../defaults/FIND_PROPERTIES_FILTER_KEEP_METHODS";
+import { findPropertyNames } from "./findPropertyNames";
+import { PropertyNameFilter } from "./PropertyNameFilter";
+import { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
+import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `findMethodNames()` is a data filter. It returns a list of all methods
+ * implemented by `target`, including methods inherited from any parent
+ * classes and from `Object.prototype`.
+ *
+ * @param input
+ * The object to inspect.
+ * @param nextPrototype
+ * We use this function to walk the object prototype chain. Use
+ * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
+ * inherited from Object.
+ * @returns
+ * - a list of all method names found. The list will not contain
+ *   duplicate names. The order of list entries is not guaranteed.
+ *
+ * @category BasicTypes
+ */
+export function findMethodNames(
+    input: object,
+    {
+        nextPrototype = NEXT_PROTOTYPE
+    }: Partial<PropertyNameFilterOptions> = {},
+    ...filters: PropertyNameFilter[]
+): string[] {
+    return findPropertyNames(
+        input,
+        { nextPrototype },
+        // must be a method
+        FIND_PROPERTIES_FILTER_KEEP_METHODS,
+        FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE,
+        (x) => !x.found.has(x.propName),
+        // plus any filters provided by our caller
+        ...filters
+    );
+}

@@ -31,13 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { isMethodName } from "../../isMethodName";
+import { PropertyFilter } from "../PropertyFilter";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `FIND_PROPERTIES_FILTER_KEEP_METHODS` is a {@link PropertyFilter} for
+ * {@link findProperties}, {@link findPropertyNames} et al. Use it to
+ * only keep properties that are methods.
+ *
+ * @category BasicTypes
+ */
+export const FIND_PROPERTIES_FILTER_KEEP_METHODS: PropertyFilter
+    = (x) => isMethodName(x.obj, x.propName);

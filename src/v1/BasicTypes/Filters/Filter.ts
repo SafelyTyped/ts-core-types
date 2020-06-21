@@ -32,12 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `Filter` is a function signature. It describes a function that says
+ * whether or not a value meets a contract.
+ *
+ * @param input
+ * The value to examine
+ * @returns
+ * - `true` if the item passes the filter
+ * - `false` otherwise
+ * @template T
+ * The input type that the filter accepts
+ * @category BasicTypes
+ */
+export type Filter<T> = (input: T) => boolean;

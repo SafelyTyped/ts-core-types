@@ -31,13 +31,44 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { ProtocolDefinition } from "../ProtocolDefinition";
+import { validateImplementsProtocol } from "./validateImplementsProtocol";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `implementsProtocol()` is a type guard. Use it to prove that `target`
+ * probably implements the Extension described by `protocol`.
+ *
+ * We check:
+ * - that the methods listed in `protocol` exist on `target`
+ *
+ * We do not check:
+ * - that the methods have the right type signatures
+ * - for Symbols
+ *
+ * @param target
+ * The object to inspect
+ * @param protocol
+ * The list of methods that `target` must implement
+ * @param path
+ * Where are we in the data structure that you are inspecting?
+ * @returns
+ * - `true` if `target` can be used as type `T`
+ * - `false` otherwise
+ * @template T
+ * The interface that defines the protocol. You need to provide this value,
+ * to keep the Typescript compiler happy.
+ *
+ * @category ProtocolsExtensions
+ */
+export function implementsProtocol<T>(
+    target: object & ({} | T),
+    protocol: ProtocolDefinition,
+    {
+        path = DEFAULT_DATA_PATH
+    }: {
+        path?: DataPath
+    } = {}
+): target is T {
+    return !(validateImplementsProtocol(path, target, protocol) instanceof Error);
+}

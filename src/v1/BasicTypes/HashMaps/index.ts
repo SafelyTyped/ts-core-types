@@ -33,3 +33,4 @@
 //
 
 export * from "./HashMap";
+export * from "./AnyHashMap";

@@ -21,6 +21,68 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.5
+
+Released Sunday, 21st June 2020.
+
+### New
+
+* BasicTypes
+  * Filters (new module!)
+    - added `Filter` function signature
+    - added `everyFilter()` method
+    - added `someFilters()` method
+  * HashMaps
+    - added `AnyHashMap`
+  * Objects
+    - added `getAllMethods()`
+    - added `getAllMethodNames()`
+    - added `getMissingMethodNames()`
+    - added `getPublicMethods()`
+    - added `getPublicMethodNames()`
+    - added `isAttributeName()`
+    - added `isGetterName()`
+    - added `isMethodName()`
+    - added `validateObjectHasAllMethodsCalled()`
+    * Filters
+      - added `PropertyFilter`
+      - added `PropertyFilterData`
+      - added `PropertyDescriptorFilterOptions`
+      - added `PropertyDescriptorFilter`
+      - added `PropertyDescriptorFilterData`
+      - added `PropertyNameFilter`
+      - added `PropertyNameFilterData`
+      - added `PropertyNameFilterOptions`
+      - added `FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS`
+      - added `FIND_PROPERTIES_FILTER_DROP_INTERNAL`
+      - added `FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES`
+      - added `FIND_PROPERTIES_FILTER_KEEP_METHODS`
+      - added `FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE`
+      - added `FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS`
+      - added `FIND_PROPERTY_NAMES_DEFAULT_OPTIONS`
+      - added `findAttributes()`
+      - added `findAttributeNames()`
+      - added `findMethods()`
+      - added `findMethodNames()`
+      - added `findProperties()`
+      - added `findPropertyNames()`
+  * Protocols
+    - added `Has` protocol
+  * Prototypes (new module!)
+    - added `NextPrototypeChain`
+    - added `NEXT_PROTOTYPE`
+    - added `STOP_AT_NEXT_PROTOTYPE`
+    - added `STOP_AT_OBJECT_PROTOTYPE`
+* Errors
+  - added `ExtensionDefinesNoMethodsError`
+  - added `ObjectHasMissingMethodsError`
+* ProtocolsExtensions (new module!)
+  - added `ProtocolDefinition`
+  - added `addExtension()`
+  - added `implementsProtocol()`
+  - added `makeProtocolDefinition()`
+  - added `validateImplementsProtocol()`
+
 ## v0.1.4
 
 Released Friday, 20th June 2020.

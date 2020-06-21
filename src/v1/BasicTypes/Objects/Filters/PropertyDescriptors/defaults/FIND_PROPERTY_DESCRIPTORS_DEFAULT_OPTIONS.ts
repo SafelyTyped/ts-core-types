@@ -31,13 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { NEXT_PROTOTYPE } from "../../../../Prototypes";
+import { PropertyDescriptorFilterOptions } from "../PropertyDescriptorFilterOptions";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `FIND_PROPERTIES_DEFAULT_OPTIONS` are the default user-supplied options
+ * for {@link findProperties}, {@link FindAttributes} and {@link FindMethods}.
+ *
+ * @category BasicTypes
+ */
+export const FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS: PropertyDescriptorFilterOptions = {
+    nextPrototype: NEXT_PROTOTYPE
+}

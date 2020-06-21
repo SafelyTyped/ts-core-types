@@ -31,13 +31,56 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { validateImplementsProtocol } from "./validateImplementsProtocol";
+import { ProtocolDefinition } from "../ProtocolDefinition";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { ObjectHasMissingMethodsError } from "../../Errors";
+
+interface GuessMediaType {
+    guessMediaType(): string;
+}
+
+const GuessMediaTypeProtocol: ProtocolDefinition = [ "guessMediaType" ];
+
+interface Retrieve {
+    retrieve(): any;
+}
+const RetrieveProtocol: ProtocolDefinition = [ "retrieve" ];
+
+// tslint:disable-next-line: max-classes-per-file
+class UnitTestExample {
+    public fn1() {
+        return;
+    }
+
+    public guessMediaType() {
+        return "text/html";
+    }
+}
+
+describe("validateImplementsProtocol()", () => {
+    it("returns `input` if an object implements the given protocol", () => {
+        const inputValue = new UnitTestExample();
+
+        const actualValue = validateImplementsProtocol<GuessMediaType>(
+            DEFAULT_DATA_PATH,
+            inputValue,
+            GuessMediaTypeProtocol
+        );
+        expect(actualValue).to.equal(inputValue);
+    });
+
+    it("returns an `AppError` if an object does not implement the given protocol", () => {
+        const inputValue = new UnitTestExample();
+
+        const actualValue = validateImplementsProtocol<Retrieve>(
+            DEFAULT_DATA_PATH,
+            inputValue,
+            RetrieveProtocol
+        );
+        expect(actualValue).to.be.instanceOf(ObjectHasMissingMethodsError);
+    });
+});

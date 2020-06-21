@@ -31,13 +31,38 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS, findMethods } from "./Filters";
+import {
+    FIND_PROPERTIES_FILTER_DROP_INTERNAL,
+} from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `getPublicMethods()` is a data filter. It returns a list of all
+ * methods that form the object's public API.
+ *
+ * - all methods defined on `target` and its base classes (inc
+ *   Object.prototype)
+ * - that don't start with an underscore (ie suggest they're protected
+ *   or private)
+ *
+ * Getters and Setters are NOT treated as public methods.
+ *
+ * NOTE: unlike {@link getPublicMethodNames}, we keep the object's
+ * constructor (if it has one). It's useful for getting the name of
+ * the underlying class.
+ *
+ * @param target
+ * The object to inspect.
+ * @returns
+ * A list of all method names that exist on the object instance. Order of
+ * the list is not guaranteed. The list will not contain duplicates.
+ */
+export function getPublicMethods(
+    target: object
+): Map<string, PropertyDescriptor> {
+    return findMethods(
+        target,
+        FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS,
+        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
+    );
+}

@@ -32,12 +32,32 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { Has } from "../../../Protocols";
+
+/**
+ * `PropertyFilterData` describes the input data that a {@link PropertyFilter}
+ * function accepts.
+ *
+ * @category BasicTypes
+ */
+export interface PropertyFilterData {
+    /**
+     * `obj` is the object (or, most likely, the object prototype) that
+     * the filter is being asked to examine.
+     */
+    obj: object;
+
+    /**
+     * `propName` is the property that the filter is being asked to
+     * examine.
+     */
+    propName: string;
+
+    /**
+     * `found` is the collection of properties that have already
+     * passed filters.
+     *
+     * Your filter can interrogate it if required.
+     */
+    found: Has<string>;
+}

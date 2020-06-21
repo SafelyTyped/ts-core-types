@@ -31,13 +31,22 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AnyHashMap } from "../HashMaps";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `isMethodName()` is a data guard. Use it to prove that property
+ * `target.propName` is actually a method on that object.
+ *
+ * @param target
+ * The object to inspect.
+ * @param propName
+ * The name of the property to inspect.
+ * @returns
+ * - `true` if `target.propName()` is a callable function.
+ * - `false` otherwise
+ *
+ * @category BasicTypes
+ */
+export function isMethodName(target: AnyHashMap, propName: string): boolean {
+    return target[propName] !== undefined && typeof target[propName] === "function";
+}

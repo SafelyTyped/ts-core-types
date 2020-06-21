@@ -31,13 +31,35 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS, findMethodNames } from "./Filters";
+import { FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS";
+import { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `getPublicMethodNames()` is a data filter. It returns a list of all
+ * methods that form the object's public API.
+ *
+ * - all methods defined on `target` and its base classes (inc
+ *   Object.prototype)
+ * - that aren't constructors, and
+ * - that don't start with an underscore (ie suggest they're protected
+ *   or private)
+ *
+ * Getters and Setters are NOT treated as public methods.
+ *
+ * @param target
+ * The object to inspect.
+ * @returns
+ * A list of all method names that exist on the object instance. Order of
+ * the list is not guaranteed. The list will not contain duplicates.
+ */
+export function getPublicMethodNames(
+    target: object
+): string[] {
+    return findMethodNames(
+        target,
+        FIND_PROPERTY_NAMES_DEFAULT_OPTIONS,
+        FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS,
+        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
+    );
+}

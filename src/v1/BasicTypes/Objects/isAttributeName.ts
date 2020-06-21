@@ -31,13 +31,24 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AnyHashMap } from "../HashMaps";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `isAttributeName()` is a data guard. Use it to prove that property
+ * `target.propName` is actually an attribute on that object.
+ *
+ * NOTE that an attribute *can* be a method.
+ *
+ * @param target
+ * The object to inspect.
+ * @param propName
+ * The name of the property to inspect.
+ * @returns
+ * - `true` if `target.propName()` is an attribute
+ * - `false` otherwise
+ *
+ * @category BasicTypes
+ */
+export function isAttributeName(target: AnyHashMap, propName: string): boolean {
+    return typeof target[propName] !== "function" && typeof target[propName] !== "undefined";
+}

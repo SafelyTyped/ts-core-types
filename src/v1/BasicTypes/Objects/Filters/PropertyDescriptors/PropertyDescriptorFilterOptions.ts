@@ -32,12 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { NextPrototypeChain } from "../../../Prototypes";
+
+/**
+ * `PropertyDescriptorFilterOptions` describes the user-supplied options that
+ * are supported by {@link findPropertyDescriptors} et al.
+ *
+ * @category BasicTypes
+ */
+export interface PropertyDescriptorFilterOptions {
+    nextPrototype: NextPrototypeChain
+}

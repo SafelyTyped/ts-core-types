@@ -31,13 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { PropertyFilter } from "../PropertyFilter";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `FIND_PROPERTIES_FILTER_DROP_INTERNAL` is a {@link PropertyFilter} for
+ * {@link findProperties}, {@link findPropertyNames} et al. Use it to
+ * filter out anything that's meant for the object's internal use only
+ * (ie, anything that starts with an underscore).
+ *
+ * @category BasicTypes
+ */
+export const FIND_PROPERTIES_FILTER_DROP_INTERNAL: PropertyFilter
+    = (x) => !x.propName.startsWith("_")

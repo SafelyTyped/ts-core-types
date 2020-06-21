@@ -31,13 +31,20 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
+import { NonEmptyArray } from "../../BasicTypes";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `ObjectHasMissingMethodsData` is the input data that
+ * {@link ObjectHasMissingMethodsError} requires.
+ *
+ * @category Errors
+ */
+export interface ObjectHasMissingMethodsData extends ExtraPublicData {
+    public: {
+        path: DataPath;
+        missingMethods: NonEmptyArray<string>;
+    };
+}
+

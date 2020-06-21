@@ -31,13 +31,46 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { implementsProtocol } from "./implementsProtocol";
+import { ProtocolDefinition } from "../ProtocolDefinition";
+
+interface GuessMediaType {
+    guessMediaType(): string;
+}
+
+const GuessMediaTypeProtocol: ProtocolDefinition = [ "guessMediaType" ];
+
+interface Retrieve {
+    retrieve(): any;
+}
+const RetrieveProtocol: ProtocolDefinition = [ "retrieve" ];
+
+// tslint:disable-next-line: max-classes-per-file
+class UnitTestExample {
+    public fn1() {
+        return;
+    }
+
+    public guessMediaType() {
+        return "text/html";
+    }
+}
+
+describe("implementsProtocol()", () => {
+    it("returns `true` if an object implements the given protocol", () => {
+        const unit = new UnitTestExample();
+
+        const actualValue = implementsProtocol<GuessMediaType>(unit, GuessMediaTypeProtocol);
+        expect(actualValue).to.equal(true);
+    });
+
+    it("returns `false` if an object does not implement the given protocol", () => {
+        const unit = new UnitTestExample();
+
+        const actualValue = implementsProtocol<Retrieve>(unit, RetrieveProtocol);
+        expect(actualValue).to.equal(false);
+    });
+});

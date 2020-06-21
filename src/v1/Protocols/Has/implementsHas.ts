@@ -31,13 +31,31 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { isObject } from "../../BasicTypes";
+import { Has } from "./Has";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+
+/**
+ * `implementsHas()` is a type guard. Use it to prove that the input:
+ *
+ * - is an object
+ * - that has a `.has()` method
+ *
+ * @param input
+ * the value to inspect
+ *
+ * @category Protocols
+ */
+export function implementsHas<T>(input: unknown): input is Has<T> {
+    if (!isObject(input)) {
+        return false;
+    }
+
+    // everything else is worth a look
+    if ((input as Has<T>).has === undefined) {
+        return false;
+    }
+
+    // just in case!
+    return (typeof (input as Has<T>).has === "function");
+}

@@ -32,12 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { NextPrototypeChain } from "../NextPrototypeChain";
+
+/**
+ * `NEXT_PROTOTYPE()` is a function that returns the next prototype
+ * in the prototype chain.
+ *
+ * @category BasicTypes
+ */
+export const NEXT_PROTOTYPE: NextPrototypeChain
+    = (x) => Object.getPrototypeOf(x);

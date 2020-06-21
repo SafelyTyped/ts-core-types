@@ -32,12 +32,15 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { NonEmptyArray } from "../../BasicTypes";
+
+/**
+ * `ProtocolDefinition` contains a list of the methods that make up an
+ * Extension.
+ *
+ * Build it using {@link makeProtocolDefinition}, to make sure it includes
+ * inherited methods that your code may rely on.
+ *
+ * @category ProtocolsExtensions
+ */
+export type ProtocolDefinition = NonEmptyArray<string>;

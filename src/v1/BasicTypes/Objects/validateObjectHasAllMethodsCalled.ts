@@ -31,13 +31,47 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ObjectHasMissingMethodsError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { isNonEmptyArray } from "../Arrays";
+import { getMissingMethodNames } from "./getMissingMethodNames";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+
+/**
+ * `validateObjectHasMethodsCalled()` is a data guard. Use it to make sure
+ * that the given `target` object defines all of the named methods.
+ *
+ * Supports methods inherited from parent classes.
+ *
+ * @param target
+ * The object to inspect.
+ * @param names
+ * The list of names to look for.
+ * @returns
+ * - `true` if all of the names are methods on `target`
+ * - `false` otherwise
+ *
+ * @category BasicTypes
+ */
+export function validateObjectHasAllMethodsCalled<T extends object>(
+    path: DataPath,
+    target: object,
+    names: string[],
+): AppErrorOr<T> {
+    // what's missing?
+    const missingMethods = getMissingMethodNames(target, names);
+
+    // anything?
+    if (isNonEmptyArray(missingMethods)) {
+        return new ObjectHasMissingMethodsError({
+            public: {
+                path,
+                missingMethods
+            }
+        });
+    }
+
+    // if we get here, we're all good
+    return target as T;
+}

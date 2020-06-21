@@ -31,13 +31,46 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { validateObjectHasAllMethodsCalled } from "../../BasicTypes";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { ProtocolDefinition } from "../ProtocolDefinition";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `validateImplementsProtocol()` is a type validator. Use it to prove
+ * that `input` (probably!) has the public API described by `protocol`.
+ *
+ * We say "probably" because JavaScript currently has very limited
+ * reflection support at runtime.
+ *
+ * We check:
+ * - that the methods all exist on input
+ *
+ * We do not check:
+ * - that the methods have the right type signatures
+ * - for Symbols
+ *
+ * @param path
+ * Where are we in the data structure that you are validating?
+ * @param input
+ * The object to validate
+ * @param protocol
+ * The public API to check for
+ * @returns
+ * - `input` type-cast to be `T` on success, or
+ * - an `AppError` describing why `input` failed validation
+ *
+ * @category ProtocolsExtensions
+ */
+export function validateImplementsProtocol<T>(
+    path: DataPath,
+    input: object & ({} | T),
+    protocol: ProtocolDefinition,
+): AppErrorOr<T> {
+    // okay, we're good to go here
+    return validateObjectHasAllMethodsCalled(
+        path,
+        input,
+        protocol,
+    ) as AppErrorOr<T>;
+}

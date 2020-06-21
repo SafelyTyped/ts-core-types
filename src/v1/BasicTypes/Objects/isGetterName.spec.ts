@@ -32,12 +32,49 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { describe } from "mocha";
+import { expect } from "chai";
+
+import { isGetterName } from "./isGetterName";
+
+class UnitTestExample {
+    public attr1: string = "";
+    public get attr2(): string {
+        return "hello world";
+    }
+    public set attr3(x: string) {
+        // do nothing
+    }
+
+    public fn1(): string {
+        return "hello world";
+    }
+}
+
+describe("isGetter()", () => {
+    it("returns `true` for getters", () => {
+        const unit = new UnitTestExample();
+        const actualValue = isGetterName(unit, "attr2");
+        expect(actualValue).to.equal(true);
+    });
+
+    it("returns `false` for setters", () => {
+        const unit = new UnitTestExample();
+        expect(isGetterName(unit, "attr3")).to.equal(false);
+    });
+
+    it("returns `false` for attributes", () => {
+        const unit = new UnitTestExample();
+        expect(isGetterName(unit, "attr1")).to.equal(false);
+    });
+
+    it("returns `false` for normal methods", () => {
+        const unit = new UnitTestExample();
+        expect(isGetterName(unit, "fn1")).to.equal(false);
+    });
+
+    it("returns `false` for properties that do not exist", () => {
+        const unit = new UnitTestExample();
+        expect(isGetterName(unit, "DOES_NOT_EXIST" as keyof UnitTestExample)).to.equal(false);
+    });
+});

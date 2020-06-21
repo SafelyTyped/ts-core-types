@@ -32,12 +32,44 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { ProtocolDefinition } from "./ProtocolDefinition";
+import { getPublicMethodNames, isNonEmptyArray } from "../../BasicTypes";
+import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { ExtensionDefinesNoMethodsError } from "../../Errors";
+
+/**
+ * `makeProtocolDefinition()` is a type factory. Use it to build a
+ * {@link ProtocolDefinition}.
+ *
+ * It *WILL* pick up methods defined in parent classes too.
+ *
+ * Recommended practice: use this to define a file-level constant for
+ * your protocol.
+ *
+ * @category ProtocolsExtensions
+ *
+ * @param input
+ * This is the prototype of an Extension.
+ * @param onError
+ * We'll call this with an AppError if there's a problem with `input`.
+ * @returns
+ * The list of methods that make up the Protocol.
+ */
+export function makeProtocolDefinition<T extends object>(
+    input: T,
+    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
+): ProtocolDefinition {
+    // what methods does this object define?
+    const methodsList = getPublicMethodNames(input);
+
+    // we don't allow empty protocols
+    if (isNonEmptyArray(methodsList)) {
+        return methodsList;
+    }
+
+    throw onError(new ExtensionDefinesNoMethodsError({
+        public: {
+            extension: input.constructor?.name || "object has no prototype",
+        }
+    }));
+}

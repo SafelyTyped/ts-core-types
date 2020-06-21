@@ -32,12 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `NextPrototypeChain()` is a function signature. It's a function
+ * that returns the object's prototype, or `null` if it doesn't want to
+ * walk the prototype chain any longer.
+ *
+ * @category BasicTypes
+ */
+export type NextPrototypeChain = (x: object) => object|null;

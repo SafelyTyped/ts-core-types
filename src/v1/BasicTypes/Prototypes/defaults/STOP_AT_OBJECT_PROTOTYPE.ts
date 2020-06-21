@@ -32,12 +32,20 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./ObjectHasMissingMethods";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+import { NextPrototypeChain } from "../NextPrototypeChain";
+
+/**
+ * `STOP_AT_OBJECT_PROTOTYPE()` is a function that returns the next prototype
+ * in the prototype chain - until we get to Object.prototype.
+ *
+ * @category BasicTypes
+ */
+export const STOP_AT_OBJECT_PROTOTYPE: NextPrototypeChain
+    = (x) => {
+        const retval = Object.getPrototypeOf(x);
+        if (retval === Object.prototype) {
+            return null;
+        }
+
+        return retval;
+    }
