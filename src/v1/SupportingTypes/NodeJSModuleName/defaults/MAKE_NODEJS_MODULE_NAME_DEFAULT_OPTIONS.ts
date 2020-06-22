@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { THROW_THE_ERROR } from "../../../ErrorHandling";
+import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes";
 import { MakeNodeJSModuleNameOptions } from "../MakeNodeJSModuleNameOptions";
 
 /**
@@ -42,6 +42,5 @@ import { MakeNodeJSModuleNameOptions } from "../MakeNodeJSModuleNameOptions";
  *
  * @category NodeJSModuleName
  */
-export const MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS: MakeNodeJSModuleNameOptions = {
-    onError: THROW_THE_ERROR,
-};
+export const MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS: MakeNodeJSModuleNameOptions
+    = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;

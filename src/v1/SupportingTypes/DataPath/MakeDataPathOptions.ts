@@ -31,19 +31,15 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { THROW_THE_ERROR } from "../../../../ErrorHandling";
-import { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
-import { DEFAULT_DATA_PATH } from "../../../../SupportingTypes";
+import { MakeNominalTypeOptions } from "../../Archetypes";
 
 /**
- * `MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS` is a set of reasonable defaults
- * that you can pass into {@link makeNominalType}.
+ * `MakeDataPathOptions` are the user-supplied options that
+ * {@link makeDataPath} accepts.
  *
- * Using this in your own code guarantees forward-compatibility.
+ * Use {@link MAKE_DATA_PATH_DEFAULT_OPTIONS} if you need to pass
+ * in a set of default options.
  *
- * @category Archetypes
+ * @category DataPath
  */
-export const MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS: MakeNominalTypeOptions = {
-    onError: THROW_THE_ERROR,
-    path: DEFAULT_DATA_PATH,
-};
+export type MakeDataPathOptions = MakeNominalTypeOptions;

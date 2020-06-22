@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnErrorOptions } from "../../../ErrorHandling";
+import { TypeGuaranteeOptions } from "../../FunctionTypes";
 
 /**
  * `MakeNominalTypeOptions` is the list of user-supplied options
@@ -39,4 +39,4 @@ import { OnErrorOptions } from "../../../ErrorHandling";
  *
  * @category Archetypes
  */
-export type MakeNominalTypeOptions = OnErrorOptions;
+export type MakeNominalTypeOptions = TypeGuaranteeOptions;

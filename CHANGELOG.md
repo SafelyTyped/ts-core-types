@@ -21,6 +21,26 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.9
+
+Released Monday, 22nd June 2020.
+
+### Fixes
+
+* Archetypes
+  * Nominals
+    - `MakeNominalTypeOptions` is now compatible with `TypeGuaranteeOptions`
+    - `makeNominalType()` now uses a deconstructed object to support user-supplied options
+* Option Types
+  * DataPath
+    - added missing `MakeDataPathOptions`
+    - added missing `MAKE_DATA_PATH_DEFAULT_OPTIONS`
+    - `makeDataPath()` options are now compatible with the `TypeGuaranteeOptions`
+  * HttpStatusCode
+    - `makeHttpStatusCode()` options are now compatible with the `TypeGuaranteeOptions`
+  * NodeJSModuleName
+    - `makeNodeJSModuleName()` options are now compatible with the `TypeGuaranteeOptions`
+
 ## v0.1.8
 
 Released Monday, 22nd June 2020.

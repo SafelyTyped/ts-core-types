@@ -32,8 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./MakeDataPathOptions";
 export * from "./DataPath";
 export * from "./defaults/DEFAULT_DATA_PATH";
+export * from "./defaults/MAKE_DATA_PATH_DEFAULT_OPTIONS";
 export * from "./extendDataPath";
 export * from "./isDataPathData";
 export * from "./validateDataPathData";
