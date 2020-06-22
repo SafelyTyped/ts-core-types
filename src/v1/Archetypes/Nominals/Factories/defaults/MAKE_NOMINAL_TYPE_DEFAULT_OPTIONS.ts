@@ -33,6 +33,7 @@
 //
 import { THROW_THE_ERROR } from "../../../../ErrorHandling";
 import { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
+import { DEFAULT_DATA_PATH } from "../../../../SupportingTypes";
 
 /**
  * `MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS` is a set of reasonable defaults
@@ -44,4 +45,5 @@ import { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
  */
 export const MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS: MakeNominalTypeOptions = {
     onError: THROW_THE_ERROR,
+    path: DEFAULT_DATA_PATH,
 };
