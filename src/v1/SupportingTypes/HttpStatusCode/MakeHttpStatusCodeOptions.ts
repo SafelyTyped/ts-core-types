@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnErrorOptions } from "../../ErrorHandling";
+import { MakeNominalTypeOptions } from "../../Archetypes";
 
 /**
  * `MakeHttpStatusCodeOptions` are the user-supplied options that
@@ -42,4 +42,4 @@ import { OnErrorOptions } from "../../ErrorHandling";
  *
  * @category HttpStatusCode
  */
-export type MakeHttpStatusCodeOptions = OnErrorOptions;
+export type MakeHttpStatusCodeOptions = MakeNominalTypeOptions;

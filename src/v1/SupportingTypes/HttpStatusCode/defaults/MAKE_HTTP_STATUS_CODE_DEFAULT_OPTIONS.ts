@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { THROW_THE_ERROR } from "../../../ErrorHandling";
+import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes";
 import { MakeHttpStatusCodeOptions } from "../MakeHttpStatusCodeOptions";
 
 /**
@@ -40,6 +40,5 @@ import { MakeHttpStatusCodeOptions } from "../MakeHttpStatusCodeOptions";
  *
  * @category HttpStatusCode
  */
-export const MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS: MakeHttpStatusCodeOptions = {
-    onError: THROW_THE_ERROR,
-}
+export const MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS: MakeHttpStatusCodeOptions
+    = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;

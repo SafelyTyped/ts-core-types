@@ -31,13 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import {
-    HttpStatusCode,
-    MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS,
-    MakeHttpStatusCodeOptions,
-    mustBeHttpStatusCodeData,
-} from ".";
+import { HttpStatusCode, MakeHttpStatusCodeOptions, mustBeHttpStatusCodeData } from ".";
 import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Archetypes";
+import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH } from "../DataPath";
 
 /**
  * `makeHttpStatusCode()` is a smart constructor. It turns a `number` type
@@ -55,14 +52,17 @@ import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Arche
  * @returns
  * the HttpStatusCode
  */
-export const makeHttpStatusCode: SmartConstructor<number, HttpStatusCode, MakeHttpStatusCodeOptions, number|HttpStatusCode>
+export const makeHttpStatusCode: SmartConstructor<number, HttpStatusCode, OnErrorOptions, number|HttpStatusCode>
     = (
         input: number,
-        options: MakeHttpStatusCodeOptions = MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS,
+        {
+            onError = THROW_THE_ERROR,
+            path = DEFAULT_DATA_PATH,
+        }: Partial<MakeHttpStatusCodeOptions> = {},
         ...fnOpts: FunctionalOption<number|HttpStatusCode>[]
     ): HttpStatusCode => makeNominalType<number, HttpStatusCode, MakeHttpStatusCodeOptions>(
         mustBeHttpStatusCodeData,
         input,
-        options,
+        { onError, path },
         ...fnOpts
     );
