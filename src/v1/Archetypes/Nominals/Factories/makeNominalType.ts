@@ -47,9 +47,13 @@ import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
  * Make sure that it has no side-effects whatsoever.
  * @param input
  * The data to brand or flavour.
+ * @param onError
+ * If `input` is rejected by the `contract`, we'll call this with an
+ * `AppError` to explain why.
+ * @param path
+ * Where are you in the data structure you're creating?
  * @param options
- * The user-supplied options object. This will be passed into `contract()`
- * and any `fnOpts`.
+ * The remaining user-supplied options. They will be passed into any `fnOpts`.
  * @param fnOpts
  * A (possibly empty) list of user-supplied functional options. These will
  * be applied once the `contract()` has successfully validated the `input`
