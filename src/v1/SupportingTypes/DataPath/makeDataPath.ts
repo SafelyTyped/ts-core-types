@@ -35,6 +35,8 @@ import { DataPath } from ".";
 import { FunctionalOption, makeNominalType } from "../../Archetypes";
 import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBeDataPathData } from "./mustBeDataPathData";
+import { MakeDataPathOptions } from "./MakeDataPathOptions";
+import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 
 /**
  * `makeDataPath()` is a {@link SmartConstructor}. Use it to turn a string
@@ -54,11 +56,12 @@ export const makeDataPath = (
     input: string,
     {
         onError = THROW_THE_ERROR,
-    }: Partial<OnErrorOptions> = {},
+        path = DEFAULT_DATA_PATH,
+    }: Partial<MakeDataPathOptions> = {},
     ...fnOpts: FunctionalOption<string|DataPath>[]
 ) => makeNominalType<string, DataPath, OnErrorOptions>(
     mustBeDataPathData,
     input,
-    { onError },
+    { onError, path },
     ...fnOpts
 )
