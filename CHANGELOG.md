@@ -21,6 +21,12 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### Fixes
+
+* Option Types
+  - `validateNumericalData()` function signature updated to show it returns an `AppErrorOr<number>`
+    - makes it easier to chain validators together
+
 ## v0.1.7
 
 Released Sunday, 21st June 2020.

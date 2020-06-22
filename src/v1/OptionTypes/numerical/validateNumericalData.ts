@@ -62,7 +62,7 @@ export function validateNumericalData(
     }: {
         conversionRules?: NumericalConversionRules
     } = {}
-): AppErrorOr<numerical> {
+): AppErrorOr<number> {
     // convert it!
     const n = resolveNumerical(input, { conversionRules });
 
