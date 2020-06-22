@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * Option Types
   * DataPath
     - added missing `MakeDataPathOptions`
+    - added missing `MAKE_DATA_PATH_DEFAULT_OPTIONS`
 
 ## v0.1.8
 
