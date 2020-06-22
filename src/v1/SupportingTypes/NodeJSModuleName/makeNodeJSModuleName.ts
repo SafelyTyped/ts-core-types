@@ -33,6 +33,8 @@
 //
 import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Archetypes";
 import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH } from "../DataPath";
+import { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
 import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
 import { NodeJSModuleName } from "./NodeJSModuleName";
 
@@ -56,11 +58,14 @@ import { NodeJSModuleName } from "./NodeJSModuleName";
  */
 export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, OnErrorOptions, string | NodeJSModuleName> = (
     input: string,
-    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {},
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH
+    }: Partial<MakeNodeJSModuleNameOptions> = {},
     ...fnOpts: FunctionalOption<string | NodeJSModuleName, OnErrorOptions>[]
 ): NodeJSModuleName => makeNominalType<string, NodeJSModuleName, OnErrorOptions>(
     mustBeNodeJSModuleNameData,
     input,
-    { onError },
+    { onError, path },
     ...fnOpts
 );

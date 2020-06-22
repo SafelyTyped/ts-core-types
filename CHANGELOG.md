@@ -34,6 +34,8 @@ The following changes have been completed, and will be included in the next tagg
     - `makeDataPath()` options are now compatible with the `TypeGuaranteeOptions`
   * HttpStatusCode
     - `makeHttpStatusCode()` options are now compatible with the `TypeGuaranteeOptions`
+  * NodeJSModuleName
+    - `makeNodeJSModuleName()` options are now compatible with the `TypeGuaranteeOptions`
 
 ## v0.1.8
 
