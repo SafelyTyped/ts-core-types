@@ -51,10 +51,11 @@ import { SmartConstructorOptions } from "./SmartConstructorOptions";
  * Defaults to `SmartConstructorOptions`.
  * @template FN
  * The input data type that the functional options can process.
+ * {@link makeNominalType} sets this to `IN|OUT`
+ * Defaults to `OUT`.
  * @template FN_OPT
  * The type of user-supplied options that the functional options can process.
- * {@link makeNominalType} sets this to `IN|OUT`
- * Defaults to OUT.
+ * Defaults to `OPT`
  * @param input
  * The data to use to build our safe type.
  * @param onError
