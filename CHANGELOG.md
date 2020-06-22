@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * Archetypes
   * Nominals
     - `MakeNominalTypeOptions` is now compatible with `TypeGuaranteeOptions`
+    - `makeNominalType()` now uses a deconstructed object to support user-supplied options
 * Option Types
   * DataPath
     - added missing `MakeDataPathOptions`

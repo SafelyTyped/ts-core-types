@@ -33,6 +33,8 @@
 //
 import { DataGuarantee, FunctionalOption } from "../../FunctionTypes";
 import { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
+import { THROW_THE_ERROR } from "../../../ErrorHandling";
+import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
 
 /**
  * `makeNominalType()` converts your input type into a branded or
@@ -62,21 +64,28 @@ import { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
 export function makeNominalType<IN, OUT, OPT extends object = object>(
     contract: DataGuarantee<IN, OPT>,
     input: IN,
-    options: MakeNominalTypeOptions & OPT,
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+        ...options
+    }: Partial<MakeNominalTypeOptions> & Partial<OPT> = {},
     ...fnOpts: FunctionalOption<IN|OUT, OPT>[]
 ): OUT {
     // enforce the contract
-    contract(input, options);
+    contract(input, { onError, path, ...options });
 
     // prepare our return value
     let retval: IN|OUT = (input as unknown) as OUT;
+
+    // shorthand
+    const optsForFnOpts = { onError, path, ...options } as OPT;
 
     // apply the functional options
     //
     // we don't use `applyFunctionalOptions()` here, because
     // we need this type-cast to support IN|OUT
     fnOpts.forEach((fnOpt) => {
-        retval = (fnOpt(retval, options) as OUT);
+        retval = (fnOpt(retval, optsForFnOpts) as OUT);
     });
 
     // we have to re-cast here, because the compiler isn't sure
