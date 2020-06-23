@@ -21,6 +21,14 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### Fixes
+
+* Archetypes
+  * Function Types
+    - SmartConstructor now applies `Partial<>` to `OPT`
+    - SmartConstructor now applies `Partial<>` to `FN_OPT`
+      - was preventing the caller from passing in partial option objects
+
 ## v0.1.9
 
 Released Monday, 22nd June 2020.
