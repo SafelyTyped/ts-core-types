@@ -67,6 +67,6 @@ import { SmartConstructorOptions } from "./SmartConstructorOptions";
  */
 export type SmartConstructor<IN, OUT, OPT extends object = object, FN = OUT, FN_OPT = OPT> = (
     input: IN,
-    options?: SmartConstructorOptions & OPT,
-    ...fnOptions: FunctionalOption<FN, SmartConstructorOptions & FN_OPT>[]
+    options?: Partial<SmartConstructorOptions> & Partial<OPT>,
+    ...fnOptions: FunctionalOption<FN, Partial<SmartConstructorOptions> & Partial<FN_OPT>>[]
 ) => OUT;
