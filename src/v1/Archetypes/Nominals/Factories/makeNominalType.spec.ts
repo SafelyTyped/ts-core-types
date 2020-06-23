@@ -171,6 +171,20 @@ describe("makeNominalType()", () => {
         expect(() => {brandedUuidIdentity(uuidFrom(inputValue)); }).to.throw("DEFAULT ERROR HANDLER CALLED");
     });
 
+    it("provides its own default error handler", () => {
+        const uuidFrom = (
+            x: string,
+        ) => makeNominalType<string, BrandedUuid>(
+            neverABrandedUuid,
+            x
+        );
+
+        const inputValue = "123e4567-e89b-12d3-a456-426655440000";
+        expect(() => { brandedUuidIdentity(
+            uuidFrom(inputValue)
+        ); }).to.throw();
+    });
+
     it("accepts an optional error handler", () => {
         const localOnErrorHandler = (e: AnyAppError): never => {
             throw new Error("LOCAL ERROR HANDLER CALLED");
@@ -178,7 +192,7 @@ describe("makeNominalType()", () => {
 
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
+            { onError }: OnErrorOptions
         ) => makeNominalType<string, BrandedUuid>(
             neverABrandedUuid,
             x,
