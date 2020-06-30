@@ -31,16 +31,30 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { ObjectIsImmutableData } from "./ObjectIsImmutableData";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `ObjectIsImmutableError` is thrown whenever the caller attempts to
+ * modify an object that is meant to be readonly.
+ *
+ * It's mostly used in classes that are wrappers around a non-immutable
+ * base class.
+ *
+ * @category Errors
+ */
+export class ObjectIsImmutableError extends AppError<ObjectIsImmutableData> {
+    public constructor(params: ObjectIsImmutableData & AppErrorData) {
+        const spr = makeStructuredProblemReport<ObjectIsImmutableData>({
+            definedBy: MODULE_NAME,
+            description: "unreachable code has been executed",
+            errorId: params.errorId,
+            extra: { logsOnly: params.logsOnly },
+            status: 500 as HttpStatusCode,
+        });
+
+        super(spr);
+    }
+}
