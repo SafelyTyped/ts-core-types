@@ -49,7 +49,7 @@ export class ObjectIsImmutableError extends AppError<ObjectIsImmutableData> {
     public constructor(params: ObjectIsImmutableData & AppErrorData) {
         const spr = makeStructuredProblemReport<ObjectIsImmutableData>({
             definedBy: MODULE_NAME,
-            description: "unreachable code has been executed",
+            description: "attempt made to modify read-only object",
             errorId: params.errorId,
             extra: { logsOnly: params.logsOnly },
             status: 500 as HttpStatusCode,
