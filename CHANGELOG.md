@@ -21,6 +21,20 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.12
+
+Released Wednesday, 1st July 2020.
+
+### New
+
+* Errors
+  - added `NotImplementedError`
+
+### Fixes
+
+* Errors
+  - `ObjectIsImmutableError` now has an accurate description message
+
 ## v0.1.11
 
 Released Tuesday, 30th June 2020.

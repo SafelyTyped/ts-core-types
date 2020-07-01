@@ -31,17 +31,36 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { NotImplementedData } from "./NotImplementedData";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `NotImplementedError` is thrown whenever we end up falling out of
+ * the expected logic.
+ *
+ * It's handy in `default` clauses of `switch()` statements, to catch
+ * problems introduced in the future.
+ *
+ * @category Errors
+ */
+export class NotImplementedError extends AppError<NotImplementedData> {
+    public constructor(
+        params: NotImplementedData & AppErrorData = {
+            public: {
+                reason: "no reason recorded"
+            }
+        }
+    ) {
+        const spr = makeStructuredProblemReport<NotImplementedData>({
+            definedBy: MODULE_NAME,
+            description: "function / feature has not been implemented yet",
+            errorId: params.errorId,
+            extra: { public: params.public },
+            status: 500 as HttpStatusCode,
+        });
+
+        super(spr);
+    }
+}
