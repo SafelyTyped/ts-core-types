@@ -32,16 +32,5 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+export * from "./NotImplementedData";
+export * from "./NotImplementedError";
