@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * Basic Types
   - added `validateArrayOf()`
   - added `validateNonEmptyArray()`
+  - added `validateOptionType()`
   - added `validateRegexCompiles()`
   - added `validateStringMatches()`
 * Errors

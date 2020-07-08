@@ -32,7 +32,37 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./OptionTypes";
-export * from "./Regex";
-export * from "./StringMatches";
+import { validateString } from "../Strings";
+import { validateNumber } from "../Numbers";
+import { validateBoolean } from "../Booleans";
+import { TypeValidator } from "../../Archetypes";
+
+type OptionTypeTestData = {
+    inputValue: any;
+    aValidator: TypeValidator<any>;
+    bValidator: TypeValidator<any>;
+}
+
+export const ValidOptionTypeData: OptionTypeTestData[] = [
+    // option A wins
+    {
+        inputValue: "this is a test",
+        aValidator: validateString,
+        bValidator: validateNumber,
+    },
+    // option B wins
+    {
+        inputValue: "this is a test",
+        aValidator: validateNumber,
+        bValidator: validateString,
+    }
+];
+
+export const InvalidOptionTypeData: OptionTypeTestData[] = [
+    // neither validator wins
+    {
+        inputValue: "this is a test",
+        aValidator: validateNumber,
+        bValidator: validateBoolean,
+    }
+];
