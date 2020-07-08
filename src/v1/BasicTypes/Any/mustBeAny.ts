@@ -31,34 +31,27 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { describe } from "mocha";
-import { expect } from "chai";
-import { validateAny } from "./validateAny";
+import { DataGuaranteeOptions, TypeGuarantee } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 
-const ValidAny = [
-    null,
-    undefined,
-    [ "this is a", "list" ],
-    true,
-    false,
-    () => true,
-    0,
-    100,
-    -100,
-    3.1415927,
-    {},
-    "hello world!",
-];
-
-describe("validateAny()", () => {
-    describe("accepts any input", () => {
-        ValidAny.forEach((inputValue) => {
-            it("accepts example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateAny(DEFAULT_DATA_PATH, inputValue);
-                expect(actualValue).equal(inputValue);
-            });
-        });
-    });
-});
+/**
+ * `mustBeAny()` is a {@link TypeGuarantee}. Use it to accept any kind
+ * of data whatsoever.
+ *
+ * @param input
+ * the value to inspect
+ * @param onError
+ * Validation never fails, so we never actually call this.
+ * @returns
+ * - `input`
+ *
+ * @category BasicTypes
+ */
+export const mustBeAny: TypeGuarantee<any, DataGuaranteeOptions> = (
+    input: unknown,
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<DataGuaranteeOptions> = {}
+) => input;

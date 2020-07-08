@@ -31,11 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { describe } from "mocha";
 import { expect } from "chai";
-import { validateAny } from "./validateAny";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { describe } from "mocha";
+
+import { mustBeAny } from "./mustBeAny";
 
 const ValidAny = [
     null,
@@ -52,11 +51,11 @@ const ValidAny = [
     "hello world!",
 ];
 
-describe("validateAny()", () => {
+describe("mustBeAny()", () => {
     describe("accepts any input", () => {
         ValidAny.forEach((inputValue) => {
             it("accepts example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateAny(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = mustBeAny(inputValue);
                 expect(actualValue).equal(inputValue);
             });
         });
