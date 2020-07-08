@@ -33,7 +33,3 @@
 //
 
 export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateNonEmptyArray";

@@ -32,8 +32,29 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateNonEmptyArray";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { ValidNonEmptyArrayData, InvalidNonEmptyArrayData } from "../_fixtures";
+import { validateNonEmptyArray } from "./validateNonEmptyArray";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { AppError } from "../../ErrorHandling";
+
+describe("validateNonEmptyArray()", () => {
+    describe("accepts any array that has content", () => {
+        ValidNonEmptyArrayData.forEach((inputValue) => {
+            it("accepts example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateNonEmptyArray(DEFAULT_DATA_PATH, inputValue);
+                expect(actualValue).equal(inputValue);
+            });
+        });
+    });
+
+    describe("rejects everything else", () => {
+        InvalidNonEmptyArrayData.forEach((inputValue) => {
+            it("rejects example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateNonEmptyArray(DEFAULT_DATA_PATH, inputValue);
+                expect(actualValue).to.be.instanceOf(AppError);
+            });
+        });
+    });
+});

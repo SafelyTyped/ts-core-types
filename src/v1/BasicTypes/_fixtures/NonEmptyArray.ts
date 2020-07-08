@@ -32,8 +32,24 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateNonEmptyArray";
+import { validateNonEmptyArray } from "../Arrays";
+
+export const ValidNonEmptyArrayData = [
+    [ 1 ],
+    [ null ],
+    [ true ],
+    [ false ],
+    [ true, false ],
+];
+
+export const InvalidNonEmptyArrayData = [
+    null,
+    undefined,
+    [],
+    true,
+    false,
+    validateNonEmptyArray,
+    {},
+    { length: 1 },
+    "hello world!",
+];
