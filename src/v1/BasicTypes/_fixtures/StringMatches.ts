@@ -32,7 +32,59 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isString";
-export * from "./mustBeString";
-export * from "./validateString";
-export * from "./validateStringMatches";
+export const ValidStringMatchesData = [
+    {
+        inputValue: "hello world!",
+        regex: new RegExp(".*"),
+    }
+];
+
+export const InvalidStringMatchesData = [
+    // non-strings
+    {
+        inputValue: null,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: undefined,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: [ "hello world!" ],
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: true,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: false,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: 0,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: 100,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: -100,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: 3.1415927,
+        regex: new RegExp(".*"),
+    },
+    {
+        inputValue: {},
+        regex: new RegExp(".*"),
+    },
+
+    // inputs that do not match the regex
+    {
+        inputValue: "hello world!",
+        regex: new RegExp("goodbye"),
+    }
+];

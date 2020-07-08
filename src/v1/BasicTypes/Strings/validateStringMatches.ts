@@ -31,8 +31,38 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { UnsupportedStringValueError } from "../../Errors";
+import { validate } from "../../Operators";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { validateString } from "./validateString";
 
-export * from "./isString";
-export * from "./mustBeString";
-export * from "./validateString";
-export * from "./validateStringMatches";
+
+export function validateStringMatches(
+    regex: RegExp,
+    path: DataPath,
+    input: unknown
+): AppErrorOr<string> {
+    return validate(input)
+        .next((x) => validateString(path, x))
+        .next((x) => matchesRegex(regex, path, x))
+        .value();
+}
+
+function matchesRegex(
+    regex: RegExp,
+    path: DataPath,
+    input: string
+): AppErrorOr<string> {
+    if (regex.test(input)) {
+        return input;
+    }
+
+    return new UnsupportedStringValueError({
+        public: {
+            dataPath: path,
+            permittedValues: [ regex.source ],
+            actualValue: input,
+        }
+    });
+}

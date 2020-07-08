@@ -34,3 +34,4 @@
 
 export * from "./NonEmptyArray";
 export * from "./Regex";
+export * from "./StringMatches";
