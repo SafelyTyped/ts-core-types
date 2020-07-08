@@ -21,6 +21,11 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### New
+
+* Basic Types
+  - Added `validateAny()'
+
 ## v0.1.12
 
 Released Wednesday, 1st July 2020.

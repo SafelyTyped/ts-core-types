@@ -32,5 +32,22 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isAny";
-export * from "./validateAny";
+import { DataPath } from "../../SupportingTypes";
+import { AppErrorOr } from "../../OptionTypes";
+
+/**
+ * `validateArray()` is a {@link TypeValidator}. Use it to accept any
+ * type of data whatsoever.
+ *
+ * @param path
+ * Where we are in the data structure you are validating
+ * @param input
+ * the value to inspect
+ * @returns
+ * - `input`
+ *
+ * @category BasicTypes
+ */
+export function validateAny(path: DataPath, input: any): AppErrorOr<any> {
+    return input;
+}
