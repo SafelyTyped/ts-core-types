@@ -33,6 +33,11 @@ The following changes have been completed, and will be included in the next tagg
   - added `RegexDoesNotCompileError`
   - added `UnsupportedStringValueError`
 
+### Fixes
+
+* Basic Types
+  - `validateStringStartsWith()` is now part of the public API
+
 ## v0.1.13
 
 Released Wednesday, 8th July 2020.
