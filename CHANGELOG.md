@@ -40,6 +40,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * Basic Types
   - `validateStringStartsWith()` is now part of the public API
+  - `validateStringValue()` only accepts strings now
 
 ## v0.1.13
 
