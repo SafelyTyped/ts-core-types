@@ -31,6 +31,33 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./isAny";
-export * from "./validateAny";
+import { mustBeAny } from "./mustBeAny";
+
+const ValidAny = [
+    null,
+    undefined,
+    [ "this is a", "list" ],
+    true,
+    false,
+    () => true,
+    0,
+    100,
+    -100,
+    3.1415927,
+    {},
+    "hello world!",
+];
+
+describe("mustBeAny()", () => {
+    describe("accepts any input", () => {
+        ValidAny.forEach((inputValue) => {
+            it("accepts example " + JSON.stringify(inputValue), () => {
+                const actualValue = mustBeAny(inputValue);
+                expect(actualValue).equal(inputValue);
+            });
+        });
+    });
+});

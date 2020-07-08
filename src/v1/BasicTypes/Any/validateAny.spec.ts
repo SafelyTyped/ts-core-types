@@ -32,5 +32,33 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isAny";
-export * from "./validateAny";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { validateAny } from "./validateAny";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+
+const ValidAny = [
+    null,
+    undefined,
+    [ "this is a", "list" ],
+    true,
+    false,
+    () => true,
+    0,
+    100,
+    -100,
+    3.1415927,
+    {},
+    "hello world!",
+];
+
+describe("validateAny()", () => {
+    describe("accepts any input", () => {
+        ValidAny.forEach((inputValue) => {
+            it("accepts example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateAny(DEFAULT_DATA_PATH, inputValue);
+                expect(actualValue).equal(inputValue);
+            });
+        });
+    });
+});
