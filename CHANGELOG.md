@@ -28,6 +28,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `validateNonEmptyArray()`
 * Errors
   - added `ArrayCannotBeEmptyError`
+  - added `UnsupportedStringValueError`
 
 ## v0.1.13
 

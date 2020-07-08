@@ -31,19 +31,24 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+import { UnsupportedStringValueError } from "./UnsupportedStringValueError";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+
+describe("UnsupportedStringValueError", () => {
+    describe(".constructor()", () => {
+        it("creates a Javascript error", () => {
+            const unit = new UnsupportedStringValueError({
+                public: {
+                    dataPath: DEFAULT_DATA_PATH,
+                    permittedValues: ["hello", "world"],
+                    actualValue: "goodbye"
+                },
+            });
+
+            expect(unit).to.be.instanceOf(Error);
+        });
+    });
+});

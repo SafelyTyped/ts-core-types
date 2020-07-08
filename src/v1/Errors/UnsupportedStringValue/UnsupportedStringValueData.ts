@@ -32,18 +32,19 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `UnsupportedStringValueData` is the input that
+ * {@link UnsupportedStringValueError} requires.
+ *
+ * @category BasicTypes
+ */
+export interface UnsupportedStringValueData extends ExtraPublicData {
+    public: {
+        dataPath: DataPath,
+        permittedValues: string[];
+        actualValue: string;
+    }
+}
