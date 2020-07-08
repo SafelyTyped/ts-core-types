@@ -33,23 +33,11 @@
 //
 import { extractReasonFromCaught } from "../../ErrorHandling";
 import { RegexDoesNotCompileError } from "../../Errors";
-import { validate } from "../../Operators";
 import { AppErrorOr } from "../../OptionTypes";
 import { DataPath } from "../../SupportingTypes";
-import { validateString } from "../Strings";
 
 
 export function validateRegexCompiles(
-    path: DataPath,
-    input: unknown
-): AppErrorOr<string> {
-    return validate(input)
-        .next((x) => validateString(path, x))
-        .next((x) => compileRegex(path, x))
-        .value();
-}
-
-function compileRegex(
     path: DataPath,
     input: string
 ): AppErrorOr<string> {
