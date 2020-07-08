@@ -24,6 +24,7 @@ The following changes have been completed, and will be included in the next tagg
 ### New
 
 * Basic Types
+  - added `validateArrayOf()`
   - added `validateNonEmptyArray()`
 * Errors
   - added `ArrayCannotBeEmptyError`
