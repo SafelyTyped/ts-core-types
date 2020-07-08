@@ -32,16 +32,23 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-export * from "./Filters";
-export * from "./HashMaps";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Prototypes";
-export * from "./Regex";
-export * from "./Strings";
-export * from "./Unknowns";
+import { validateRegexCompiles } from "../Regex";
+
+export const ValidRegexData = [
+    "boring regex"
+];
+
+export const InvalidRegexData = [
+    null,
+    undefined,
+    [ "not a regex" ],
+    true,
+    false,
+    validateRegexCompiles,
+    0,
+    100,
+    -100,
+    3.1415927,
+    {},
+    "(invalid regex))",
+];

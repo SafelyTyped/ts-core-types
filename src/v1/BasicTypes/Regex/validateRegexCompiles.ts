@@ -31,17 +31,39 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { extractReasonFromCaught } from "../../ErrorHandling";
+import { RegexDoesNotCompileError } from "../../Errors";
+import { validate } from "../../Operators";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { validateString } from "../Strings";
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleans";
-export * from "./Classes";
-export * from "./Filters";
-export * from "./HashMaps";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Prototypes";
-export * from "./Regex";
-export * from "./Strings";
-export * from "./Unknowns";
+
+export function validateRegexCompiles(
+    path: DataPath,
+    input: unknown
+): AppErrorOr<string> {
+    return validate(input)
+        .next((x) => validateString(path, x))
+        .next((x) => compileRegex(path, x))
+        .value();
+}
+
+function compileRegex(
+    path: DataPath,
+    input: string
+): AppErrorOr<string> {
+    try {
+        // tslint:disable-next-line: no-unused-expression
+        new RegExp(input);
+        return input;
+    } catch (e) {
+        return new RegexDoesNotCompileError({
+            public: {
+                dataPath: path,
+                input,
+                error: extractReasonFromCaught(e)
+            }
+        });
+    }
+}
