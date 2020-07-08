@@ -31,16 +31,16 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { describe } from "mocha";
 import { expect } from "chai";
-import { validateArrayOf } from "./validateArrayOf";
-import { validateNumber } from "../Numbers";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
-import { validateString } from "../Strings";
-import { validateAny } from "../Any";
+import { describe } from "mocha";
+
 import { TypeValidator } from "../..";
+import { AppError } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateNumber } from "../Numbers";
+import { validateString } from "../Strings";
+import { validateArrayOf } from "./validateArrayOf";
+
 
 const ValidArrayOfData = [
     // empty array
@@ -56,51 +56,6 @@ const ValidArrayOfData = [
 ];
 
 const InvalidArrayOfData = [
-    // non-arrays
-    {
-        inputValue: null,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: undefined,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: true,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: false,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: 0,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: 100,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: -100,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: 3.1415927,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: validateAny,
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: {},
-        valueValidator: validateAny,
-    },
-    {
-        inputValue: "hello world!",
-        valueValidator: validateAny,
-    },
     // arrays where the contents do not validate
     {
         inputValue: [ 1, 2, 3 ],

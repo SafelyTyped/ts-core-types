@@ -32,24 +32,29 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { UnsupportedStringValueError } from "../../Errors";
-import { validate } from "../../Operators";
 import { AppErrorOr } from "../../OptionTypes";
 import { DataPath } from "../../SupportingTypes";
-import { validateString } from "./validateString";
 
-
+/**
+ * `validateStringMatches()` is a {@link DataValidator}. Use it to prove
+ * that `input` is a string that successfully matches against the given
+ * regex.
+ *
+ * @param regex
+ * The regex that `input` needs to successfully match against.
+ * @param path
+ * Where are we in the nested data structure that you are validating?
+ * Use {@link DEFAULT_DATA_PATH} if you are not validating a nested
+ * data structure.
+ * @param input
+ * The value to validate.
+ * @returns
+ * - `input` on succes, or
+ * - an {@link AppError} explaining why validation failed
+ *
+ * @category BasicTypes
+ */
 export function validateStringMatches(
-    regex: RegExp,
-    path: DataPath,
-    input: unknown
-): AppErrorOr<string> {
-    return validate(input)
-        .next((x) => validateString(path, x))
-        .next((x) => matchesRegex(regex, path, x))
-        .value();
-}
-
-function matchesRegex(
     regex: RegExp,
     path: DataPath,
     input: string

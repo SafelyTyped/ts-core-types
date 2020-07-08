@@ -21,6 +21,8 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.14
+
 ### New
 
 * Basic Types
@@ -38,6 +40,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * Basic Types
   - `validateStringStartsWith()` is now part of the public API
+  - `validateStringValue()` only accepts strings now
 
 ## v0.1.13
 

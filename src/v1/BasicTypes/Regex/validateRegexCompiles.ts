@@ -33,23 +33,27 @@
 //
 import { extractReasonFromCaught } from "../../ErrorHandling";
 import { RegexDoesNotCompileError } from "../../Errors";
-import { validate } from "../../Operators";
 import { AppErrorOr } from "../../OptionTypes";
 import { DataPath } from "../../SupportingTypes";
-import { validateString } from "../Strings";
 
-
+/**
+ * `validateRegexCompiles()` is a {@link DataValidator}. Use it to prove
+ * that `input` is a valid regex. We do this by attempting to compile
+ * `input`.
+ *
+ * @param path
+ * Where are we in the nested data structure that you are validating?
+ * Use {@link DEFAULT_DATA_PATH} if you are not validating a nested
+ * data structure.
+ * @param input
+ * The value to validate.
+ * @returns
+ * - `input` on success, or
+ * - an {@link AppError} explaining why validation failed
+ *
+ * @category BasicTypes
+ */
 export function validateRegexCompiles(
-    path: DataPath,
-    input: unknown
-): AppErrorOr<string> {
-    return validate(input)
-        .next((x) => validateString(path, x))
-        .next((x) => compileRegex(path, x))
-        .value();
-}
-
-function compileRegex(
     path: DataPath,
     input: string
 ): AppErrorOr<string> {

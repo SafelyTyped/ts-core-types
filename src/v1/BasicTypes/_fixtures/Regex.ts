@@ -32,23 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { validateRegexCompiles } from "../Regex";
-
 export const ValidRegexData = [
     "boring regex"
 ];
 
 export const InvalidRegexData = [
-    null,
-    undefined,
-    [ "not a regex" ],
-    true,
-    false,
-    validateRegexCompiles,
-    0,
-    100,
-    -100,
-    3.1415927,
-    {},
     "(invalid regex))",
 ];

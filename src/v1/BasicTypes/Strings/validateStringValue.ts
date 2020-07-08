@@ -32,24 +32,30 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { UnsupportedStringValueError } from "../../Errors";
-import { validate } from "../../Operators";
 import { AppErrorOr } from "../../OptionTypes";
 import { DataPath } from "../../SupportingTypes";
-import { validateString } from "./validateString";
 
 
+/**
+ * `validateStringValue()` is a {@link DataValidator}. Use it to prove
+ * that `input` is a string that contains any of the `validValues` you
+ * provide.
+ *
+ * @param validValues
+ * A list of case-sensitive values to match against.
+ * @param path
+ * Where are we in the nested data structure that you are validating?
+ * Use {@link DEFAULT_DATA_PATH} if you are not validating a nested
+ * data structure.
+ * @param input
+ * The value to validate.
+ * @returns
+ * - `input` on success, or
+ * - an {@link AppError} explaining why validation failed
+ *
+ * @category BasicTypes
+ */
 export function validateStringValue(
-    validValues: string[],
-    path: DataPath,
-    input: unknown
-): AppErrorOr<string> {
-    return validate(input)
-        .next((x) => validateString(path, x))
-        .next((x) => validateStringHasValue(validValues, path, x))
-        .value();
-}
-
-function validateStringHasValue(
     validValues: string[],
     path: DataPath,
     input: string
