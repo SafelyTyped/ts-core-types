@@ -33,15 +33,12 @@
 //
 import { TypeValidator } from "../../Archetypes";
 import { AppError } from "../../ErrorHandling";
-import { validate } from "../../Operators";
 import { AppErrorOr } from "../../OptionTypes";
 import { DataPath, extendDataPath } from "../../SupportingTypes";
-import { validateArray } from "./validateArray";
 
 /**
  * `validateArrayOf()` is a {@link TypeValidator}. Use it to prove that
- * an unknown `input` really is some kind of array with contents that
- * successfully validate against `valueValidator`.
+ * all the contents of `input` successfully validate against `valueValidator`.
  *
  * @param valueValidator
  * The validator to use on each value in the array
@@ -50,23 +47,12 @@ import { validateArray } from "./validateArray";
  * @param input
  * the value to inspect
  * @returns
- * - `input` if it is an array with at least one entry, or
+ * - `input` if all values of the array pass validation
  * - an AppError explaining why validation failed
  *
  * @category BasicTypes
  */
 export function validateArrayOf<T = any>(
-    valueValidator: TypeValidator<T>,
-    path: DataPath,
-    input: unknown
-): AppErrorOr<T[]> {
-    return validate(input)
-        .next((x) => validateArray(path, x))
-        .next((x) => validateArrayValues(valueValidator, path, x))
-        .value();
-}
-
-function validateArrayValues<T = any>(
     valueValidator: TypeValidator<T>,
     path: DataPath,
     input: any[]
