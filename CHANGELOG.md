@@ -21,6 +21,27 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.14
+
+### New
+
+* Basic Types
+  - added `validateArrayOf()`
+  - added `validateNonEmptyArray()`
+  - added `validateOptionType()`
+  - added `validateRegexCompiles()`
+  - added `validateStringMatches()`
+* Errors
+  - added `ArrayCannotBeEmptyError`
+  - added `RegexDoesNotCompileError`
+  - added `UnsupportedStringValueError`
+
+### Fixes
+
+* Basic Types
+  - `validateStringStartsWith()` is now part of the public API
+  - `validateStringValue()` only accepts strings now
+
 ## v0.1.13
 
 Released Wednesday, 8th July 2020.

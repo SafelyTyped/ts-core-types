@@ -33,8 +33,6 @@
 //
 
 export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+export * from "./OptionTypes";
+export * from "./Regex";
+export * from "./StringMatches";

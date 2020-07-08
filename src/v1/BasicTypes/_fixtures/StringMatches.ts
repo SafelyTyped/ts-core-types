@@ -32,9 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+export const ValidStringMatchesData = [
+    {
+        inputValue: "hello world!",
+        regex: new RegExp(".*"),
+    }
+];
+
+export const InvalidStringMatchesData = [
+    // inputs that do not match the regex
+    {
+        inputValue: "hello world!",
+        regex: new RegExp("goodbye"),
+    }
+];

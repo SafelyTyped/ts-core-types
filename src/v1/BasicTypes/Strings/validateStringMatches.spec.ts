@@ -32,9 +32,32 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { ValidStringMatchesData, InvalidStringMatchesData } from "../_fixtures";
+import { validateStringMatches } from "./validateStringMatches";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { AppError } from "../../ErrorHandling";
+
+describe("validateStringMatches()", () => {
+    describe("accepts valid StringMatches", () => {
+        ValidStringMatchesData.forEach((example) => {
+            const { inputValue, regex } = example;
+            it("accepts example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateStringMatches(regex, DEFAULT_DATA_PATH, inputValue);
+                expect(actualValue).equal(inputValue);
+            });
+        });
+    });
+
+    describe("rejects everything else", () => {
+        InvalidStringMatchesData.forEach((example) => {
+            const { inputValue, regex } = example;
+
+            it("rejects example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateStringMatches(regex, DEFAULT_DATA_PATH, inputValue);
+                expect(actualValue).to.be.instanceOf(AppError);
+            });
+        });
+    });
+});

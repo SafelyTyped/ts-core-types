@@ -31,10 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { RegexDoesNotCompileData } from "./RegexDoesNotCompileData";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+/**
+ * `RegexDoesNotCompileError` is a throwable Error. It is thrown when
+ * we have been given a string that fails to compile into a regex.
+ *
+ * @category BasicTypes
+ */
+export class RegexDoesNotCompileError extends AppError<RegexDoesNotCompileData> {
+    public constructor(params: RegexDoesNotCompileData & AppErrorData) {
+        const spr = makeStructuredProblemReport<RegexDoesNotCompileData>({
+            definedBy: MODULE_NAME,
+            description: "regex failed to compile",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: 422 as HttpStatusCode,
+        });
+        super(spr);
+    }
+}

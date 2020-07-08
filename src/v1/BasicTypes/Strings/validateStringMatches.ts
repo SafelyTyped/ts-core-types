@@ -31,10 +31,43 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { UnsupportedStringValueError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+/**
+ * `validateStringMatches()` is a {@link DataValidator}. Use it to prove
+ * that `input` is a string that successfully matches against the given
+ * regex.
+ *
+ * @param regex
+ * The regex that `input` needs to successfully match against.
+ * @param path
+ * Where are we in the nested data structure that you are validating?
+ * Use {@link DEFAULT_DATA_PATH} if you are not validating a nested
+ * data structure.
+ * @param input
+ * The value to validate.
+ * @returns
+ * - `input` on succes, or
+ * - an {@link AppError} explaining why validation failed
+ *
+ * @category BasicTypes
+ */
+export function validateStringMatches(
+    regex: RegExp,
+    path: DataPath,
+    input: string
+): AppErrorOr<string> {
+    if (regex.test(input)) {
+        return input;
+    }
+
+    return new UnsupportedStringValueError({
+        public: {
+            dataPath: path,
+            permittedValues: [ regex.source ],
+            actualValue: input,
+        }
+    });
+}

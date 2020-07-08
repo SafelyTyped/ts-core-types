@@ -31,10 +31,50 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { TypeValidator } from "../../Archetypes";
+import { AppError } from "../../ErrorHandling";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath, extendDataPath } from "../../SupportingTypes";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+/**
+ * `validateArrayOf()` is a {@link TypeValidator}. Use it to prove that
+ * all the contents of `input` successfully validate against `valueValidator`.
+ *
+ * @param valueValidator
+ * The validator to use on each value in the array
+ * @param path
+ * Where we are in the data structure you are validating
+ * @param input
+ * the value to inspect
+ * @returns
+ * - `input` if all values of the array pass validation
+ * - an AppError explaining why validation failed
+ *
+ * @category BasicTypes
+ */
+export function validateArrayOf<T = any>(
+    valueValidator: TypeValidator<T>,
+    path: DataPath,
+    input: any[]
+): AppErrorOr<T[]> {
+    // our return value
+    let retval: AppErrorOr<T[]> = input;
+
+    // this will stop at the first error we run into
+    input.every((value, index) => {
+        const key = extendDataPath(path, `[${index}]`);
+        const res = valueValidator(key, value, {});
+
+        // do we have a problem?
+        if (res instanceof AppError) {
+            retval = res;
+            return false;
+        }
+
+        // no we do not, so on to the next value
+        return true;
+    });
+
+    // all done
+    return retval;
+}

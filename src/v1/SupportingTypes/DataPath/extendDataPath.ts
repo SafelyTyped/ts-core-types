@@ -51,5 +51,12 @@ import { DataPath } from "./DataPath";
  * @category DataPath
  */
 export function extendDataPath(path: DataPath, child: string): DataPath {
+    // do we have an array index here?
+    if (child.startsWith("[")) {
+        // yes we do
+        return path + child as DataPath;
+    }
+
+    // no, we do not
     return path + "." + child as DataPath;
 }

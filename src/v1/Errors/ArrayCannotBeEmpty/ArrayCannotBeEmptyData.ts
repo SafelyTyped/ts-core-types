@@ -31,10 +31,22 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+/**
+ * `ArrayCannotBeEmptyData` defines the data that every
+ * {@link ArrayCannotBeEmptyError} requires.
+ *
+ * @category Errors
+ */
+export interface ArrayCannotBeEmptyData extends ExtraPublicData {
+    public: {
+        /**
+         * `dataPath` is your location in the data structure
+         * you are validating. Use {@link DEFAULT_DATA_PATH}
+         * if you are not inside a nested data structure.
+         */
+        dataPath: DataPath;
+    };
+}

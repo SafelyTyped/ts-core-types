@@ -35,3 +35,6 @@
 export * from "./isString";
 export * from "./mustBeString";
 export * from "./validateString";
+export * from "./validateStringMatches";
+export * from "./validateStringStartsWith";
+export * from "./validateStringValue";

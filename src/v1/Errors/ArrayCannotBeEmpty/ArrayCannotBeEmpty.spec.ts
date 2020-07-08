@@ -31,10 +31,22 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+import { ArrayCannotBeEmptyError } from "./ArrayCannotBeEmptyError";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+
+describe("ArrayCannotBeEmptyError", () => {
+    describe(".constructor()", () => {
+        it("creates a Javascript error", () => {
+            const unit = new ArrayCannotBeEmptyError({
+                public: {
+                    dataPath: DEFAULT_DATA_PATH,
+                },
+            });
+
+            expect(unit).to.be.instanceOf(Error);
+        });
+    });
+});

@@ -32,9 +32,19 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `RegexDoesNotCompileData` is the input that
+ * {@link RegexDoesNotCompileError} requires.
+ *
+ * @category BasicTypes
+ */
+export interface RegexDoesNotCompileData extends ExtraPublicData {
+    public: {
+        dataPath: DataPath;
+        input: string;
+        error: string;
+    }
+}

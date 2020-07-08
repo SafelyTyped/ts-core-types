@@ -31,10 +31,46 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+import { UnsupportedStringValueError } from "../../Errors";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateStringValue } from "./validateStringValue";
+
+
+describe("validateStringValue()", () => {
+    it("returns `input` when the input validates", () => {
+        const inputValue = "hello";
+        const permittedValues = [ "hello", "world!" ];
+        const expectedValue = inputValue;
+
+        const actualValue = validateStringValue(
+            permittedValues,
+            DEFAULT_DATA_PATH,
+            inputValue
+        );
+        expect(actualValue).to.eql(expectedValue);
+    })
+
+    it("returns an `AppError` when the input does not validate", () => {
+        const inputValue = "goodbye!";
+        const permittedValues = [ "hello", "world!" ];
+        const expectedValue = new UnsupportedStringValueError({
+            public: {
+                dataPath: DEFAULT_DATA_PATH,
+                permittedValues,
+                actualValue: inputValue,
+            }
+        })
+        const actualValue = validateStringValue(
+            permittedValues,
+            DEFAULT_DATA_PATH,
+            inputValue
+        );
+        expect(actualValue).to.be.instanceOf(UnsupportedStringValueError);
+        if (actualValue instanceof UnsupportedStringValueError) {
+            expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);
+        }
+    });
+});

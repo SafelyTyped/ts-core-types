@@ -31,10 +31,51 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { UnsupportedStringValueError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+
+/**
+ * `validateStringValue()` is a {@link DataValidator}. Use it to prove
+ * that `input` is a string that contains any of the `validValues` you
+ * provide.
+ *
+ * @param validValues
+ * A list of case-sensitive values to match against.
+ * @param path
+ * Where are we in the nested data structure that you are validating?
+ * Use {@link DEFAULT_DATA_PATH} if you are not validating a nested
+ * data structure.
+ * @param input
+ * The value to validate.
+ * @returns
+ * - `input` on success, or
+ * - an {@link AppError} explaining why validation failed
+ *
+ * @category BasicTypes
+ */
+export function validateStringValue(
+    validValues: string[],
+    path: DataPath,
+    input: string
+): AppErrorOr<string> {
+    // this will bail on the first match
+    const res = validValues.some((value) => {
+        return input === value;
+    });
+
+    // did we get a match?
+    if (res) {
+        return input;
+    }
+
+    // better luck next time
+    return new UnsupportedStringValueError({
+        public: {
+            dataPath: path,
+            permittedValues: validValues,
+            actualValue: input,
+        }
+    });
+}

@@ -32,9 +32,41 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { ValidOptionTypeData, InvalidOptionTypeData } from "../_fixtures";
+import { validateOptionType } from "./validateOptionType";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { AppError } from "../../ErrorHandling";
+
+describe("validateOptionType()", () => {
+    describe("accepts valid OptionType", () => {
+        ValidOptionTypeData.forEach((example) => {
+            const { inputValue, aValidator, bValidator } = example;
+            it("accepts example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateOptionType(
+                    aValidator,
+                    bValidator,
+                    DEFAULT_DATA_PATH,
+                    inputValue
+                );
+                expect(actualValue).equal(inputValue);
+            });
+        });
+    });
+
+    describe("rejects everything else", () => {
+        InvalidOptionTypeData.forEach((example) => {
+            const { inputValue, aValidator, bValidator } = example;
+            it("rejects example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateOptionType(
+                    aValidator,
+                    bValidator,
+                    DEFAULT_DATA_PATH,
+                    inputValue
+                );
+                expect(actualValue).to.be.instanceOf(AppError);
+            });
+        });
+    });
+});

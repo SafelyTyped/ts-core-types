@@ -31,10 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { UnsupportedStringValueData } from "./UnsupportedStringValueData";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+/**
+ * `UnsupportedStringValueError` is a throwable Error. It is thrown when
+ * a string does not have the value we required.
+ *
+ * @category BasicTypes
+ */
+export class UnsupportedStringValueError extends AppError<UnsupportedStringValueData> {
+    public constructor(params: UnsupportedStringValueData & AppErrorData) {
+        const spr = makeStructuredProblemReport<UnsupportedStringValueData>({
+            definedBy: MODULE_NAME,
+            description: "validation failed; expected value not present",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: 422 as HttpStatusCode,
+        });
+        super(spr);
+    }
+}

@@ -31,10 +31,44 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ArrayCannotBeEmptyError } from "../../Errors";
+import { validate } from "../../Operators";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { NonEmptyArray } from "./NonEmptyArray";
+import { validateArray } from "./validateArray";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+/**
+ * `validateNonEmptyArray()` is a {@link TypeValidator}. Use it to prove that
+ * an unknown `input` really is some kind of array that contains at least
+ * one entry.
+ *
+ * @param path
+ * Where we are in the data structure you are validating
+ * @param input
+ * the value to inspect
+ * @returns
+ * - `input` if it is an array with at least one entry, or
+ * - an AppError explaining why validation failed
+ *
+ * @category BasicTypes
+ */
+export function validateNonEmptyArray<T = any>(path: DataPath, input: unknown): AppErrorOr<NonEmptyArray<T>> {
+    return validate(input)
+        .next((x) => validateArray(path, x))
+        .next((x) => validateArrayIsNotEmpty(path, x))
+        .value();
+}
+
+function validateArrayIsNotEmpty<T = any>(path: DataPath, input: any[]): AppErrorOr<NonEmptyArray<T>> {
+    if (input.length > 0) {
+        return input as NonEmptyArray<T>;
+    }
+
+    // hate to be the bearer of bad news ...
+    return new ArrayCannotBeEmptyError({
+        public: {
+            dataPath: path,
+        }
+    });
+}

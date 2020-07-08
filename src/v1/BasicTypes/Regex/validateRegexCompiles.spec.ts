@@ -31,10 +31,30 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+import { AppError } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { InvalidRegexData, ValidRegexData } from "../_fixtures";
+import { validateRegexCompiles } from "./validateRegexCompiles";
+
+describe("validateRegex()", () => {
+    describe("accepts valid regex strings", () => {
+        ValidRegexData.forEach((inputValue) => {
+            it("accepts example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateRegexCompiles(DEFAULT_DATA_PATH, inputValue);
+                expect(actualValue).equal(inputValue);
+            });
+        });
+    });
+
+    describe("rejects everything else", () => {
+        InvalidRegexData.forEach((inputValue) => {
+            it("rejects example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateRegexCompiles(DEFAULT_DATA_PATH, inputValue);
+                expect(actualValue).to.be.instanceOf(AppError);
+            });
+        });
+    });
+});

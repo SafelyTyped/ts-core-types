@@ -31,10 +31,34 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { ArrayCannotBeEmptyData } from "./ArrayCannotBeEmptyData";
+import { HttpStatusCode } from "../../SupportingTypes";
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+/**
+ * `ArrayCannotBeEmptyError` is thrown whenever we're given a number that
+ * has failed a range change.
+ *
+ * @category Errors
+ */
+export class ArrayCannotBeEmptyError extends AppError<ArrayCannotBeEmptyData> {
+    public constructor(
+        params: ArrayCannotBeEmptyData & AppErrorData,
+        {
+            description = "input array cannot be empty"
+        }: {
+            description?: string
+        } = {}
+    ) {
+        const spr = makeStructuredProblemReport<ArrayCannotBeEmptyData>({
+            definedBy: MODULE_NAME,
+            description: description,
+            errorId: params.errorId,
+            extra: { public: params.public },
+            status: 422 as HttpStatusCode,
+        });
+
+        super(spr);
+    }
+}

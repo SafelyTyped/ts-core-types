@@ -32,9 +32,19 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./NonEmptyArray";
-export * from "./isNonEmptyArray";
-export * from "./isArray";
-export * from "./validateArray";
-export * from "./validateArrayOf";
-export * from "./validateNonEmptyArray";
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `UnsupportedStringValueData` is the input that
+ * {@link UnsupportedStringValueError} requires.
+ *
+ * @category BasicTypes
+ */
+export interface UnsupportedStringValueData extends ExtraPublicData {
+    public: {
+        dataPath: DataPath,
+        permittedValues: string[];
+        actualValue: string;
+    }
+}
