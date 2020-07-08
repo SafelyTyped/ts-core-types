@@ -31,18 +31,22 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `ArrayCannotBeEmptyData` defines the data that every
+ * {@link ArrayCannotBeEmptyError} requires.
+ *
+ * @category Errors
+ */
+export interface ArrayCannotBeEmptyData extends ExtraPublicData {
+    public: {
+        /**
+         * `dataPath` is your location in the data structure
+         * you are validating. Use {@link DEFAULT_DATA_PATH}
+         * if you are not inside a nested data structure.
+         */
+        dataPath: DataPath;
+    };
+}

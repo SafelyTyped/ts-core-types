@@ -21,6 +21,11 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### New
+
+* Errors
+  - added `ArrayCannotBeEmptyError`
+
 ## v0.1.13
 
 Released Wednesday, 8th July 2020.

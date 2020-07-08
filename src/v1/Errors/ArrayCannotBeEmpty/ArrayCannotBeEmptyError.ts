@@ -31,18 +31,34 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { ArrayCannotBeEmptyData } from "./ArrayCannotBeEmptyData";
+import { HttpStatusCode } from "../../SupportingTypes";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
+/**
+ * `ArrayCannotBeEmptyError` is thrown whenever we're given a number that
+ * has failed a range change.
+ *
+ * @category Errors
+ */
+export class ArrayCannotBeEmptyError extends AppError<ArrayCannotBeEmptyData> {
+    public constructor(
+        params: ArrayCannotBeEmptyData & AppErrorData,
+        {
+            description = "input array cannot be empty"
+        }: {
+            description?: string
+        } = {}
+    ) {
+        const spr = makeStructuredProblemReport<ArrayCannotBeEmptyData>({
+            definedBy: MODULE_NAME,
+            description: description,
+            errorId: params.errorId,
+            extra: { public: params.public },
+            status: 422 as HttpStatusCode,
+        });
+
+        super(spr);
+    }
+}
