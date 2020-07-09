@@ -32,7 +32,20 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeNames";
-export * from "./AttributeTransformers";
-export * from "./Definitely";
-export * from "./Maybe";
+import { NotOptional } from "./Definitely";
+
+/**
+ * `AttributeTransformers` is a map type. It contains a list of fields,
+ * and the type of function to call to transform each field.
+ *
+ * Each function takes one parameter: the value of the field in the `S`
+ * (source) type.
+ *
+ * @template S
+ * A source data type.
+ *
+ * @category UtilityTypes
+ */
+export type AttributeTransformers<S> = {
+    [K in keyof S]: (input: NotOptional<S[K]>) => any;
+};

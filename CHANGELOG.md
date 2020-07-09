@@ -27,6 +27,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * Archetypes / Utility Types (new module!)
   - added `AttributeNames` utility type
+  - added `AttributeTransformers` utility type
   - added `Definitely` utility type
   - added `Maybe` utility type
 * Basic Types
