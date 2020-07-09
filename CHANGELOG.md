@@ -30,6 +30,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `AttributeTransformers` utility type
   - added `Definitely` utility type
   - added `Maybe` utility type
+  - added `TransformedAttributes` utility type
 * Basic Types
   - added `assignOptionalFields()`
   - added `validateArrayOf()`
