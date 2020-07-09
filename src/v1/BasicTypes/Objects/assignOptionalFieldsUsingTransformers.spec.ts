@@ -31,10 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { describe } from "mocha";
 import { expect } from "chai";
-import { assignOptionalFieldsWithTransformers } from "./assignOptionalFieldsWithTransformers";
+import { describe } from "mocha";
+
+import { assignOptionalFieldsUsingTransformers } from "./assignOptionalFieldsUsingTransformers";
+
 
 interface UnitTestTarget {
     one?: number;
@@ -67,7 +68,7 @@ describe("assignOptionalFieldsWithTransformers()", () => {
             three: 3,
         };
 
-        assignOptionalFieldsWithTransformers(
+        assignOptionalFieldsUsingTransformers(
             {
                 one: str2Int,
                 two: str2Int,
@@ -91,7 +92,7 @@ describe("assignOptionalFieldsWithTransformers()", () => {
             three: 3,
         };
 
-        assignOptionalFieldsWithTransformers(
+        assignOptionalFieldsUsingTransformers(
             {
                 one: str2Int,
                 three: str2Int,
@@ -114,7 +115,7 @@ describe("assignOptionalFieldsWithTransformers()", () => {
             three: 3,
         };
 
-        assignOptionalFieldsWithTransformers(
+        assignOptionalFieldsUsingTransformers(
             {
                 one: str2Int,
                 two: str2Int,
@@ -145,7 +146,7 @@ describe("assignOptionalFieldsWithTransformers()", () => {
             three: 33,
         };
 
-        assignOptionalFieldsWithTransformers(
+        assignOptionalFieldsUsingTransformers(
             {
                 one: str2Int,
                 two: str2Int,

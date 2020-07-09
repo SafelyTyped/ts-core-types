@@ -76,7 +76,7 @@ import { AttributeTransformers, TransformedAttributes } from "../../Archetypes";
  *
  * @category BasicTypes
  */
-export function assignOptionalFieldsWithTransformers<
+export function assignOptionalFieldsUsingTransformers<
     T extends TransformedAttributes<S, AT>,
     S extends object,
     AT extends AttributeTransformers<S>,

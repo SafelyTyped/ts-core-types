@@ -33,7 +33,7 @@
 //
 
 export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsWithTransformers";
+export * from "./assignOptionalFieldsUsingTransformers";
 export * from "./getAllMethodNames";
 export * from "./getAllMethods";
 export * from "./getMissingMethodNames";
