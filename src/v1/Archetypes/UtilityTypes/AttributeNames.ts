@@ -42,4 +42,4 @@
  *
  * @category UtilityTypes
  */
-export type AttributeNames<T> = { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]
+export type AttributeNames<T> = { [K in keyof T]-?: T[K] extends Function ? never : K }[keyof T]
