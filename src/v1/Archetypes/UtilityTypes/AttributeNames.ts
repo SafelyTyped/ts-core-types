@@ -1,3 +1,4 @@
+// tslint:disable ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -33,11 +34,12 @@
 //
 
 /**
- * @category Archetypes
- * @preferred
+ * `AttributeNames` is a utility type. Use it to create a tuple
+ * type that only contains a list of object keys that don't map to functions.
+ *
+ * @template T
+ * The type that you want to create a tuple type from.
+ *
+ * @category UtilityTypes
  */
-export * from "./Entities";
-export * from "./FunctionTypes";
-export * from "./Nominals";
-export * from "./UtilityTypes";
-export * from "./Values";
+export type AttributeNames<T> = { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]
