@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { NotOptional } from "./Definitely";
+import { Definitely } from "./Definitely";
 
 /**
  * `AttributeTransformers` is a map type. It contains a list of fields,
@@ -47,5 +47,5 @@ import { NotOptional } from "./Definitely";
  * @category UtilityTypes
  */
 export type AttributeTransformers<S> = {
-    [K in keyof S]: (input: NotOptional<S[K]>) => any;
+    [K in keyof S]: (input: Definitely<S[K]>) => any;
 };
