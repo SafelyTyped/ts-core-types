@@ -32,18 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./Filters";
+/**
+ * `Maybe` is a utility type. Use it to make `T` an optional type.
+ *
+ * It's the exact opposite of {@link NotOptional}
+ *
+ * @template T
+ * A source data type.
+ *
+ * @category UtilityTypes
+ */
+export type Maybe<T> = T | undefined;

@@ -32,18 +32,20 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./Filters";
+import { Definitely } from "./Definitely";
+
+/**
+ * `AttributeTransformers` is a map type. It contains a list of fields,
+ * and the type of function to call to transform each field.
+ *
+ * Each function takes one parameter: the value of the field in the `S`
+ * (source) type.
+ *
+ * @template S
+ * A source data type.
+ *
+ * @category UtilityTypes
+ */
+export type AttributeTransformers<S> = {
+    [K in keyof S]: (input: Definitely<S[K]>) => any;
+};

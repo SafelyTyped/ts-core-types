@@ -21,7 +21,28 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.1.15
+
+### New
+
+* Archetypes / Utility Types (new module!)
+  - added `AttributeNames` utility type
+  - added `AttributeTransformers` utility type
+  - added `Definitely` utility type
+  - added `Maybe` utility type
+  - added `TransformedAttributes` utility type
+* Basic Types
+  - added `assignOptionalFields()`
+  - added `assignOptionalFieldsUsingTransformers()`
+
+### Fixes
+
+* Supporting Types
+  - `FunctionPointerTable` now supports all `keyof` types as keys
+
 ## v0.1.14
+
+Released Wednesday, 8th July 2020
 
 ### New
 

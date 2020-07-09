@@ -1,3 +1,4 @@
+// tslint:disable ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,18 +33,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./Filters";
+/**
+ * `AttributeNames` is a utility type. Use it to create a tuple
+ * type that only contains a list of object keys that don't map to functions.
+ *
+ * @template T
+ * The type that you want to create a tuple type from.
+ *
+ * @category UtilityTypes
+ */
+export type AttributeNames<T> = { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]

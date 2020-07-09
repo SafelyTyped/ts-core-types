@@ -39,4 +39,5 @@
 export * from "./Entities";
 export * from "./FunctionTypes";
 export * from "./Nominals";
+export * from "./UtilityTypes";
 export * from "./Values";
