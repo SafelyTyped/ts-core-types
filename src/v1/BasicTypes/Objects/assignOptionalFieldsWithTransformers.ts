@@ -84,13 +84,13 @@ export function assignOptionalFieldsWithTransformers<
     transformers: AT,
     target: Partial<T>,
     ...sources: S[]
-): Partial<T>  {
+) {
     for (const source of sources) {
         // a) we assume that `source` is more likely to be smaller than
         //    `transformers`, and
         // b) this avoids using lots of typecasts to get the code to
         //    compile at all!
-        for(const key in source) {
+        for (const key in source) {
             if (key in transformers) {
                 const value = source[key];
                 const transformer = transformers[key];
@@ -101,7 +101,4 @@ export function assignOptionalFieldsWithTransformers<
             }
         }
     }
-
-    // all done
-    return target;
 }
