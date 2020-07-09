@@ -32,17 +32,48 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./assignOptionalFields";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./Filters";
+import { AttributeNames } from "../../Archetypes";
+
+/**
+ * `updateObjectWithOptionalFields()` is a data modifier. It adds any
+ * of the fields that exist on each `source` to `target`.
+ *
+ * A field gets copied if:
+ *
+ * - it is in `fieldsList`, and
+ * - it exists in `source` with any value except `undefined`
+ *
+ * The idea here is to avoid adding lots of `undefined` fields to `target`.
+ * Use it to populate objects where you have optional fields.
+ *
+ * `sources` is processed in order. If two or more `source` objects have the
+ * same property set, `target` will end up with the property from the last
+ * `source` object that has the property set.
+ *
+ * @param T
+ * The interface that describes the fields you want to copy.
+ * @param K
+ * Used to make sure that `fieldsList` only contains fields that exist
+ * in type `T`'s definition
+ * @param fieldsList
+ * The list of fields you want to copy from `source` to `target`.
+ * @param target
+ * The object to modify.
+ * @param sources
+ * The object(s) to copy from.
+ *
+ * @category BasicTypes
+ */
+export function assignOptionalFields<T extends object, K extends AttributeNames<T>> (
+    fieldsList: K[],
+    target: T,
+    ...sources: T[]
+) {
+    for (const source of sources) {
+        for (const fieldName of fieldsList) {
+            if (typeof source[fieldName] !== "undefined") {
+                target[fieldName] = source[fieldName];
+            }
+        }
+    }
+}
