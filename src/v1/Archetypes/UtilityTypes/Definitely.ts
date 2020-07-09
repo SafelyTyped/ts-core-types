@@ -32,6 +32,16 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeNames";
-export * from "./Definitely";
-export * from "./Maybe";
+/**
+ * `Definitely` is a utility type. Use it to remove `undefined` from
+ * the union of possible types of `T`.
+ *
+ * It's a gentler alternative to `NonNullable`, and the exact opposite
+ * of {@link Maybe}
+ *
+ * @template T
+ * A source data type.
+ *
+ * @category UtilityTypes
+ */
+export type Definitely<T> = Exclude<T, undefined>;
