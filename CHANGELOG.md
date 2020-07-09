@@ -49,6 +49,8 @@ The following changes have been completed, and will be included in the next tagg
 * Basic Types
   - `validateStringStartsWith()` is now part of the public API
   - `validateStringValue()` only accepts strings now
+* Supporting Types
+  - `FunctionPointerTable` now supports all `keyof` types as keys
 
 ## v0.1.13
 

@@ -48,6 +48,6 @@ import { AnyFunction } from "../../Archetypes";
  * @category FunctionPointerTable
  */
 export type FunctionPointerTable<
-    K extends string,
+    K extends string | number | symbol,
     F extends AnyFunction,
 > = Record<K, F>;
