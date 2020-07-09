@@ -33,6 +33,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `TransformedAttributes` utility type
 * Basic Types
   - added `assignOptionalFields()`
+  - added `assignOptionalFieldsWithTransformers()`
   - added `validateArrayOf()`
   - added `validateNonEmptyArray()`
   - added `validateOptionType()`

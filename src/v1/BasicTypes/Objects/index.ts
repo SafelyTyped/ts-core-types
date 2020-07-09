@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./assignOptionalFields";
+export * from "./assignOptionalFieldsWithTransformers";
 export * from "./getAllMethodNames";
 export * from "./getAllMethods";
 export * from "./getMissingMethodNames";
@@ -42,7 +44,6 @@ export * from "./isGetterName";
 export * from "./isMethodName";
 export * from "./isObject";
 export * from "./mustBeObject";
-export * from "./assignOptionalFields";
 export * from "./validateObject";
 export * from "./validateObjectHasAllMethodsCalled";
 export * from "./Filters";
