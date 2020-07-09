@@ -32,5 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeNames";
-export * from "./Maybe";
+/**
+ * `Maybe` is a utility type. Use it to make `T` an optional type.
+ *
+ * It's the exact opposite of {@link NotOptional}
+ *
+ * @template T
+ * A source data type.
+ *
+ * @category UtilityTypes
+ */
+export type Maybe<T> = T | undefined;
