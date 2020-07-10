@@ -46,6 +46,5 @@ export * from "./IfEquals";
 export * from "./Maybe";
 export * from "./OptionalKeys";
 export * from "./OptionalPart";
-export * from "./TransformedAttributes";
 export * from "./WritableKeys";
 export * from "./WritablePart";

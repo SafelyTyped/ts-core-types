@@ -30,6 +30,8 @@ The following changes have been completed, and will be included in the next tagg
   - consistent naming with other utility types that return keys from objects
 * `AttributeTransformers` has been removed
   - it has been replaced by `AttributeTransformerMap`
+* `TransformedAttributes` has been removed
+  - it's been designed out
 
 ### New
 
