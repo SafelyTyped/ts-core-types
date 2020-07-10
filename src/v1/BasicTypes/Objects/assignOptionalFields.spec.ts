@@ -60,7 +60,15 @@ describe("assignOptionalFields()", () => {
             three: "three",
         };
 
-        assignOptionalFields([ "one", "two", "three" ], targetValue, sourceValue);
+        assignOptionalFields(
+            {
+                one: true,
+                two: true,
+                three: true,
+            },
+            targetValue,
+            sourceValue
+        );
         expect(targetValue).to.eql(expectedValue);
     });
 
@@ -76,7 +84,22 @@ describe("assignOptionalFields()", () => {
             three: "three",
         };
 
-        assignOptionalFields([ "one", "three" ], targetValue, sourceValue);
+        assignOptionalFields({one: true, three: true}, targetValue, sourceValue);
+        expect(targetValue).to.eql(expectedValue);
+    });
+
+    it("does not copy fields where the `fieldsList` says `false`", () => {
+        const targetValue: UnitTestTarget = {};
+        const sourceValue: UnitTestSource = {
+            one: 1,
+            two: 2,
+            three: "three"
+        };
+        const expectedValue = {
+            three: "three",
+        };
+
+        assignOptionalFields({one: false, three: true}, targetValue, sourceValue);
         expect(targetValue).to.eql(expectedValue);
     });
 
@@ -92,7 +115,11 @@ describe("assignOptionalFields()", () => {
             three: "three",
         };
 
-        assignOptionalFields([ "one", "two", "three" ], targetValue, sourceValue);
+        assignOptionalFields(
+            { one: true, two: true, three: true },
+            targetValue,
+            sourceValue
+        );
         expect(targetValue).to.eql(expectedValue);
     });
 
@@ -114,7 +141,11 @@ describe("assignOptionalFields()", () => {
             three: "second three",
         };
 
-        assignOptionalFields([ "one", "two", "three" ], targetValue, ...sourceValue);
+        assignOptionalFields(
+            { one: true, two: true, three: true },
+            targetValue,
+            ...sourceValue
+        );
         expect(targetValue).to.eql(expectedValue);
     });
 

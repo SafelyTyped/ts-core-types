@@ -21,6 +21,12 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### B/C Breaks
+
+* `assignOptionalFields()`
+  - parameter `fieldsList` has changed type, from an array to an object
+    - delivers stronger type-safety over the original design
+
 ### New
 
 * Utility Types

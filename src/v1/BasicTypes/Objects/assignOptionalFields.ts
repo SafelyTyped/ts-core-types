@@ -31,8 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { AttributeNames } from "../../Archetypes";
+import { AttributeFilterMap, EquivalentOptionalPart } from "../../Archetypes";
 
 /**
  * `updateObjectWithOptionalFields()` is a data modifier. It adds any
@@ -50,13 +49,12 @@ import { AttributeNames } from "../../Archetypes";
  * same property set, `target` will end up with the property from the last
  * `source` object that has the property set.
  *
- * @param T
- * The interface that describes the fields you want to copy.
- * @param K
- * Used to make sure that `fieldsList` only contains fields that exist
- * in type `T`'s definition
  * @param fieldsList
  * The list of fields you want to copy from `source` to `target`.
+ * It can only contain fields that are equivalent in both `source` and
+ * `target`. Set the field value to `true` to trigger a copy, and `false`
+ * to avoid a copy. You can also just omit the field if you don't want it
+ * to be copied from `source` to `target`.
  * @param target
  * The object to modify.
  * @param sources
@@ -64,15 +62,22 @@ import { AttributeNames } from "../../Archetypes";
  *
  * @category BasicTypes
  */
-export function assignOptionalFields<T extends object, K extends AttributeNames<T>> (
-    fieldsList: K[],
+export function assignOptionalFields<
+    S extends object,
+    T extends object,
+> (
+    fieldsList: AttributeFilterMap<EquivalentOptionalPart<S,T>>,
     target: T,
-    ...sources: T[]
+    ...sources: S[]
 ) {
     for (const source of sources) {
-        for (const fieldName of fieldsList) {
-            if (typeof source[fieldName] !== "undefined") {
-                target[fieldName] = source[fieldName];
+        for (const key in fieldsList) {
+            if (key in source && fieldsList[key as keyof object]) {
+                const value = source[key as keyof object];
+
+                if (typeof value !== "undefined") {
+                    target[key as keyof object] = value;
+                }
             }
         }
     }
