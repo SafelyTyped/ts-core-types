@@ -48,6 +48,10 @@ The following changes have been completed, and will be included in the next tagg
 
 ### Fixes
 
+* Basic Types
+  * `assignOptionalFieldsUsingTransformers()`
+    - the transformer functions can now be lambdas
+    - if there's a problem with the transformers, the compiler now complains about the transformer function that's wrong, instead of complaining about `target`
 * Utility Types
   - `AttributeNames` no longer returns `undefined` in the enum
 
