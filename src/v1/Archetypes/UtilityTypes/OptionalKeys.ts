@@ -32,14 +32,15 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeNames";
-export * from "./AttributeTransformers";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./TransformedAttributes";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+/**
+ * `OptionalKeys` is a utility type. Use it to create a set of attributes
+ * that:
+ *
+ * - exist in `T`, and
+ * - are optional (ie, they can be `undefined`)
+ *
+ * @category UtilityTypes
+ */
+export type OptionalKeys<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? K : never;
+}[keyof T];

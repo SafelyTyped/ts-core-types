@@ -27,6 +27,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `IfEquals`
   - added `EquivalentKeys`
   - added `EquivalentOptionalKeys`
+  - added `OptionalKeys`
   - added `WritableKeys`
   - added `WritablePart`
 
