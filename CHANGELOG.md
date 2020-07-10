@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * Utility Types
   - added `IfEquals`
   - added `EquivalentKeys`
+  - added `EquivalentOptionalKeys`
   - added `WritableKeys`
   - added `WritablePart`
 
