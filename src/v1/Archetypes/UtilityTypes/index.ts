@@ -35,5 +35,6 @@
 export * from "./AttributeNames";
 export * from "./AttributeTransformers";
 export * from "./Definitely";
+export * from "./IfEquals";
 export * from "./Maybe";
 export * from "./TransformedAttributes";
