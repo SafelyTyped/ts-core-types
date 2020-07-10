@@ -32,15 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeNames";
-export * from "./AttributeTransformers";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./TransformedAttributes";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { OptionalKeys } from "./OptionalKeys";
+
+
+/**
+ * `OptionalPart` is a mapped type. Use it to create an interface that
+ * only contains the optional attributes of `S`.
+ *
+ * All the attributes in the mapped type are optional.
+ *
+ * @category UtilityTypes
+ */
+export type OptionalPart<S extends object> = {
+    [K in OptionalKeys<S>]?: S[K];
+};
