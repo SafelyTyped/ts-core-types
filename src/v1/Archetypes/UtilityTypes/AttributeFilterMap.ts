@@ -32,16 +32,20 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeNames";
-export * from "./AttributeTransformers";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./TransformedAttributes";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { AttributeNames } from "./AttributeNames";
+
+/**
+ * `AttributeFilterMap` is a utility type. Use it to create an interface
+ * that contains:
+ *
+ * - all keys for attributes of `S`
+ * - with their type set to `boolean`
+ *
+ * ie, it creates a type that you can use as a `true/false` map in your
+ * code.
+ *
+ * @category UtilityTypes
+ */
+export type AttributeFilterMap<S extends object> = {
+    [K in AttributeNames<S>]?: boolean;
+};
