@@ -35,7 +35,8 @@
 import { IfEquals } from "./IfEquals";
 
 /**
- * `EquivalentKeys` is a utility type. Use it to create a set of attributes that:
+ * `EquivalentKeys` is a utility type. Use it to create a set of attributes
+ * that:
  *
  * - exist in both `A` and `B`, and
  * - that have the same type
