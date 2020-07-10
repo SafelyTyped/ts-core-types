@@ -1,4 +1,3 @@
-// tslint:disable ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -33,13 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { OptionalKeys } from "./OptionalKeys";
+
+
 /**
- * `AttributeNames` is a utility type. Use it to create a tuple
- * type that only contains a list of object keys that don't map to functions.
+ * `OptionalPart` is a mapped type. Use it to create an interface that
+ * only contains the optional attributes of `S`.
  *
- * @template T
- * The type that you want to create a tuple type from.
+ * All the attributes in the mapped type are optional.
  *
  * @category UtilityTypes
  */
-export type AttributeNames<T> = { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]
+export type OptionalPart<S extends object> = {
+    [K in OptionalKeys<S>]?: S[K];
+};

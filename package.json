@@ -1,6 +1,6 @@
 {
   "name": "@safelytyped/core-types",
-  "version": "0.1.15",
+  "version": "0.2.0",
   "description": "Core safe types for Typescript",
   "repository": "github:SafelyTyped/ts-core-types",
   "main": "lib/v1/index.js",

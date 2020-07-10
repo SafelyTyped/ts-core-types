@@ -32,19 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+/**
+ * `IdenticallyNamedKeys` is a utility type. Use it to create a set of
+ * attributes that exist in both `A` and `B`.
+ *
+ * NOTE that the returned fields can have different types in `A` and `B` .
+ *
+ * @category UtilityTypes
+ */
+export type IdenticallyNamedKeys<A extends object, B extends object> = {
+    [K in keyof A]: K extends keyof B? K: never
+}[keyof A];

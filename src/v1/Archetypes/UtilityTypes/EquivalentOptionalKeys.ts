@@ -31,20 +31,25 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { IfEquals } from "./IfEquals";
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+/**
+ * `EquivalentOptionalKeys` is a utility type. Use it to create a set of
+ * attributes that:
+ *
+ * - exist in both `A` and `B`, and
+ * - that have the same type,
+ * - and are optional fields
+ *
+ * If an attribute exists in both `A` and `B`, but it has different types
+ * in `A` and `B`, it will not be considered to be an equivalent key.
+ *
+ * @category UtilityTypes
+ */
+export type EquivalentOptionalKeys<A extends object, B extends object> = {
+    [K in keyof A]-?: {} extends Pick<A, K>
+        ? K extends keyof B
+        ? IfEquals<A[K], B[K], K, never>
+        : never
+        : never
+}[keyof A];

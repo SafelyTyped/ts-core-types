@@ -1,3 +1,4 @@
+// tslint:disable ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,19 +33,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+/**
+ * `AttributeKeys` is a utility type. Use it to create a tuple
+ * type that only contains a list of object keys that don't map to functions.
+ *
+ * @template T
+ * The type that you want to create a tuple type from.
+ *
+ * @category UtilityTypes
+ */
+export type AttributeKeys<T> = { [K in keyof T]-?: T[K] extends Function ? never : K }[keyof T]

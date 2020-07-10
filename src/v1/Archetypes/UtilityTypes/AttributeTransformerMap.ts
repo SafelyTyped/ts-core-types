@@ -32,19 +32,30 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { Definitely } from "./Definitely";
+import { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
+
+/**
+ * `AttributeTransformerMap` is a mapped type. Use it to build an interface
+ * that describes how to transform fields in type `S` to their equivalent
+ * in type `T`.
+ *
+ * The returned mapped type will only contain fields that exist on both
+ * `S` and `T`.
+ *
+ * All the fields in the returned mapped type will be optional.
+ *
+ * Each function takes one parameter: the value of the field in the `S`
+ * (source) type. The function must return a type that's compatible with
+ * the type of the field in type `T`.
+ *
+ * @template S
+ * The source data type.
+ * @template T
+ * The target data type.
+ *
+ * @category UtilityTypes
+ */
+export type AttributeTransformerMap<S extends object, T extends object> = {
+    [K in IdenticallyNamedKeys<S,T>]?: K extends keyof T? (input: Definitely<S[K]>) => T[K] : never
+};

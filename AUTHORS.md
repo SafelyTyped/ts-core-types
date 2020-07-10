@@ -17,3 +17,12 @@ This library was previously maintained by:
 This library includes contributions by:
 
 * none
+
+## Third Party Code
+
+This library includes third-party code (found in GitHub issues, or StackOverflow answers) written by:
+
+* [Matt McCutchen](https://github.com/mattmccutchen)
+  - `IfEquals` utility type
+  - `WritableKeys` utility type
+  - `WritablePart` utility type

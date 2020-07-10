@@ -32,19 +32,22 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { EquivalentOptionalKeys } from "./EquivalentOptionalKeys";
+
+/**
+ * `EquivalentOptionalPart` is a mapped type. Use it to create an interface
+ * that contains all the attributes that:
+ *
+ * - exist in both `A` and `B`,
+ * - that have equivalent types, and
+ * - that are optional
+ *
+ * All the keys in the mapped type will be optional.
+ *
+ * See {@link EquivalentKeys} for details about how we decide which fields
+ * in `A` and `B` are equivalent.
+ *
+ * @category UtilityTypes
+ */
+export type EquivalentOptionalPart<A extends object, B extends object> =
+    Pick<A, EquivalentOptionalKeys<A,B>>;

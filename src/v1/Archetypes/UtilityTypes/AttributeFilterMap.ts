@@ -31,33 +31,21 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AttributeTransformers } from "./AttributeTransformers";
 
+import { AttributeKeys } from "./AttributeKeys";
 
 /**
- * `TransformedAttributes` is a mapped type. It contains a list of fields
- * taken from `T`, and the type of these fields after the transformers
- * in `AT` have been applied.
+ * `AttributeFilterMap` is a utility type. Use it to create an interface
+ * that contains:
  *
- * ie, given:
- * - two types `S` (source type) and `T` (target type),
- * - and a set of {@link AttributeTransformers} `AT<S>` to convert `S`
- *   into `T`,
- * it creates a type that contains the fields of 'T' that 'AT' produces.
+ * - all keys for attributes of `S`
+ * - with their type set to `boolean`
  *
- * Most importantly, it does it without you having to provide 'T' as a
- * type parameter.
- *
- * @template S
- * the type that the {@link AttributeTransformers} are applied to
- * @template AT
- * the list of fields to be created, and the functions that do the
- * creating
+ * ie, it creates a type that you can use as a `true/false` map in your
+ * code.
  *
  * @category UtilityTypes
  */
-export type TransformedAttributes<S extends object, AT extends AttributeTransformers<S>> = {
-    [K in keyof AT]: K extends keyof S ?
-        AT[K] extends (...args: any[]) => infer R ? R : void
-        : never
-}
+export type AttributeFilterMap<S extends object> = {
+    [K in AttributeKeys<S>]?: boolean;
+};

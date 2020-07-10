@@ -32,19 +32,15 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
+
+/**
+ * `IdenticallyNamedPart` is a mapped type. Use it to create an interface
+ * that contains only those fields of `A` that also exist in `B`.
+ *
+ * The returned mapped type will use attribute types from `A`.
+ *
+ * @category UtilityTypes
+ */
+export type IdenticallyNamedPart<A extends object, B extends object> =
+    Pick<A, IdenticallyNamedKeys<A,B>>

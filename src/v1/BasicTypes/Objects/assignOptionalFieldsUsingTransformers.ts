@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AttributeTransformers, TransformedAttributes } from "../../Archetypes";
+import { AttributeTransformerMap } from "../../Archetypes";
+import { HashMap } from "../HashMaps";
 
 /**
  * `assignOptionalFieldsWithTransformers()` is a data modifier. Use it to
@@ -46,45 +47,37 @@ import { AttributeTransformers, TransformedAttributes } from "../../Archetypes";
  * same property set, `target` will end up with the property from the last
  * `source` object that has the property set.
  *
- * NOTE: if the compiler is telling you that there's a problem with `target',
- * it can be caused by two things:
- *
- * 1. one of your mapping functions returns a type that's incompatible with
- *    your `target`'s type, or
- * 2. your mapping functions are lambdas
- *
- * Tour transformers cannot be lamdas; TypeScript 3.9's type inference
- * isn't powerful enough to make that work. They need to be pre-defined
- * functions or pre-defined arrow functions.
- *
  * @param transformers
- * A map of fields and their transformers
+ * A map of fields and their transformers.
+ * The transformers can be lambdas.
  * @param target
  * The object to add transformed data to
  * @param sources
  * The object(s) to copy data from
  *
- * @template T
- * This interface describes the fields created by the transformers
- * listed in `AT`. The compiler will compute this for you.
- * @template S
- * This type describes the object(s) that we will copy from. The compiler
- * will work this out for you.
- * @template AT
- * This interface describes the transformers used to convert from type `S`
- * to type `T`. The compiler will work this out for you.
- *
  * @category BasicTypes
  */
 export function assignOptionalFieldsUsingTransformers<
-    T extends TransformedAttributes<S, AT>,
+    T extends object,
     S extends object,
-    AT extends AttributeTransformers<S>,
+    AT extends AttributeTransformerMap<S,T>,
 >(
     transformers: AT,
     target: Partial<T>,
     ...sources: S[]
 ) {
+    // IMPLEMENTATION NOTE:
+    //
+    // We can get away with the typecasts in here because we've already
+    // guaranteed type-safety through our parameter types.
+    //
+    // And we're only using the typecasts in here because the compiler
+    // currently can't work this out for itself. It needs our help.
+
+    // this exists only to keep the compiler happy
+    const myTarget = target as HashMap<any>;
+    const myTransformers = transformers as HashMap<(x: any) => any>;
+
     for (const source of sources) {
         // a) we assume that `source` is more likely to be smaller than
         //    `transformers`, and
@@ -92,11 +85,12 @@ export function assignOptionalFieldsUsingTransformers<
         //    compile at all!
         for (const key in source) {
             if (key in transformers) {
-                const value = source[key];
-                const transformer = transformers[key];
+                // shorthand
+                const sourceValue = source[key] as any;
+                const transformer = myTransformers[key as keyof object];
 
-                if(typeof value !== "undefined") {
-                    target[key] = transformer(value as Extract<S,string>);
+                if(typeof sourceValue !== "undefined" && transformer) {
+                    myTarget[key] = transformer(sourceValue);
                 }
             }
         }

@@ -32,20 +32,20 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Definitely } from "./Definitely";
+import { IfEquals } from "./IfEquals";
 
 /**
- * `AttributeTransformers` is a map type. It contains a list of fields,
- * and the type of function to call to transform each field.
+ * `EquivalentKeys` is a utility type. Use it to create a set of attributes
+ * that:
  *
- * Each function takes one parameter: the value of the field in the `S`
- * (source) type.
+ * - exist in both `A` and `B`, and
+ * - that have the same type
  *
- * @template S
- * A source data type.
+ * If an attribute exists in both `A` and `B`, but it has different types
+ * in `A` and `B`, it will not be considered to be an equivalent key.
  *
  * @category UtilityTypes
  */
-export type AttributeTransformers<S> = {
-    [K in keyof S]: (input: Definitely<S[K]>) => any;
-};
+export type EquivalentKeys<A extends object, B extends object> = {
+    [K in keyof A]-?: K extends keyof B ? IfEquals<A[K], B[K], K, never>: never
+}[keyof A];

@@ -21,6 +21,48 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.2.0
+
+Released Friday, 10th July 2020.
+
+### B/C Breaks
+
+* `assignOptionalFields()`
+  - parameter `fieldsList` has changed type, from an array to an object
+    - delivers stronger type-safety over the original design
+* `AttributeNames` is now `AttributeKeys`
+  - consistent naming with other utility types that return keys from objects
+* `AttributeTransformers` has been removed
+  - it has been replaced by `AttributeTransformerMap`
+* `TransformedAttributes` has been removed
+  - it's been designed out
+
+### New
+
+* Utility Types
+  - added `AttributeFilterMap`
+  - added `AttributeTransformerMap`
+  - added `IfEquals`
+  - added `EquivalentKeys`
+  - added `EquivalentOptionalKeys`
+  - added `EquivalentOptionalPart`
+  - added `EquivalentPart`
+  - added `IdenticallyNamedKeys`
+  - added `IdenticallyNamedPart`
+  - added `OptionalKeys`
+  - added `OptionalPart`
+  - added `WritableKeys`
+  - added `WritablePart`
+
+### Fixes
+
+* Basic Types
+  * `assignOptionalFieldsUsingTransformers()`
+    - the transformer functions can now be lambdas
+    - if there's a problem with the transformers, the compiler now complains about the transformer function that's wrong, instead of complaining about `target`
+* Utility Types
+  - `AttributeNames` no longer returns `undefined` in the enum
+
 ## v0.1.15
 
 ### New
