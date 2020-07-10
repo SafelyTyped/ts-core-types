@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AttributeTransformerMap, IdenticallyNamedPart } from "../../Archetypes";
+import { AttributeTransformerMap } from "../../Archetypes";
 import { HashMap } from "../HashMaps";
 
 /**
@@ -60,7 +60,7 @@ import { HashMap } from "../HashMaps";
 export function assignOptionalFieldsUsingTransformers<
     T extends object,
     S extends object,
-    AT extends AttributeTransformerMap<S,IdenticallyNamedPart<T,S>>,
+    AT extends AttributeTransformerMap<S,T>,
 >(
     transformers: AT,
     target: Partial<T>,
@@ -72,11 +72,11 @@ export function assignOptionalFieldsUsingTransformers<
     // guaranteed type-safety through our parameter types.
     //
     // And we're only using the typecasts in here because the compiler
-    // currently can't do delayed type-inference accurately and
-    // completely enough.
+    // currently can't work this out for itself. It needs our help.
 
     // this exists only to keep the compiler happy
     const myTarget = target as HashMap<any>;
+    const myTransformers = transformers as HashMap<(x: any) => any>;
 
     for (const source of sources) {
         // a) we assume that `source` is more likely to be smaller than
@@ -87,7 +87,7 @@ export function assignOptionalFieldsUsingTransformers<
             if (key in transformers) {
                 // shorthand
                 const sourceValue = source[key] as any;
-                const transformer = transformers[key];
+                const transformer = myTransformers[key as keyof object];
 
                 if(typeof sourceValue !== "undefined" && transformer) {
                     myTarget[key] = transformer(sourceValue);

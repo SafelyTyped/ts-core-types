@@ -33,6 +33,7 @@
 //
 
 import { Definitely } from "./Definitely";
+import { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
 
 /**
  * `AttributeTransformerMap` is a mapped type. Use it to build an interface
@@ -56,5 +57,5 @@ import { Definitely } from "./Definitely";
  * @category UtilityTypes
  */
 export type AttributeTransformerMap<S extends object, T extends object> = {
-    [K in keyof S]?: K extends keyof T? (input: Definitely<S[K]>) => T[K] : never
+    [K in IdenticallyNamedKeys<S,T>]?: K extends keyof T? (input: Definitely<S[K]>) => T[K] : never
 };
