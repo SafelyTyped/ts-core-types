@@ -11,4 +11,12 @@
 
 import { WritableKeys } from "./WritableKeys";
 
+/**
+ * `WritablePart` is a mapped type. Use it to create an interface that only
+ * contains the attributes in type `T` that can be modified.
+ *
+ * @see https://stackoverflow.com/a/52473108
+ *
+ * @category UtilityTypes
+ */
 export type WritablePart<T> = Pick<T, WritableKeys<T>>;
