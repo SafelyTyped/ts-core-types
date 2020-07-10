@@ -39,6 +39,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `EquivalentOptionalKeys`
   - added `EquivalentOptionalPart`
   - added `EquivalentPart`
+  - added `IdenticallyNamedKeys`
   - added `OptionalKeys`
   - added `OptionalPart`
   - added `WritableKeys`
