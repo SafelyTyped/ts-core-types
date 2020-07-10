@@ -44,6 +44,9 @@ import { EquivalentOptionalKeys } from "./EquivalentOptionalKeys";
  *
  * All the keys in the mapped type will be optional.
  *
+ * See {@link EquivalentKeys} for details about how we decide which fields
+ * in `A` and `B` are equivalent.
+ *
  * @category UtilityTypes
  */
 export type EquivalentOptionalPart<A extends object, B extends object> =
