@@ -25,3 +25,4 @@ This library includes third-party code (found in GitHub issues, or StackOverflow
 * [Matt McCutchen](https://github.com/mattmccutchen)
   - `IfEquals` utility type
   - `WritableKeys` utility type
+  - `WritablePart` utility type

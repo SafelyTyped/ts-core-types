@@ -39,3 +39,4 @@ export * from "./IfEquals";
 export * from "./Maybe";
 export * from "./TransformedAttributes";
 export * from "./WritableKeys";
+export * from "./WritablePart";
