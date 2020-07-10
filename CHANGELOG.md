@@ -33,6 +33,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * Utility Types
   - added `AttributeFilterMap`
+  - added `AttributeTransformerMap`
   - added `IfEquals`
   - added `EquivalentKeys`
   - added `EquivalentOptionalKeys`
