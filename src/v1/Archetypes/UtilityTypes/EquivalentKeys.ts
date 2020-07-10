@@ -32,12 +32,19 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeNames";
-export * from "./AttributeTransformers";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./IfEquals";
-export * from "./Maybe";
-export * from "./TransformedAttributes";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { IfEquals } from "./IfEquals";
+
+/**
+ * `EquivalentKeys` is a utility type. Use it to create a set of attributes that:
+ *
+ * - exist in both `A` and `B`, and
+ * - that have the same type
+ *
+ * If an attribute exists in both `A` and `B`, but it has different types
+ * in `A` and `B`, it will not be considered to be an equivalent key.
+ *
+ * @category UtilityTypes
+ */
+export type EquivalentKeys<A extends object, B extends object> = {
+    [K in keyof A]-?: K extends keyof B ? IfEquals<A[K], B[K], K, never>: never
+}[keyof A];
