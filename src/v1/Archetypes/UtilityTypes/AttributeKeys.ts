@@ -34,7 +34,7 @@
 //
 
 /**
- * `AttributeNames` is a utility type. Use it to create a tuple
+ * `AttributeKeys` is a utility type. Use it to create a tuple
  * type that only contains a list of object keys that don't map to functions.
  *
  * @template T
@@ -42,4 +42,4 @@
  *
  * @category UtilityTypes
  */
-export type AttributeNames<T> = { [K in keyof T]-?: T[K] extends Function ? never : K }[keyof T]
+export type AttributeKeys<T> = { [K in keyof T]-?: T[K] extends Function ? never : K }[keyof T]

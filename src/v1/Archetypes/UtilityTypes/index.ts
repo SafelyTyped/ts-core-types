@@ -33,7 +33,7 @@
 //
 
 export * from "./AttributeFilterMap";
-export * from "./AttributeNames";
+export * from "./AttributeKeys";
 export * from "./AttributeTransformers";
 export * from "./Definitely";
 export * from "./EquivalentKeys";

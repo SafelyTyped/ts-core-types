@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AttributeNames } from "./AttributeNames";
+import { AttributeKeys } from "./AttributeKeys";
 
 /**
  * `AttributeFilterMap` is a utility type. Use it to create an interface
@@ -47,5 +47,5 @@ import { AttributeNames } from "./AttributeNames";
  * @category UtilityTypes
  */
 export type AttributeFilterMap<S extends object> = {
-    [K in AttributeNames<S>]?: boolean;
+    [K in AttributeKeys<S>]?: boolean;
 };

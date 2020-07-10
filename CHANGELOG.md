@@ -26,6 +26,8 @@ The following changes have been completed, and will be included in the next tagg
 * `assignOptionalFields()`
   - parameter `fieldsList` has changed type, from an array to an object
     - delivers stronger type-safety over the original design
+* `AttributeNames` is now `AttributeKeys`
+  - consistent naming with other utility types that return keys from objects
 
 ### New
 
