@@ -59,7 +59,7 @@ class UnitTestNonError {
 describe("extractStackFromCaught()", () => {
     it("if given an Error, will return the Error's stack trace", () => {
         const input = new UnitTestError("this is the message");
-        const expectedValue = "    at Context.<anonymous>";
+        const expectedValue = "    at Context.";
 
         const actualValue = extractStackFromCaught(input);
 

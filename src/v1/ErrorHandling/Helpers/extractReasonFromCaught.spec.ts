@@ -73,7 +73,7 @@ describe("extractReasonFromCaught()", () => {
 
     it("if given an Error, will return the Error's name, message, and stack if stack trace option is enabled", () => {
         const input = new UnitTestError("this is the message");
-        const expectedValue = "UnitTestError: this is the message\n    at Context.<anonymous>";
+        const expectedValue = "UnitTestError: this is the message\n    at Context.";
 
         const actualValue = extractReasonFromCaught(input, { stackTrace: true });
 
