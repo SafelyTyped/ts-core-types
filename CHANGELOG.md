@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### Dependencies
+
+* Updated dev dependencies to resolve low-severity `npm audit` warnings.
+
 ## v0.2.0
 
 Released Friday, 10th July 2020.
