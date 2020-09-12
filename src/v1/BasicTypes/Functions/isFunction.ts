@@ -1,3 +1,4 @@
+// tslint:disable ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,5 +33,19 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isFunction";
-export * from "./validateFunction";
+import { TypeGuard } from "../../Archetypes";
+import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+import { validateFunction } from "./validateFunction";
+
+/**
+ * `isFunction()` is a {@link TypeGuard}. Use it to prove to the TypeScript
+ * compiler that the unknown `input` really is a function.
+ *
+ * @param input
+ * the value to inspect
+ *
+ * @category BasicTypes
+ */
+export const isFunction: TypeGuard<Function> =
+    (input: unknown): input is Function =>
+        isType(validateFunction, input, IS_TYPE_DEFAULT_OPTIONS)

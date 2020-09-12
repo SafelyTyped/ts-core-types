@@ -32,5 +32,37 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isFunction";
-export * from "./validateFunction";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { isFunction } from "./isFunction";
+
+describe("isFunction()", () => {
+    it("returns `true` when given a function", () => {
+        const inputValue: unknown = () => true;
+        const expectedValue = true;
+
+        const actualValue = isFunction(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+
+        // belt n braces ... won't compile if isFunction()
+        // returns the wrong type
+        if (isFunction(inputValue)) {
+            inputValue();
+        }
+    });
+
+    it("returns `false` otherwise", () => {
+        [
+            null,
+            [ 1, 2, 3, 4, 5, ],
+            true,
+            false,
+            100,
+            100.101,
+            {},
+            "hello world"
+        ].forEach((val) => {
+            expect(isFunction(val)).to.equal(false, "failed on " + val);
+        })
+    })
+});
