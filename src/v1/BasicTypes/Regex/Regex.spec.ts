@@ -31,6 +31,48 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./Regex";
-export * from "./validateRegexCompiles";
+import { RegexDoesNotCompileError, RegexReturnedNoResultsError } from "../../Errors";
+import { Regex } from "./Regex";
+
+describe("Regex", () => {
+    it("is a RegExp", () => {
+        const unit = new Regex(".*");
+        expect(unit).is.instanceOf(RegExp);
+    });
+
+    describe(".constructor()", () => {
+        it("returns a RegExp on success", () => {
+            const inputValue = "abc";
+            const unit = new Regex(inputValue);
+
+            expect(unit).to.be.instanceOf(RegExp);
+            expect(unit.source).to.equal(inputValue);
+        });
+
+        it("throws a RegexDoesNotCompileError if the regex does not compile", () => {
+            expect(() => new Regex("(invalid")).to.throw(RegexDoesNotCompileError);
+        });
+    });
+
+    describe(".exec()", () => {
+        it("returns a RegExpExecArray on success", () => {
+            const unit = new Regex("b");
+            const inputValue = "abc";
+
+            // RegExpExecArray is a bit of a mess ...
+            const expectedResult = new RegExp("b").exec("abc");
+            expect(typeof expectedResult === null).to.equal(false);
+
+            const actualResult = unit.exec(inputValue);
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("throws a RegexReturnedNoResultsError if the regex did not match", () => {
+            const unit = new Regex("abc");
+            expect(() => unit.exec("xyz")).to.throw(RegexReturnedNoResultsError);
+        });
+    });
+});
