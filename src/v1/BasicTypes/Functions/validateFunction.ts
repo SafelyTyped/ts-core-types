@@ -36,22 +36,21 @@ import { UnsupportedTypeError } from "../../Errors";
 import { getTypeNames } from "../Unknowns";
 
 /**
- * `validateObject()` is a {@link TypeGuard}. Use it to prove that the
- * unknown `input` really is an object of some kind.
- *
- * `null` is treated as NOT an object.
+ * `validateFunction()` is a {@link TypeGuard}. Use it to prove that the
+ * unknown `input` really is a function of some kind.
  *
  * @param path
  * where are we in the data structure you are validating?
  * @param input
  * the value to inspect
  * @returns
- * - `input`, type-cast to an object, if validation succeeds, or
+ * - `input`, type-cast to a function, if validation succeeds, or
  * - an {@link AppError} explaining why validation failed
  *
  * @category BasicTypes
  */
-export function validateFunction(path: DataPath, input: unknown): AppErrorOr<object> {
+// tslint:disable-next-line: ban-types
+export function validateFunction(path: DataPath, input: unknown): AppErrorOr<Function> {
     // shorthand
     const expectedMsg = "function";
 
