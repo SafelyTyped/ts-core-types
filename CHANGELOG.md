@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * Added `isFunction()`
 * Added `mustBeFunction()`
 * Added `validateFunction()`
+* Added `RegexReturnedNoResultsError`
 
 ### Tests
 

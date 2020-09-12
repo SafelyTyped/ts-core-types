@@ -31,21 +31,29 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { makeHttpStatusCode } from "../../SupportingTypes/HttpStatusCode";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { RegexReturnedNoResultsData } from "./RegexReturnedNoResultsData";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./RegexDoesNotCompile";
-export * from "./RegexReturnedNoResults";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+/**
+ * `RegexReturnedNoResultsError` is a throwable Error. It is thrown whenever
+ * we `exec()` a {@link RegExp} and get back a `null`.
+ *
+ * @category Errors
+ */
+export class RegexReturnedNoResultsError extends AppError<RegexReturnedNoResultsData> {
+    public constructor(params: RegexReturnedNoResultsData & AppErrorData) {
+        const spr = makeStructuredProblemReport<RegexReturnedNoResultsData>({
+            definedBy: MODULE_NAME,
+            description: "regex returned no results",
+            errorId: params.errorId,
+            extra: {
+                logsOnly: params.logsOnly
+            },
+            status: makeHttpStatusCode(500),
+        });
+
+        super(spr);
+    }
+}
