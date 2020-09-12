@@ -25,6 +25,11 @@ The following changes have been completed, and will be included in the next tagg
 
 * Added `validateFunction()`
 
+### Tests
+
+* `getTypeNames()`
+  - added missing test case for arrays
+
 ## v0.2.1
 
 Released Sunday, 6th September 2020.

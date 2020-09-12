@@ -71,6 +71,10 @@ describe("getTypeNames()", () => {
             expected: ["bigint"],
         },
         {
+            testItems: [[1,2,3,4]],
+            expected: ["Array", "Object"]
+        },
+        {
             testItems: [true, false,],
             expected: ["boolean"],
         },
