@@ -31,7 +31,8 @@ The following changes have been completed, and will be included in the next tagg
   * Added `RegexReturnedNoResultsError`
   * Added `Regex` type
   * Added `RegexReturnedNoNamedGroupsError`
-  * Added `RegexExpArrayWithGroups` type
+  * Added `RegExpArrayWithGroups` type
+  * Added `isRegExpExecArrayWithGroups()`
   * Added `validateRegExpExecArrayWithGroups()`
 
 ### Tests

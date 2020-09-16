@@ -32,8 +32,35 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Regex";
-export * from "./RegExpExecArrayWithGroups";
-export * from "./isRegExpExecArrayWithGroups";
-export * from "./validateRegexCompiles";
-export * from "./validateRegExpExecArrayWithGroups";
+import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { AppError } from "../../ErrorHandling";
+import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
+
+/**
+ * `isRegExpExecArrayWithGroups()` is a type guard. Use it to convince the
+ * TypeScript compiler that your {@link RegExpExecArray} definitely does
+ * contain a `.groups` property that isn't null.
+ *
+ * @param {RegExp} regex
+ * the regex that your {@link RegExpExecArray} came from
+ * @param {RegExpExecArray} input
+ * the data structure to validate
+ * @returns
+ * - `true` if `input.groups` exists
+ * - `false` otherwise
+ */
+export function isRegExpExecArrayWithGroups
+(
+    regex: RegExp,
+    input: RegExpExecArray
+): input is RegExpExecArrayWithGroups
+{
+    return !(
+        validateRegExpExecArrayWithGroups(
+            regex,
+            DEFAULT_DATA_PATH,
+            input
+        ) instanceof AppError
+    );
+}
