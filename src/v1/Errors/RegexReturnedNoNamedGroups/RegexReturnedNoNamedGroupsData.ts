@@ -31,22 +31,18 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ExtraLogsOnlyData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./RegexDoesNotCompile";
-export * from "./RegexReturnedNoNamedGroups";
-export * from "./RegexReturnedNoResults";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+/**
+ * `RegexReturnedNoNamedGroupsData` is the input that
+ * {@link RegexReturnedNoNamedGroupsError} requires.
+ *
+ * @category Errors
+ */
+export interface RegexReturnedNoNamedGroupsData extends ExtraLogsOnlyData {
+    logsOnly: {
+        dataPath: DataPath,
+        regex: string,
+    }
+}

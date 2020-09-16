@@ -28,6 +28,7 @@ The following changes have been completed, and will be included in the next tagg
 * Added `validateFunction()`
 * Added `RegexReturnedNoResultsError`
 * Added `Regex` type
+* Added `RegexReturnedNoNamedGroupsError`
 
 ### Tests
 
