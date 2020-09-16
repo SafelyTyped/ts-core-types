@@ -35,3 +35,4 @@
 export * from "./Regex";
 export * from "./RegExpExecArrayWithGroups";
 export * from "./validateRegexCompiles";
+export * from "./validateRegExpExecArrayWithGroups";

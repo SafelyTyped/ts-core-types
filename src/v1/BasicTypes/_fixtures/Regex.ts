@@ -39,3 +39,17 @@ export const ValidRegexData = [
 export const InvalidRegexData = [
     "(invalid regex))",
 ];
+
+export const ValidRegExpExecArrayWithGroupsData = [
+    {
+        regex: /(?<group1>.*)/,
+        inputValue: "hello world!",
+    }
+];
+
+export const InvalidRegExpExecArrayWithGroupsData = [
+    {
+        regex: /(.*)/,
+        inputValue: "hello world!",
+    }
+];

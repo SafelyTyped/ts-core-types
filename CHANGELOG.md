@@ -23,13 +23,16 @@ The following changes have been completed, and will be included in the next tagg
 
 ### New
 
-* Added `isFunction()`
-* Added `mustBeFunction()`
-* Added `validateFunction()`
-* Added `RegexReturnedNoResultsError`
-* Added `Regex` type
-* Added `RegexReturnedNoNamedGroupsError`
-* Added `RegexExpArrayWithGroups` type
+* Basic Types / Functions
+  * Added `isFunction()`
+  * Added `mustBeFunction()`
+  * Added `validateFunction()`
+* Basic Types / Regex
+  * Added `RegexReturnedNoResultsError`
+  * Added `Regex` type
+  * Added `RegexReturnedNoNamedGroupsError`
+  * Added `RegexExpArrayWithGroups` type
+  * Added `validateRegExpExecArrayWithGroups()`
 
 ### Tests
 
