@@ -32,6 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Regex";
-export * from "./RegExpExecArrayWithGroups";
-export * from "./validateRegexCompiles";
+/**
+ * `RegExpExecArrayWithGroups` is a {@link RegExpExecArray} with guaranteed
+ * groups, to keep the compiler happy.
+ */
+export interface RegExpExecArrayWithGroups extends RegExpExecArray {
+    groups: {
+        [key: string]: string
+    }
+}
