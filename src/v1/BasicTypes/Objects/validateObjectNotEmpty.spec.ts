@@ -31,20 +31,36 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./validateObjectNotEmpty";
-export * from "./Filters";
+import { validateObjectNotEmpty } from "./validateObjectNotEmpty";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { AppError } from "../../ErrorHandling";
+
+describe("validateObjectNotEmpty()", () => {
+    it("returns `input` if the input is not empty", () => {
+        const unit = {
+            foo: "bar",
+            fish: "trout",
+            alfred: true,
+        };
+        const actualValue = validateObjectNotEmpty(
+            DEFAULT_DATA_PATH,
+            unit,
+        );
+
+        expect(actualValue).to.equal(unit);
+    });
+
+    it("returns an `AppError` if `input` has no properties at all", () => {
+        const unit = {};
+
+        const actualValue = validateObjectNotEmpty(
+            DEFAULT_DATA_PATH,
+            unit,
+        );
+
+        expect(actualValue).to.be.instanceOf(AppError);
+    });
+});

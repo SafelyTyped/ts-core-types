@@ -37,6 +37,7 @@ The following changes have been completed, and will be included in the next tagg
   * Added `validateRegExpExecArrayWithGroups()`
 * Basic Types / Objects
   * Added `ObjectCannotBeEmptyError`
+  * Added `validateObjectNotEmpty()`
 
 ### Tests
 

@@ -31,20 +31,38 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { ObjectCannotBeEmptyError } from "../../Errors";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./validateObjectNotEmpty";
-export * from "./Filters";
+/**
+ * `validateObjectNotEmpty()` is an object validator. Use it to determine
+ * if the given object is completely empty (no attributes) or not.
+ *
+ * @param path
+ * where are we in the data structure you are validating?
+ * @param input
+ * the value to inspect
+ * @returns
+ * - `input`, type-cast to <T>, if validation succeeds, or
+ * - an {@link AppError} explaining why validation failed
+ *
+ * @category BasicTypes
+ */
+export function validateObjectNotEmpty<T extends object = object>(
+    path: DataPath,
+    input: object,
+): AppErrorOr<T> {
+    // there's probably a more efficient way to do this?
+    // for now, let's just do the basics that we know will work
+    const keyCount = Object.keys(input).length;
+    if (keyCount > 0) {
+        return input as T;
+    }
+
+    return new ObjectCannotBeEmptyError({
+        public: {
+            dataPath: path,
+        }
+    });
+}
