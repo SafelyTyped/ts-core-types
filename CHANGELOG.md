@@ -33,6 +33,7 @@ The following changes have been completed, and will be included in the next tagg
   * Added `RegexReturnedNoNamedGroupsError`
   * Added `RegExpArrayWithGroups` type
   * Added `isRegExpExecArrayWithGroups()`
+  * Added `mustBeRegExpExecArrayWithGroups()`
   * Added `validateRegExpExecArrayWithGroups()`
 
 ### Tests
