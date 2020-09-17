@@ -31,23 +31,29 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { makeHttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { ObjectCannotBeEmptyData } from "./ObjectCannotBeEmptyData";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectCannotBeEmpty";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./RegexDoesNotCompile";
-export * from "./RegexReturnedNoNamedGroups";
-export * from "./RegexReturnedNoResults";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+/**
+ * `ObjectCannotBeEmptyError` is a throwable Error. It is thrown whenever
+ * we unexpectedly encounter an object that has no properties.
+ *
+ * @category Errors
+ */
+export class ObjectCannotBeEmptyError extends AppError<ObjectCannotBeEmptyData> {
+    public constructor(params: ObjectCannotBeEmptyData & AppErrorData) {
+        const spr = makeStructuredProblemReport<ObjectCannotBeEmptyData>({
+            definedBy: MODULE_NAME,
+            description: "empty object is not supported here",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: makeHttpStatusCode(422),
+        });
+
+        super(spr);
+    }
+}

@@ -32,22 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectCannotBeEmpty";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./RegexDoesNotCompile";
-export * from "./RegexReturnedNoNamedGroups";
-export * from "./RegexReturnedNoResults";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `ObjectCannotBeEmptyData` is the input that
+ * {@link ObjectCannotBeEmptyError} requires.
+ *
+ * @category Errors
+ */
+export interface ObjectCannotBeEmptyData extends ExtraPublicData {
+    public: {
+        dataPath: DataPath,
+    }
+}
