@@ -37,6 +37,9 @@ import { validateNumber } from "../Numbers";
 import { validateBoolean } from "../Booleans";
 import { TypeValidator } from "../../Archetypes";
 
+/**
+ * @ignore
+ */
 type OptionTypeTestData = {
     inputValue: any;
     aValidator: TypeValidator<any>;

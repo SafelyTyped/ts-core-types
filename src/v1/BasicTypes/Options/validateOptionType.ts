@@ -58,6 +58,8 @@ import { UnsupportedTypeError } from "../../Errors";
  * @returns
  * - `input` if it passes either of `aValidator` or `bValidator`
  * - an `AppError` to explain why validation failed
+ *
+ * @category BasicTypes
  */
 export function validateOptionType<A, B>(
     aValidator: TypeValidator<A>,

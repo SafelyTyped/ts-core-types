@@ -36,6 +36,8 @@ import { isObject } from "../Objects";
  * @returns
  * - `input` if it has a `groups` field
  * - a `RegexReturnedNoNamedGroupsError` otherwise
+ *
+ * @category BasicTypes
  */
 export function validateRegExpExecArrayWithGroups
 (

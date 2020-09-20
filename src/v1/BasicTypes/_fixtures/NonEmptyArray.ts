@@ -34,6 +34,9 @@
 
 import { validateNonEmptyArray } from "../Arrays";
 
+/**
+ * @ignore
+ */
 export const ValidNonEmptyArrayData = [
     [ 1 ],
     [ null ],
@@ -42,6 +45,9 @@ export const ValidNonEmptyArrayData = [
     [ true, false ],
 ];
 
+/**
+ * @ignore
+ */
 export const InvalidNonEmptyArrayData = [
     null,
     undefined,

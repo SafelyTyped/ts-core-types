@@ -24,6 +24,8 @@ import { validateRegexCompiles } from "./validateRegexCompiles";
 /**
  * `Regex` is a safe type. It's a {@link RegExp} that throws errors so
  * that you don't have to do checks all the time.
+ *
+ * @category BasicTypes
  */
 export class Regex extends RegExp {
     /**

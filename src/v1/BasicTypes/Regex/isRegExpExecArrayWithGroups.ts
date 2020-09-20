@@ -49,6 +49,8 @@ import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
  * @returns
  * - `true` if `input.groups` exists
  * - `false` otherwise
+ *
+ * @category BasicType
  */
 export function isRegExpExecArrayWithGroups
 (
