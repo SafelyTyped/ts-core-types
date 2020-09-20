@@ -60,6 +60,9 @@ export function validateNonEmptyArray<T = any>(path: DataPath, input: unknown): 
         .value();
 }
 
+/**
+ * @ignore
+ */
 function validateArrayIsNotEmpty<T = any>(path: DataPath, input: any[]): AppErrorOr<NonEmptyArray<T>> {
     if (input.length > 0) {
         return input as NonEmptyArray<T>;

@@ -31,60 +31,38 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeValidator } from "../../Archetypes";
-import { AppError, extractReasonFromCaught } from "../../ErrorHandling";
+import { ObjectCannotBeEmptyError } from "../../Errors";
 import { AppErrorOr } from "../../OptionTypes";
 import { DataPath } from "../../SupportingTypes";
-import { UnsupportedTypeError } from "../../Errors";
-
 
 /**
- * `validateOptionalType()` is a {@link TypeValidator}. Use it to prove
- * that `input` is either type `A` or type `B`.
+ * `validateObjectNotEmpty()` is an object validator. Use it to determine
+ * if the given object is completely empty (no attributes) or not.
  *
- * @template A
- * The type to check for first.
- * @template B
- * The type to check for second.
- * @param aValidator
- * The validator to use to check for type `A`.
- * @param bValidator
- * The validator to use to check for type `B`.
  * @param path
- * Where are we in the nested data structure you are validating? Use
- * {@link DEFAULT_DATA_PATH} if you are not in a nested data struture.
+ * where are we in the data structure you are validating?
  * @param input
- * The value to validate.
+ * the value to inspect
  * @returns
- * - `input` if it passes either of `aValidator` or `bValidator`
- * - an `AppError` to explain why validation failed
+ * - `input`, type-cast to <T>, if validation succeeds, or
+ * - an {@link AppError} explaining why validation failed
  *
  * @category BasicTypes
  */
-export function validateOptionType<A, B>(
-    aValidator: TypeValidator<A>,
-    bValidator: TypeValidator<B>,
+export function validateObjectNotEmpty<T extends object = object>(
     path: DataPath,
-    input: unknown
-): AppErrorOr<A|B> {
-    // first time's a charm
-    const resA = aValidator(path, input, {});
-    if (!(resA instanceof AppError)) {
-        return resA;
+    input: object,
+): AppErrorOr<T> {
+    // there's probably a more efficient way to do this?
+    // for now, let's just do the basics that we know will work
+    const keyCount = Object.keys(input).length;
+    if (keyCount > 0) {
+        return input as T;
     }
 
-    // that didn't work. second time's a charm?
-    const resB = bValidator(path, input, {});
-    if (!(resB instanceof AppError)) {
-        return resB;
-    }
-
-    // let's try and make sense of this for the caller
-    return new UnsupportedTypeError({
+    return new ObjectCannotBeEmptyError({
         public: {
             dataPath: path,
-            expected: "option type",
-            actual: extractReasonFromCaught(resA) + "; " + extractReasonFromCaught(resB),
         }
     });
 }

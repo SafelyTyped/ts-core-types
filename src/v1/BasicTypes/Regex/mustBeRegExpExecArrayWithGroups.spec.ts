@@ -1,4 +1,3 @@
-// tslint:disable: max-classes-per-file
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -35,74 +34,45 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
+import { ValidRegExpExecArrayWithGroupsData, InvalidRegExpExecArrayWithGroupsData } from "../_fixtures";
+import { mustBeRegExpExecArrayWithGroups } from "./mustBeRegExpExecArrayWithGroups";
+import { AppError } from "../../ErrorHandling";
 
-import { getTypeNames } from "./getTypeNames";
+describe("mustBeRegExpExecArrayWithGroupsData()", () => {
+    describe("accepts valid RegExpExecArrayWithGroupsData", () => {
+        ValidRegExpExecArrayWithGroupsData.forEach((fixture) => {
+            // shorthand
+            const regex = fixture.regex;
+            const inputValue = fixture.inputValue;
 
-interface TestItem<T> {
-    testItems: T[];
-    expected: string[];
-}
+            const expectedValue = regex.exec(inputValue);
+            expect(expectedValue).to.not.equal(null);
 
-class UnitTestClassOne {
+            if (expectedValue) {
+                it("accepts example " + JSON.stringify(inputValue), () => {
+                    const actualValue = mustBeRegExpExecArrayWithGroups(regex, expectedValue);
+                    expect(actualValue).to.equal(expectedValue);
+                });
+            }
+        });
+    });
 
-}
+    describe("rejects valid RegExpExecArrayWithGroupsData", () => {
+        InvalidRegExpExecArrayWithGroupsData.forEach((fixture) => {
+            // shorthand
+            const regex = fixture.regex;
+            const inputValue = fixture.inputValue;
 
+            const expectedValue = regex.exec(inputValue);
+            expect(expectedValue).to.not.equal(null);
 
-class UnitTestClassTwo extends UnitTestClassOne {
-
-}
-
-class UnitTestClassThree extends UnitTestClassTwo {
-
-}
-
-describe("getTypeNames()", () => {
-    [
-        {
-            testItems: [null],
-            expected: ["null"]
-        },
-        {
-            testItems: [undefined],
-            expected: ["undefined"],
-        },
-        {
-            testItems: [BigInt(1000)],
-            expected: ["bigint"],
-        },
-        {
-            testItems: [[1,2,3,4]],
-            expected: ["Array", "Object"]
-        },
-        {
-            testItems: [true, false,],
-            expected: ["boolean"],
-        },
-        {
-            testItems: [{}],
-            expected: ["Object"],
-        },
-        {
-            testItems: [ new UnitTestClassThree()],
-            expected: ["UnitTestClassThree", "UnitTestClassTwo", "UnitTestClassOne", "Object"],
-        },
-        {
-            testItems: [0, -100, 100, 3.1415927],
-            expected: ["number"]
-        },
-        {
-            testItems: ["hello world!"],
-            expected: ["string"],
-        }
-    ].forEach((testData: TestItem<any>) => {
-        // shorthand
-        const expectedValue = testData.expected;
-
-        testData.testItems.forEach((inputValue) => {
-            it("returns " + JSON.stringify(expectedValue) + " for " + inputValue, () => {
-                const actualValue = getTypeNames(inputValue);
-                expect(actualValue).to.eql(expectedValue);
-            });
+            if (expectedValue) {
+                it("rejects example " + JSON.stringify(inputValue), () => {
+                    expect(() => mustBeRegExpExecArrayWithGroups(
+                        regex, expectedValue
+                    )).to.throw(AppError);
+                });
+            }
         });
     });
 });

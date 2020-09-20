@@ -21,6 +21,33 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+# v0.2.2
+
+Released Sunday, 20th September 2020.
+
+### New
+
+* Basic Types / Functions
+  * Added `isFunction()`
+  * Added `mustBeFunction()`
+  * Added `validateFunction()`
+* Basic Types / Regex
+  * Added `RegexReturnedNoResultsError`
+  * Added `Regex` type
+  * Added `RegexReturnedNoNamedGroupsError`
+  * Added `RegExpArrayWithGroups` type
+  * Added `isRegExpExecArrayWithGroups()`
+  * Added `mustBeRegExpExecArrayWithGroups()`
+  * Added `validateRegExpExecArrayWithGroups()`
+* Basic Types / Objects
+  * Added `ObjectCannotBeEmptyError`
+  * Added `validateObjectNotEmpty()`
+
+### Tests
+
+* `getTypeNames()`
+  - added missing test case for arrays
+
 ## v0.2.1
 
 Released Sunday, 6th September 2020.

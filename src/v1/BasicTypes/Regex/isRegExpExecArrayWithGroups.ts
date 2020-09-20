@@ -31,37 +31,38 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS, findMethodNames } from "./Filters";
-import { FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS";
-import { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
+
+import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { AppError } from "../../ErrorHandling";
+import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**
- * `getPublicMethodNames()` is a data filter. It returns a list of all
- * methods that form the object's public API.
+ * `isRegExpExecArrayWithGroups()` is a type guard. Use it to convince the
+ * TypeScript compiler that your {@link RegExpExecArray} definitely does
+ * contain a `.groups` property that isn't null.
  *
- * - all methods defined on `target` and its base classes (inc
- *   Object.prototype)
- * - that aren't constructors, and
- * - that don't start with an underscore (ie suggest they're protected
- *   or private)
- *
- * Getters and Setters are NOT treated as public methods.
- *
- * @param target
- * The object to inspect.
+ * @param {RegExp} regex
+ * the regex that your {@link RegExpExecArray} came from
+ * @param {RegExpExecArray} input
+ * the data structure to validate
  * @returns
- * A list of all method names that exist on the object instance. Order of
- * the list is not guaranteed. The list will not contain duplicates.
+ * - `true` if `input.groups` exists
+ * - `false` otherwise
  *
- * @category BasicTypes
+ * @category BasicType
  */
-export function getPublicMethodNames(
-    target: object
-): string[] {
-    return findMethodNames(
-        target,
-        FIND_PROPERTY_NAMES_DEFAULT_OPTIONS,
-        FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS,
-        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
+export function isRegExpExecArrayWithGroups
+(
+    regex: RegExp,
+    input: RegExpExecArray
+): input is RegExpExecArrayWithGroups
+{
+    return !(
+        validateRegExpExecArrayWithGroups(
+            regex,
+            DEFAULT_DATA_PATH,
+            input
+        ) instanceof AppError
     );
 }

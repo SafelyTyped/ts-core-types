@@ -32,10 +32,36 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+/**
+ * @ignore
+ */
 export const ValidRegexData = [
     "boring regex"
 ];
 
+/**
+ * @ignore
+ */
 export const InvalidRegexData = [
     "(invalid regex))",
+];
+
+/**
+ * @ignore
+ */
+export const ValidRegExpExecArrayWithGroupsData = [
+    {
+        regex: /(?<group1>.*)/,
+        inputValue: "hello world!",
+    }
+];
+
+/**
+ * @ignore
+ */
+export const InvalidRegExpExecArrayWithGroupsData = [
+    {
+        regex: /(.*)/,
+        inputValue: "hello world!",
+    }
 ];

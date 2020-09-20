@@ -31,37 +31,48 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS, findMethodNames } from "./Filters";
-import { FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS";
-import { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
+import { expect } from "chai";
+import { describe } from "mocha";
 
-/**
- * `getPublicMethodNames()` is a data filter. It returns a list of all
- * methods that form the object's public API.
- *
- * - all methods defined on `target` and its base classes (inc
- *   Object.prototype)
- * - that aren't constructors, and
- * - that don't start with an underscore (ie suggest they're protected
- *   or private)
- *
- * Getters and Setters are NOT treated as public methods.
- *
- * @param target
- * The object to inspect.
- * @returns
- * A list of all method names that exist on the object instance. Order of
- * the list is not guaranteed. The list will not contain duplicates.
- *
- * @category BasicTypes
- */
-export function getPublicMethodNames(
-    target: object
-): string[] {
-    return findMethodNames(
-        target,
-        FIND_PROPERTY_NAMES_DEFAULT_OPTIONS,
-        FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS,
-        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
-    );
-}
+import { RegexDoesNotCompileError, RegexReturnedNoResultsError } from "../../Errors";
+import { Regex } from "./Regex";
+
+describe("Regex", () => {
+    it("is a RegExp", () => {
+        const unit = new Regex(".*");
+        expect(unit).is.instanceOf(RegExp);
+    });
+
+    describe(".constructor()", () => {
+        it("returns a RegExp on success", () => {
+            const inputValue = "abc";
+            const unit = new Regex(inputValue);
+
+            expect(unit).to.be.instanceOf(RegExp);
+            expect(unit.source).to.equal(inputValue);
+        });
+
+        it("throws a RegexDoesNotCompileError if the regex does not compile", () => {
+            expect(() => new Regex("(invalid")).to.throw(RegexDoesNotCompileError);
+        });
+    });
+
+    describe(".exec()", () => {
+        it("returns a RegExpExecArray on success", () => {
+            const unit = new Regex("b");
+            const inputValue = "abc";
+
+            // RegExpExecArray is a bit of a mess ...
+            const expectedResult = new RegExp("b").exec("abc");
+            expect(typeof expectedResult === null).to.equal(false);
+
+            const actualResult = unit.exec(inputValue);
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("throws a RegexReturnedNoResultsError if the regex did not match", () => {
+            const unit = new Regex("abc");
+            expect(() => unit.exec("xyz")).to.throw(RegexReturnedNoResultsError);
+        });
+    });
+});

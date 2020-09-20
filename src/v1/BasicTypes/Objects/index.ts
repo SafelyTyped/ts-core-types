@@ -46,4 +46,5 @@ export * from "./isObject";
 export * from "./mustBeObject";
 export * from "./validateObject";
 export * from "./validateObjectHasAllMethodsCalled";
+export * from "./validateObjectNotEmpty";
 export * from "./Filters";

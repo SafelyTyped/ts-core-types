@@ -31,60 +31,18 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeValidator } from "../../Archetypes";
-import { AppError, extractReasonFromCaught } from "../../ErrorHandling";
-import { AppErrorOr } from "../../OptionTypes";
+import { ExtraLogsOnlyData } from "../../ErrorHandling";
 import { DataPath } from "../../SupportingTypes";
-import { UnsupportedTypeError } from "../../Errors";
-
 
 /**
- * `validateOptionalType()` is a {@link TypeValidator}. Use it to prove
- * that `input` is either type `A` or type `B`.
+ * `RegexReturnedNoNamedGroupsData` is the input that
+ * {@link RegexReturnedNoNamedGroupsError} requires.
  *
- * @template A
- * The type to check for first.
- * @template B
- * The type to check for second.
- * @param aValidator
- * The validator to use to check for type `A`.
- * @param bValidator
- * The validator to use to check for type `B`.
- * @param path
- * Where are we in the nested data structure you are validating? Use
- * {@link DEFAULT_DATA_PATH} if you are not in a nested data struture.
- * @param input
- * The value to validate.
- * @returns
- * - `input` if it passes either of `aValidator` or `bValidator`
- * - an `AppError` to explain why validation failed
- *
- * @category BasicTypes
+ * @category Errors
  */
-export function validateOptionType<A, B>(
-    aValidator: TypeValidator<A>,
-    bValidator: TypeValidator<B>,
-    path: DataPath,
-    input: unknown
-): AppErrorOr<A|B> {
-    // first time's a charm
-    const resA = aValidator(path, input, {});
-    if (!(resA instanceof AppError)) {
-        return resA;
+export interface RegexReturnedNoNamedGroupsData extends ExtraLogsOnlyData {
+    logsOnly: {
+        dataPath: DataPath,
+        regex: string,
     }
-
-    // that didn't work. second time's a charm?
-    const resB = bValidator(path, input, {});
-    if (!(resB instanceof AppError)) {
-        return resB;
-    }
-
-    // let's try and make sense of this for the caller
-    return new UnsupportedTypeError({
-        public: {
-            dataPath: path,
-            expected: "option type",
-            actual: extractReasonFromCaught(resA) + "; " + extractReasonFromCaught(resB),
-        }
-    });
 }

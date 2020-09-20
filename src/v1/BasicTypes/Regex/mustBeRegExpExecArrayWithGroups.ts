@@ -31,37 +31,41 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS, findMethodNames } from "./Filters";
-import { FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS";
-import { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
+import { OnError, THROW_THE_ERROR } from "../../ErrorHandling";
+import { mustBe } from "../../Operators";
+import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
+import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**
- * `getPublicMethodNames()` is a data filter. It returns a list of all
- * methods that form the object's public API.
+ * `mustBeRegExpExecArrayWithGroups()` is a {@link DataGuarantee}.
+ * Use it to prove that the result of {@link RegExp.exec}() included
+ * a set of groups.
  *
- * - all methods defined on `target` and its base classes (inc
- *   Object.prototype)
- * - that aren't constructors, and
- * - that don't start with an underscore (ie suggest they're protected
- *   or private)
- *
- * Getters and Setters are NOT treated as public methods.
- *
- * @param target
- * The object to inspect.
- * @returns
- * A list of all method names that exist on the object instance. Order of
- * the list is not guaranteed. The list will not contain duplicates.
+ * @param {RegExp} regex
+ * the regex that the result came from
+ * @param {RegExpExecArray} input
+ * the result from calling {@link RegExp.exec}
+ * @param {OnError} onError
+ * we call your `onError()` if `input` does not have any groups
+ * @param {DataPath} dataPath
+ * where you are in your data structure
+ * @returns {RegexExecArray}
  *
  * @category BasicTypes
  */
-export function getPublicMethodNames(
-    target: object
-): string[] {
-    return findMethodNames(
-        target,
-        FIND_PROPERTY_NAMES_DEFAULT_OPTIONS,
-        FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS,
-        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
-    );
+export function mustBeRegExpExecArrayWithGroups(
+    regex: RegExp,
+    input: RegExpExecArray,
+    {
+        onError = THROW_THE_ERROR,
+        dataPath = DEFAULT_DATA_PATH
+    }: {
+        onError?: OnError,
+        dataPath?: DataPath
+    } = {}
+): RegExpExecArrayWithGroups {
+    return mustBe(input, {onError})
+        .next((x) => validateRegExpExecArrayWithGroups(regex, dataPath, x))
+        .value();
 }

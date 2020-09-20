@@ -32,6 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+/**
+ * @ignore
+ */
 export const ValidStringMatchesData = [
     {
         inputValue: "hello world!",
@@ -39,6 +42,9 @@ export const ValidStringMatchesData = [
     }
 ];
 
+/**
+ * @ignore
+ */
 export const InvalidStringMatchesData = [
     // inputs that do not match the regex
     {

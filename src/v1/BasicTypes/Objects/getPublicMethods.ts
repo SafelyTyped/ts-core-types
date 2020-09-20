@@ -56,6 +56,8 @@ import {
  * @returns
  * A list of all method names that exist on the object instance. Order of
  * the list is not guaranteed. The list will not contain duplicates.
+ *
+ * @category BasicTypes
  */
 export function getPublicMethods(
     target: object

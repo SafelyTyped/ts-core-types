@@ -32,4 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./Regex";
+export * from "./RegExpExecArrayWithGroups";
+export * from "./isRegExpExecArrayWithGroups";
 export * from "./validateRegexCompiles";
+export * from "./validateRegExpExecArrayWithGroups";

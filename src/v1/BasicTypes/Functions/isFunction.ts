@@ -1,3 +1,4 @@
+// tslint:disable ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -31,37 +32,20 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS, findMethodNames } from "./Filters";
-import { FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS";
-import { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
+
+import { TypeGuard } from "../../Archetypes";
+import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+import { validateFunction } from "./validateFunction";
 
 /**
- * `getPublicMethodNames()` is a data filter. It returns a list of all
- * methods that form the object's public API.
+ * `isFunction()` is a {@link TypeGuard}. Use it to prove to the TypeScript
+ * compiler that the unknown `input` really is a function.
  *
- * - all methods defined on `target` and its base classes (inc
- *   Object.prototype)
- * - that aren't constructors, and
- * - that don't start with an underscore (ie suggest they're protected
- *   or private)
- *
- * Getters and Setters are NOT treated as public methods.
- *
- * @param target
- * The object to inspect.
- * @returns
- * A list of all method names that exist on the object instance. Order of
- * the list is not guaranteed. The list will not contain duplicates.
+ * @param input
+ * the value to inspect
  *
  * @category BasicTypes
  */
-export function getPublicMethodNames(
-    target: object
-): string[] {
-    return findMethodNames(
-        target,
-        FIND_PROPERTY_NAMES_DEFAULT_OPTIONS,
-        FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS,
-        FIND_PROPERTIES_FILTER_DROP_INTERNAL,
-    );
-}
+export const isFunction: TypeGuard<Function> =
+    (input: unknown): input is Function =>
+        isType(validateFunction, input, IS_TYPE_DEFAULT_OPTIONS)
