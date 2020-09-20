@@ -21,13 +21,17 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.2.3
+
+Released Sunday, 20th September 2020.
+
 ### Fixes
 
 * Missing exports
   - add global export for BasicTypes / Booleanish
   - add global export for BasicTypes / Functions
 
-# v0.2.2
+## v0.2.2
 
 Released Sunday, 20th September 2020.
 
