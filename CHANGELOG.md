@@ -21,6 +21,17 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.2.5
+
+Released Wednesday, 23rd September 2020.
+
+### New
+
+* Basic Types
+  - added `HashMap.every()`
+  - added `HashMap.filter()`
+  - added `HashMap.some()`
+
 ## v0.2.4
 
 Released Sunday, 20th September 2020.
