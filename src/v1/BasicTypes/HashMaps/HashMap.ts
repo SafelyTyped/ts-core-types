@@ -102,4 +102,30 @@ export class HashMap<T> {
 
         return retval;
     }
+
+    /**
+     * `some()` is the equivalent of {@link Array.some}, only
+     * it works on {@link HashMap}s instead.
+     *
+     * @param target
+     * the HashMap to iterate over
+     * @param callbackfn
+     * the function to call when we iterate
+     * @returns
+     * - `true` if your `callbackfn()` returns `true` for any of the
+     *   attributes in your HashMap
+     * - `false` if your `callbackfn()` returns `false` for ALL of the
+     *   attributes in your HashMap
+     */
+    public static some<T>(
+        target: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
+    ): boolean {
+        return findAttributeNames(
+            target,
+            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
+        ).some((name: string) => {
+            return callbackfn(target[name], name, target);
+        });
+    }
 }

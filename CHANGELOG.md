@@ -25,6 +25,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * Basic Types
   - added `HashMap.filter()`
+  - added `HashMap.some()`
 
 ## v0.2.4
 
