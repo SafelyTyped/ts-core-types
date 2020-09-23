@@ -31,7 +31,6 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
 import { findAttributeNames } from "../Objects";
 import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes";
 
@@ -69,5 +68,38 @@ export class HashMap<T> {
         ).forEach((name: string) => {
             callbackfn(target[name], name, target);
         });
+    }
+
+    /**
+     * `filter()` is the equivalent of {@link Array.filter}, only it works
+     * on {@link HashMap}s instead.
+     *
+     * @param target
+     * the HashMap to iterate over
+     * @param callbackfn
+     * the function to call when we iterate
+     * @returns
+     * a (possibly empty) HashMap of objects, taken from `target`
+     *
+     * @template T
+     * the type of object held in target
+     * @template R
+     * the type of object held in the returned HashMap
+     * set this if you're filtering for objects that all implement a
+     * specific interface.
+     */
+    public static filter<T, R=T>(
+        target: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
+    ): HashMap<R> {
+        const retval: HashMap<R> = {};
+
+        HashMap.forEach(target, (value, name, obj) => {
+            if (callbackfn(value, name, obj)) {
+                retval[name] = (value as unknown) as R;
+            }
+        });
+
+        return retval;
     }
 }
