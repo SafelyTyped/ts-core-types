@@ -247,4 +247,88 @@ describe("HashMap()", () => {
             });
         });
     });
+
+    describe('.every()', () => {
+        it("iterates over the given HashMap", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = Object.values(unit);
+
+            const actualResult: string[] = []
+
+            HashMap.every(unit, (value) => {
+                actualResult.push(value);
+                return true;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns true if all values pass the filter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = true;
+
+            const actualResult = HashMap.every(unit, (value) => {
+                return value.includes("this");
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns false if any value does not pass the filter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = false;
+
+            const actualResult = HashMap.every(unit, (value) => {
+                return value.includes("attr3");
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the attribute's name as the callback's second parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = true;
+
+            let actualResult = true;
+            HashMap.every(unit, (value, name) => {
+                if (unit[name] !== value) {
+                    actualResult = false;
+                }
+
+                return true;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the target object as the callback's third parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+
+            HashMap.every(unit, (value, name, obj) => {
+                expect(obj).to.equal(unit);
+
+                return true;
+            });
+        });
+    });
 });

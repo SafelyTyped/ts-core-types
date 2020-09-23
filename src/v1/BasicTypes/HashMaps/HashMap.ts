@@ -128,4 +128,30 @@ export class HashMap<T> {
             return callbackfn(target[name], name, target);
         });
     }
+
+    /**
+     * `every()` is the equivalent of {@link Array.every}, only
+     * it works on {@link HashMap}s instead.
+     *
+     * @param target
+     * the HashMap to iterate over
+     * @param callbackfn
+     * the function to call when we iterate
+     * @returns
+     * - `true` if your `callbackfn()` returns `true` for ALL of the
+     *   attributes in your HashMap
+     * - `false` if your `callbackfn()` returns `false` for ANY of the
+     *   attributes in your HashMap
+     */
+    public static every<T>(
+        target: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
+    ): boolean {
+        return findAttributeNames(
+            target,
+            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
+        ).every((name: string) => {
+            return callbackfn(target[name], name, target);
+        });
+    }
 }
