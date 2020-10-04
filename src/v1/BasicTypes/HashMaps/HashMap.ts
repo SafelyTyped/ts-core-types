@@ -174,10 +174,47 @@ export class HashMap<T> {
      * - a HashMap containing the first matching property on success,
      * - an empty HashMap on failure
      */
-    public static first<T>(
+    public static first<T, R=T>(
         target: HashMap<T>,
         callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
-    ): HashMap<T> {
+    ): HashMap<R> {
+        // our return value
+        const retval: HashMap<R> = {};
+
+        // do we have a property to return?
+        const maybePropName = HashMap.firstKey(target, callbackfn);
+        if (maybePropName) {
+            // yes we do
+            retval[maybePropName] = (target[maybePropName] as unknown) as R;
+        }
+
+        // all done
+        return retval;
+    }
+
+    /**
+     * `firstKey()` searches the given HashMap for a property that
+     * satisfies the test in the given callback function.
+     *
+     * On success, it returns the name of the first property that satisfies
+     * the given callback function.
+     *
+     * On failure, it returns null.
+     *
+     * The order that we search the HashMap cannot be guaranteed.
+     *
+     * @param target
+     * the HashMap to search
+     * @param callbackfn
+     * the function to call when we iterate over `target`
+     * @returns
+     * - a HashMap containing the first matching property on success,
+     * - an empty HashMap on failure
+     */
+    public static firstKey<T>(
+        target: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
+    ): string|null {
         const propNames = findAttributeNames(
             target,
             { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
@@ -185,13 +222,11 @@ export class HashMap<T> {
 
         for(const name of propNames) {
             if (callbackfn(target[name], name, target)) {
-                const retval: HashMap<T> = {};
-                retval[name] = target[name];
-                return retval;
+                return name;
             }
         }
 
         // if we get here, we did not find a match
-        return {};
+        return null;
     }
 }
