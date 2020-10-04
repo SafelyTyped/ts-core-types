@@ -48,6 +48,25 @@ describe("HashMap()", () => {
         expect(unit.test1).to.equal("passes");
     });
 
+    it("can store values", () => {
+        const unit: HashMap<string> = {
+            test1: "passes"
+        };
+
+        expect(unit.test1).to.equal("passes");
+    });
+
+    it("can store functions", () => {
+        const unit: HashMap<()=>number> = {
+            test1: () => 1,
+        };
+
+        const expectedResult = [ "test1" ];
+
+        const actualResult = HashMap.keys(unit);
+        expect(expectedResult).to.eql(actualResult);
+    });
+
     describe(".forEach()", () => {
         it("iterates over the given HashMap", () => {
             const unit: HashMap<string> = {

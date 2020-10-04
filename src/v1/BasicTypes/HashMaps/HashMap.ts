@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { findAttributeNames } from "../Objects";
+import { findPropertyNames } from "../Objects";
 import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes";
 
 /**
@@ -62,12 +62,11 @@ export class HashMap<T> {
         target: HashMap<T>,
         callbackfn: (value: T, name: string, obj: HashMap<T>) => void
     ): void {
-        findAttributeNames(
-            target,
-            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
-        ).forEach((name: string) => {
-            callbackfn(target[name], name, target);
-        });
+        HashMap.keys(target)
+            .forEach((name: string) => {
+                callbackfn(target[name], name, target);
+            }
+        );
     }
 
     /**
@@ -121,12 +120,11 @@ export class HashMap<T> {
         target: HashMap<T>,
         callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
     ): boolean {
-        return findAttributeNames(
-            target,
-            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
-        ).some((name: string) => {
-            return callbackfn(target[name], name, target);
-        });
+        return HashMap.keys(target)
+            .some((name: string) => {
+                return callbackfn(target[name], name, target);
+            }
+        );
     }
 
     /**
@@ -147,12 +145,11 @@ export class HashMap<T> {
         target: HashMap<T>,
         callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
     ): boolean {
-        return findAttributeNames(
-            target,
-            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
-        ).every((name: string) => {
-            return callbackfn(target[name], name, target);
-        });
+        return HashMap.keys(target)
+            .every((name: string) => {
+                return callbackfn(target[name], name, target);
+            }
+        );
     }
 
     /**
@@ -215,10 +212,7 @@ export class HashMap<T> {
         target: HashMap<T>,
         callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
     ): string|null {
-        const propNames = findAttributeNames(
-            target,
-            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
-        );
+        const propNames = HashMap.keys(target);
 
         for(const name of propNames) {
             if (callbackfn(target[name], name, target)) {
@@ -228,5 +222,25 @@ export class HashMap<T> {
 
         // if we get here, we did not find a match
         return null;
+    }
+
+    /**
+     * `keys()` returns a list of all the property names from the given
+     * HashMap.
+     *
+     * Unlike {@link Object.keys}, `HashMap.keys()` only returns properties
+     * that belong to `target` (ie nothing that belongs to its prototypes).
+     *
+     * @param target
+     * the HashMap to example
+     * @returns
+     * the (possibly empty) list of attribute names from `target`
+     */
+    public static keys<T>(target: HashMap<T>): string[]
+    {
+        return findPropertyNames(
+            target,
+            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
+        );
     }
 }

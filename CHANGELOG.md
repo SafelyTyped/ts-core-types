@@ -26,6 +26,8 @@ The following changes have been completed, and will be included in the next tagg
 * Basic Types
   - added `HashMap.first()`
   - added `HashMap.firstKey()`
+  - added `HashMap.keys()`
+  - `HashMap` can now store functions
 
 ## v0.2.5
 
