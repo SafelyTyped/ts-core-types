@@ -21,6 +21,18 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.2.6
+
+Released Sunday, 4th October 2020.
+
+### New
+
+* Basic Types
+  - added `HashMap.first()`
+  - added `HashMap.firstKey()`
+  - added `HashMap.keys()`
+  - `HashMap` can now store functions
+
 ## v0.2.5
 
 Released Wednesday, 23rd September 2020.
