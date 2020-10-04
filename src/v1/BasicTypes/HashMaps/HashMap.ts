@@ -154,4 +154,44 @@ export class HashMap<T> {
             return callbackfn(target[name], name, target);
         });
     }
+
+    /**
+     * `first()` searches the given HashMap for a property that satisfies
+     * the test in the given callback function.
+     *
+     * On success, it returns a HashMap containing only the first property
+     * that satisfies the given callback function.
+     *
+     * On failure, it returns an empty HashMap.
+     *
+     * The order that we search the HashMap cannot be guaranteed.
+     *
+     * @param target
+     * the HashMap to search
+     * @param callbackfn
+     * the function to call when we iterate over `target`
+     * @returns
+     * - a HashMap containing the first matching property on success,
+     * - an empty HashMap on failure
+     */
+    public static first<T>(
+        target: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
+    ): HashMap<T> {
+        const propNames = findAttributeNames(
+            target,
+            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
+        );
+
+        for(const name of propNames) {
+            if (callbackfn(target[name], name, target)) {
+                const retval: HashMap<T> = {};
+                retval[name] = target[name];
+                return retval;
+            }
+        }
+
+        // if we get here, we did not find a match
+        return {};
+    }
 }

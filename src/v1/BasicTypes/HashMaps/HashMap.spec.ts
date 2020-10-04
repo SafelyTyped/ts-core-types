@@ -331,4 +331,90 @@ describe("HashMap()", () => {
             });
         });
     });
+
+    describe(".first()", () => {
+        it("iterates over the given HashMap", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = Object.values(unit);
+
+            const actualResult: string[] = []
+
+            HashMap.first(unit, (value) => {
+                actualResult.push(value);
+                return false;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns whichever value satisfies the callback function", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = {
+                attr2: unit.attr2,
+            };
+
+            const actualResult = HashMap.first(unit, (value) => {
+                return value.includes("attr2");
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns an empty HashMap if no value satisfies the callback function", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = {};
+
+            const actualResult = HashMap.first(unit, (value) => {
+                return value.includes("attr4");
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the attribute's name as the callback's second parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = true;
+
+            let actualResult = true;
+            HashMap.first(unit, (value, name) => {
+                if (unit[name] !== value) {
+                    actualResult = false;
+                }
+
+                return false;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the target object as the callback's third parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+
+            HashMap.first(unit, (value, name, obj) => {
+                expect(obj).to.equal(unit);
+
+                return false;
+            });
+        });
+    });
 });
