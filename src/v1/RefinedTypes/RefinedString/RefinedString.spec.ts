@@ -51,14 +51,14 @@ function defaultOnErrorHandler(e: AnyAppError): never {
     throw new Error("DEFAULT ERROR HANDLER CALLED");
 }
 
-class Uuid extends RefinedString<OnErrorOptions> {
+class Uuid extends RefinedString {
     public static from(input: string): Uuid {
         return new Uuid(mustBeUuid, input, { onError: defaultOnErrorHandler });
     }
 }
 
 // tslint:disable-next-line: max-classes-per-file
-class NeverUuid extends RefinedString<OnErrorOptions> {
+class NeverUuid extends RefinedString {
     public static from(input: string): NeverUuid {
         return new NeverUuid(neverAUuid, input, { onError: defaultOnErrorHandler });
     }

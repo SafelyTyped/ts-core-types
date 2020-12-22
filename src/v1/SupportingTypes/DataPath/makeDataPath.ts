@@ -33,7 +33,7 @@
 //
 import { DataPath } from ".";
 import { FunctionalOption, makeNominalType } from "../../Archetypes";
-import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBeDataPathData } from "./mustBeDataPathData";
 import { MakeDataPathOptions } from "./MakeDataPathOptions";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
@@ -59,7 +59,7 @@ export const makeDataPath = (
         path = DEFAULT_DATA_PATH,
     }: Partial<MakeDataPathOptions> = {},
     ...fnOpts: FunctionalOption<string|DataPath>[]
-) => makeNominalType<string, DataPath, OnErrorOptions>(
+) => makeNominalType<string, DataPath>(
     mustBeDataPathData,
     input,
     { onError, path },

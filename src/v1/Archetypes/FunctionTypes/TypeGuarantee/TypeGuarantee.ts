@@ -57,5 +57,5 @@ import { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
  * @param options.path
  * We use this in thrown Errors to provide a meaningful name for `input`
  */
-export type TypeGuarantee<T, OPT extends object = object>
-    = (input: unknown, options?: Partial<TypeGuaranteeOptions> & Partial<OPT>) => T;
+export type TypeGuarantee<T, OPT extends TypeGuaranteeOptions = TypeGuaranteeOptions>
+    = (input: unknown, options?: Partial<OPT>) => T;

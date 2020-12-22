@@ -33,6 +33,7 @@
 //
 import { RefinedPrimitive } from "../RefinedPrimitive";
 import { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import { DataGuaranteeOptions } from "../../Archetypes";
 
 /**
  * `RefinedString` is a base class for defining a subset of numbers.
@@ -43,7 +44,7 @@ import { ToPrimitive, PrimitiveHint } from "../../Protocols";
  * This is the type of user-supplied options that the `contract`
  * (parameter to the constructor) accepts.
  */
-export class RefinedNumber<OPT extends object = object>
+export class RefinedNumber<OPT extends DataGuaranteeOptions = DataGuaranteeOptions>
     extends RefinedPrimitive<number, OPT>
     implements ToPrimitive {
 

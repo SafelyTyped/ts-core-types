@@ -61,5 +61,5 @@ import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
  * @param path
  * This is where we are in the data structure that you are inspecting.
  */
-export type DataGuarantee<T = unknown, OPT extends object = object>
-  = (input: T, options?: Partial<DataGuaranteeOptions> & Partial<OPT>) => void;
+export type DataGuarantee<T = unknown, OPT extends DataGuaranteeOptions = DataGuaranteeOptions>
+  = (input: T, options?: Partial<OPT>) => void;

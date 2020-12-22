@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Archetypes";
+import { FunctionalOption, makeNominalType, SmartConstructor, MakeNominalTypeOptions } from "../../Archetypes";
 import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import { DEFAULT_DATA_PATH } from "../DataPath";
 import { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
@@ -56,14 +56,14 @@ import { NodeJSModuleName } from "./NodeJSModuleName";
  * @returns
  * The validated input string, as a NodeJSModuleName type.
  */
-export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, OnErrorOptions, string | NodeJSModuleName> = (
+export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, MakeNominalTypeOptions, string | NodeJSModuleName> = (
     input: string,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH
     }: Partial<MakeNodeJSModuleNameOptions> = {},
     ...fnOpts: FunctionalOption<string | NodeJSModuleName, OnErrorOptions>[]
-): NodeJSModuleName => makeNominalType<string, NodeJSModuleName, OnErrorOptions>(
+): NodeJSModuleName => makeNominalType<string, NodeJSModuleName>(
     mustBeNodeJSModuleNameData,
     input,
     { onError, path },

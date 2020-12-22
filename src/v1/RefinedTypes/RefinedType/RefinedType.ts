@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataGuarantee, ValueObject } from "../../Archetypes";
+import { DataGuarantee, DataGuaranteeOptions, ValueObject } from "../../Archetypes";
 
 /**
  * `RefinedType` is a base class for defining a subset of any given type.
@@ -48,7 +48,7 @@ import { DataGuarantee, ValueObject } from "../../Archetypes";
  * @template OPT
  * This is the type of user-supplied options that the `contract` accepts.
  */
-export class RefinedType<T, OPT extends object = object> extends ValueObject<T> {
+export class RefinedType<T, OPT extends DataGuaranteeOptions = DataGuaranteeOptions> extends ValueObject<T> {
     /**
      * Constructor. Creates a new `RefinedType`.
      *
@@ -72,7 +72,7 @@ export class RefinedType<T, OPT extends object = object> extends ValueObject<T> 
     public constructor(
         contract: DataGuarantee<T, OPT>,
         input: T,
-        options: OPT,
+        options: Partial<OPT>,
     ) {
         // enforce the contract
         contract(input, options);

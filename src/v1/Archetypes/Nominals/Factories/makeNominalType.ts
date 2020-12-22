@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataGuarantee, FunctionalOption } from "../../FunctionTypes";
+import { applyFunctionalOptions, DataGuarantee, FunctionalOption } from "../../FunctionTypes";
 import { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
 import { THROW_THE_ERROR } from "../../../ErrorHandling";
 import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
@@ -65,34 +65,24 @@ import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
  * @template OPT
  * The data type for the user-supplied options.
  */
-export function makeNominalType<IN, OUT, OPT extends object = object>(
+export function makeNominalType<IN, OUT, OPT extends MakeNominalTypeOptions = MakeNominalTypeOptions>(
     contract: DataGuarantee<IN, OPT>,
     input: IN,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
         ...options
-    }: Partial<MakeNominalTypeOptions> & Partial<OPT> = {},
+    }: Partial<OPT> = {},
     ...fnOpts: FunctionalOption<IN|OUT, OPT>[]
 ): OUT {
-    // enforce the contract
-    contract(input, { onError, path, ...options });
-
-    // prepare our return value
-    let retval: IN|OUT = (input as unknown) as OUT;
-
     // shorthand
-    const optsForFnOpts = { onError, path, ...options } as OPT;
-
-    // apply the functional options
     //
-    // we don't use `applyFunctionalOptions()` here, because
-    // we need this type-cast to support IN|OUT
-    fnOpts.forEach((fnOpt) => {
-        retval = (fnOpt(retval, optsForFnOpts) as OUT);
-    });
+    // the typecast is required since Typescript 4.0
+    const opts = { onError, path, ...options } as OPT;
 
-    // we have to re-cast here, because the compiler isn't sure
-    // whether `retval` is IN or OUT
-    return (retval as unknown) as OUT;
+    // enforce the contract
+    contract(input, opts);
+
+    // apply any functional options we've been given
+    return applyFunctionalOptions<IN|OUT, OPT>(input, opts, ...fnOpts) as OUT;
 }
