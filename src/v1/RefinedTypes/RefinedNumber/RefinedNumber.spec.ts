@@ -61,7 +61,7 @@ export const makeAdultAge = (
     ...fnOpts
 );
 
-class AdultAge extends RefinedNumber<OnErrorOptions> {
+class AdultAge extends RefinedNumber {
     public constructor(input: number, options: OnErrorOptions) {
         super(mustBeAdultAge, input, options);
     }
@@ -78,7 +78,7 @@ export const makeNeverAdultAge = (
 );
 
 // tslint:disable-next-line: max-classes-per-file
-class NeverAdultAge extends RefinedNumber<OnErrorOptions> {
+class NeverAdultAge extends RefinedNumber {
     public constructor(input: number, options: OnErrorOptions) {
         super(neverAdultAge, input, options);
     }

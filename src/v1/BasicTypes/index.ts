@@ -44,6 +44,7 @@ export * from "./Integers";
 export * from "./Numbers";
 export * from "./Objects";
 export * from "./Options";
+export * from "./Primitives";
 export * from "./Prototypes";
 export * from "./Regex";
 export * from "./Strings";

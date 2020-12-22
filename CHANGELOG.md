@@ -21,6 +21,33 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.0
+
+Released Tuesday, 22nd December 2020.
+
+### B/C Breaks
+
+The following changes were needed for TypeScript v4 compatibility:
+
+* `makeNominalType()` now requires user-defined options to be based on `MakeNominalTypeOptions` instead of `object`
+* `DataGuarantee` type now requires user-defined options to be based on `DataGuaranteeOptions` instead of `object`
+* `TypeGuarantee` type now requires user-defined options to be based on `TypeGuaranteeOptions` instead of `object`
+
+The following changes may break existing code:
+
+* `ToPrimitive` protocol now supports returning `bool` type too
+  - apparently, `[Symbol.toPrimitive]: (hint) => bool` is a legal thing!
+
+### New
+
+* Basic Types
+  - added `Immutable`
+  - added `DeepImmutable`
+  - added `Primitive`
+  - added `PrimitiveOrFunction`
+  - added `PrimitiveOrUndefined`
+  - added `Primitivish`
+
 ## v0.2.6
 
 Released Sunday, 4th October 2020.

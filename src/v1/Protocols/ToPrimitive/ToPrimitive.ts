@@ -32,6 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { Primitive } from "../../BasicTypes";
+import { PrimitiveHint } from "./PrimitiveHint";
+
 /**
  * `ToPrimitive` is a protocol. It describes an object that supports the
  * `ToPrimitive` abstract operation.
@@ -39,5 +42,5 @@
  * @category Protocols
  */
 export interface ToPrimitive {
-    [Symbol.toPrimitive]: (hint: "string" | "number" | "default") => string | number | null;
+    [Symbol.toPrimitive]: (hint: PrimitiveHint) => Primitive;
 }

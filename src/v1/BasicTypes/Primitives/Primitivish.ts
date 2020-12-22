@@ -1,3 +1,4 @@
+// tslint:disable: ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -31,41 +32,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FunctionalOption, makeNominalType, SmartConstructor, MakeNominalTypeOptions } from "../../Archetypes";
-import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import { DEFAULT_DATA_PATH } from "../DataPath";
-import { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
-import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
-import { NodeJSModuleName } from "./NodeJSModuleName";
+
+import { Primitive } from "./Primitive";
 
 /**
- * `makeNodeJSModuleName()` is a smart constructor. It verifies that the
- * `input` string contains a valid NodeJS module name, by calling
- * {@link mustBeNodeJSModuleNameData}.
+ * `Primitivish` is a type-alias. Use it wherever you want to accept
+ * anything that isn't an object or an array.
  *
- * Use {@link MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS} if you need to
- * pass default options in.
- *
- * @category NodeJSModuleName
- * @param input
- * This is the string that contains the module name.
- * @param onError
- * This is the error handler we call if anything goes wrong.
- * @param fnOpts
- * Any functional options you wish to use.
- * @returns
- * The validated input string, as a NodeJSModuleName type.
+ * @category BasicTypes
  */
-export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, MakeNominalTypeOptions, string | NodeJSModuleName> = (
-    input: string,
-    {
-        onError = THROW_THE_ERROR,
-        path = DEFAULT_DATA_PATH
-    }: Partial<MakeNodeJSModuleNameOptions> = {},
-    ...fnOpts: FunctionalOption<string | NodeJSModuleName, OnErrorOptions>[]
-): NodeJSModuleName => makeNominalType<string, NodeJSModuleName>(
-    mustBeNodeJSModuleNameData,
-    input,
-    { onError, path },
-    ...fnOpts
-);
+export type Primitivish = Primitive | undefined | Function;
