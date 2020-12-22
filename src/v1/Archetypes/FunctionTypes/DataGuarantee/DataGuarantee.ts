@@ -38,13 +38,13 @@ import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
  * meets a defined contract / specification.
  *
  * If the given data does meet the given contract / specification, the
- * DataGuarantee returns the given data.
+ * DataGuarantee returns without throwing an Error.
  *
  * If the given data does not meet the given contract / specification,
  * the DataGuarantee calls the supplied {@link OnError} handler. The
  * {@link OnError} handler must throw an {@link AppError} of some kind.
  *
- * `T` is the type of data to be inspected
+ * `T` is the type of data to be inspected.
  *
  * When you implement a DataGuarantee, make it a wrapper around one or more
  * {@link TypeGuard}s and/or {@link DataGuard}s - and even other
