@@ -29,6 +29,11 @@ The following changes were needed for TypeScript v4 compatibility:
 * `DataGuarantee` type now requires user-defined options to be based on `DataGuaranteeOptions` instead of `object`
 * `TypeGuarantee` type now requires user-defined options to be based on `TypeGuaranteeOptions` instead of `object`
 
+The following changes may break existing code:
+
+* `ToPrimitive` protocol now supports returning `bool` type too
+  - apparently, `[Symbol.toPrimitive]: (hint) => bool` is a legal thing!
+
 ### New
 
 * Basic Types
