@@ -35,6 +35,7 @@
 export * from "./AttributeFilterMap";
 export * from "./AttributeKeys";
 export * from "./AttributeTransformerMap";
+export * from "./DeepImmutable";
 export * from "./Definitely";
 export * from "./EquivalentKeys";
 export * from "./EquivalentOptionalKeys";
@@ -43,6 +44,7 @@ export * from "./EquivalentPart";
 export * from "./IdenticallyNamedKeys";
 export * from "./IdenticallyNamedPart";
 export * from "./IfEquals";
+export * from "./Immutable";
 export * from "./Maybe";
 export * from "./OptionalKeys";
 export * from "./OptionalPart";

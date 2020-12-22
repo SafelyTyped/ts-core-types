@@ -7,13 +7,15 @@
 // This file is in the public domain.
 //
 
-import { Primitivish } from "../Primitives";
+import { Primitivish } from "../../BasicTypes";
 
 /**
  * `DeepImmutable` is a version of `Readonly` that works on all known types
  * AND their child members / properties.
  *
  * THIS IS EXPERIMENTAL.
+ *
+ * @category UtilityTypes
  */
 export type DeepImmutable<T> =
     T extends Primitivish ? T

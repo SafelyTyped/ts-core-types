@@ -7,12 +7,14 @@
 // This file is in the public domain.
 //
 
-import { Primitivish } from "../Primitives";
+import { Primitivish } from "../../BasicTypes";
 
 /**
  * `Immutable` is a version of `Readonly` that works on all known types.
  *
  * THIS IS EXPERIMENTAL.
+ *
+ * @category UtilityTypes
  */
 export type Immutable<T> =
     T extends Primitivish ? T

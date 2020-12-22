@@ -40,7 +40,6 @@ export * from "./Classes";
 export * from "./Filters";
 export * from "./Functions";
 export * from "./HashMaps";
-export * from "./Immutable";
 export * from "./Integers";
 export * from "./Numbers";
 export * from "./Objects";
