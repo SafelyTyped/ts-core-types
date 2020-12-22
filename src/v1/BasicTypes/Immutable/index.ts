@@ -32,21 +32,5 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleanish";
-export * from "./Booleans";
-export * from "./Classes";
-export * from "./Filters";
-export * from "./Functions";
-export * from "./HashMaps";
 export * from "./Immutable";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Options";
-export * from "./Primitives";
-export * from "./Prototypes";
-export * from "./Regex";
-export * from "./Strings";
-export * from "./Unknowns";
+export * from "./DeepImmutable";
