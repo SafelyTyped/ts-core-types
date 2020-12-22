@@ -21,6 +21,14 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### B/C Breaks
+
+The following changes were needed for TypeScript v4 compatibility:
+
+* `makeNominalType()` now requires user-defined options to be based on `MakeNominalTypeOptions` instead of `object`
+* `DataGuarantee` type now requires user-defined options to be based on `DataGuaranteeOptions` instead of `object`
+* `TypeGuarantee` type now requires user-defined options to be based on `TypeGuaranteeOptions` instead of `object`
+
 ### New
 
 * Basic Types
