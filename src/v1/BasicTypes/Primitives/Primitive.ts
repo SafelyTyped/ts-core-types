@@ -35,5 +35,7 @@
 /**
  * `Primitive` is a type alias. Use it whenever you need to accept any
  * of the basic data types.
+ *
+ * @category BasicTypes
  */
 export type Primitive = boolean | number | string | null;

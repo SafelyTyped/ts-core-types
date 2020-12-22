@@ -38,5 +38,7 @@ import { Primitive } from "./Primitive";
 /**
  * `Primitivish` is a type-alias. Use it wherever you want to accept
  * anything that isn't an object or an array.
+ *
+ * @category BasicTypes
  */
 export type Primitivish = Primitive | undefined | Function;
