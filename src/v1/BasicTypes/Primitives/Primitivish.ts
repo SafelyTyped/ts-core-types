@@ -1,3 +1,4 @@
+// tslint:disable: ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,20 +33,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleanish";
-export * from "./Booleans";
-export * from "./Classes";
-export * from "./Filters";
-export * from "./Functions";
-export * from "./HashMaps";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Options";
-export * from "./Primitives";
-export * from "./Prototypes";
-export * from "./Regex";
-export * from "./Strings";
-export * from "./Unknowns";
+import { Primitive } from "./Primitive";
+
+/**
+ * `Primitivish` is a type-alias. Use it wherever you want to accept
+ * anything that isn't an object or an array.
+ */
+export type Primitivish = Primitive | undefined | Function;

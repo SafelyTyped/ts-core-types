@@ -32,20 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Any";
-export * from "./Arrays";
-export * from "./Booleanish";
-export * from "./Booleans";
-export * from "./Classes";
-export * from "./Filters";
-export * from "./Functions";
-export * from "./HashMaps";
-export * from "./Integers";
-export * from "./Numbers";
-export * from "./Objects";
-export * from "./Options";
-export * from "./Primitives";
-export * from "./Prototypes";
-export * from "./Regex";
-export * from "./Strings";
-export * from "./Unknowns";
+/**
+ * `Primitive` is a type alias. Use it whenever you need to accept any
+ * of the basic data types.
+ */
+export type Primitive = boolean | number | string | null;
