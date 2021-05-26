@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### Dependencies
+
+* Update all dependencies to the latest version.
+
 ## v0.3.0
 
 Released Tuesday, 22nd December 2020.
