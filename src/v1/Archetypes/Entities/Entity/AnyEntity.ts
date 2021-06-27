@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,5 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Entity";
-export * from "./AnyEntity";
+import { Entity } from "./Entity";
+
+/**
+ * `AnyEntity` is a type alias. Use it anywhere that any {@link Entity}
+ * is valid.
+ */
+export type AnyEntity = Entity<any, any>;
