@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * Archetypes
   - added `AnyEntity` type
   - added `AnyEntityObject` type
+  - added `AnyTypeGuard` type
   - added `AnyTypeValidator` type
 
 ### Fixes
