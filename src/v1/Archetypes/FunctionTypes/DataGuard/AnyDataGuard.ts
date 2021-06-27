@@ -40,4 +40,4 @@ import { DataGuard } from "./DataGuard";
  *
  * @category Archetypes
  */
-export type AnyDataGuard = DataGuard<any>;
+export type AnyDataGuard = DataGuard<unknown>;
