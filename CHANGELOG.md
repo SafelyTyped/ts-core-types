@@ -31,6 +31,7 @@ The following changes have been completed, and will be included in the next tagg
 
 ### Fixes
 
+* `DataGuard.ts` file moved into its own folder
 * `SmartConstructor` user-defined options / functional options' options definition has been simplified
   - both of these template parameters now enforce compatibility with `SmartConstructorOptions`, instead of relying on intersection types buried within the definition
 ## v0.3.1
