@@ -32,5 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataGuard";
-export * from "./AnyDataGuard";
+import { DataGuard } from "./DataGuard";
+
+/**
+ * `AnyDataGuard` is a type alias. Use it wherever any {@link DataGuard}
+ * is valid.
+ *
+ * @category Archetypes
+ */
+export type AnyDataGuard = DataGuard<any>;
