@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,5 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./TypeValidator";
-export * from "./AnyTypeValidator";
+import { TypeValidator } from "./TypeValidator";
+
+/**
+ * `AnyTypeValidator` is a type alias. Use it wherever any {@link TypeValidator}
+ * is valid.
+ *
+ * @category Archetypes
+ */
+export type AnyTypeValidator = TypeValidator<any>;
