@@ -33,3 +33,4 @@
 //
 
 export * from "./TypeValidator";
+export * from "./AnyTypeValidator";

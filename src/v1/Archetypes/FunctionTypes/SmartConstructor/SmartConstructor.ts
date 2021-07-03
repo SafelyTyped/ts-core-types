@@ -65,8 +65,8 @@ import { SmartConstructorOptions } from "./SmartConstructorOptions";
  * @returns
  * The constructed type.
  */
-export type SmartConstructor<IN, OUT, OPT extends object = object, FN = OUT, FN_OPT = OPT> = (
+export type SmartConstructor<IN, OUT, OPT extends SmartConstructorOptions = SmartConstructorOptions, FN = OUT, FN_OPT extends SmartConstructorOptions = OPT> = (
     input: IN,
-    options?: Partial<SmartConstructorOptions> & Partial<OPT>,
-    ...fnOptions: FunctionalOption<FN, Partial<SmartConstructorOptions> & Partial<FN_OPT>>[]
+    options?: Partial<OPT>,
+    ...fnOptions: FunctionalOption<FN, Partial<FN_OPT>>[]
 ) => OUT;

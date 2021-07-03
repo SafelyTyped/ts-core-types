@@ -49,6 +49,8 @@ import { Filter } from "./Filter";
  * - `true` if any filter returns `true`
  * - `false` otherwise
  *
+ * @deprecated use {@link SomeGuards} instead
+ *
  * @category BasicTypes
  */
 export function someFilters<T>(input: T, filters: Filter<T>[]): boolean {

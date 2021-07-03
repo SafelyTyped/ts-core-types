@@ -34,14 +34,14 @@
 import { NonEmptyArray } from "./NonEmptyArray";
 
 /**
- * `isArray()` is a {@link TypeGuard}. Use it to prove to the compiler that
- * the unknown `input` is an array of some kind.
+ * `isNonEmptyArray()` is a {@link TypeGuard}. Use it to prove to the
+ * compiler that the `input` array has at least 1 item in it.
  *
  * @param input
  * the value to inspect
  *
  * @category BasicTypes
  */
-export const isNonEmptyArray = <T = any>(input: T[]): input is NonEmptyArray<T> => {
+export const isNonEmptyArray = <T>(input: T[]): input is NonEmptyArray<T> => {
     return input.length > 0;
 }

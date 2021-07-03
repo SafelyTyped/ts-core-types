@@ -34,3 +34,4 @@
 
 export * from "./TypeGuaranteeOptions";
 export * from "./TypeGuarantee";
+export * from "./AnyTypeGuarantee";

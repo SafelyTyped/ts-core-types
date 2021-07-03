@@ -55,10 +55,3 @@ interface Branding<BrandingT extends string> {
  * @category Archetypes
  */
 export type Branded<T, BrandingT extends string> = T & Branding<BrandingT>;
-
-/**
- * AnyBranded represents any branded type.
- *
- * @category Archetypes
- */
-export type AnyBranded = Branded<any, any>;

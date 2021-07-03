@@ -32,5 +32,30 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Flavoured";
-export * from "./AnyFlavoured";
+import { DataGuard } from "../../Archetypes";
+
+/**
+ * `someGuards()` is an operator. Use it to apply a set of {@link DataGuard}
+ * to the `input` value.
+ *
+ * We stop (and return `true`) as soon as one of the guards returns `true`.
+ *
+ * @param input
+ * the value to be inspected
+ * @param guards
+ * a list of guards to be applied
+ * @returns
+ * - `true` if any guard returns `true`
+ * - `false` otherwise
+ *
+ * @category Operators
+ */
+export function someGuards<T>(input: T, guards: DataGuard<T>[]): boolean {
+    for (const guard of guards) {
+        if (guard(input)) {
+            return true;
+        }
+    }
+
+    return false;
+}

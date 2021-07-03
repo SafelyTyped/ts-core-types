@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,5 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Flavoured";
-export * from "./AnyFlavoured";
+import { DataGuarantee } from "./DataGuarantee";
+import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
+
+/**
+ * `AnyDataGuarantee` is a type alias. Use it wherever any
+ * {@link DataGuarantee} is valid.
+ *
+ * @category Archetypes
+ */
+export type AnyDataGuarante<OPT extends DataGuaranteeOptions = DataGuaranteeOptions> = DataGuarantee<unknown, OPT>;

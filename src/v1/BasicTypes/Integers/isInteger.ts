@@ -34,6 +34,7 @@
 
 import { validateInteger } from "./validateInteger";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+import { TypeGuard } from "../../Archetypes";
 
 /**
  * `isInteger()` is a {@link TypeGuard}. Use it to prove to the Typescript
@@ -44,5 +45,6 @@ import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
  *
  * @category BasicTypes
  */
-export const isInteger = (input: unknown): input is number =>
-    isType(validateInteger, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isInteger: TypeGuard<number>
+    = (input: unknown): input is number =>
+        isType(validateInteger, input, IS_TYPE_DEFAULT_OPTIONS);

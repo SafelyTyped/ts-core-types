@@ -21,6 +21,64 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.2
+
+Released Saturday, 3rd July 2021.
+
+### New
+
+* Archetypes
+  - added `AnyDataGuarantee` type
+  - added `AnyDataGuard` type
+  - added `AnyDataValidator` type
+  - added `AnyEntity` type
+  - added `AnyEntityObject` type
+  - added `AnyTypeGuarantee` type
+  - added `AnyTypeGuard` type
+  - added `AnyTypeValidator` type
+* BasicTypes
+  - added `mustBeNonEmptyArray()` TypeGuarantee
+* Operators
+  - added `everyGuard()`
+  - added `someGuards()`
+
+### Fixes
+
+* Archetypes
+  - `DataGuard.ts` file moved into its own folder
+  - `SmartConstructor` user-defined options / functional options' options definition has been simplified
+    - both of these template parameters now enforce compatibility with `SmartConstructorOptions`, instead of relying on intersection types buried within the definition
+* BasicTypes
+  - added missing export for `mustBeArray()`
+  - improved type-inference for `isNonEmptyArray()`
+  - switch to safer 'arrays of unknown type'
+    - isArray()
+    - mustBeArray()
+    - validateArray()
+    - validateArrayOf()
+    - validateNonEmptyArray()
+  - added explicit `TypeGuard` signature
+    - isInteger()
+    - isNumber()
+    - isString()
+* Nominals
+  - moved `AnyBranded` type into its own file
+  - moved `AnyFlavoured` type into its own file
+* Operators
+  - moved `recast` into its own subfolder
+
+### Deprecations
+
+* BasicTypes
+  - deprecated Filter; use the DataGuard type instead
+  - deprecated everyFilter(); use everyGuard() instead
+  - deprecated someFilters(); use someGuards() instead
+
+### Tests
+
+* ErrorHandling
+  - additional unit tests for `isAppError()`, to prove it does not crash when given non-objects
+
 ## v0.3.1
 
 Released Wednesday, 26th May 2021.

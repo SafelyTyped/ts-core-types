@@ -32,5 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Flavoured";
-export * from "./AnyFlavoured";
+import { Branded } from "./Branded";
+
+/**
+ * AnyBranded represents any branded type.
+ *
+ * @category Archetypes
+ */
+ export type AnyBranded = Branded<any, any>;

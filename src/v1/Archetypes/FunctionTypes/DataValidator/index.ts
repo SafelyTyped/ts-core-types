@@ -33,3 +33,4 @@
 //
 
 export * from "./DataValidator";
+export * from "./AnyDataValidator";

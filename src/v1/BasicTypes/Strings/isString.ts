@@ -34,6 +34,7 @@
 
 import { validateString } from "./validateString";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+import { TypeGuard } from "../../Archetypes";
 
 /**
  * `isString()` is a {@link TypeGuard}. Use it to prove to the Typescript
@@ -44,5 +45,6 @@ import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
  *
  * @category BasicTypes
  */
-export const isString = (input: unknown): input is string =>
-    isType(validateString, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isString: TypeGuard<string>
+    = (input: unknown): input is string =>
+        isType(validateString, input, IS_TYPE_DEFAULT_OPTIONS);

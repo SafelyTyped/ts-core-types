@@ -31,59 +31,53 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { expect } from "chai";
+
 import { describe } from "mocha";
+import { expect } from "chai";
+import { everyGuard } from "./everyGuard";
+import { DataGuard } from "../..";
 
-import { UnitTestFailureError } from "../../_fixtures";
-import { isAppError } from "./isAppError";
-
-describe("isAppError()", () => {
-    it("is a type-guard for AppError objects", () => {
-        const unit = new UnitTestFailureError({
-            public: {
-                field1: "first field",
-            },
-            logsOnly: {
-                field2: "second field",
-            },
-        });
-
-        if (isAppError(unit)) {
-            expect(true).to.equal(true);
-        } else {
-            expect(false).to.equal(true, "isAppError() type-guard failed");
-        }
-    });
-
-    it("rejects other objects", () => {
-        const unit = {};
-
-        if (isAppError(unit)) {
-            expect(false).to.equal(true, "isAppError() type-guard failed");
-        } else {
-            expect(true).to.equal(true);
-        }
-    });
-
-    it("rejects non-objects", () => {
-        const examples = [
-            null,
-            undefined,
-            [],
-            [ 1, 2, 3 ],
-            () => true,
-            0,
-            -100,
-            100,
-            "AppError"
+describe("everyGuard()", () => {
+    it("returns `true` if every guard does so", () => {
+        let fn1Called = false;
+        let fn2Called = false;
+        const guards: DataGuard<string>[] = [
+            (x) => { fn1Called = true; return true },
+            (x) => { fn2Called = true; return true },
         ];
 
-        examples.forEach((unit) => {
-            if (isAppError(unit)) {
-                expect(false).to.equal(true, "isAppError() type-guard failed for " + JSON.stringify(unit));
-            } else {
-                expect(true).to.equal(true);
-            }
-        });
+        const actualValue = everyGuard("this is a test", guards);
+        expect(actualValue).to.equal(true);
+        expect(fn1Called).to.equal(true);
+        expect(fn2Called).to.equal(true);
     });
+
+    it("returns `false` if any guard does so", () => {
+        let fn1Called = false;
+        let fn2Called = false;
+        const guards: DataGuard<string>[] = [
+            (x) => { fn1Called = true; return true },
+            (x) => { fn2Called = true; return false },
+        ];
+
+        const actualValue = everyGuard("this is a test", guards);
+        expect(actualValue).to.equal(false);
+        expect(fn1Called).to.equal(true);
+        expect(fn2Called).to.equal(true);
+    });
+
+    it("stops calling guards once one of them has returned `false`", () => {
+        let fn1Called = false;
+        let fn2Called = false;
+        const guards: DataGuard<string>[] = [
+            (x) => { fn1Called = true; return false },
+            (x) => { fn2Called = true; return true },
+        ];
+
+        const actualValue = everyGuard("this is a test", guards);
+        expect(actualValue).to.equal(false);
+        expect(fn1Called).to.equal(true);
+        expect(fn2Called).to.equal(false);
+    });
+
 });

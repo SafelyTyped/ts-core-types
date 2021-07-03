@@ -32,5 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./Flavoured";
-export * from "./AnyFlavoured";
+import { Flavoured } from "./Flavoured";
+
+/**
+ * AnyFlavoured represents any flavoured type.
+ *
+ * @category Archetypes
+ */
+ export type AnyFlavoured = Flavoured<any, any>;

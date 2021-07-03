@@ -34,3 +34,4 @@
 
 export * from "./DataGuaranteeOptions";
 export * from "./DataGuarantee";
+export * from "./AnyDataGuarantee";

@@ -31,6 +31,34 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { DataGuaranteeOptions, TypeGuarantee } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
+import { mustBe } from "../../Operators";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { NonEmptyArray } from "./NonEmptyArray";
+import { validateNonEmptyArray } from "./validateNonEmptyArray";
 
-export * from "./Flavoured";
-export * from "./AnyFlavoured";
+/**
+ * `mustBeNonEmptyArray()` is a {@link TypeGuarantee}. Use it to ensure that
+ * the unknown `input` really is an array of some kind, and that the array
+ * contains at least one item.
+ *
+ * @param input
+ * the value to inspect
+ * @param onError
+ * If `input` fails validation, we'll pass the error onto this handler.
+ * @returns
+ * - `input` if validation is successful
+ * - does not return if validation fails
+ *
+ * @category BasicTypes
+ */
+export const mustBeNonEmptyArray: TypeGuarantee<NonEmptyArray<unknown>, DataGuaranteeOptions> = (
+    input: unknown,
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<DataGuaranteeOptions> = {}
+) => mustBe(input, { onError })
+    .next((x) => validateNonEmptyArray(path, x))
+    .value();

@@ -49,10 +49,3 @@
  * @category Archetypes
  */
 export type Flavoured<T, FlavourT extends string> = T & { _type?: FlavourT };
-
-/**
- * AnyFlavoured represents any flavoured type.
- *
- * @category Archetypes
- */
-export type AnyFlavoured = Flavoured<any, any>;

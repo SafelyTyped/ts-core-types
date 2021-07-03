@@ -32,8 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./everyGuard";
 export * from "./isData";
 export * from "./isType";
 export * from "./recast";
 export * from "./mustBe";
+export * from "./someGuards";
 export * from "./validate";

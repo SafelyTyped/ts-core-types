@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { validateNumber } from "./validateNumber";
+import { TypeGuard } from "../../Archetypes";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+import { validateNumber } from "./validateNumber";
 
 /**
  * `isNumber()` is a {@link TypeGuard}. Use it to prove to the Typescript
@@ -44,5 +45,6 @@ import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
  *
  * @category BasicTypes
  */
-export const isNumber = (input: unknown): input is number =>
-    isType(validateNumber, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isNumber: TypeGuard<number>
+    = (input: unknown): input is number =>
+        isType(validateNumber, input, IS_TYPE_DEFAULT_OPTIONS);

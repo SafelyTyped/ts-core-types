@@ -33,3 +33,4 @@
 //
 
 export * from "./TypeGuard";
+export * from "./AnyTypeGuard";

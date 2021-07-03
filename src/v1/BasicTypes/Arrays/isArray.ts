@@ -44,5 +44,5 @@ import { validateArray } from "./validateArray";
  *
  * @category BasicTypes
  */
-export const isArray: TypeGuard<any[]> = (input: unknown): input is any[] =>
+export const isArray: TypeGuard<unknown[]> = (input: unknown): input is unknown[] =>
     isType(validateArray, input, IS_TYPE_DEFAULT_OPTIONS);

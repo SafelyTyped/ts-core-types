@@ -33,3 +33,4 @@
 //
 
 export * from "./EntityObject";
+export * from "./AnyEntityObject";
