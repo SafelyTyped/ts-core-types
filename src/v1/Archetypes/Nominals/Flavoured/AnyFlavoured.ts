@@ -32,20 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-// the idea of flavouring came from this blog post:
-//
-// https://spin.atomicobject.com/2018/01/15/typescript-flexible-nominal-typing/
-//
+import { Flavoured } from "./Flavoured";
 
 /**
- * Flavoured allows you to add an identity to type 'T' at compile-time
- * (aka nominal typing).
- *
- * It takes advantage of the fact that interfaces only exist at compile-time,
- * to give structural identity to a primitive.
- *
- * At runtime, the code compiles down to just being type 'T'.
+ * AnyFlavoured represents any flavoured type.
  *
  * @category Archetypes
  */
-export type Flavoured<T, FlavourT extends string> = T & { _type?: FlavourT };
+ export type AnyFlavoured = Flavoured<any, any>;
