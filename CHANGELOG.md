@@ -53,6 +53,8 @@ The following changes have been completed, and will be included in the next tagg
     - validateArray()
     - validateArrayOf()
     - validateNonEmptyArray()
+* Nominals
+  - moved `AnyBranded` type into its own file
 * Operators
   - moved `recast` into its own subfolder
 

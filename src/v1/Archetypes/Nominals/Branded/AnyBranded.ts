@@ -32,26 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-/**
- * Branding is an interface that will disappear at runtime. Use it to add
- * an identity to your type (aka nominal typing).
- *
- * @category Archetypes
- * @internal
- */
-interface Branding<BrandingT extends string> {
-    _type: BrandingT;
-}
+import { Branded } from "./Branded";
 
 /**
- * Branded allows you to add an identity to type 'T' at compile-time
- * (aka nominal typing).
- *
- * It takes advantage of the fact that interfaces only exist at compile-time,
- * to give structural identity to a primitive
- *
- * At runtime, the code compiles down to just being type 'T'.
+ * AnyBranded represents any branded type.
  *
  * @category Archetypes
  */
-export type Branded<T, BrandingT extends string> = T & Branding<BrandingT>;
+ export type AnyBranded = Branded<any, any>;
