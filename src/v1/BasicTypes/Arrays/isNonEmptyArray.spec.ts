@@ -42,7 +42,7 @@ describe("isNonEmptyArray()", () => {
             const inputValue = [ 1, 2, 3, 4, 5 ];
             const expectedValue = true;
 
-            const actualValue = isNonEmptyArray<number>(inputValue);
+            const actualValue = isNonEmptyArray(inputValue);
             expect(actualValue).to.equal(expectedValue);
         });
 
@@ -50,7 +50,7 @@ describe("isNonEmptyArray()", () => {
             const inputValue = [ "hello", "there" ];
             const expectedValue = true;
 
-            const actualValue = isNonEmptyArray<string>(inputValue);
+            const actualValue = isNonEmptyArray(inputValue);
             expect(actualValue).to.equal(expectedValue);
         });
     });

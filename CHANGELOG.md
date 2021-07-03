@@ -43,6 +43,7 @@ The following changes have been completed, and will be included in the next tagg
     - both of these template parameters now enforce compatibility with `SmartConstructorOptions`, instead of relying on intersection types buried within the definition
 * BasicTypes
   - added missing export for `mustBeArray()`
+  - improved type-inference for `isNonEmptyArray()`
 ## v0.3.1
 
 Released Wednesday, 26th May 2021.

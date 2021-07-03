@@ -42,6 +42,6 @@ import { NonEmptyArray } from "./NonEmptyArray";
  *
  * @category BasicTypes
  */
-export const isNonEmptyArray = <T = any>(input: T[]): input is NonEmptyArray<T> => {
+export const isNonEmptyArray = <T>(input: T[]): input is NonEmptyArray<T> => {
     return input.length > 0;
 }
