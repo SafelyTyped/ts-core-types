@@ -63,6 +63,10 @@ The following changes have been completed, and will be included in the next tagg
   - deprecated everyFilter(); use everyGuard() instead
   - deprecated someFilters(); use someGuards() instead
 
+### Tests
+
+* ErrorHandling
+  - additional unit tests for `isAppError()`, to prove it does not crash when given non-objects
 ## v0.3.1
 
 Released Wednesday, 26th May 2021.

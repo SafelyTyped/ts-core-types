@@ -64,4 +64,26 @@ describe("isAppError()", () => {
             expect(true).to.equal(true);
         }
     });
+
+    it("rejects non-objects", () => {
+        const examples = [
+            null,
+            undefined,
+            [],
+            [ 1, 2, 3 ],
+            () => true,
+            0,
+            -100,
+            100,
+            "AppError"
+        ];
+
+        examples.forEach((unit) => {
+            if (isAppError(unit)) {
+                expect(false).to.equal(true, "isAppError() type-guard failed for " + JSON.stringify(unit));
+            } else {
+                expect(true).to.equal(true);
+            }
+        });
+    });
 });
