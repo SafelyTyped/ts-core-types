@@ -58,6 +58,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * BasicTypes
   - deprecated everyFilter(); use everyGuard() instead
+  - deprecated someFilters(); use someGuards() instead
 
 ## v0.3.1
 
