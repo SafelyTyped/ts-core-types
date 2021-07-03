@@ -44,6 +44,13 @@ The following changes have been completed, and will be included in the next tagg
 * BasicTypes
   - added missing export for `mustBeArray()`
   - improved type-inference for `isNonEmptyArray()`
+  - switch to safer 'arrays of unknown type'
+    - isArray()
+    - mustBeArray()
+    - validateArray()
+    - validateArrayOf()
+    - validateNonEmptyArray()
+
 ## v0.3.1
 
 Released Wednesday, 26th May 2021.

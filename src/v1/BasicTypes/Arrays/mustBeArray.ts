@@ -51,7 +51,7 @@ import { validateArray } from "./validateArray";
  *
  * @category BasicTypes
  */
-export const mustBeArray: TypeGuarantee<any[], DataGuaranteeOptions> = (
+export const mustBeArray: TypeGuarantee<unknown[], DataGuaranteeOptions> = (
     input: unknown,
     {
         onError = THROW_THE_ERROR,

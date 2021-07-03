@@ -52,7 +52,7 @@ import { DataPath, extendDataPath } from "../../SupportingTypes";
  *
  * @category BasicTypes
  */
-export function validateArrayOf<T = any>(
+export function validateArrayOf<T>(
     valueValidator: TypeValidator<T>,
     path: DataPath,
     input: any[]

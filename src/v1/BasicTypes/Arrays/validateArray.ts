@@ -50,7 +50,7 @@ import { AppErrorOr } from "../../OptionTypes";
  *
  * @category BasicTypes
  */
-export function validateArray(path: DataPath, input: unknown): AppErrorOr<any[]> {
+export function validateArray<T>(path: DataPath, input: unknown): AppErrorOr<T[]> {
     // do we have an array?
     if (Array.isArray(input)) {
         return input;

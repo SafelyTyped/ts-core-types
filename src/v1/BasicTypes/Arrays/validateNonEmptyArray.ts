@@ -53,7 +53,7 @@ import { validateArray } from "./validateArray";
  *
  * @category BasicTypes
  */
-export function validateNonEmptyArray<T = any>(path: DataPath, input: unknown): AppErrorOr<NonEmptyArray<T>> {
+export function validateNonEmptyArray(path: DataPath, input: unknown): AppErrorOr<NonEmptyArray<unknown>> {
     return validate(input)
         .next((x) => validateArray(path, x))
         .next((x) => validateArrayIsNotEmpty(path, x))
@@ -63,9 +63,9 @@ export function validateNonEmptyArray<T = any>(path: DataPath, input: unknown): 
 /**
  * @ignore
  */
-function validateArrayIsNotEmpty<T = any>(path: DataPath, input: any[]): AppErrorOr<NonEmptyArray<T>> {
+function validateArrayIsNotEmpty(path: DataPath, input: unknown[]): AppErrorOr<NonEmptyArray<unknown>> {
     if (input.length > 0) {
-        return input as NonEmptyArray<T>;
+        return input as NonEmptyArray<unknown>;
     }
 
     // hate to be the bearer of bad news ...
