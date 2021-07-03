@@ -53,6 +53,10 @@ The following changes have been completed, and will be included in the next tagg
     - validateArray()
     - validateArrayOf()
     - validateNonEmptyArray()
+  - added explicit `TypeGuard` signature
+    - isInteger()
+    - isNumber()
+    - isString()
 * Nominals
   - moved `AnyBranded` type into its own file
   - moved `AnyFlavoured` type into its own file
