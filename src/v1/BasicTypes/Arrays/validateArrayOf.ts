@@ -55,10 +55,10 @@ import { DataPath, extendDataPath } from "../../SupportingTypes";
 export function validateArrayOf<T>(
     valueValidator: TypeValidator<T>,
     path: DataPath,
-    input: any[]
+    input: unknown[]
 ): AppErrorOr<T[]> {
     // our return value
-    let retval: AppErrorOr<T[]> = input;
+    let retval: AppErrorOr<T[]> = input as T[];
 
     // this will stop at the first error we run into
     input.every((value, index) => {
