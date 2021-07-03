@@ -29,6 +29,7 @@ The following changes have been completed, and will be included in the next tagg
   - added `AnyDataValidator` type
   - added `AnyEntity` type
   - added `AnyEntityObject` type
+  - added `AnyTypeGuarantee` type
   - added `AnyTypeGuard` type
   - added `AnyTypeValidator` type
 
