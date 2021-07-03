@@ -43,6 +43,9 @@
  * - `false` otherwise
  * @template T
  * The input type that the filter accepts
+ *
+ * @deprecated use {@link DataGuard} type instead
+ *
  * @category BasicTypes
  */
 export type Filter<T> = (input: T) => boolean;

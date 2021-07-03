@@ -57,6 +57,7 @@ The following changes have been completed, and will be included in the next tagg
 ### Deprecations
 
 * BasicTypes
+  - deprecated Filter; use the DataGuard type instead
   - deprecated everyFilter(); use everyGuard() instead
   - deprecated someFilters(); use someGuards() instead
 
