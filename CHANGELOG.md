@@ -53,6 +53,8 @@ The following changes have been completed, and will be included in the next tagg
     - validateArray()
     - validateArrayOf()
     - validateNonEmptyArray()
+* Operators
+  - moved `recast` into its own subfolder
 
 ### Deprecations
 

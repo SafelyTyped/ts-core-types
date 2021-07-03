@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,25 +31,5 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { expect } from "chai";
-import { describe } from "mocha";
 
-import { AppErrorOr } from "../OptionTypes";
-import { recast } from "./recast";
-
-describe("recast()", () => {
-    it("converts from one type to another", () => {
-        const inputValue: AppErrorOr<string> = "hello world";
-        const unit = (input: AppErrorOr<any>): string => {
-            return recast<AppErrorOr<string>,string>(input);
-        };
-
-        const actualValue = unit(inputValue);
-
-        // this only compiles if recast() works
-        actualValue.trim();
-
-        // dummy expect so that the test counts
-        expect(true).to.equal(true);
-    });
-});
+export * from "./recast";
