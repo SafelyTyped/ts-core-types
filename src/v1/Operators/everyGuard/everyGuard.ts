@@ -32,9 +32,31 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./everyGuard";
-export * from "./isData";
-export * from "./isType";
-export * from "./recast";
-export * from "./mustBe";
-export * from "./validate";
+import { DataGuard } from "../../Archetypes";
+
+/**
+ * `everyGuard()` is an operator. Use it to apply a set of {@link DataGuard}
+ * to the `input` value.
+ *
+ * We stop (and return `false`) as soon as the first DataGuard we apply
+ * returns `false`.
+ *
+ * @param input
+ * the value to be inspected
+ * @param guards
+ * a list of guards to be applied
+ * @returns
+ * - `true` if every guard returns `true`
+ * - `false` otherwise
+ *
+ * @category Operators
+ */
+export function everyGuard<T>(input: T, guards: DataGuard<T>[]): boolean {
+    for (const guard of guards) {
+        if (!guard(input)) {
+            return false;
+        }
+    }
+
+    return true;
+}

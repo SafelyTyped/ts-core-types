@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -33,8 +33,3 @@
 //
 
 export * from "./everyGuard";
-export * from "./isData";
-export * from "./isType";
-export * from "./recast";
-export * from "./mustBe";
-export * from "./validate";
