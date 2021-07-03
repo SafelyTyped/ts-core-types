@@ -53,6 +53,11 @@ The following changes have been completed, and will be included in the next tagg
     - validateArrayOf()
     - validateNonEmptyArray()
 
+### Deprecations
+
+* BasicTypes
+  - deprecated everyFilter(); use everyGuard() instead
+
 ## v0.3.1
 
 Released Wednesday, 26th May 2021.

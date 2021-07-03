@@ -48,6 +48,7 @@ import { Filter } from "./Filter";
  * @returns
  * - `true` if every filter returns `true`
  * - `false` otherwise
+ * @deprecated use everyGuard() instead
  *
  * @category BasicTypes
  */
