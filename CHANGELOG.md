@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.2
+
+Released Saturday, 3rd July 2021.
+
 ### New
 
 * Archetypes
@@ -74,6 +78,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * ErrorHandling
   - additional unit tests for `isAppError()`, to prove it does not crash when given non-objects
+
 ## v0.3.1
 
 Released Wednesday, 26th May 2021.
