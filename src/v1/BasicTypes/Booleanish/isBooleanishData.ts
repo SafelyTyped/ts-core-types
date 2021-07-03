@@ -42,13 +42,13 @@ import { validateBooleanishData } from "./validateBooleanishData/validateBoolean
  * `isBooleanishData()` is a {@link DataGuard}. Use it to prove that the
  * unknown `input` contains a value that can be converted into a boolean.
  *
- * @param input
+ * @param input -
  * the value to inspect
  * @returns
  * - `true` if `input` can be converted to a boolean value
  * - `false` otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export const isBooleanishData: DataGuard = (
     input: unknown,

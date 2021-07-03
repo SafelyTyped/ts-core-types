@@ -49,9 +49,9 @@ import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptio
  *
  * By default, it also includes any attributes inherited from Object.
  *
- * @param input
+ * @param input -
  * The object to inspect.
- * @param nextPrototype
+ * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
  * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
  * inherited from Object.
@@ -60,7 +60,7 @@ import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptio
  *   multiple prototypes, you'll get the one earliest in the prototype
  *   chain (ie the one defined directly on the object, or in a child class)
  *
- * @category BasicTypes
+ * @public
  */
 export function findAttributes(
     input: object,

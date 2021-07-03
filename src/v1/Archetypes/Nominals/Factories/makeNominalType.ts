@@ -40,29 +40,29 @@ import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
  * `makeNominalType()` converts your input type into a branded or
  * flavoured type. Use this to create smart constructors.
  *
- * @category Archetypes
- * @param contract
+ * @public
+ * @param contract -
  * This will be called to make sure that `input` contains valid data for
  * your nominal type.
  * Make sure that it has no side-effects whatsoever.
- * @param input
+ * @param input -
  * The data to brand or flavour.
- * @param onError
+ * @param onError -
  * If `input` is rejected by the `contract`, we'll call this with an
  * `AppError` to explain why.
- * @param path
+ * @param path -
  * Where are you in the data structure you're creating?
- * @param options
+ * @param options -
  * The remaining user-supplied options. They will be passed into any `fnOpts`.
- * @param fnOpts
+ * @param fnOpts -
  * A (possibly empty) list of user-supplied functional options. These will
  * be applied once the `contract()` has successfully validated the `input`
  * data.
- * @template IN
+ * @typeParam IN -
  * The data type that the smart constructor accepts.
- * @template OUT
+ * @typeParam OUT -
  * The data type that the smart constructor produces.
- * @template OPT
+ * @typeParam OPT -
  * The data type for the user-supplied options.
  */
 export function makeNominalType<IN, OUT, OPT extends MakeNominalTypeOptions = MakeNominalTypeOptions>(

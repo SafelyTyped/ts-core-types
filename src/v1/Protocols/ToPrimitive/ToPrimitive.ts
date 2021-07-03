@@ -39,7 +39,7 @@ import { PrimitiveHint } from "./PrimitiveHint";
  * `ToPrimitive` is a protocol. It describes an object that supports the
  * `ToPrimitive` abstract operation.
  *
- * @category Protocols
+ * @public
  */
 export interface ToPrimitive {
     [Symbol.toPrimitive]: (hint: PrimitiveHint) => Primitive;

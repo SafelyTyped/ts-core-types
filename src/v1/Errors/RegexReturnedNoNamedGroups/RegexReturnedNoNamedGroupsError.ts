@@ -23,10 +23,10 @@ import { RegexReturnedNoNamedGroupsData } from "./RegexReturnedNoNamedGroupsData
 
 /**
  * `RegexReturnedNoNamedGroupsError` is a throwable Error. It is thrown
- * whenever we `exec()` a {@link RegExp} and get back a
- * {@link RegExpExecArray} with an empty `.groups` property.
+ * whenever we `exec()` a `RegExp` and get back a `RegExpExecArray` with
+ * an empty `.groups` property.
  *
- * @category Errors
+ * @public
  */
 export class RegexReturnedNoNamedGroupsError extends AppError<RegexReturnedNoNamedGroupsData> {
     public constructor(params: RegexReturnedNoNamedGroupsData & AppErrorData) {

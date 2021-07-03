@@ -33,7 +33,7 @@
 //
 
 /**
- * @category Archetypes
+ * @public
  */
 export * from "./Value";
 export * from "./AnyValue";

@@ -40,15 +40,15 @@ import { DataPath } from "./DataPath";
  * `validateDataPathData()` is a {@link DataValidator}. Use it to prove that
  * the `input` string is a valid {@link DataPath}.
  *
- * @param path
- * where are we in the data structure? A .dot.notation.path.
- * @param input
- * the value to validate
+ * @param path -
+ * Where are we in the data structure? A .dot.notation.path.
+ * @param input -
+ * The value to validate.
  * @returns
  * - `input`, recast as a {@link DataPath}
  * - or an {@link AppError} explaining why validation failed
  *
- * @category DataPath
+ * @public
  */
 export function validateDataPathData(path: DataPath, input: string): AppErrorOr<DataPath> {
     return validate(input)

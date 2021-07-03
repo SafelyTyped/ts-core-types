@@ -49,7 +49,7 @@ import { BooleanishValidator } from "./BooleanishValidator";
  * See {@link DEFAULT_BOOLEANISH_RULES} to see an example.
  * See {@link validateBooleanishData} to see it in action.
  *
- * @category BasicTypes
+ * @public
  */
 export interface BooleanishRules {
     [key: string]: BooleanishValidator<any>;

@@ -40,7 +40,7 @@ import { ObjectCannotBeEmptyData } from "./ObjectCannotBeEmptyData";
  * `ObjectCannotBeEmptyError` is a throwable Error. It is thrown whenever
  * we unexpectedly encounter an object that has no properties.
  *
- * @category Errors
+ * @public
  */
 export class ObjectCannotBeEmptyError extends AppError<ObjectCannotBeEmptyData> {
     public constructor(params: ObjectCannotBeEmptyData & AppErrorData) {

@@ -38,6 +38,6 @@
  *
  * See {@link extractReasonFromCaught}.
  *
- * @category ErrorHandling
+ * @public
  */
 export const DEFAULT_ERROR_REASON = "no error information available";

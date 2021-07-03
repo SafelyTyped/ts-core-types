@@ -35,9 +35,9 @@ import { PropertyFilterData } from "./PropertyFilterData";
 
 /**
  * `PropertyFilter` is a function signature. It describes a function
- * that can be used as a filter with {@link findProperties},
+ * that can be used as a filter with {@link findAttributeNames},
  * {@link findPropertyNames} et al.
  *
- * @category BasicTypes
+ * @public
  */
 export type PropertyFilter = (input: PropertyFilterData) => boolean;

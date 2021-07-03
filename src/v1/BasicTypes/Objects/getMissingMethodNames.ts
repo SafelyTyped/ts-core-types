@@ -41,14 +41,14 @@ import { isMethodName } from "./isMethodName";
  *
  * Supports methods inherited from parent classes.
  *
- * @param target
+ * @param target -
  * The object to inspect.
- * @param names
+ * @param names -
  * The list of names to look for.
  * @returns
  * Anything in `names` that isn't a method on `target`
  *
- * @category BasicTypes
+ * @public
  */
 export function getMissingMethodNames(
     target: object,

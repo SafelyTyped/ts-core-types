@@ -37,7 +37,7 @@ import { ExtraLogsOnlyData } from "../../ErrorHandling";
  * `ObjectIsImmutableData` is the input data that
  * {@link ObjectIsImmutableError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface ObjectIsImmutableData extends ExtraLogsOnlyData {
     logsOnly: {

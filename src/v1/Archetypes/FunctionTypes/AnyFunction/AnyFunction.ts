@@ -36,6 +36,6 @@
  * `AnyFunction` represents all possible functions. It's very handy
  * for using as a generic type parameter.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyFunction = (...args: any) => any;

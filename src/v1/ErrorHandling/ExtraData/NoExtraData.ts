@@ -36,6 +36,6 @@
  * `NoExtraData` is used when an {@link AppError} does not accept any
  * `public` or `logsOnly` data at all (see {@link ExtraData}).
  *
- * @category ErrorHandling
+ * @public
  */
 export type NoExtraData = undefined;

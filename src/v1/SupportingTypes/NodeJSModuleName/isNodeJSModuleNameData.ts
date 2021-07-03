@@ -39,12 +39,13 @@ import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
  * `isNodeJSModuleNameData()` is a data guard. It confirms if a proposed name for
  * a NodeJSModuleName is a valid NodeJS module name.
  *
- * @category NodeJSModuleName
- * @param input
+ * @param input -
  * The input data to validate.
  * @returns
  * - `true` if `moduleName` is a valid NodeJS module name.
  * - `false` otherwise.
+ *
+ * @public
  */
 export const isNodeJSModuleNameData = (input: string): boolean =>
     isData(validateNodeJSModuleNameData, input, { path: DEFAULT_DATA_PATH });

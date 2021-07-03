@@ -50,12 +50,12 @@ import { DataPath } from "../../../SupportingTypes";
  * - HTTP request objects
  * - datastores
  *
- * @template IN
- * This is the type that your validator expects
- * @template T
- * This is the type that your validator returns
+ * @typeParam IN -
+ * The input type that your validator expects.
+ * @typeParam T -
+ * The return type from your validator.
  *
- * @category Archetypes
+ * @public
  */
 export type DataValidator<IN, T, OPT extends object = object> = (
     path: DataPath,

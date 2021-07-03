@@ -43,7 +43,7 @@ import { NotImplementedData } from "./NotImplementedData";
  * It's handy in `default` clauses of `switch()` statements, to catch
  * problems introduced in the future.
  *
- * @category Errors
+ * @public
  */
 export class NotImplementedError extends AppError<NotImplementedData> {
     public constructor(

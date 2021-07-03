@@ -37,6 +37,6 @@ import { BooleanishValidator } from "./BooleanishValidator";
  * `AnyBooleanishValidator` represents all possible {@link BooleanishValidator}
  * functions.
  *
- * @category BasicTypes
+ * @public
  */
 export type AnyBooleanishValidator = BooleanishValidator<any>;

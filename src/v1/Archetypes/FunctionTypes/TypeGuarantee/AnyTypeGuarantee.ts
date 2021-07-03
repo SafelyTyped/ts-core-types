@@ -38,6 +38,6 @@ import { TypeGuarantee } from "./TypeGuarantee";
  * `AnyTypeGuarantee` is a type alias. Use it wherever any
  * {@link TypeGuarantee} is valid.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyTypeGuarantee = TypeGuarantee<any, any>;

@@ -38,7 +38,7 @@ import { NumericalConversionRules } from "../NumericalConversionRules";
  * `DEFAULT_NUMERICAL_CONVERSION_RULES` are the default rules that
  * {@link resolveNumerical} uses to convert different types to numbers.
  *
- * @category OptionTypes
+ * @public
  */
 export const DEFAULT_NUMERICAL_CONVERSION_RULES: NumericalConversionRules = {
     boolean: (x: boolean) => x ? 1 : 0,

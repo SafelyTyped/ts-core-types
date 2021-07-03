@@ -37,7 +37,7 @@ import { ExtraPublicData } from "../../ErrorHandling";
  * `UnreachableCodeData` is the input data that {@link UnreachableCodeError}
  * requires.
  *
- * @category Errors
+ * @public
  */
 export interface UnreachableCodeData extends ExtraPublicData {
     public: {

@@ -41,15 +41,15 @@ import { UnsupportedTypeError } from "../../Errors";
  *
  * `null` is treated as NOT an object.
  *
- * @param path
+ * @param path -
  * where are we in the data structure you are validating?
- * @param input
+ * @param input -
  * the value to inspect
  * @returns
  * - `input`, type-cast to an object, if validation succeeds, or
  * - an {@link AppError} explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateObject(path: DataPath, input: unknown): AppErrorOr<object> {
     // shorthand

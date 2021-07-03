@@ -43,7 +43,7 @@ import { UnreachableCodeData } from "./UnreachableCodeData";
  * It's handy in `default` clauses of `switch()` statements, to catch
  * problems introduced in the future.
  *
- * @category Errors
+ * @public
  */
 export class UnreachableCodeError extends AppError<UnreachableCodeData> {
     public constructor(params: UnreachableCodeData & AppErrorData) {

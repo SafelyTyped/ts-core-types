@@ -39,6 +39,6 @@ import { AnyExtraData } from "../ExtraData";
  *
  * use this in generic type constraints
  *
- * @category ErrorHandling
+ * @public
  */
 export type AnyAppError = AppError<AnyExtraData>;

@@ -41,7 +41,7 @@ import { UnsupportedBooleanishValueData } from "./UnsupportedBooleanishValueData
  * `UnsupportedBooleanishValueError` is a throwable Error. It is thrown
  * whenever we've given a value that we can't convert into a `true|false`.
  *
- * @category Errors
+ * @public
  */
 export class UnsupportedBooleanishValueError extends AppError<UnsupportedBooleanishValueData> {
     public constructor(params: UnsupportedBooleanishValueData & AppErrorData) {

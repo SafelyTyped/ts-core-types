@@ -40,6 +40,6 @@ import { MakeNominalTypeOptions } from "../../Archetypes";
  * Use {@link MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS} if you need to pass
  * in a set of default options.
  *
- * @category HttpStatusCode
+ * @public
  */
 export type MakeHttpStatusCodeOptions = MakeNominalTypeOptions;

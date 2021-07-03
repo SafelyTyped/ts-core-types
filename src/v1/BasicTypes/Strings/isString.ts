@@ -40,10 +40,10 @@ import { TypeGuard } from "../../Archetypes";
  * `isString()` is a {@link TypeGuard}. Use it to prove to the Typescript
  * compiler that `input` is indeed a string.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isString: TypeGuard<string>
     = (input: unknown): input is string =>

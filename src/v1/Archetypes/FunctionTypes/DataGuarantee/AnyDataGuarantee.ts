@@ -39,6 +39,6 @@ import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
  * `AnyDataGuarantee` is a type alias. Use it wherever any
  * {@link DataGuarantee} is valid.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyDataGuarante<OPT extends DataGuaranteeOptions = DataGuaranteeOptions> = DataGuarantee<unknown, OPT>;

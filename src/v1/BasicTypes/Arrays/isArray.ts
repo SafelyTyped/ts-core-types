@@ -39,10 +39,10 @@ import { validateArray } from "./validateArray";
  * `isArray()` is a {@link TypeGuard}. Use it to prove to the compiler that
  * the unknown `input` is an array of some kind.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isArray: TypeGuard<unknown[]> = (input: unknown): input is unknown[] =>
     isType(validateArray, input, IS_TYPE_DEFAULT_OPTIONS);

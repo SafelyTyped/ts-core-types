@@ -39,10 +39,11 @@ import { DataGuaranteeOptions } from "../../Archetypes";
  * `RefinedString` is a base class for defining a subset of strings.
  * The subset is enforced by a {@link DataGuarantee}.
  *
- * @category RefinedTypes
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @typeParam OPT -
+ * This is the type of user-supplied options that the `contract` (parameter
+ * to the constructor) accepts.
+ *
+ * @public
  */
 export class RefinedString<OPT extends DataGuaranteeOptions = DataGuaranteeOptions>
     extends RefinedPrimitive<string, OPT>

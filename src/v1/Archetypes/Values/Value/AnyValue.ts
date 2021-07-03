@@ -37,6 +37,6 @@ import { Value } from "./Value";
 /**
  * `AnyValue` is shorthand for any possible {@link Value}
  *
- * @category Archetypes
+ * @public
  */
 export type AnyValue = Value<any>;

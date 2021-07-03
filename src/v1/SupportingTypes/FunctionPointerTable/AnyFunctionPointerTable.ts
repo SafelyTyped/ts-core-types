@@ -41,6 +41,6 @@ import { FunctionPointerTable } from "./FunctionPointerTable";
  * {@link FunctionPointerTable}s. Use it for function parameters and in
  * generic type parameters.
  *
- * @category FunctionPointerTable
+ * @public
  */
 export type AnyFunctionPointerTable = FunctionPointerTable<any, AnyFunction>;

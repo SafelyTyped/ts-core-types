@@ -31,9 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnError, THROW_THE_ERROR } from "../../ErrorHandling";
+import { DataGuaranteeOptions } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
-import { DataPath, DEFAULT_DATA_PATH } from "../DataPath";
+import { DEFAULT_DATA_PATH } from "../DataPath";
 import { NodeJSModuleName } from "./NodeJSModuleName";
 import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
 
@@ -42,17 +43,21 @@ import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
  * {@link OnError} handler if the input string isn't an acceptable
  * {@link NodeJSModuleName}.
  *
- * @category NodeJSModuleName
+ * @param input -
+ * The value to guarantee
+ * @param onError -
+ * We will call this if `input` is not an acceptable {@link NodeJSModuleName}
+ * @param path -
+ * Where are you in the data structure that you are validating?
+ *
+ * @public
  */
 export const mustBeNodeJSModuleNameData = (
     input: string,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: {
-        onError?: OnError,
-        path?: DataPath,
-    } = {},
+    }: Partial<DataGuaranteeOptions> = {},
 ): NodeJSModuleName =>
     mustBe(input, { onError })
         .next((x) => validateNodeJSModuleNameData(path, x))

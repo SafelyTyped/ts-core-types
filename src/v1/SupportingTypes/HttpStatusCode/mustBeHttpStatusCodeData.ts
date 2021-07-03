@@ -42,9 +42,11 @@ import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
  * `mustBeHttpStatusCodeData` is a data guarantee. It ensures that `input` is
  * a valid HTTP status code.
  *
- * @category HttpStatusCode
- * @param input
- * the number to validate
+ * @public
+ * @param input -
+ * The number to validate
+ * @param onError -
+ * We will call this if `input` is not a valid HTTP status code.
  */
 export const mustBeHttpStatusCodeData =(
     input: number,

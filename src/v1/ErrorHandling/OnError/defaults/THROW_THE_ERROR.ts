@@ -39,8 +39,8 @@ import { OnError } from "../OnError";
  *
  * It just throws whatever error it was given.
  *
- * @category ErrorHandling
- * @param e
+ * @public
+ * @param e -
  * The error to throw.
  */
 export const THROW_THE_ERROR: OnError = (e) => {

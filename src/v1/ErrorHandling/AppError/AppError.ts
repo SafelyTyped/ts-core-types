@@ -45,8 +45,8 @@ import { StructuredProblemReport } from "../StructuredProblemReport";
  * the module where the Error was defined. This makes it easier to write
  * documentation for production systems.
  *
- * @category ErrorHandling
- * @template E
+ * @public
+ * @typeParam E -
  * This is the extra data that this class of error will store.
  */
 export class AppError<E extends AnyExtraData> extends Error {

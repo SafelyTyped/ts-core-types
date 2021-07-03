@@ -39,7 +39,7 @@ import { DataPath } from "../../SupportingTypes";
  * `UnsupportedBooleanishValueData()` describes the input required by
  * {@link UnsupportedBooleanishValueError}.
  *
- * @category Errors
+ * @public
  */
 export interface UnsupportedBooleanishValueData extends ExtraPublicData {
     public: {

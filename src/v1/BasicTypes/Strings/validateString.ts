@@ -40,10 +40,10 @@ import { DataPath } from "../../SupportingTypes";
  * the given input is really a `string`, or to find out why we think it
  * isn't a string.
  *
- * @param path
- * @param input
+ * @param path -
+ * @param input -
  *
- * @category BasicTypes
+ * @public
  */
 export function validateString(path: DataPath, input: unknown): AppErrorOr<string> {
     // does the input validate?

@@ -41,6 +41,6 @@ import { NonEmptyArray } from "../../BasicTypes";
  * Build it using {@link makeProtocolDefinition}, to make sure it includes
  * inherited methods that your code may rely on.
  *
- * @category ProtocolsExtensions
+ * @public
  */
 export type ProtocolDefinition = NonEmptyArray<string>;

@@ -44,15 +44,15 @@ import { getMissingMethodNames } from "./getMissingMethodNames";
  *
  * Supports methods inherited from parent classes.
  *
- * @param target
+ * @param target -
  * The object to inspect.
- * @param names
+ * @param names -
  * The list of names to look for.
  * @returns
  * - `true` if all of the names are methods on `target`
  * - `false` otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function validateObjectHasAllMethodsCalled<T extends object>(
     path: DataPath,

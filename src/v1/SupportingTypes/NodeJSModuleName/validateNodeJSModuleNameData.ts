@@ -41,15 +41,15 @@ import { InvalidNodeJSModuleNameError } from "../../Errors";
  * `validateNodeJSModuleNameData()` is a {@link DataValidator}. Use it to
  * prove that the given input is a legal NodeJS module name.
  *
- * @param path
- * where are we in the data structure that you are validating?
- * @param input
- * the value to validate
+ * @param path -
+ * Where are we in the data structure that you are validating?
+ * @param input -
+ * The value to validate
  * @returns
  * - `input` (type-cast to a NodeJSModuleName) if validation succeeds, or
  * - an `AppError` explaining why validation failed
  *
- * @category HttpStatusCode
+ * @public
  */
 export function validateNodeJSModuleNameData (
     path: DataPath,

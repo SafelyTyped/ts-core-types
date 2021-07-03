@@ -40,10 +40,10 @@ import { OnErrorOptions } from "../../../ErrorHandling";
  * If anything goes wrong, the user-supplied `onError` handler is called,
  * with details about the error that occurred.
  *
- * @category Archetypes
- * @template T
+ * @public
+ * @typeParam T -
  * The data type that the functional option accepts and returns.
- * @template OPT
+ * @typeParam OPT -
  * What type of options does the Functional Option accept (if any)?
  * @returns
  * The possibly modified / possibly replaced input value.

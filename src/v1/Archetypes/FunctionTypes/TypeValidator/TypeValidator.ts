@@ -49,10 +49,10 @@ import { DataPath } from "../../../SupportingTypes";
  * - HTTP request objects
  * - datastores
  *
- * @category Archetypes
- * @template T
+ * @public
+ * @typeParam T -
  * This is the type of data that will be returned on success
- * @template OPT
+ * @typeParam OPT -
  * This is the type of options that the validator accepts
  */
 export type TypeValidator<T, OPT extends object = object> = (

@@ -39,6 +39,6 @@ import { RefinedString } from "./RefinedString";
  *
  * Use it in function parameters and in generic type constraints.
  *
- * @category RefinedTypes
+ * @public
  */
 export type AnyRefinedString = RefinedString<any>;

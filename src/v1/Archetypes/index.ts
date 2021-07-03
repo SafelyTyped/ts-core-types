@@ -33,7 +33,7 @@
 //
 
 /**
- * @category Archetypes
+ * @public
  * @preferred
  */
 export * from "./Entities";

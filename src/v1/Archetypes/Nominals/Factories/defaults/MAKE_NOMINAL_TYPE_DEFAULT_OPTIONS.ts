@@ -41,7 +41,7 @@ import { DEFAULT_DATA_PATH } from "../../../../SupportingTypes";
  *
  * Using this in your own code guarantees forward-compatibility.
  *
- * @category Archetypes
+ * @public
  */
 export const MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS: MakeNominalTypeOptions = {
     onError: THROW_THE_ERROR,

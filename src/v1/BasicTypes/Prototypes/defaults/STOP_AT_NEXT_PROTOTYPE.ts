@@ -38,7 +38,7 @@ import { NextPrototypeChain } from "../NextPrototypeChain";
  * `STOP_AT_NEXT_PROTOTYPE()` is a function that never returns the
  * next prototype. Use it for filtering attributes from objects.
  *
- * @category BasicTypes
+ * @public
  */
 export const STOP_AT_NEXT_PROTOTYPE: NextPrototypeChain
     = (x) => null;

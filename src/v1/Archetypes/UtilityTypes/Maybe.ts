@@ -35,11 +35,11 @@
 /**
  * `Maybe` is a utility type. Use it to make `T` an optional type.
  *
- * It's the exact opposite of {@link NotOptional}
+ * It's the exact opposite of `NotOptional`.
  *
- * @template T
+ * @typeParam T -
  * A source data type.
  *
- * @category UtilityTypes
+ * @public
  */
 export type Maybe<T> = T | undefined;

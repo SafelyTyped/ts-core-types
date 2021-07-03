@@ -38,6 +38,6 @@ import { TypeValidator } from "./TypeValidator";
  * `AnyTypeValidator` is a type alias. Use it wherever any {@link TypeValidator}
  * is valid.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyTypeValidator = TypeValidator<any>;

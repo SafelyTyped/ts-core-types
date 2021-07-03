@@ -41,10 +41,10 @@ import { isObject } from "../../BasicTypes";
  * - is an object
  * - that has a `.toString()` method
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category Protocols
+ * @public
  */
 export function implementsToString(input: unknown): input is ToString {
     if (!isObject(input)) {

@@ -39,7 +39,7 @@ import { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
  * `HttpStatusCodeOutOfRangeError` is thrown whenever we're given an
  * invalid value to be a HTTP status code.
  *
- * @category Errors
+ * @public
  */
 export class HttpStatusCodeOutOfRangeError extends NumberOutOfRangeError {
     public constructor(params: HttpStatusCodeOutOfRangeData & AppErrorData) {

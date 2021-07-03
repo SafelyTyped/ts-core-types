@@ -37,6 +37,6 @@
  * that returns the object's prototype, or `null` if it doesn't want to
  * walk the prototype chain any longer.
  *
- * @category BasicTypes
+ * @public
  */
 export type NextPrototypeChain = (x: object) => object|null;

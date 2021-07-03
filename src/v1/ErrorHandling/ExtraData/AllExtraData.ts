@@ -44,6 +44,6 @@ import { ExtraPublicData } from "./ExtraPublicData";
  * Extend this interface to define the `public` and `logsOnly` data that
  * your {@link AppError} accepts.
  *
- * @category ErrorHandling
+ * @public
  */
 export interface AllExtraData extends ExtraPublicData, ExtraLogsOnlyData { }

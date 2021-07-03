@@ -41,16 +41,16 @@ import { Filter } from "./Filter";
  * We stop (and return `false`) as soon as the first filter we apply
  * returns `false`.
  *
- * @param input
+ * @param input -
  * the value to be inspected
- * @param filters
+ * @param filters -
  * a list of filters to be applied
  * @returns
  * - `true` if every filter returns `true`
  * - `false` otherwise
  * @deprecated use everyGuard() instead
  *
- * @category BasicTypes
+ * @public
  */
 export function everyFilter<T>(input: T, filters: Filter<T>[]): boolean {
     for (const filter of filters) {

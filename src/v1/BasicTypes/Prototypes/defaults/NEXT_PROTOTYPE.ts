@@ -38,7 +38,7 @@ import { NextPrototypeChain } from "../NextPrototypeChain";
  * `NEXT_PROTOTYPE()` is a function that returns the next prototype
  * in the prototype chain.
  *
- * @category BasicTypes
+ * @public
  */
 export const NEXT_PROTOTYPE: NextPrototypeChain
     = (x) => Object.getPrototypeOf(x);

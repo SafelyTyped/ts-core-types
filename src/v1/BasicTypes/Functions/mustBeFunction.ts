@@ -42,14 +42,14 @@ import { validateFunction } from "./validateFunction";
  * `mustBeFunction()` is a {@link TypeGuarantee}. Use it to ensure that
  * the unknown `input` is, in fact, a function.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * We'll call this if validation fails.
- * @param path
+ * @param path -
  * where are you in the validation of your data structure?
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeFunction: TypeGuarantee<Function, TypeGuaranteeOptions> = (
     input: unknown,

@@ -49,18 +49,18 @@ import { AttributeFilterMap, EquivalentOptionalPart } from "../../Archetypes";
  * same property set, `target` will end up with the property from the last
  * `source` object that has the property set.
  *
- * @param fieldsList
+ * @param fieldsList -
  * The list of fields you want to copy from `source` to `target`.
  * It can only contain fields that are equivalent in both `source` and
  * `target`. Set the field value to `true` to trigger a copy, and `false`
  * to avoid a copy. You can also just omit the field if you don't want it
  * to be copied from `source` to `target`.
- * @param target
+ * @param target -
  * The object to modify.
- * @param sources
+ * @param sources -
  * The object(s) to copy from.
  *
- * @category BasicTypes
+ * @public
  */
 export function assignOptionalFields<
     S extends object,

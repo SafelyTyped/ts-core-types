@@ -38,6 +38,6 @@ import { Entity } from "./Entity";
  * `AnyEntity` is a type alias. Use it anywhere that any {@link Entity}
  * is valid.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyEntity = Entity<any, any>;

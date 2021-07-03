@@ -41,8 +41,8 @@ import { AppError } from "../../ErrorHandling";
  * we stop calling the remaining functions in the pipeline, and return that
  * `Error` as the ultimate value.
  *
- * @category Operators
- * @param val
+ * @public
+ * @param val -
  * This is the initial value to feed into your pipeline.
  * @returns
  * Returns a pipeline step, which you can add to (by calling .next()) or

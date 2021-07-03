@@ -47,13 +47,13 @@ import { NumericalConversionRules } from "./NumericalConversionRules";
  *   - `[Symbol.toPrimitive]("number")`
  *   - `toString()`
  *
- * @param input
- * the value to be converted
+ * @param input -
+ * The value to be converted.
  * @returns
  * - a `number` on success, or
  * - `NaN` on failure
  *
- * @category OptionTypes
+ * @public
  */
 export function resolveNumerical(
     input: numerical,

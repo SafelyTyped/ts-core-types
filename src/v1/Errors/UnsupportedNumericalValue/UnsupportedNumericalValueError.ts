@@ -41,7 +41,7 @@ import { UnsupportedNumericalValueData } from "./UnsupportedNumericalValueData";
  * `UnsupportedNumericalValueError` is a throwable Error. It is thrown
  * whenever we've given a value that we can't convert into a `number`.
  *
- * @category Errors
+ * @public
  */
 export class UnsupportedNumericalValueError extends AppError<UnsupportedNumericalValueData> {
     public constructor(params: UnsupportedNumericalValueData & AppErrorData) {

@@ -39,18 +39,18 @@ import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**
  * `isRegExpExecArrayWithGroups()` is a type guard. Use it to convince the
- * TypeScript compiler that your {@link RegExpExecArray} definitely does
+ * TypeScript compiler that your `RegExpExecArray` definitely does
  * contain a `.groups` property that isn't null.
  *
- * @param {RegExp} regex
- * the regex that your {@link RegExpExecArray} came from
- * @param {RegExpExecArray} input
- * the data structure to validate
+ * @param regex -
+ * The regex that your `RegExpExecArray` came from
+ * @param input -
+ * The data structure to validate.
  * @returns
  * - `true` if `input.groups` exists
  * - `false` otherwise
  *
- * @category BasicType
+ * @public
  */
 export function isRegExpExecArrayWithGroups
 (

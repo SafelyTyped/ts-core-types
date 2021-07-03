@@ -38,16 +38,16 @@ import { FunctionalOption } from "./FunctionalOption";
  * `applyFunctionalOptions()` is a helper function. Wrap this around
  * your class's smart constructor, to add support for functional options.
  *
- * @category Archetypes
- * @template T
+ * @public
+ * @typeParam T -
  * `T` is the input & output type that your functional options must support
- * @template OPT
+ * @typeParam OPT -
  * `OPT` is the type of user-supplied options that your functional options
  * must support
  * @param input
- * The initial value to apply functional options to.
+ * - The initial value to apply functional options to.
  * @param fnOpts
- * The list of functional options to apply.
+ * - The list of functional options to apply.
  * @returns
  * The (possibly) modified `input`.
  */

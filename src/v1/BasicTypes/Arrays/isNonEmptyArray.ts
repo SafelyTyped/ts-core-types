@@ -37,10 +37,10 @@ import { NonEmptyArray } from "./NonEmptyArray";
  * `isNonEmptyArray()` is a {@link TypeGuard}. Use it to prove to the
  * compiler that the `input` array has at least 1 item in it.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isNonEmptyArray = <T>(input: T[]): input is NonEmptyArray<T> => {
     return input.length > 0;

@@ -40,9 +40,11 @@
  *
  * Use {@link Value} for data that does not have an identity.
  *
- * @category Archetypes
- * @template ID the type of the entity's ID property
- * @template T the type of the wrapped data
+ * @public
+ * @typeParam ID
+ * - The type of the entity's ID property.
+ * @typeParam T
+ * - The type of the wrapped data.
  */
 export interface Entity<ID, T> {
     /**

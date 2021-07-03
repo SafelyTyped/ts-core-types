@@ -38,7 +38,7 @@
  *
  * NOTE that the returned fields can have different types in `A` and `B` .
  *
- * @category UtilityTypes
+ * @public
  */
 export type IdenticallyNamedKeys<A extends object, B extends object> = {
     [K in keyof A]: K extends keyof B? K: never

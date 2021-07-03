@@ -38,7 +38,7 @@ import { DataPath } from "../../SupportingTypes";
  * `ArrayCannotBeEmptyData` defines the data that every
  * {@link ArrayCannotBeEmptyError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface ArrayCannotBeEmptyData extends ExtraPublicData {
     public: {

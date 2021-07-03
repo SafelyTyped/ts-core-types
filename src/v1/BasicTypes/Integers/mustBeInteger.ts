@@ -43,14 +43,14 @@ import { validateInteger } from "./validateInteger";
  *
  * If the `input` is not a integer, an Error is thrown.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * the error handler we will call if `input` fails validation
  * @returns
  * `input`, cast as a `integer` to keep the compiler happy
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeInteger: TypeGuarantee<number> = (
     input: unknown,

@@ -43,16 +43,16 @@ import { NumericalConversionRules } from "./NumericalConversionRules";
  * `validateNumericalData()` is a data validator. Use it to prove that
  * the input data can be converted to a valid number.
  *
- * @param path
+ * @param path -
  * where are you in the data structure that you're validating?
  * Use {@link DEFAULT_DATA_PATH} if you're not looking at a nested structure.
- * @param input
+ * @param input -
  * the value to validate
  * @returns
  * - `input` converted to its number value on success, or
  * - an AppError explaining why validation failed
  *
- * @category OptionTypes
+ * @public
  */
 export function validateNumericalData(
     path: DataPath,

@@ -43,7 +43,7 @@ import { ObjectHasMissingMethodsData } from "./ObjectHasMissingMethodsData";
  * This is normally seen when we're trying to use a runtime Protocol and
  * Extension.
  *
- * @category Errors
+ * @public
  */
 export class ObjectHasMissingMethodsError extends AppError<ObjectHasMissingMethodsData> {
     public constructor(params: ObjectHasMissingMethodsData & AppErrorData) {

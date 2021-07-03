@@ -36,7 +36,6 @@
  * Branding is an interface that will disappear at runtime. Use it to add
  * an identity to your type (aka nominal typing).
  *
- * @category Archetypes
  * @internal
  */
 interface Branding<BrandingT extends string> {
@@ -52,6 +51,6 @@ interface Branding<BrandingT extends string> {
  *
  * At runtime, the code compiles down to just being type 'T'.
  *
- * @category Archetypes
+ * @public
  */
 export type Branded<T, BrandingT extends string> = T & Branding<BrandingT>;

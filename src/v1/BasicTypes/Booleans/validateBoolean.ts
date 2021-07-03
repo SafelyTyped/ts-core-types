@@ -40,15 +40,15 @@ import { UnsupportedTypeError } from "../../Errors";
  * `validateBoolean()` is a {@link TypeValidator}. Use it to prove that the
  * unknown `input` really is a boolean.
  *
- * @param path
+ * @param path -
  * Where we are in the data structure you are validation
- * @param input
+ * @param input -
  * The value to inspect
  * @returns
  * - `input` if validation passes, or
  * - an {@link AppError} explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateBoolean(path: DataPath, input: unknown): AppErrorOr<boolean> {
     if (typeof input === "boolean") {

@@ -43,17 +43,17 @@
  * We can't enforce all of that in TypeScript (yet), but who knows?
  * Maybe one day :)
  *
- * @template IN
- * `IN` is the type of data that the function accepts
- * @template OUT
- * `OUT` is the type of data that the function produces
- * @template OPT
- * `OPT` is the type of user-supplied options that the function accepts
+ * @typeParam IN -
+ * Type of data that the function accepts.
+ * @typeParam OUT -
+ * Type of data that the function produces.
+ * @typeParam OPT -
+ * Type of user-supplied options that the function accepts.
  * @param input
- * The data that the function accepts
+ * - The data that the function accepts.
  * @returns
  * That depends entirely on what the function does
  *
- * @category Archetypes
+ * @public
  */
 export type ComposableFunction<IN, OUT, OPT = object> = (input: IN, options?: OPT) => OUT;

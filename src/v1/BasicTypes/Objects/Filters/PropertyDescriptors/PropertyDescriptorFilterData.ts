@@ -40,7 +40,7 @@ import { PropertyFilterData } from "../PropertyFilterData";
  *
  * It tightens up the definition originally from {@link PropertyFilterData}.
  *
- * @category BasicTypes
+ * @public
  */
 export type PropertyDescriptorFilterData = PropertyFilterData & {
     found: Map<string, PropertyDescriptor>

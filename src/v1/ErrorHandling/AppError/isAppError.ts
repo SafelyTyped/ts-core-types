@@ -38,7 +38,7 @@ import { AnyAppError } from "./AnyAppError";
  * `isAppError()` is a type guard. It confirms if the given input is
  * actually one of our {@link AppError}s or not.
  *
- * @category ErrorHandling
+ * @public
  */
 export function isAppError(input: unknown): input is AnyAppError {
     return (input instanceof AppError);

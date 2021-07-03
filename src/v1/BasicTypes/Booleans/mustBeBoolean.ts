@@ -42,15 +42,15 @@ import { validateBoolean } from "./validateBoolean";
  * the unknown `input` you are dealing with definitely is a boolean of
  * some kind.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * if validation fails, we'll pass the resulting error to this OnError handler
  * @returns
  * - `input` type-cast to a `boolean` if validation passes
  * - does not return if validation fails
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeBoolean: TypeGuarantee<boolean>
     = (

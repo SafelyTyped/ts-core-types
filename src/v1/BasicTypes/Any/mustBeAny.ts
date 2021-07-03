@@ -39,14 +39,14 @@ import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
  * `mustBeAny()` is a {@link TypeGuarantee}. Use it to accept any kind
  * of data whatsoever.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * Validation never fails, so we never actually call this.
  * @returns
  * - `input`
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeAny: TypeGuarantee<any, DataGuaranteeOptions> = (
     input: unknown,

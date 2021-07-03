@@ -43,23 +43,23 @@ import { FunctionPointerTable } from "./FunctionPointerTable";
  *
  * If no match is found, we'll return `fallback()` instead.
  *
- * See {@link resolveNumeric} and {@link validateBooleanData} for two
+ * See {@link resolveNumerical} and {@link validateBooleanishData} for two
  * examples of how this function can be used.
  *
- * @param table
- * the map of functions that we can search
- * @param keysToTry
- * the list of keys to check. Whichever one exists first on `table`, wins.
- * @param fallback
+ * @param table -
+ * The map of functions that we can search
+ * @param keysToTry -
+ * The list of keys to check. Whichever one exists first on `table`, wins.
+ * @param fallback -
  * The function to return if none of the `keysToTry` exist on `table`.
  * If you want to throw an {@link AppError}, `fallback()` is the place to
  * do so.
  *
- * @template F
+ * @typeParam F -
  * The function signature of the functions in `table`, and also the function
  * signature of `fallback`.
  *
- * @category FunctionPointerTable
+ * @public
  */
  export function searchFunctionPointerTable<F extends AnyFunction>(
     table: FunctionPointerTable<any, F>,

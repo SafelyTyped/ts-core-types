@@ -47,15 +47,15 @@ import { HashMap } from "../HashMaps";
  * same property set, `target` will end up with the property from the last
  * `source` object that has the property set.
  *
- * @param transformers
+ * @param transformers -
  * A map of fields and their transformers.
  * The transformers can be lambdas.
- * @param target
+ * @param target -
  * The object to add transformed data to
- * @param sources
+ * @param sources -
  * The object(s) to copy data from
  *
- * @category BasicTypes
+ * @public
  */
 export function assignOptionalFieldsUsingTransformers<
     T extends object,

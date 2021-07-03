@@ -24,6 +24,7 @@ The following changes have been completed, and will be included in the next tagg
 ### Documentation
 
 - Added Microsoft's API-Extractor
+- Updated all docblocks to be compatible with api-extractor
 
 ## v0.3.2
 

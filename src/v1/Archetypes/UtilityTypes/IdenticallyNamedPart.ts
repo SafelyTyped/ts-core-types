@@ -40,7 +40,7 @@ import { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
  *
  * The returned mapped type will use attribute types from `A`.
  *
- * @category UtilityTypes
+ * @public
  */
 export type IdenticallyNamedPart<A extends object, B extends object> =
     Pick<A, IdenticallyNamedKeys<A,B>>

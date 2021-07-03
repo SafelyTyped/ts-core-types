@@ -38,6 +38,6 @@ import { AnyFlavoured } from "../Flavoured";
 /**
  * AnyNominal represents any branded or flavoured type.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyNominal = AnyBranded | AnyFlavoured;

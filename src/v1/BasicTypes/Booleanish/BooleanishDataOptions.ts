@@ -38,7 +38,7 @@ import { BooleanishRules } from "./BooleanishRules";
  * `BooleanishDataOptions` is the list of user-supplied options that
  * many of the functions in the Booleanish module accept.
  *
- * @category BasicTypes
+ * @public
  */
 export interface BooleanishDataOptions {
     booleanish: BooleanishRules;

@@ -45,19 +45,19 @@ import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
  * Use it when you accept inputs like `yes | no` that you want to turn into
  * a boolean value.
  *
- * See {@link DEFAULT_BOOLEANISH} for the default conversion rules.
+ * See {@link DEFAULT_BOOLEANISH_RULES} for the default conversion rules.
  *
- * @param path
+ * @param path -
  * where we are in the data structure that you are validating
- * @param input
+ * @param input -
  * the value to inspect
- * @param booleanish
+ * @param booleanish -
  * the rules for converting `input` into a boolean value
  * @returns
  * - `true` or `false` if conversion was successful
  * - an {@link AppError} explaining why conversion failed otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function validateBooleanishData(
     path: DataPath,

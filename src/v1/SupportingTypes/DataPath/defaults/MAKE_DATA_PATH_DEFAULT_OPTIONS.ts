@@ -40,7 +40,7 @@ import { MakeDataPathOptions } from "../MakeDataPathOptions";
  *
  * Use this if you want to pass in functional options.
  *
- * @category DataPath
+ * @public
  */
 export const MAKE_DATA_PATH_DEFAULT_OPTIONS: MakeDataPathOptions
     = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;

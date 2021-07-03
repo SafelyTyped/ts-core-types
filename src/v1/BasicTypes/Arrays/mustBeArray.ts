@@ -41,15 +41,15 @@ import { validateArray } from "./validateArray";
  * `mustBeArray()` is a {@link TypeGuarantee}. Use it to ensure that the
  * unknown `input` really is an array of some kind.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * If `input` fails validation, we'll pass the error onto this handler.
  * @returns
  * - `input` if validation is successful
  * - does not return if validation fails
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeArray: TypeGuarantee<unknown[], DataGuaranteeOptions> = (
     input: unknown,

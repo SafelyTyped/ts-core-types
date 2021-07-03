@@ -38,7 +38,7 @@ import { MakeHttpStatusCodeOptions } from "../MakeHttpStatusCodeOptions";
  * `MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS` are the default options to pass
  * into {@link makeHttpStatusCode}.
  *
- * @category HttpStatusCode
+ * @public
  */
 export const MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS: MakeHttpStatusCodeOptions
     = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;

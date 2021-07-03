@@ -43,14 +43,14 @@ import { validateDataPathData } from "./validateDataPathData";
  *
  * If validation fails, `mustBeDataPathData()` throws an AppError.
  *
- * @category DataPath
- *
- * @param input
- * the value you want to prove is a valid {@link DataPath} input
- * @param onError
- * we call this if `input` fails validation
+ * @param input -
+ * The value you want to prove is a valid {@link DataPath} input
+ * @param onError -
+ * We call this if `input` fails validation
  * @returns
- * the validated `input`, recast as a {@link DataPath}
+ * The validated `input`, recast as a {@link DataPath}
+ *
+ * @public
  */
 export const mustBeDataPathData = (
     input: string,

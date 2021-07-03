@@ -43,15 +43,15 @@ import { validateNonEmptyArray } from "./validateNonEmptyArray";
  * the unknown `input` really is an array of some kind, and that the array
  * contains at least one item.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * If `input` fails validation, we'll pass the error onto this handler.
  * @returns
  * - `input` if validation is successful
  * - does not return if validation fails
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeNonEmptyArray: TypeGuarantee<NonEmptyArray<unknown>, DataGuaranteeOptions> = (
     input: unknown,

@@ -35,11 +35,11 @@ import { PropertyFilter } from "../PropertyFilter";
 
 /**
  * `FIND_PROPERTIES_FILTER_DROP_INTERNAL` is a {@link PropertyFilter} for
- * {@link findProperties}, {@link findPropertyNames} et al. Use it to
+ * {@link findAttributeNames}, {@link findPropertyNames} et al. Use it to
  * filter out anything that's meant for the object's internal use only
  * (ie, anything that starts with an underscore).
  *
- * @category BasicTypes
+ * @public
  */
 export const FIND_PROPERTIES_FILTER_DROP_INTERNAL: PropertyFilter
     = (x) => !x.propName.startsWith("_")

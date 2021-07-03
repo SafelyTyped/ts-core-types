@@ -47,14 +47,14 @@ import { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
  *
  * Internally, TypeGuarantees re-use existing {@link TypeGuard} functions.
  *
- * @category Archetypes
- * @template T
+ * @public
+ * @typeParam T -
  * `T` is the type of data we are guaranteeing.
- * @param input
+ * @param input -
  * The data to guarantee.
- * @param options.onError
+ * @param onError -
  * We call this if `input` fails the inspection.
- * @param options.path
+ * @param path -
  * We use this in thrown Errors to provide a meaningful name for `input`
  */
 export type TypeGuarantee<T, OPT extends TypeGuaranteeOptions = TypeGuaranteeOptions>

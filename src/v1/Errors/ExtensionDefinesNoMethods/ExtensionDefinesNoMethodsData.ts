@@ -37,7 +37,7 @@ import { ExtraPublicData } from "../../ErrorHandling";
  * `ExtensionDefinesNoMethodsData` is the input data that
  * {@link ExtensionDefinesNoMethodsError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface ExtensionDefinesNoMethodsData extends ExtraPublicData {
     public: {

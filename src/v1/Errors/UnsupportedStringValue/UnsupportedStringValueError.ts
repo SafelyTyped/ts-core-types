@@ -40,7 +40,7 @@ import { UnsupportedStringValueData } from "./UnsupportedStringValueData";
  * `UnsupportedStringValueError` is a throwable Error. It is thrown when
  * a string does not have the value we required.
  *
- * @category BasicTypes
+ * @public
  */
 export class UnsupportedStringValueError extends AppError<UnsupportedStringValueData> {
     public constructor(params: UnsupportedStringValueData & AppErrorData) {

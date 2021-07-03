@@ -42,10 +42,10 @@ import { validateObject } from "./validateObject";
  *
  * `null` is NOT an object, for the purposes of this type guard.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isObject: TypeGuard<object> =
     (input: unknown): input is object =>

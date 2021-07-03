@@ -41,6 +41,6 @@ import { Branded } from "../../Archetypes";
  *
  * This is a branded type. At runtime, it becomes a regular old string.
  *
- * @category DataPath
+ * @public
  */
 export type DataPath = Branded<string, "@safelytyped/core-types/DataPath">;

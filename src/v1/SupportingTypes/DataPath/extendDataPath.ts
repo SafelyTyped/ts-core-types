@@ -43,12 +43,12 @@ import { DataPath } from "./DataPath";
  * Use it to avoid manually using `as` casts everywhere in your code
  * (those are faster, but far more dangerous!)
  *
- * @param path
- * the existing {@link DataPath} that you want to extend
- * @param child
- * the name of the next item in your data path
+ * @param path -
+ * The existing {@link DataPath} that you want to extend.
+ * @param child -
+ * The name of the next item in your data path.
  *
- * @category DataPath
+ * @public
  */
 export function extendDataPath(path: DataPath, child: string): DataPath {
     // do we have an array index here?

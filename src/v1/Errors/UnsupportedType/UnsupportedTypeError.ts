@@ -40,7 +40,7 @@ import { UnsupportedTypeData } from "./UnsupportedTypeData";
  * `NotAStringError` is a throwable Error. It's thrown whenever basic
  * string type validation failed.
  *
- * @category Errors
+ * @public
  */
 export class UnsupportedTypeError extends AppError<UnsupportedTypeData> {
     public constructor(params: UnsupportedTypeData & AppErrorData) {

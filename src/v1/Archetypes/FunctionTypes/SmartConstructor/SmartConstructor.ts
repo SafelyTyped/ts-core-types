@@ -41,26 +41,25 @@ import { SmartConstructorOptions } from "./SmartConstructorOptions";
  * If anything goes wrong, the user-supplied `onError` handler is called,
  * with details about the error that occurred.
  *
- * @category Archetypes
- * @template IN
+ * @public
+ * @typeParam IN -
  * The data type that the smart constructor accepts.
- * @template OUT
+ * @typeParam OUT -
  * The data type that the smart constructor produces.
- * @template OPT
+ * @typeParam OPT -
  * The data type for the user-supplied options.
  * Defaults to `SmartConstructorOptions`.
- * @template FN
- * The input data type that the functional options can process.
+ * @typeParam FN - The input data type that the functional options can process.
  * {@link makeNominalType} sets this to `IN|OUT`
  * Defaults to `OUT`.
- * @template FN_OPT
+ * @typeParam FN_OPT -
  * The type of user-supplied options that the functional options can process.
  * Defaults to `OPT`
- * @param input
+ * @param input -
  * The data to use to build our safe type.
- * @param onError
+ * @param onError -
  * The OnError handler to call if something goes wrong.
- * @param fnOptions
+ * @param fnOptions -
  * User-supplied functional options.
  * @returns
  * The constructed type.

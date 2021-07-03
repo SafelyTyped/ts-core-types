@@ -36,10 +36,10 @@ import { PropertyFilter } from "../PropertyFilter";
 
 /**
  * `FIND_PROPERTIES_FILTER_KEEP_METHODS` is a {@link PropertyFilter} for
- * {@link findProperties}, {@link findPropertyNames} et al. Use it to
+ * {@link findAttributeNames}, {@link findPropertyNames} et al. Use it to
  * only keep properties that are methods.
  *
- * @category BasicTypes
+ * @public
  */
 export const FIND_PROPERTIES_FILTER_KEEP_METHODS: PropertyFilter
     = (x) => isMethodName(x.obj, x.propName);

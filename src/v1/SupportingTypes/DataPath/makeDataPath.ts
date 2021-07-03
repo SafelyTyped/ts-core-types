@@ -42,15 +42,15 @@ import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
  * `makeDataPath()` is a {@link SmartConstructor}. Use it to turn a string
  * into a {@link DataPath}.
  *
- * @category DataPath
+ * @param input -
+ * The value you want to convert to a {@link DataPath}
+ * @param onError -
+ * We call this error handler if `input` fails validation
+ * @param fnOpts -
+ * User-supplied functional options to manipulate the path once it has been
+ * created.
  *
- * @param input
- * the value you want to convert to a {@link DataPath}
- * @param onError
- * we call this error handler if `input` fails validation
- * @param fnOpts
- * user-supplied functional options to manipulate the path once it has
- * been created
+ * @public
  */
 export const makeDataPath = (
     input: string,

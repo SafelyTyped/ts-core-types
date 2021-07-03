@@ -41,8 +41,8 @@ import { implementsStack } from "../../Protocols";
  * LIMITATIONS:
  * - we cannot detect if `input.stack` is a well-formatted stack trace
  *
- * @category ErrorHandling
- * @param input
+ * @public
+ * @param input -
  * the value to try and get a stack trace from
  * @returns
  * - the stack trace (if available) (does NOT include the error name

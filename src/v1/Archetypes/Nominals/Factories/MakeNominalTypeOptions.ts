@@ -37,6 +37,6 @@ import { TypeGuaranteeOptions } from "../../FunctionTypes";
  * `MakeNominalTypeOptions` is the list of user-supplied options
  * that can be passed into {@link makeNominalType}.
  *
- * @category Archetypes
+ * @public
  */
 export type MakeNominalTypeOptions = TypeGuaranteeOptions;

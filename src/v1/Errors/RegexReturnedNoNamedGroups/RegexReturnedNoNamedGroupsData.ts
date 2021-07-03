@@ -38,7 +38,7 @@ import { DataPath } from "../../SupportingTypes";
  * `RegexReturnedNoNamedGroupsData` is the input that
  * {@link RegexReturnedNoNamedGroupsError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface RegexReturnedNoNamedGroupsData extends ExtraLogsOnlyData {
     logsOnly: {

@@ -39,7 +39,7 @@ import { DataPath } from "../../SupportingTypes";
  * `UnsupportedStringValueData` is the input that
  * {@link UnsupportedStringValueError} requires.
  *
- * @category BasicTypes
+ * @public
  */
 export interface UnsupportedStringValueData extends ExtraPublicData {
     public: {

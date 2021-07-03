@@ -38,7 +38,7 @@ import { DataPath } from "../../SupportingTypes";
  * `InvalidNodeJSModuleNameData` defines the data that every
  * {@link InvalidNodeJSModuleNameError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface InvalidNodeJSModuleNameData extends ExtraPublicData {
     public: {

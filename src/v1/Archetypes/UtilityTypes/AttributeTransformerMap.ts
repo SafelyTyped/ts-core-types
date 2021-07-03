@@ -49,12 +49,12 @@ import { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
  * (source) type. The function must return a type that's compatible with
  * the type of the field in type `T`.
  *
- * @template S
+ * @typeParam S -
  * The source data type.
- * @template T
+ * @typeParam T -
  * The target data type.
  *
- * @category UtilityTypes
+ * @public
  */
 export type AttributeTransformerMap<S extends object, T extends object> = {
     [K in IdenticallyNamedKeys<S,T>]?: K extends keyof T? (input: Definitely<S[K]>) => T[K] : never

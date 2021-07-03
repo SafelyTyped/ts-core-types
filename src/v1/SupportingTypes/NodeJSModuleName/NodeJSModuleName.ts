@@ -46,13 +46,13 @@ import { Branded } from "../../Archetypes";
  *
  * - mocha
  * - chai
- * - @safelytyped/core-types
- * - @safelytyped/core-types/lib/v1
+ * - \@safelytyped/core-types
+ * - \@safelytyped/core-types/lib/v1
  *
  * Relative module names are not supported.
  *
  * At runtime, NodeJSModuleName resolves to being just a `string`.
  *
- * @category NodeJSModuleName
+ * @public
  */
 export type NodeJSModuleName = Branded<string, "@safelytyped/NodeJSModuleName">;

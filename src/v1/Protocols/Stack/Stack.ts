@@ -32,27 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-/**
- * `extractStackFromCaught()` is a helper method. Use it to get the stack
- * trace from a value caught by a `catch()` statement, if it has one!
- *
- * LIMITATIONS:
- * - we cannot detect if `input.stack` is a well-formatted stack trace
- *
- * @category ErrorHandling
- * @param input
- * the value to try and get a stack trace from
- * @returns
- * - the stack trace (if available) (does NOT include the error name
- *   and error message that normally live on the first line)
- * - an empty string otherwise
- */
-
  /**
   * `Stack` is a protocol. It describes objects that (hopefully!) contain
   * a stack trace of some kind.
   *
-  * @category Protocols
+  * @public
   */
  export interface Stack {
     stack: string;

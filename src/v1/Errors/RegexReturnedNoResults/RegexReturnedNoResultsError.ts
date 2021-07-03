@@ -38,9 +38,9 @@ import { RegexReturnedNoResultsData } from "./RegexReturnedNoResultsData";
 
 /**
  * `RegexReturnedNoResultsError` is a throwable Error. It is thrown whenever
- * we `exec()` a {@link RegExp} and get back a `null`.
+ * we `exec()` a `RegExp` and get back a `null`.
  *
- * @category Errors
+ * @public
  */
 export class RegexReturnedNoResultsError extends AppError<RegexReturnedNoResultsData> {
     public constructor(params: RegexReturnedNoResultsData & AppErrorData) {

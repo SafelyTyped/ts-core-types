@@ -40,6 +40,6 @@ import { MakeNominalTypeOptions } from "../../Archetypes";
  * Use {@link MAKE_DATA_PATH_DEFAULT_OPTIONS} if you need to pass
  * in a set of default options.
  *
- * @category DataPath
+ * @public
  */
 export type MakeDataPathOptions = MakeNominalTypeOptions;

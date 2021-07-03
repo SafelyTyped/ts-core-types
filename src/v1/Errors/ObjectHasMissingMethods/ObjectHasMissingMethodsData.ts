@@ -39,7 +39,7 @@ import { NonEmptyArray } from "../../BasicTypes";
  * `ObjectHasMissingMethodsData` is the input data that
  * {@link ObjectHasMissingMethodsError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface ObjectHasMissingMethodsData extends ExtraPublicData {
     public: {

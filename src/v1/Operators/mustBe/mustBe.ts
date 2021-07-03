@@ -39,8 +39,8 @@ import { MustBePipelineStep } from "./MustBePipelineStep";
  * If any of the functions called by a pipeline step returns an `Error`,
  * that error is thrown.
  *
- * @category Operators
- * @param val
+ * @public
+ * @param val -
  * This is the initial value to feed into your pipeline.
  * @returns
  * Returns a pipeline step, which you can add to (by calling .next()) or

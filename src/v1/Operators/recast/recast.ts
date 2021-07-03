@@ -36,16 +36,14 @@
  * `recast()` is an operator. Use to convince the Typescript compiler
  * that the `input` is actually `OUT`.
  *
- * It was originally added to be the final step in {@link Pipeline}s.
- *
  * If `input` isn't the type you are expecting, the Typescript compiler
  * will refuse to compile the code. This is about as type-safe as we
  * can make any operation that relies on the `as` keyword!
  *
- * @param input
- * the value to recast
+ * @param input -
+ * The value to recast.
  *
- * @category Operators
+ * @public
  */
 export function recast<IN, OUT>(input: IN): OUT {
     return (input as unknown) as OUT;

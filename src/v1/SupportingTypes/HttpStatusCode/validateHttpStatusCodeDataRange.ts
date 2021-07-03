@@ -44,10 +44,12 @@ import { AppErrorOr } from "../../OptionTypes";
  * - `input` is an integer, or
  * - `input` is an official HTTP code at all
  *
- * @param path
- * @param input
+ * @param path -
+ * Where are we in the data structure that you are validating?
+ * @param input -
+ * The value to validate
  *
- * @category HttpStatusCode
+ * @public
  */
 export function validateHttpStatusCodeDataRange (
     path: DataPath,

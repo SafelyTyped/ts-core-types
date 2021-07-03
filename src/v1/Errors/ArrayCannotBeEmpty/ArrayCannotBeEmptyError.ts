@@ -40,7 +40,7 @@ import { HttpStatusCode } from "../../SupportingTypes";
  * `ArrayCannotBeEmptyError` is thrown whenever we're given a number that
  * has failed a range change.
  *
- * @category Errors
+ * @public
  */
 export class ArrayCannotBeEmptyError extends AppError<ArrayCannotBeEmptyData> {
     public constructor(
