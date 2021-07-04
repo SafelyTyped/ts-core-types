@@ -36,7 +36,7 @@ import { ToPrimitive, PrimitiveHint } from "../../Protocols";
 import { DataGuaranteeOptions } from "../../Archetypes";
 
 /**
- * `RefinedString` is a base class for defining a subset of numbers.
+ * `RefinedNumber` is a base class for defining a subset of numbers.
  * The subset is enforced by a {@link DataGuarantee}.
  *
  * @typeParam OPT -
