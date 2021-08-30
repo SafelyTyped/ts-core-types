@@ -38,7 +38,7 @@ import { DataPath } from "../../SupportingTypes";
  * `NumberOutOfRangeData` defines the data that every
  * {@link NumberOutOfRangeError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface NumberOutOfRangeData extends ExtraPublicData {
     public: {

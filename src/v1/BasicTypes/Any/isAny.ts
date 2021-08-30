@@ -38,10 +38,10 @@
  * Use this as a no-op parameter for code that requires a {@link TypeGuard}
  * of some kind.
  *
- * @param input
+ * @param input -
  * The value you want to inspect.
  *
- * @category BasicTypes
+ * @public
  */
 export function isAny(input: any): input is any {
     return true;

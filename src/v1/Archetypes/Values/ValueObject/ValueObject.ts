@@ -50,8 +50,10 @@ import { Value } from "../Value";
  *
  * Use {@link EntityObject} for data that has an identity (a primary key).
  *
- * @category Archetypes
- * @template T the type that's wrapped by this class
+ * @typeParam T
+ * - The type that's wrapped by this class.
+ *
+ * @public
  */
 export class ValueObject<T> implements Value<T> {
     /**
@@ -67,7 +69,8 @@ export class ValueObject<T> implements Value<T> {
     /**
      * Constructor builds a new ValueObject.
      *
-     * @param input the data to store in this object.
+     * @param input -
+     * The data to store in this object.
      */
     protected constructor(input: T) {
         this._value = input;

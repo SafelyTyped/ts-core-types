@@ -43,10 +43,10 @@ import { implementsOwnOrInheritedToString } from "../../Protocols";
  * We return {@link DEFAULT_ERROR_REASON} unless `e.toString()` exists, and
  * isn't the default `Object.toString()`.
  *
- * @category ErrorHandling
- * @param e
+ * @public
+ * @param e -
  * the error value to examine
- * @param stackTrace
+ * @param stackTrace -
  * set to `true` if you want us to include a stack trace (if available)
  * @returns
  * The error message extracted from `e`

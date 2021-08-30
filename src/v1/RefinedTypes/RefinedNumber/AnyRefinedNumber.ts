@@ -39,6 +39,6 @@ import { RefinedNumber } from "./RefinedNumber";
  *
  * Use it in function parameters and in generic type constraints.
  *
- * @category RefinedTypes
+ * @public
  */
 export type AnyRefinedNumber = RefinedNumber<any>;

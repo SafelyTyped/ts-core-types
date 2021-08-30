@@ -34,17 +34,16 @@
 import { isObject } from "../../BasicTypes";
 import { Has } from "./Has";
 
-
 /**
  * `implementsHas()` is a type guard. Use it to prove that the input:
  *
  * - is an object
  * - that has a `.has()` method
  *
- * @param input
- * the value to inspect
+ * @param input -
+ * The value to inspect.
  *
- * @category Protocols
+ * @public
  */
 export function implementsHas<T>(input: unknown): input is Has<T> {
     if (!isObject(input)) {

@@ -40,23 +40,26 @@ import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes";
  * It's very handy for convincing the Typescript compiler to let us
  * iterate over the contents of a data bag.
  *
- * @category BasicTypes
+ * @public
  */
 export interface HashMap<T> {
     [key: string]: T
 }
 
+/**
+ * @public
+ */
 export class HashMap<T> {
     /**
-     * `forEach()` is the equivalent of {@link Array.forEach}, only
-     * it works on {@link HashMap}s instead.
+     * `forEach()` is the equivalent of `Array.forEach()`, only
+     * it works on HashMaps instead.
      *
-     * @param target
+     * @param target -
      * the HashMap to iterate over
-     * @param callbackfn
+     * @param callbackfn -
      * the function to call when we iterate
      *
-     * @category BasicTypes
+     * @public
      */
     public static forEach<T>(
         target: HashMap<T>,
@@ -70,19 +73,19 @@ export class HashMap<T> {
     }
 
     /**
-     * `filter()` is the equivalent of {@link Array.filter}, only it works
-     * on {@link HashMap}s instead.
+     * `filter()` is the equivalent of `Array.filter()`, only it works
+     * on HashMaps instead.
      *
-     * @param target
+     * @param target -
      * the HashMap to iterate over
-     * @param callbackfn
+     * @param callbackfn -
      * the function to call when we iterate
      * @returns
      * a (possibly empty) HashMap of objects, taken from `target`
      *
-     * @template T
+     * @typeParam T -
      * the type of object held in target
-     * @template R
+     * @typeParam R -
      * the type of object held in the returned HashMap
      * set this if you're filtering for objects that all implement a
      * specific interface.
@@ -103,12 +106,12 @@ export class HashMap<T> {
     }
 
     /**
-     * `some()` is the equivalent of {@link Array.some}, only
-     * it works on {@link HashMap}s instead.
+     * `some()` is the equivalent of `Array.some()`, only
+     * it works on HashMaps instead.
      *
-     * @param target
+     * @param target -
      * the HashMap to iterate over
-     * @param callbackfn
+     * @param callbackfn -
      * the function to call when we iterate
      * @returns
      * - `true` if your `callbackfn()` returns `true` for any of the
@@ -128,12 +131,12 @@ export class HashMap<T> {
     }
 
     /**
-     * `every()` is the equivalent of {@link Array.every}, only
-     * it works on {@link HashMap}s instead.
+     * `every()` is the equivalent of `Array.every()`, only
+     * it works on HashMaps instead.
      *
-     * @param target
+     * @param target -
      * the HashMap to iterate over
-     * @param callbackfn
+     * @param callbackfn -
      * the function to call when we iterate
      * @returns
      * - `true` if your `callbackfn()` returns `true` for ALL of the
@@ -163,9 +166,9 @@ export class HashMap<T> {
      *
      * The order that we search the HashMap cannot be guaranteed.
      *
-     * @param target
+     * @param target -
      * the HashMap to search
-     * @param callbackfn
+     * @param callbackfn -
      * the function to call when we iterate over `target`
      * @returns
      * - a HashMap containing the first matching property on success,
@@ -200,9 +203,9 @@ export class HashMap<T> {
      *
      * The order that we search the HashMap cannot be guaranteed.
      *
-     * @param target
+     * @param target -
      * the HashMap to search
-     * @param callbackfn
+     * @param callbackfn -
      * the function to call when we iterate over `target`
      * @returns
      * - a HashMap containing the first matching property on success,
@@ -228,10 +231,10 @@ export class HashMap<T> {
      * `keys()` returns a list of all the property names from the given
      * HashMap.
      *
-     * Unlike {@link Object.keys}, `HashMap.keys()` only returns properties
+     * Unlike `Object.keys()`, `HashMap.keys()` only returns properties
      * that belong to `target` (ie nothing that belongs to its prototypes).
      *
-     * @param target
+     * @param target -
      * the HashMap to example
      * @returns
      * the (possibly empty) list of attribute names from `target`

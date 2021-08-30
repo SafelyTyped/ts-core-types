@@ -36,7 +36,7 @@
  * `BooleanishValidatorOptions` are the user-supplied options that a
  * {@link BooleanishValidator} accepts.
  *
- * @category BasicTypes
+ * @public
  */
 export type BooleanishValidatorOptions<OPT extends object = object> =
     {

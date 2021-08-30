@@ -39,9 +39,9 @@
  * It's a gentler alternative to `NonNullable`, and the exact opposite
  * of {@link Maybe}
  *
- * @template T
+ * @typeParam T -
  * A source data type.
  *
- * @category UtilityTypes
+ * @public
  */
 export type Definitely<T> = Exclude<T, undefined>;

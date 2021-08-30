@@ -39,7 +39,7 @@ import { DataPath } from "../../SupportingTypes";
  * `ObjectCannotBeEmptyData` is the input that
  * {@link ObjectCannotBeEmptyError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface ObjectCannotBeEmptyData extends ExtraPublicData {
     public: {

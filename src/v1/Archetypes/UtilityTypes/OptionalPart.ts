@@ -41,7 +41,7 @@ import { OptionalKeys } from "./OptionalKeys";
  *
  * All the attributes in the mapped type are optional.
  *
- * @category UtilityTypes
+ * @public
  */
 export type OptionalPart<S extends object> = {
     [K in OptionalKeys<S>]?: S[K];

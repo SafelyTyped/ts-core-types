@@ -45,9 +45,9 @@ import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_
  *
  * By default, it also includes any attributes inherited from Object.
  *
- * @param input
+ * @param input -
  * The object to inspect.
- * @param nextPrototype
+ * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
  * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want methods
  * inherited from Object.
@@ -56,7 +56,7 @@ import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_
  *   multiple prototypes, you'll get the one earliest in the prototype
  *   chain (ie the one defined directly by the object or a child class)
  *
- * @category BasicTypes
+ * @public
  */
 export function findMethods(
     input: object,

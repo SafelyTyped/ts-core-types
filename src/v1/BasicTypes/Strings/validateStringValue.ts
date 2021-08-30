@@ -41,19 +41,19 @@ import { DataPath } from "../../SupportingTypes";
  * that `input` is a string that contains any of the `validValues` you
  * provide.
  *
- * @param validValues
+ * @param validValues -
  * A list of case-sensitive values to match against.
- * @param path
+ * @param path -
  * Where are we in the nested data structure that you are validating?
  * Use {@link DEFAULT_DATA_PATH} if you are not validating a nested
  * data structure.
- * @param input
+ * @param input -
  * The value to validate.
  * @returns
  * - `input` on success, or
  * - an {@link AppError} explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateStringValue(
     validValues: string[],

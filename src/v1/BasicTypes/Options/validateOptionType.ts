@@ -42,24 +42,24 @@ import { UnsupportedTypeError } from "../../Errors";
  * `validateOptionalType()` is a {@link TypeValidator}. Use it to prove
  * that `input` is either type `A` or type `B`.
  *
- * @template A
+ * @typeParam A -
  * The type to check for first.
- * @template B
+ * @typeParam B -
  * The type to check for second.
- * @param aValidator
+ * @param aValidator -
  * The validator to use to check for type `A`.
- * @param bValidator
+ * @param bValidator -
  * The validator to use to check for type `B`.
- * @param path
+ * @param path -
  * Where are we in the nested data structure you are validating? Use
  * {@link DEFAULT_DATA_PATH} if you are not in a nested data struture.
- * @param input
+ * @param input -
  * The value to validate.
  * @returns
  * - `input` if it passes either of `aValidator` or `bValidator`
  * - an `AppError` to explain why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateOptionType<A, B>(
     aValidator: TypeValidator<A>,

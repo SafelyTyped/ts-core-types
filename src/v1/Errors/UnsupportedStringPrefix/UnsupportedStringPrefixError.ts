@@ -40,7 +40,7 @@ import { UnsupportedStringPrefixData } from "./UnsupportedStringPrefixData";
  * `UnsupportedStringPrefixError` is a throwable Error. It is thrown when
  * a string does not have the prefix we required.
  *
- * @category BasicTypes
+ * @public
  */
 export class UnsupportedStringPrefixError extends AppError<UnsupportedStringPrefixData> {
     public constructor(params: UnsupportedStringPrefixData & AppErrorData) {

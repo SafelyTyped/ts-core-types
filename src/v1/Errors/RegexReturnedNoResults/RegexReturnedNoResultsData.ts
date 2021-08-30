@@ -38,7 +38,7 @@ import { ExtraLogsOnlyData } from "../../ErrorHandling";
  * `RegexReturnedNoResultsData` is the input that
  * {@link RegexReturnedNoResultsError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface RegexReturnedNoResultsData extends ExtraLogsOnlyData {
     logsOnly: {

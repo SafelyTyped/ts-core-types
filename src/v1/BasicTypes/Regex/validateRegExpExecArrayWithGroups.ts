@@ -24,20 +24,20 @@ import { isObject } from "../Objects";
 
 /**
  * `validateRegExpExecArrayWithGroups()` is a data validator. Use it to
- * prove that your {@link RegExpExecArray} definitely has a `groups`
+ * prove that your `RegExpExecArray` definitely has a `groups`
  * field.
  *
- * @param {RegExp} regex
- * the regex that your {@link RegExpExecArray} came from
- * @param {DataPath} path
+ * @param regex -
+ * the regex that your `RegExpExecArray` came from
+ * @param path -
  * where you are in the data structure that you are validating
- * @param {RegExpExecArray} input
+ * @param input -
  * the data structure to validate
  * @returns
  * - `input` if it has a `groups` field
  * - a `RegexReturnedNoNamedGroupsError` otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function validateRegExpExecArrayWithGroups
 (

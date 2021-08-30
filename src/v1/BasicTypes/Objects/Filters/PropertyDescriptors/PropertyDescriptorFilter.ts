@@ -40,6 +40,6 @@ import { PropertyDescriptorFilterData } from "./PropertyDescriptorFilterData";
  *
  * It tightens up the definition originally from {@link PropertyFilter}.
  *
- * @category BasicTypes
+ * @public
  */
 export type PropertyDescriptorFilter = (input: PropertyDescriptorFilterData) => boolean;

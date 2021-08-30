@@ -40,19 +40,19 @@ import { DataPath } from "../../SupportingTypes";
  * that `input` is a string that successfully matches against the given
  * regex.
  *
- * @param regex
+ * @param regex -
  * The regex that `input` needs to successfully match against.
- * @param path
+ * @param path -
  * Where are we in the nested data structure that you are validating?
  * Use {@link DEFAULT_DATA_PATH} if you are not validating a nested
  * data structure.
- * @param input
+ * @param input -
  * The value to validate.
  * @returns
  * - `input` on succes, or
  * - an {@link AppError} explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateStringMatches(
     regex: RegExp,

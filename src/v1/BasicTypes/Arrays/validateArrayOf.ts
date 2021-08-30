@@ -40,17 +40,17 @@ import { DataPath, extendDataPath } from "../../SupportingTypes";
  * `validateArrayOf()` is a {@link TypeValidator}. Use it to prove that
  * all the contents of `input` successfully validate against `valueValidator`.
  *
- * @param valueValidator
+ * @param valueValidator -
  * The validator to use on each value in the array
- * @param path
+ * @param path -
  * Where we are in the data structure you are validating
- * @param input
+ * @param input -
  * the value to inspect
  * @returns
  * - `input` if all values of the array pass validation
  * - an AppError explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateArrayOf<T>(
     valueValidator: TypeValidator<T>,

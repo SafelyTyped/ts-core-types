@@ -38,21 +38,21 @@ import { IsDataOptions } from "./IsDataOptions";
  * `isData()` is a helper function. Use it to quickly build {@link TypeGuard}
  * functions out of your {@link TypeValidator} functions.
  *
- * @template IN
+ * @typeParam IN -
  * This is the type that your validator expects
- * @template T
+ * @typeParam T -
  * This is the type that your validator returns
- * @param validator
+ * @param validator -
  * This is the {@link TypeValidator} function to use
- * @param input
+ * @param input -
  * This is value to inspect
- * @param path
+ * @param path -
  * Where are we in the data structure that you are validating?
  * @returns
  * - `true` if input is successfully validated
  * - `false` otherwise
  *
- * @category Operators
+ * @public
  */
 export function isData<IN, T, OPT extends object = object>(
     validator: DataValidator<IN, T>,

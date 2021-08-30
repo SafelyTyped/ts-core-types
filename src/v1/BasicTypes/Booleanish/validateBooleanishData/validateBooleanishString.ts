@@ -39,7 +39,7 @@ import { DataPath } from "../../../SupportingTypes";
  * `BooleanishStrings` describes the required information when booleanish
  * processing for the `string` type is supported.
  *
- * @category BasicTypes
+ * @public
  */
 export interface BooleanishStrings {
     true: string[];
@@ -50,15 +50,15 @@ export interface BooleanishStrings {
  * `validateBooleanishString()` converts a string into a `boolean`
  * (if possible).
  *
- * @param path
+ * @param path -
  * where we are in the data structure you are validating
- * @param input
+ * @param input -
  * the string that hopefully contains something that means true or false
  * @returns
  * - `true` or `false` on success, or
  * - an {@link AppError} explaining why conversion failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateBooleanishString(
     booleanish: BooleanishStrings,

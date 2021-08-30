@@ -17,7 +17,7 @@ import { IfEquals } from "./IfEquals";
  *
  * @see https://stackoverflow.com/a/52473108
  *
- * @category UtilityTypes
+ * @public
  */
 export type WritableKeys<T> = {
     [P in keyof T]: IfEquals<{ [Q in P]: T[P] }, { -readonly [Q in P]: T[P] }, P, never>

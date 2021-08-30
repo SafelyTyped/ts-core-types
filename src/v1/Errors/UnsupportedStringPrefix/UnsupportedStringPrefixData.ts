@@ -39,7 +39,7 @@ import { DataPath } from "../../SupportingTypes";
  * `UnsupportedStringPrefixData` is the input that
  * {@link UnsupportedStringPrefixError} requires.
  *
- * @category BasicTypes
+ * @public
  */
 export interface UnsupportedStringPrefixData extends ExtraPublicData {
     public: {

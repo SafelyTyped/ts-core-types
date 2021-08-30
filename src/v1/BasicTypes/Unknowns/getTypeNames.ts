@@ -41,12 +41,12 @@ import { getClassNames } from "../Classes";
  * For objects, this includes a list of all the class names from their
  * class hierarchy, ending in `Object`.
  *
- * @param input
+ * @param input -
  * the value to examine
  * @returns
  * a list of all possible type names
  *
- * @category BasicTypes
+ * @public
  */
 export function getTypeNames(input: unknown): string[] {
     // special cases

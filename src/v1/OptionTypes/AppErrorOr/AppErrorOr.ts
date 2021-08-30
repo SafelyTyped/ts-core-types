@@ -42,9 +42,9 @@ import { AnyAppError } from "../../ErrorHandling";
  *
  * Use this as the return type of functions that validate data.
  *
- * @template T
+ * @typeParam T -
  * the other type to use in the option
  *
- * @category OptionTypes
+ * @public
  */
 export type AppErrorOr<T> = AnyAppError | T;

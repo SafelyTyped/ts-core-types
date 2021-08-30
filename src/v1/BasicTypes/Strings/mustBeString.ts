@@ -43,14 +43,14 @@ import { validateString } from "./validateString";
  *
  * If the `input` is not a string, an Error is thrown.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * the error handler we will call if `input` fails validation
  * @returns
  * `input`, cast as a `string` to keep the compiler happy
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeString: TypeGuarantee<string> = (
     input: unknown,

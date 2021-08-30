@@ -38,6 +38,6 @@ import { FunctionalOption } from "./FunctionalOption";
  * when your function will accept any possible FunctionalOption as
  * a parameter.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyFunctionalOption = FunctionalOption<any, any>;

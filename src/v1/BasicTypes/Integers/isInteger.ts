@@ -40,10 +40,10 @@ import { TypeGuard } from "../../Archetypes";
  * `isInteger()` is a {@link TypeGuard}. Use it to prove to the Typescript
  * compiler that `input` is indeed a integer.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isInteger: TypeGuard<number>
     = (input: unknown): input is number =>

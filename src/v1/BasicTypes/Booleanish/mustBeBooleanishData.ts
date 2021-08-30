@@ -47,16 +47,16 @@ import { validateBooleanishData } from "./validateBooleanishData";
  * See {@link validateBooleanishData} for a list of supported types and
  * supported values.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * if validation fails, we'll pass the error to this OnError handler
  * @returns
  * - `true` if `input` can be converted into `true`
  * - `false` if `input` can be converted into `false`
  * - does not return if `input` cannot be converted
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeBooleanishData: DataGuarantee = (
     input: unknown,

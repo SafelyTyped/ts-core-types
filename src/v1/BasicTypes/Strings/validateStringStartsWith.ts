@@ -39,14 +39,14 @@ import { UnsupportedStringPrefixError } from "../../Errors/UnsupportedStringPref
  * `validateStringStartsWith()` is {@link DataValidator}. It proves that the
  * `input` string starts with the given `searchTerm` string.
  *
- * @param searchTerm
- * @param path
- * @param input
+ * @param searchTerm -
+ * @param path -
+ * @param input -
  * @returns
  * - `input` if the input successfully validates
  * - an Error explaining why the input did not validate
  *
- * @category BasicTypes
+ * @public
  */
 export function validateStringStartsWith(searchTerm: string, path: DataPath, input: string): AppErrorOr<string> {
     // does our input string validate?

@@ -42,7 +42,7 @@ import { EquivalentKeys } from "./EquivalentKeys";
  * See {@link EquivalentKeys} for details about how we decide which fields
  * in `A` and `B` are equivalent.
  *
- * @category UtilityTypes
+ * @public
  */
 export type EquivalentPart<A extends object, B extends object> =
     Pick<A, EquivalentKeys<A,B>>;

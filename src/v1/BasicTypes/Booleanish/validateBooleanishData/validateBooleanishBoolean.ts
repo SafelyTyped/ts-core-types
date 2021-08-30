@@ -38,15 +38,15 @@ import { DataPath } from "../../../SupportingTypes";
  * `validateBooleanishNumber()` converts the `input` into a boolean
  * (if possible).
  *
- * @param path
+ * @param path -
  * where we are in the data structure you are validating
- * @param input
+ * @param input -
  * the number to try to convert into a boolean
  * @returns
  * - `true` or `false` on success
  * - an {@link AppError} explaining why conversion failed otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function validateBooleanishBoolean(
     path: DataPath,

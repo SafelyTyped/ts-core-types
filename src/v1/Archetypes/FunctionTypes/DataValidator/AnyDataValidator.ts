@@ -38,6 +38,6 @@ import { DataValidator } from "./DataValidator";
  * `AnyDataValidator` is a type alias. Use it anywhere that any
  * {@link DataValidator} is valid.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyDataValidator = DataValidator<any, any>;

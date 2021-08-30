@@ -42,15 +42,16 @@ import { DEFAULT_DATA_PATH } from "../DataPath";
  *
  * Internally, it calls {@link mustBeHttpStatusCodeData} to validate `number`.
  *
- * @category HttpStatusCode
- * @param input
- * the number to convert into a `HttpStatusCode` type
- * @param options
- * the user-supplied options
- * @param fnOpts
- * user-supplied functional options
+ * @param input -
+ * The number to convert into a `HttpStatusCode` type
+ * @param options -
+ * The user-supplied options
+ * @param fnOpts -
+ * User-supplied functional options
  * @returns
  * the HttpStatusCode
+ *
+ * @public
  */
 export const makeHttpStatusCode: SmartConstructor<number, HttpStatusCode, OnErrorOptions, number|HttpStatusCode>
     = (

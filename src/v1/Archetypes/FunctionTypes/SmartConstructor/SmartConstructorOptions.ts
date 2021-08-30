@@ -37,6 +37,6 @@ import { OnErrorOptions } from "../../../ErrorHandling";
  * `SmartConstructorOptions` is the default user-supplied options type for
  * {@link SmartConstructor}'s `OPT` template type.
  *
- * @category Archetypes
+ * @public
  */
 export type SmartConstructorOptions = OnErrorOptions;

@@ -39,7 +39,7 @@ import { DataPath } from "../../../SupportingTypes";
  * `BooleanishNumbers` describes the required information when booleanish
  * processing for the `number` type is supported.
  *
- * @category BasicTypes
+ * @public
  */
 export interface BooleanishNumbers {
     true: number;
@@ -50,15 +50,15 @@ export interface BooleanishNumbers {
  * `validateBooleanishNumber()` converts the `input` into a boolean
  * (if possible).
  *
- * @param path
+ * @param path -
  * where we are in the data structure you are validating
- * @param input
+ * @param input -
  * the number to try to convert into a boolean
  * @returns
  * - `true` or `false` on success
  * - an {@link AppError} explaining why conversion failed otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function validateBooleanishNumber(
     booleanish: BooleanishNumbers,

@@ -39,7 +39,7 @@ import { DataPath } from "../../SupportingTypes";
  * `UnsupportedTypeData` describes the input data that
  * {@link UnsupportedTypeError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface UnsupportedTypeData extends ExtraPublicData {
     public: {

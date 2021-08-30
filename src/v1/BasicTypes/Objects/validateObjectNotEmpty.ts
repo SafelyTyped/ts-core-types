@@ -39,15 +39,15 @@ import { DataPath } from "../../SupportingTypes";
  * `validateObjectNotEmpty()` is an object validator. Use it to determine
  * if the given object is completely empty (no attributes) or not.
  *
- * @param path
+ * @param path -
  * where are we in the data structure you are validating?
- * @param input
+ * @param input -
  * the value to inspect
  * @returns
  * - `input`, type-cast to <T>, if validation succeeds, or
  * - an {@link AppError} explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateObjectNotEmpty<T extends object = object>(
     path: DataPath,

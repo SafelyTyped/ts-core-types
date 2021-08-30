@@ -38,7 +38,7 @@ import { RefinedType } from "./RefinedType";
  *
  * Use this in function parameters and generic type constraints.
  *
- * @category RefinedTypes
+ * @public
  */
 export type AnyRefinedType = RefinedType<any, any>;
 

@@ -38,7 +38,7 @@ import { NextPrototypeChain } from "../../../Prototypes";
  * `PropertyNameFilterOptions` describes the user-supplied options that
  * are supported by {@link findPropertyNames} et al.
  *
- * @category BasicTypes
+ * @public
  */
 export interface PropertyNameFilterOptions {
     nextPrototype: NextPrototypeChain

@@ -40,6 +40,6 @@ import { NodeJSModuleName } from "../../SupportingTypes";
  * Unfortunately, we've started to get a cyclic dependency if we call
  * {@link makeNodeJSModuleName} here, so we have to type-cast it instead.
  *
- * @category Errors
+ * @public
  */
 export const MODULE_NAME = "@safelytyped/core-types/lib/v1" as NodeJSModuleName;

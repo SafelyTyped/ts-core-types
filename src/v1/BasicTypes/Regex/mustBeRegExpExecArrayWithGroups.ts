@@ -39,20 +39,20 @@ import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**
  * `mustBeRegExpExecArrayWithGroups()` is a {@link DataGuarantee}.
- * Use it to prove that the result of {@link RegExp.exec}() included
+ * Use it to prove that the result of `RegExp.exec()` included
  * a set of groups.
  *
- * @param {RegExp} regex
- * the regex that the result came from
- * @param {RegExpExecArray} input
- * the result from calling {@link RegExp.exec}
- * @param {OnError} onError
- * we call your `onError()` if `input` does not have any groups
- * @param {DataPath} dataPath
- * where you are in your data structure
- * @returns {RegexExecArray}
+ * @param regex -
+ * The regex that the result came from.
+ * @param input -
+ * The result from calling `RegExp.exec()`.
+ * @param onError -
+ * We call your `onError()` if `input` does not have any groups.
+ * @param dataPath -
+ * Where you are in your data structure?
+ * @returns
  *
- * @category BasicTypes
+ * @public
  */
 export function mustBeRegExpExecArrayWithGroups(
     regex: RegExp,

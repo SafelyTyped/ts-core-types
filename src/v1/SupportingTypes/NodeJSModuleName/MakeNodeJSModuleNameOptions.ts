@@ -37,6 +37,6 @@ import { MakeNominalTypeOptions } from "../../Archetypes";
  * `MakeNodeJSModuleNameOptions` defines the options that you can pass into
  * {@link makeNodeJSModuleName}.
  *
- * @category NodeJSModuleName
+ * @public
  */
 export type MakeNodeJSModuleNameOptions = MakeNominalTypeOptions;

@@ -46,6 +46,6 @@
  *
  * At runtime, the code compiles down to just being type 'T'.
  *
- * @category Archetypes
+ * @public
  */
 export type Flavoured<T, FlavourT extends string> = T & { _type?: FlavourT };

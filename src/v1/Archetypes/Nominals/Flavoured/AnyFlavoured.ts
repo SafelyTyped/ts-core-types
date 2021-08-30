@@ -37,6 +37,6 @@ import { Flavoured } from "./Flavoured";
 /**
  * AnyFlavoured represents any flavoured type.
  *
- * @category Archetypes
+ * @public
  */
  export type AnyFlavoured = Flavoured<any, any>;

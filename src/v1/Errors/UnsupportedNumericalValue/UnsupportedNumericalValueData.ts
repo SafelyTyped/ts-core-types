@@ -39,7 +39,7 @@ import { DataPath } from "../../SupportingTypes";
  * `UnsupportedNumericalValueData()` describes the input required by
  * {@link UnsupportedNumericalValueError}.
  *
- * @category Errors
+ * @public
  */
 export interface UnsupportedNumericalValueData extends ExtraPublicData {
     public: {

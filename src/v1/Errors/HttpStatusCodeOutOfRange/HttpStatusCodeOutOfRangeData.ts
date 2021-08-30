@@ -38,6 +38,6 @@ import { NumberOutOfRangeData } from "../NumberOutOfRange";
  * `HttpStatusCodeOutOfRangeData` defines the data that every
  * {@link HttpStatusCodeOutOfRangeError} requires.
  *
- * @category Errors
+ * @public
  */
 export interface HttpStatusCodeOutOfRangeData extends NumberOutOfRangeData {};

@@ -36,9 +36,9 @@ import { NextPrototypeChain } from "../../../Prototypes";
 
 /**
  * `PropertyDescriptorFilterOptions` describes the user-supplied options that
- * are supported by {@link findPropertyDescriptors} et al.
+ * are supported by {@link findProperties} et al.
  *
- * @category BasicTypes
+ * @public
  */
 export interface PropertyDescriptorFilterOptions {
     nextPrototype: NextPrototypeChain

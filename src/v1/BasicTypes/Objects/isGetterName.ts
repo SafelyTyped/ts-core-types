@@ -40,20 +40,20 @@
  * `isGetter()` is a data guard. Use it to determine if the named method
  * is a data accessor.
  *
- * @param target
+ * @param target -
  * the object to inspect
- * @param methodName
+ * @param methodName -
  * the name of the method to inspect
  * @returns
  * - `true` if `target.methodName()` is a getter.
  * - `false` otherwise
- * @template T
+ * @typeParam T -
  * This is the type of object to inspect. We need it so that `methodName`
  * is correctly typed / enforced by the compiler. You shouldn't need to
  * provide `T` yourself; the compiler's type-inference should handle it
  * for you automagically.
  *
- * @category BasicTypes
+ * @public
  */
 export function isGetterName<T extends object>(target: T, methodName: keyof T): boolean {
     // this is the object we are going to be looking at

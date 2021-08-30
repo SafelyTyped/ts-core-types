@@ -40,7 +40,7 @@ import { MakeNodeJSModuleNameOptions } from "../MakeNodeJSModuleNameOptions";
  *
  * Use this if you want to pass in functional options.
  *
- * @category NodeJSModuleName
+ * @public
  */
 export const MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS: MakeNodeJSModuleNameOptions
     = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;

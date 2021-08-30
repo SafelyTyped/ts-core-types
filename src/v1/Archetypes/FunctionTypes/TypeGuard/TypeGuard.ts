@@ -43,11 +43,11 @@
  * make sure that the given input is the type you think it is, before you
  * try and use that input. They help prevent runtime errors.
  *
- * @template T
+ * @typeParam T -
  * `T` is the type we certify that `input` is (or isn't)
- * @param input
+ * @param input -
  * `input` is the data to inspect
  *
- * @category Archetypes
+ * @public
  */
 export type TypeGuard<T> = (input: unknown) => input is T;

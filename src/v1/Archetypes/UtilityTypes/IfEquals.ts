@@ -14,7 +14,7 @@
  *
  * @see https://github.com/Microsoft/TypeScript/issues/27024#issuecomment-421529650
  *
- * @category UtilityTypes
+ * @public
  */
 export type IfEquals<X, Y, A, B> =
     (<T>() => T extends X ? 1 : 2) extends

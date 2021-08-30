@@ -33,10 +33,10 @@
 //
 
 /**
- * `RegExpExecArrayWithGroups` is a {@link RegExpExecArray} with guaranteed
+ * `RegExpExecArrayWithGroups` is a `RegExpExecArray` with guaranteed
  * groups, to keep the compiler happy.
  *
- * @category BasicTypes
+ * @public
  */
 export interface RegExpExecArrayWithGroups extends RegExpExecArray {
     groups: {

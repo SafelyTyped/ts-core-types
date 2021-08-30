@@ -50,17 +50,17 @@ import { ProtocolDefinition } from "../ProtocolDefinition";
  * - that the methods have the right type signatures
  * - for Symbols
  *
- * @param path
+ * @param path -
  * Where are we in the data structure that you are validating?
- * @param input
+ * @param input -
  * The object to validate
- * @param protocol
+ * @param protocol -
  * The public API to check for
  * @returns
  * - `input` type-cast to be `T` on success, or
  * - an `AppError` describing why `input` failed validation
  *
- * @category ProtocolsExtensions
+ * @public
  */
 export function validateImplementsProtocol<T>(
     path: DataPath,

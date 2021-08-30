@@ -36,6 +36,6 @@
  * `AppErrorData` describes input data that all {@link AppError} classes
  * accept.
  *
- * @category ErrorHandling
+ * @public
  */
 export type AppErrorData = { errorId?: string };

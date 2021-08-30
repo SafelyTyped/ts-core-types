@@ -36,6 +36,6 @@
  * `PrimitiveHint` describes the valid inputs into a [Symbol.toPrimitive]
  * handler on an object.
  *
- * @category Protocols
+ * @public
  */
 export type PrimitiveHint = "string" | "number" | "default";

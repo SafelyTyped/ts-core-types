@@ -35,6 +35,6 @@
 /**
  * `AnyPrimitiveType` represents any possible primitive type.
  *
- * @category RefinedTypes
+ * @public
  */
 export type AnyPrimitiveType = string|number|boolean|null;

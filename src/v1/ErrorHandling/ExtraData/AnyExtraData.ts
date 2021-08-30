@@ -40,6 +40,6 @@ import { NoExtraData } from "./NoExtraData";
  *
  * See {@link ExtraData} to learn about `public` and `logsOnly` error data.
  *
- * @category ErrorHandling
+ * @public
  */
 export type AnyExtraData = ExtraData | NoExtraData;

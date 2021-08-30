@@ -38,6 +38,6 @@ import { DataGuard } from "./DataGuard";
  * `AnyDataGuard` is a type alias. Use it wherever any {@link DataGuard}
  * is valid.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyDataGuard = DataGuard<unknown>;

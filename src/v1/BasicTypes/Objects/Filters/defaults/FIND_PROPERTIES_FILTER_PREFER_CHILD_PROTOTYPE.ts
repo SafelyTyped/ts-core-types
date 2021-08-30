@@ -35,12 +35,12 @@ import { PropertyFilter } from "../PropertyFilter";
 
 /**
  * `FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE` is a {@link PropertyFilter}
- * for {@link findProperties}, {@link findPropertyNames} et al.
+ * for {@link findAttributeNames}, {@link findPropertyNames} et al.
  *
  * Use it to filter out properties from base classes that have already been
  * discovered in child classes or the original object.
  *
- * @category BasicTypes
+ * @public
  */
 export const FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE: PropertyFilter
     = (x) => !x.found.has(x.propName);

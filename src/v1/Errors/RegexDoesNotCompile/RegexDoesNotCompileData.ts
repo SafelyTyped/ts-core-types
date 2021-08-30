@@ -39,7 +39,7 @@ import { DataPath } from "../../SupportingTypes";
  * `RegexDoesNotCompileData` is the input that
  * {@link RegexDoesNotCompileError} requires.
  *
- * @category BasicTypes
+ * @public
  */
 export interface RegexDoesNotCompileData extends ExtraPublicData {
     public: {

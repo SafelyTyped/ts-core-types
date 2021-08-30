@@ -39,10 +39,10 @@ import { validateBoolean } from "./validateBoolean";
  * `isBoolean()` is a {@link TypeGuard}. Use it to prove to the compiler
  * that the unknown `input` really is a boolean.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isBoolean: TypeGuard<boolean> =
     (input: unknown): input is boolean =>

@@ -38,7 +38,7 @@ import { NextPrototypeChain } from "../NextPrototypeChain";
  * `STOP_AT_OBJECT_PROTOTYPE()` is a function that returns the next prototype
  * in the prototype chain - until we get to Object.prototype.
  *
- * @category BasicTypes
+ * @public
  */
 export const STOP_AT_OBJECT_PROTOTYPE: NextPrototypeChain
     = (x) => {

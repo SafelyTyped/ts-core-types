@@ -40,6 +40,6 @@ import { HashMap } from "./HashMap";
  * It's very handy for convincing the Typescript compiler to let us
  * iterate over the contents of a data bag.
  *
- * @category BasicTypes
+ * @public
  */
 export type AnyHashMap = HashMap<any>;

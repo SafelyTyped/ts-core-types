@@ -37,15 +37,15 @@ import { AnyHashMap } from "../HashMaps";
  * `isMethodName()` is a data guard. Use it to prove that property
  * `target.propName` is actually a method on that object.
  *
- * @param target
+ * @param target -
  * The object to inspect.
- * @param propName
+ * @param propName -
  * The name of the property to inspect.
  * @returns
  * - `true` if `target.propName()` is a callable function.
  * - `false` otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function isMethodName(target: AnyHashMap, propName: string): boolean {
     return target[propName] !== undefined && typeof target[propName] === "function";

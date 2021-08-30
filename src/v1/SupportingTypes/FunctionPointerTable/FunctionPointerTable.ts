@@ -42,10 +42,10 @@ import { AnyFunction } from "../../Archetypes";
  * It's a hashmap of functions and their names. They're a high-performance
  * alternative to large 'if/else' ladders.
  *
- * Use {@link executeFromFunctionPointerTable} to find and execute the
- * right function in your `FunctionPointerTable`.
+ * Use {@link searchFunctionPointerTable} to find the right function in
+ * your `FunctionPointerTable`.
  *
- * @category FunctionPointerTable
+ * @public
  */
 export type FunctionPointerTable<
     K extends string | number | symbol,

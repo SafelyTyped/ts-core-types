@@ -44,7 +44,7 @@ import { AttributeKeys } from "./AttributeKeys";
  * ie, it creates a type that you can use as a `true/false` map in your
  * code.
  *
- * @category UtilityTypes
+ * @public
  */
 export type AttributeFilterMap<S extends object> = {
     [K in AttributeKeys<S>]?: boolean;

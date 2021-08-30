@@ -42,18 +42,18 @@ import { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
  *
  * You can pass in filters to control which property names are returned.
  *
- * @param target
+ * @param target -
  * The object to inspect.
- * @param nextPrototype
+ * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
  * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
  * inherited from Object.
- * @param filters
+ * @param filters -
  * The filters to apply.
  * @returns
  * - a map of all properties found that were not filtered out.
  *
- * @category BasicTypes
+ * @public
  */
 export function findPropertyNames(
     target: object,

@@ -38,6 +38,6 @@ import { Primitive } from "./Primitive";
  * `PrimitiveOrUndefined` is a type alias. Use it when you need to accept
  * a value that is a basic type, but may also legally be undefined.
  *
- * @category BasicTypes
+ * @public
  */
 export type PrimitiveOrUndefined = Primitive | undefined;

@@ -47,15 +47,15 @@ import { BooleanishStrings, validateBooleanishString } from "./validateBooleanis
  *
  * See {@link implementsOwnToString} for the definitive list of rules.
  *
- * @param path
+ * @param path -
  * where we are in the data structure you are validating
- * @param input
+ * @param input -
  * the number to try to convert into a boolean
  * @returns
  * - `true` or `false` on success
  * - an {@link AppError} explaining why conversion failed otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function validateBooleanishObject(
     booleanish: BooleanishStrings,

@@ -38,7 +38,7 @@ import { DataPath } from "../../../SupportingTypes";
  * `DataGuaranteeOptions` describes the user-supplied options supported
  * by all {@link DataGuarantee}s.
  *
- * @category Archetypes
+ * @public
  */
 export interface DataGuaranteeOptions {
     onError: OnError,

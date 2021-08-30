@@ -38,6 +38,6 @@ import { DataPath } from "../DataPath";
  * `DEFAULT_DATA_PATH` is the `path` value we use when we're not validating
  * through a nested data structure.
  *
- * @category DataPath
+ * @public
  */
 export const DEFAULT_DATA_PATH = "input" as DataPath;

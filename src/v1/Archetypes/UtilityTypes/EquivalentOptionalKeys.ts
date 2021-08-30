@@ -44,7 +44,7 @@ import { IfEquals } from "./IfEquals";
  * If an attribute exists in both `A` and `B`, but it has different types
  * in `A` and `B`, it will not be considered to be an equivalent key.
  *
- * @category UtilityTypes
+ * @public
  */
 export type EquivalentOptionalKeys<A extends object, B extends object> = {
     [K in keyof A]-?: {} extends Pick<A, K>

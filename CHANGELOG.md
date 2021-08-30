@@ -21,6 +21,21 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.3
+
+Released Monday, 30th August 2021.
+
+### New
+
+* Utility Types
+  - added `RequireAllAttributesMap` mapped type
+
+### Documentation
+
+- Added Microsoft's API-Extractor
+- Added Microsoft's API-Documenter
+- Updated all docblocks to be compatible with api-extractor
+
 ## v0.3.2
 
 Released Saturday, 3rd July 2021.

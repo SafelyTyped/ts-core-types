@@ -37,6 +37,6 @@ import { Branded } from "./Branded";
 /**
  * AnyBranded represents any branded type.
  *
- * @category Archetypes
+ * @public
  */
  export type AnyBranded = Branded<any, any>;

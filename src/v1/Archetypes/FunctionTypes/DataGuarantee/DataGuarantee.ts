@@ -51,15 +51,16 @@ import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
  * DataGuarantees if appropriate. It's the best way to make your code
  * as reusable as possible.
  *
- * @category Archetypes
- * @template T
+ * @typeParam T -
  * The acceptable data type to inspect.
  * @param input
- * The data to guarantee.
+ * - The data to guarantee.
  * @param onError
- * We call this if `input` fails the inspection.
+ * - We call this if `input` fails the inspection.
  * @param path
- * This is where we are in the data structure that you are inspecting.
+ * - This is where we are in the data structure that you are inspecting.
+ *
+ * @public
  */
 export type DataGuarantee<T = unknown, OPT extends DataGuaranteeOptions = DataGuaranteeOptions>
   = (input: T, options?: Partial<OPT>) => void;

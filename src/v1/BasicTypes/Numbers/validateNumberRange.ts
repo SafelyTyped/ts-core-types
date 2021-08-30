@@ -39,10 +39,10 @@ import { DataPath } from "../../SupportingTypes";
  * `validateNumberRange()` is a {@link TypeValidator}. Use it to prove that
  * the given input falls within the range of values you require.
  *
- * @param path
- * @param input
+ * @param path -
+ * @param input -
  *
- * @category BasicTypes
+ * @public
  */
 export function validateNumberRange(
     path: DataPath,

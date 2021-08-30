@@ -46,14 +46,14 @@ import { ExtensionDefinesNoMethodsError } from "../../Errors";
  * Recommended practice: use this to define a file-level constant for
  * your protocol.
  *
- * @category ProtocolsExtensions
- *
- * @param input
+ * @param input -
  * This is the prototype of an Extension.
- * @param onError
+ * @param onError -
  * We'll call this with an AppError if there's a problem with `input`.
  * @returns
  * The list of methods that make up the Protocol.
+ *
+ * @public
  */
 export function makeProtocolDefinition<T extends object>(
     input: T,

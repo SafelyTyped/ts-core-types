@@ -42,10 +42,10 @@ import { validateNumber } from "../Numbers";
  * the given input is really a `number`, or to find out why we think it
  * isn't a number.
  *
- * @param path
- * @param input
+ * @param path -
+ * @param input -
  *
- * @category BasicTypes
+ * @public
  */
 export function validateInteger(path: DataPath, input: unknown): AppErrorOr<number> {
     const res = validateNumber(path, input);

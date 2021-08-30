@@ -46,15 +46,16 @@ import { NodeJSModuleName } from "./NodeJSModuleName";
  * Use {@link MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS} if you need to
  * pass default options in.
  *
- * @category NodeJSModuleName
- * @param input
+ * @param input -
  * This is the string that contains the module name.
- * @param onError
+ * @param onError -
  * This is the error handler we call if anything goes wrong.
- * @param fnOpts
+ * @param fnOpts -
  * Any functional options you wish to use.
  * @returns
  * The validated input string, as a NodeJSModuleName type.
+ *
+ * @public
  */
 export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, MakeNominalTypeOptions, string | NodeJSModuleName> = (
     input: string,

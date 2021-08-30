@@ -22,10 +22,10 @@ import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { validateRegexCompiles } from "./validateRegexCompiles";
 
 /**
- * `Regex` is a safe type. It's a {@link RegExp} that throws errors so
+ * `Regex` is a safe type. It's a `RegExp` that throws errors so
  * that you don't have to do checks all the time.
  *
- * @category BasicTypes
+ * @public
  */
 export class Regex extends RegExp {
     /**
@@ -54,7 +54,7 @@ export class Regex extends RegExp {
      * If the regex does not match, a {@link RegexReturnedNoResultsError}
      * is thrown, so that you don't have to check for `null`.
      *
-     * @param input
+     * @param input -
      * @returns
      */
     public exec(input: string): RegExpExecArray {

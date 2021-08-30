@@ -41,10 +41,10 @@ import { validateFunction } from "./validateFunction";
  * `isFunction()` is a {@link TypeGuard}. Use it to prove to the TypeScript
  * compiler that the unknown `input` really is a function.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isFunction: TypeGuard<Function> =
     (input: unknown): input is Function =>

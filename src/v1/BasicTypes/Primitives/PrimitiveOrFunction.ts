@@ -39,6 +39,6 @@ import { Primitive } from "./Primitive";
  * `PrimitiveOrFunction` is a type alias. Use it when you need to accept
  * a basic type or a function.
  *
- * @category BasicTypes
+ * @public
  */
 export type PrimitiveOrFunction = Primitive | Function;

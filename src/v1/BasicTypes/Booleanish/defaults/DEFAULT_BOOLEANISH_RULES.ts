@@ -40,11 +40,11 @@ import { validateBooleanishObject } from "../validateBooleanishData/validateBool
 
 /**
  * `DEFAULT_BOOLEANISH_STRING_RULES` specify which strings we can convert
- * to either `true` or `false.
+ * to either `true` or `false`.
  *
  * Values in the rules must be in lower case, or they will not work.
  *
- * @category BasicTypes
+ * @public
  */
 export const DEFAULT_BOOLEANISH_STRING_RULES = {
     false: [ "0", "false", "no" ],
@@ -57,7 +57,7 @@ export const DEFAULT_BOOLEANISH_STRING_RULES = {
  *
  * See {@link validateBooleanishData} to see it in action.
  *
- * @category BasicTypes
+ * @public
  */
 export const DEFAULT_BOOLEANISH_RULES: BooleanishRules = {
     boolean: validateBooleanishBoolean,

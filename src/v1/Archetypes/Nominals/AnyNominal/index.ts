@@ -33,6 +33,6 @@
 //
 
 /**
- * @category Archetypes
+ * @public
  */
 export * from "./AnyNominal";

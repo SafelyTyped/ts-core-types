@@ -43,14 +43,14 @@ import { validateObject } from "./validateObject";
  *
  * `null` is NOT an object, according to this test.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * We'll call this if validation fails.
- * @param path
+ * @param path -
  * where are you in the validation of your data structure?
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeObject: TypeGuarantee<object, TypeGuaranteeOptions> = (
     input: unknown,

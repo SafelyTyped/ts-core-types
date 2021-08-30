@@ -37,9 +37,9 @@
  * `AttributeKeys` is a utility type. Use it to create a tuple
  * type that only contains a list of object keys that don't map to functions.
  *
- * @template T
+ * @typeParam T -
  * The type that you want to create a tuple type from.
  *
- * @category UtilityTypes
+ * @public
  */
 export type AttributeKeys<T> = { [K in keyof T]-?: T[K] extends Function ? never : K }[keyof T]

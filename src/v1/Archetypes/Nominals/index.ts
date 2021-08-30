@@ -33,7 +33,7 @@
 //
 
 /**
- * @category Archetypes
+ * @public
  */
 export * from "./AnyNominal";
 export * from "./Branded";

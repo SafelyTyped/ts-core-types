@@ -35,8 +35,8 @@
 /**
  * `NodeJSModuleNameDataRegex` is a regex that will match:
  *
- * [@scope]/<package-name>[/<subpackage-name>]
+ * [\@scope]/<package-name>[/<subpackage-name>]
  *
- * @category NodeJSModuleName
+ * @internal
  */
 export const NodeJSModuleNameDataRegex = new RegExp("^(?:@[a-z0-9-*~][a-z0-9-*._~]*/)?[a-z0-9-~][a-z0-9-._~]+(/[A-Za-z0-9-~][A-Za-z0-9-._~]+)*$");

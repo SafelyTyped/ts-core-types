@@ -42,10 +42,10 @@ import { implementsToString } from "./implementsToString";
  * - that has a `.toString()` method
  * - that isn't the default `Object.toString()` method
  *
- * @param input
- * the value to inspect
+ * @param input -
+ * The value to inspect.
  *
- * @category Protocols
+ * @public
  */
 export function implementsOwnOrInheritedToString(input: unknown): input is ToString {
     // make sure there's a `.toString()' function in the first place

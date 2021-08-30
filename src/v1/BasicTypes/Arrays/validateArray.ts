@@ -40,15 +40,15 @@ import { AppErrorOr } from "../../OptionTypes";
  * `validateArray()` is a {@link TypeValidator}. Use it to prove that an
  * unknown `input` really is some kind of array.
  *
- * @param path
+ * @param path -
  * Where we are in the data structure you are validating
- * @param input
+ * @param input -
  * the value to inspect
  * @returns
  * - `input` if it is an array, or
  * - an AppError explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateArray<T>(path: DataPath, input: unknown): AppErrorOr<T[]> {
     // do we have an array?

@@ -42,7 +42,7 @@
  * {@link ExtraPublicData}, {@link ExtraLogsOnlyData}, {@link AllExtraData}
  * or {@link NoExtraData} instead.
  *
- * @category ErrorHandling
+ * @public
  */
 export interface ExtraData {
     /**

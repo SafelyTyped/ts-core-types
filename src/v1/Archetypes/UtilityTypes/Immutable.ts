@@ -14,7 +14,7 @@ import { Primitivish } from "../../BasicTypes";
  *
  * THIS IS EXPERIMENTAL.
  *
- * @category UtilityTypes
+ * @public
  */
 export type Immutable<T> =
     T extends Primitivish ? T

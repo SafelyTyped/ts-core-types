@@ -40,7 +40,7 @@ import { InvalidNodeJSModuleNameData } from "./InvalidNodeJSModuleNameData";
  * `InvalidNodeJSModuleNameError` is thrown when we've been given data that
  * isn't a valid NodeJS module name.
  *
- * @category Errors
+ * @public
  */
 export class InvalidNodeJSModuleNameError extends AppError<InvalidNodeJSModuleNameData> {
     public constructor(params: InvalidNodeJSModuleNameData & AppErrorData) {

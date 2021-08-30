@@ -41,23 +41,23 @@ import { findAttributes, findMethods } from "../../BasicTypes/Objects";
  *
  * NOTE: this function modifies the input `target`.
  *
- * @param target
+ * @param target -
  * This is the object that you want to add the extension to.
- * @param source
+ * @param source -
  * This is the extension that you want to add to `target`.
- * @param seed
+ * @param seed -
  * If you need to copy any attributes over to `target`, pass them in here.
  * @returns
  * The modified `target`, type-cast to be both `Target` and `Source` types.
  *
- * @template Target
+ * @typeParam Target -
  * The type of object that `target` is. The compiler normally works this
  * out for you.
- * @template Source
+ * @typeParam Source -
  * The type of object that `source` is. The compiler normally works this
  * out for you.
  *
- * @category ProtocolsExtensions
+ * @public
  */
 export function addExtension<Target extends object, Source extends object>(
     target: Target,

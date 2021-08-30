@@ -49,18 +49,18 @@ import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptio
  * Use the filter {@link FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE} to
  * avoid this behaviour.
  *
- * @param target
+ * @param target -
  * The object to inspect.
- * @param nextPrototype
+ * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
  * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
  * inherited from Object.
- * @param filters
+ * @param filters -
  * The filters to apply.
  * @returns
  * - a map of all properties found that were not filtered out.
  *
- * @category BasicTypes
+ * @public
  */
 export function findProperties(
     target: object,

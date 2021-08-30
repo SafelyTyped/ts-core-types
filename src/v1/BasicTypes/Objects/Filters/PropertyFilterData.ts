@@ -38,7 +38,7 @@ import { Has } from "../../../Protocols";
  * `PropertyFilterData` describes the input data that a {@link PropertyFilter}
  * function accepts.
  *
- * @category BasicTypes
+ * @public
  */
 export interface PropertyFilterData {
     /**

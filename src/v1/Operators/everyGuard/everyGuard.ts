@@ -41,15 +41,15 @@ import { DataGuard } from "../../Archetypes";
  * We stop (and return `false`) as soon as the first DataGuard we apply
  * returns `false`.
  *
- * @param input
+ * @param input -
  * the value to be inspected
- * @param guards
+ * @param guards -
  * a list of guards to be applied
  * @returns
  * - `true` if every guard returns `true`
  * - `false` otherwise
  *
- * @category Operators
+ * @public
  */
 export function everyGuard<T>(input: T, guards: DataGuard<T>[]): boolean {
     for (const guard of guards) {

@@ -43,15 +43,15 @@ import { validateArray } from "./validateArray";
  * an unknown `input` really is some kind of array that contains at least
  * one entry.
  *
- * @param path
+ * @param path -
  * Where we are in the data structure you are validating
- * @param input
+ * @param input -
  * the value to inspect
  * @returns
  * - `input` if it is an array with at least one entry, or
  * - an AppError explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 export function validateNonEmptyArray(path: DataPath, input: unknown): AppErrorOr<NonEmptyArray<unknown>> {
     return validate(input)

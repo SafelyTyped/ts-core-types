@@ -31,7 +31,7 @@ import { AppErrorOr } from "../../OptionTypes";
  * `ValidationPipelineStep` describes the structure of a wrapper around
  * a {@link TypeValidator} function.
  *
- * @category Operators
+ * @public
  */
 export interface ValidationPipelineStep<T> {
     /**
@@ -44,7 +44,7 @@ export interface ValidationPipelineStep<T> {
     /**
      * `.next()` defines the next step of the pipeline.
      *
-     * @param fn
+     * @param fn -
      * the next {@link TypeValidator} function to call
      */
     next<R>(fn: (x: T) => AppErrorOr<R>): ValidationPipelineStep<R>;

@@ -40,12 +40,13 @@ import { DEFAULT_DATA_PATH } from "../DataPath";
  * `isHttpStatusCodeData()` is a data guard. It checks to see if the `input`
  * value is in the range of valid HTTP status codes.
  *
- * @category HttpStatusCode
- * @param input
- * the number to check
+ * @param input -
+ * The number to check
  * @returns
  * - `true` if `input` is an integer between 100 and 599 inclusive.
  * - `false` otherwise
+ *
+ * @public
  */
 export const isHttpStatusCodeData = (input: number): boolean =>
     isData(validateHttpStatusCodeData, input, { path: DEFAULT_DATA_PATH });

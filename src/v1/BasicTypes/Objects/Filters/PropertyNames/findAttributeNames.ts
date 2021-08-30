@@ -43,9 +43,9 @@ import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_
  * attributes stored in `target`, including attributes inherited from
  * any parent classes and from `Object.prototype`.
  *
- * @param input
+ * @param input -
  * The object to inspect.
- * @param nextPrototype
+ * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
  * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
  * inherited from Object.
@@ -53,7 +53,7 @@ import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_
  * - a list of all attribute names found. The list will not contain
  *   duplicate names. The order of list entries is not guaranteed.
  *
- * @category BasicTypes
+ * @public
  */
 export function findAttributeNames(
     input: object,

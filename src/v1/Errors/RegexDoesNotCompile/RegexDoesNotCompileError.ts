@@ -40,7 +40,7 @@ import { RegexDoesNotCompileData } from "./RegexDoesNotCompileData";
  * `RegexDoesNotCompileError` is a throwable Error. It is thrown when
  * we have been given a string that fails to compile into a regex.
  *
- * @category BasicTypes
+ * @public
  */
 export class RegexDoesNotCompileError extends AppError<RegexDoesNotCompileData> {
     public constructor(params: RegexDoesNotCompileData & AppErrorData) {

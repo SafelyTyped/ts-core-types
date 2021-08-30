@@ -35,10 +35,10 @@ import { PropertyFilter } from "../PropertyFilter";
 
 /**
  * `FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS` is a {@link PropertyFilter} for
- * {@link findProperties}, {@link findPropertyNames} et al. Use it to
+ * {@link findAttributeNames}, {@link findPropertyNames} et al. Use it to
  * filter out constructors.
  *
- * @category BasicTypes
+ * @public
  */
 export const FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS: PropertyFilter
     = (x) => x.propName !== "constructor";

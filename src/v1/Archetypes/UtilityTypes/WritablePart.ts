@@ -17,6 +17,6 @@ import { WritableKeys } from "./WritableKeys";
  *
  * @see https://stackoverflow.com/a/52473108
  *
- * @category UtilityTypes
+ * @public
  */
 export type WritablePart<T> = Pick<T, WritableKeys<T>>;

@@ -36,16 +36,16 @@
  * `Filter` is a function signature. It describes a function that says
  * whether or not a value meets a contract.
  *
- * @param input
+ * @param input -
  * The value to examine
  * @returns
  * - `true` if the item passes the filter
  * - `false` otherwise
- * @template T
+ * @typeParam T -
  * The input type that the filter accepts
  *
  * @deprecated use {@link DataGuard} type instead
  *
- * @category BasicTypes
+ * @public
  */
 export type Filter<T> = (input: T) => boolean;

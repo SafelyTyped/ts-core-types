@@ -36,6 +36,6 @@
  * `NonEmptyArray` is a type. Use it whenever you need to receive an
  * array that contains AT LEAST one item in it.
  *
- * @category BasicTypes
+ * @public
  */
 export type NonEmptyArray<T> = [T, ...T[]];

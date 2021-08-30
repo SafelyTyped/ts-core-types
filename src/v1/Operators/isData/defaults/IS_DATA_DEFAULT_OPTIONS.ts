@@ -32,13 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
+import { IsDataOptions } from "../IsDataOptions";
 
 /**
  * `IS_DATA_DEFAULT_OPTIONS` are the default options you can pass to
  * {@link isData}.
  *
- * @category Operators
+ * @public
  */
-export const IS_DATA_DEFAULT_OPTIONS = {
+export const IS_DATA_DEFAULT_OPTIONS: IsDataOptions = {
     path: DEFAULT_DATA_PATH,
 }

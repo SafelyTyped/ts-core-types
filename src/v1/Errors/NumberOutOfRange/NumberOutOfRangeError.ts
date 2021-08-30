@@ -40,7 +40,7 @@ import { HttpStatusCode } from "../../SupportingTypes";
  * `NumberOutOfRangeError` is thrown whenever we're given a number that
  * has failed a range change.
  *
- * @category Errors
+ * @public
  */
 export class NumberOutOfRangeError extends AppError<NumberOutOfRangeData> {
     public constructor(

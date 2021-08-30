@@ -41,10 +41,12 @@ import { validateHttpStatusCodeDataRange } from "./validateHttpStatusCodeDataRan
  * `validateHttpStatusCodeData()` is a {@link DataValidator}. Use it to
  * prove that the given input is a legal HTTP status code value.
  *
- * @param path
- * @param input
+ * @param path -
+ * Where are we in the data structure that you are validating?
+ * @param input -
+ * The value to validate.
  *
- * @category HttpStatusCode
+ * @public
  */
 export function validateHttpStatusCodeData (
     path: DataPath,

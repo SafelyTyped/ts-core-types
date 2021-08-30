@@ -38,7 +38,7 @@ import { OnErrorOptions } from "../OnErrorOptions";
  * `ON_ERROR_DEFAULT_OPTIONS` are the default user-supplied options
  * for anywhere that accepts {@link OnErrorOptions}.
  *
- * @category ErrorHandling
+ * @public
  */
 export const ON_ERROR_DEFAULT_OPTIONS: OnErrorOptions = {
     onError: THROW_THE_ERROR,

@@ -49,13 +49,13 @@ import { AnyAppError } from "../AppError";
  * never returns back to the caller. You can override either of these to
  * suit your code.
  *
- * @category ErrorHandling
- * @template E
+ * @public
+ * @typeParam E -
  * What type of error are we expecting? By default, we expect all AppErrors.
- * @template R
+ * @typeParam R -
  * What will the OnError handler return? The default is `never`, which means
  * that the OnError handler must `throw` an error.
- * @param err
+ * @param err -
  * What error has occurred?
  */
 export type OnError<E extends AnyAppError = AnyAppError, R = never> = (err: E) => R;

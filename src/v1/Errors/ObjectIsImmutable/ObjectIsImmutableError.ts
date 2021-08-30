@@ -43,7 +43,7 @@ import { ObjectIsImmutableData } from "./ObjectIsImmutableData";
  * It's mostly used in classes that are wrappers around a non-immutable
  * base class.
  *
- * @category Errors
+ * @public
  */
 export class ObjectIsImmutableError extends AppError<ObjectIsImmutableData> {
     public constructor(params: ObjectIsImmutableData & AppErrorData) {

@@ -41,12 +41,13 @@ import { DataGuaranteeOptions } from "../../Archetypes";
  * type (e.g. a string). The subset is defined by a contract / specification,
  * and enforced by a {@link DataGuarantee}.
  *
- * @category RefinedTypes
- * @template T
+ * @typeParam T -
  * This is the type that will be wrapped.
- * @template OPT
- * This is the type of user-supplied options that the `contract`
- * (parameter to the constructor) accepts.
+ * @typeParam OPT -
+ * This is the type of user-supplied options that the `contract` (parameter
+ * to the constructor) accepts.
+ *
+ * @public
  */
 export abstract class RefinedPrimitive<
     T extends AnyPrimitiveType,

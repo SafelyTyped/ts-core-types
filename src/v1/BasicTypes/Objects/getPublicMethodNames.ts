@@ -47,13 +47,13 @@ import { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./Filters/defaults/FIND_PR
  *
  * Getters and Setters are NOT treated as public methods.
  *
- * @param target
+ * @param target -
  * The object to inspect.
  * @returns
  * A list of all method names that exist on the object instance. Order of
  * the list is not guaranteed. The list will not contain duplicates.
  *
- * @category BasicTypes
+ * @public
  */
 export function getPublicMethodNames(
     target: object

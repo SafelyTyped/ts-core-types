@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,33 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Filter } from "./Filter";
+import { AttributeKeys } from "./AttributeKeys";
 
 /**
- * `someFilters()` is a data filter. Use it to apply a set of filters to
- * the `input` value.
+ * `RequireAllAttributesMap` is a utility type. Use it to create a new
+ * type where all the attributes of `IN` must exist, with a common
+ * type of `OUT`.
  *
- * We stop (and return `true`) as soon as the first filter we apply
- * returns `true`.
- *
- * @param input -
- * the value to be inspected
- * @param filters -
- * a list of filters to be applied
- * @returns
- * - `true` if any filter returns `true`
- * - `false` otherwise
- *
- * @deprecated use {@link SomeGuards} instead
- *
- * @public
+ * This is commonly used in an intersection type with {@link HashMap}<OUT>
+ * so that your code can use array syntax (`object[key]`) to retrieve
+ * items from the new type programaticaly.
  */
-export function someFilters<T>(input: T, filters: Filter<T>[]): boolean {
-    for (const filter of filters) {
-        if (filter(input)) {
-            return true;
-        }
-    }
-
-    return false;
+export type RequireAllAttributesMap<IN, OUT> = {
+    [K in AttributeKeys<IN>]-?: OUT;
 }

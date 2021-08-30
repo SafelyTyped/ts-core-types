@@ -51,13 +51,13 @@ import {
  * constructor (if it has one). It's useful for getting the name of
  * the underlying class.
  *
- * @param target
+ * @param target -
  * The object to inspect.
  * @returns
  * A list of all method names that exist on the object instance. Order of
  * the list is not guaranteed. The list will not contain duplicates.
  *
- * @category BasicTypes
+ * @public
  */
 export function getPublicMethods(
     target: object

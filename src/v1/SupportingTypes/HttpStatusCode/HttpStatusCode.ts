@@ -37,6 +37,6 @@ import { Branded } from "../../Archetypes";
  * `HttpStatusCode` represents any HTTP status code in the range
  * `100` to `599` inclusive.
  *
- * @category HttpStatusCode
+ * @public
  */
 export type HttpStatusCode = Branded<number, "@safelytyped/core-types/HttpStatusCode">;

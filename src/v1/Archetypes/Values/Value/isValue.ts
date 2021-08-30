@@ -38,11 +38,11 @@ import { Value } from "./Value";
  * `isValue()` is a type guard. It proves whether or not the given `input`
  * implements the {@link Value} protocol.
  *
- * @category Archetypes
- * @template T
+ * @public
+ * @typeParam T -
  * what type of {@link Value} to test for
  * Currently a placeholder. We have no way to implement this test today.
- * @param input
+ * @param input -
  * the data to inspect
  * @returns
  * - `true` if:

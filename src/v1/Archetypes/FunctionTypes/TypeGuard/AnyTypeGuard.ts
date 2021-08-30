@@ -38,6 +38,6 @@ import { TypeGuard } from "./TypeGuard";
  * `AnyTypeGuard` is a type alias. Use it wherever any `TypeGuard` is
  * valid.
  *
- * @category Archetypes
+ * @public
  */
 export type AnyTypeGuard = TypeGuard<any>;

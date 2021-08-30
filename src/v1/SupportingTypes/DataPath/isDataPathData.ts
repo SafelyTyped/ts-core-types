@@ -39,10 +39,10 @@ import { validateDataPathData } from "./validateDataPathData";
  * `isDataPathData()` is a {@link DataGuard}. Use it to prove that an unknown
  * `input` is valid {@link DataPath} data.
  *
- * @category DataPath
+ * @param input -
+ * The value you want to prove is a valid {@link DataPath} input.
  *
- * @param input
- * the value you want to prove is a valid {@link DataPath} input
+ * @public
  */
 export const isDataPathData = (input: string): boolean =>
     isData(validateDataPathData, input, IS_DATA_DEFAULT_OPTIONS)

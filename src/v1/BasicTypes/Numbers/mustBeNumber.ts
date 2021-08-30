@@ -43,14 +43,14 @@ import { validateNumber } from "./validateNumber";
  *
  * If the `input` is not a number, an Error is thrown.
  *
- * @param input
+ * @param input -
  * the value to inspect
- * @param onError
+ * @param onError -
  * the error handler we will call if `input` fails validation
  * @returns
  * `input`, cast as a `number` to keep the compiler happy
  *
- * @category BasicTypes
+ * @public
  */
 export const mustBeNumber: TypeGuarantee<number> = (
     input: unknown,

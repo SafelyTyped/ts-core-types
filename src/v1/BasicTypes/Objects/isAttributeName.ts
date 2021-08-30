@@ -39,15 +39,15 @@ import { AnyHashMap } from "../HashMaps";
  *
  * NOTE that an attribute *can* be a method.
  *
- * @param target
+ * @param target -
  * The object to inspect.
- * @param propName
+ * @param propName -
  * The name of the property to inspect.
  * @returns
  * - `true` if `target.propName()` is an attribute
  * - `false` otherwise
  *
- * @category BasicTypes
+ * @public
  */
 export function isAttributeName(target: AnyHashMap, propName: string): boolean {
     return typeof target[propName] !== "function" && typeof target[propName] !== "undefined";

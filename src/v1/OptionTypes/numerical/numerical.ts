@@ -37,6 +37,6 @@ import { ToPrimitive, ToString } from "../../Protocols";
  * `numerical` is an option type. Use it to represent a value that
  * can be converted into a Javascript `number` on-demand.
  *
- * @category OptionTypes
+ * @public
  */
 export type numerical = boolean|string|number|ToPrimitive|ToString;

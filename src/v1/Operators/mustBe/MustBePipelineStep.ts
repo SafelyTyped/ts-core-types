@@ -31,7 +31,7 @@ import { AppErrorOr } from "../../OptionTypes";
  * `MustBePipelineStep` describes the structure of a wrapper around
  * a {@link DataValidator} function.
  *
- * @category Operators
+ * @public
  */
 export interface MustBePipelineStep<T> {
     /**
@@ -44,7 +44,7 @@ export interface MustBePipelineStep<T> {
     /**
      * `.next()` defines the next step of the pipeline.
      *
-     * @param fn
+     * @param fn -
      * the next {@link TypeValidator} function to call
      */
     next<R>(fn: (x: T) => AppErrorOr<R>): MustBePipelineStep<R>;

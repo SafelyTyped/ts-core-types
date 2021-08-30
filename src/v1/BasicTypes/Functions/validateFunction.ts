@@ -39,15 +39,15 @@ import { getTypeNames } from "../Unknowns";
  * `validateFunction()` is a {@link TypeGuard}. Use it to prove that the
  * unknown `input` really is a function of some kind.
  *
- * @param path
+ * @param path -
  * where are we in the data structure you are validating?
- * @param input
+ * @param input -
  * the value to inspect
  * @returns
  * - `input`, type-cast to a function, if validation succeeds, or
  * - an {@link AppError} explaining why validation failed
  *
- * @category BasicTypes
+ * @public
  */
 // tslint:disable-next-line: ban-types
 export function validateFunction(path: DataPath, input: unknown): AppErrorOr<Function> {

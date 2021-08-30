@@ -40,7 +40,7 @@
  *
  * See {@link ExtraData} to learn about `public` and `logsOnly` error data.
  *
- * @category ErrorHandling
+ * @public
  */
 export interface ExtraPublicData {
     /**

@@ -38,7 +38,7 @@ import { DataPath } from "../../SupportingTypes";
  * `IsDataOptions` describes the user-supplied options that must be passed
  * into any {@link isData} function call.
  *
- * @category Operators
+ * @public
  */
 export interface IsDataOptions {
     path: DataPath;

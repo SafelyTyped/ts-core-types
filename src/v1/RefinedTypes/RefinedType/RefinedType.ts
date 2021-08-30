@@ -42,25 +42,27 @@ import { DataGuarantee, DataGuaranteeOptions, ValueObject } from "../../Archetyp
  * methods to help JavaScript auto-resolve to the wrapped primitive wherever
  * possible.
  *
- * @category RefinedTypes
- * @template T
- * This is the type that will be wrapped.
- * @template OPT
- * This is the type of user-supplied options that the `contract` accepts.
+ * @typeParam T - This is the type that will be wrapped.
+ * @typeParam OPT - This is the type of user-supplied options that the
+ * `contract` accepts.
+ *
+ * @public
  */
 export class RefinedType<T, OPT extends DataGuaranteeOptions = DataGuaranteeOptions> extends ValueObject<T> {
     /**
      * Constructor. Creates a new `RefinedType`.
      *
-     * @param contract
-     * This is the function that enforces the contract / specification
-     * of this refined type.
+     * @param contract -
+     * This is the function that enforces the contract / specification of
+     * this refined type.
      *
      * Child classes normally decide what this will be. You don't
      * normally allow the end-caller to pass this in.
-     * @param input
+     *
+     * @param input -
      * This is the value that will be stored, if it passes the `contract`.
-     * @param onError
+     *
+     * @param onError -
      * The error handler that gets called if the `contract` rejects the
      * `input` value.
      *

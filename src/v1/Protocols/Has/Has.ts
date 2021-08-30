@@ -36,15 +36,15 @@
  * `Has` is a protocol. It describes an object that has the function
  * `.has()`.
  *
- * This is implemented by both {@link Map} and {@link Set}.
+ * This is implemented by the built-in `Map` and `Set` classes.
  *
- * @category Protocols
+ * @public
  */
 export interface Has<T> {
     /**
      * `has()` is a data search on a collection of some kind.
      *
-     * @param keyOrValue
+     * @param keyOrValue -
      * The data to look for. Whether this is a search for a key or
      * a value depends on the collection and the context you're using
      * it in.

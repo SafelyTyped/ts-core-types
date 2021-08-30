@@ -38,7 +38,7 @@ import { NEXT_PROTOTYPE } from "../../../../Prototypes";
  * `FIND_PROPERTY_NAMES_DEFAULT_OPTIONS` are the default user-supplied options
  * for {@link findPropertyNames}.
  *
- * @category BasicTypes
+ * @public
  */
 export const FIND_PROPERTY_NAMES_DEFAULT_OPTIONS: PropertyNameFilterOptions = {
     nextPrototype: NEXT_PROTOTYPE

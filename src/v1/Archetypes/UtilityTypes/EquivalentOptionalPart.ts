@@ -47,7 +47,7 @@ import { EquivalentOptionalKeys } from "./EquivalentOptionalKeys";
  * See {@link EquivalentKeys} for details about how we decide which fields
  * in `A` and `B` are equivalent.
  *
- * @category UtilityTypes
+ * @public
  */
 export type EquivalentOptionalPart<A extends object, B extends object> =
     Pick<A, EquivalentOptionalKeys<A,B>>;

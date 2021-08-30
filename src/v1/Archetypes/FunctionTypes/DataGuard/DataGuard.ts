@@ -45,13 +45,14 @@
  * That makes them very reusable, and it allows you to build up rich
  * error reporting in your code.
  *
- * @category Archetypes
- * @template T
- * `T` is the type of data to be inspected.
+ * @typeParam T -
+ * The type of data to be inspected.
  * @param input
- * The data to guarantee.
+ * - The data to guarantee.
  * @returns
  * - `true` if `input` meets the contract / specification
  * - `false` otherwise
+ *
+ * @public
  */
 export type DataGuard<T = unknown> = (input: T) => boolean;

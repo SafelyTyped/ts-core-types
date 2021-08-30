@@ -48,5 +48,6 @@ export * from "./Immutable";
 export * from "./Maybe";
 export * from "./OptionalKeys";
 export * from "./OptionalPart";
+export * from "./RequireAllAttributesMap";
 export * from "./WritableKeys";
 export * from "./WritablePart";

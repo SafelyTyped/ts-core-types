@@ -36,7 +36,7 @@
  * `NotImplementedData` is the input data that {@link NotImplementedError}
  * requires.
  *
- * @category Errors
+ * @public
  */
 export interface NotImplementedData {
     public: {

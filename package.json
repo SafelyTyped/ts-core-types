@@ -1,6 +1,6 @@
 {
   "name": "@safelytyped/core-types",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Core safe types for Typescript",
   "repository": "github:SafelyTyped/ts-core-types",
   "main": "lib/v1/index.js",
@@ -13,7 +13,8 @@
     "test": "npm run build && mocha -r ts-node/register \"src/**/*.spec.ts\"",
     "cover": "rimraf coverage && rimraf .nyc_output && nyc --cache=false npm run test",
     "clean": "rimraf lib",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "api-extractor": "npm run clean && tsc && api-extractor run --local --verbose"
   },
   "contributors": [
     "Stuart Herbert <stuherbert@ganbarodigital.com> (https://ganbarodigital.com)"
@@ -45,6 +46,8 @@
   ],
   "license": "BSD-3-Clause",
   "devDependencies": {
+    "@microsoft/api-documenter": "^7.13.28",
+    "@microsoft/api-extractor": "^7.17.1",
     "@types/chai": "^4.2.14",
     "@types/mocha": "^7.0.1",
     "@types/node": "^14.0",

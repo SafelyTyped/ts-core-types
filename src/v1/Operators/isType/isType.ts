@@ -38,17 +38,17 @@ import { IsTypeOptions } from "./IsTypeOptions";
  * `isType()` is a helper function. Use it to quickly build {@link TypeGuard}
  * functions out of your {@link TypeValidator} functions.
  *
- * @template T
+ * @typeParam T -
  * This is the type that you are validating
- * @param validator
+ * @param validator -
  * This is the {@link TypeValidator} function to use
- * @param input
+ * @param input -
  * This is value to inspect
  * @returns
  * - `true` if input is successfully validated
  * - `false` otherwise
  *
- * @category Operators
+ * @public
  */
 export function isType<T, OPT extends object = object>(
     validator: TypeValidator<T, OPT>,

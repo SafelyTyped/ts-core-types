@@ -40,10 +40,10 @@ import { validateNumber } from "./validateNumber";
  * `isNumber()` is a {@link TypeGuard}. Use it to prove to the Typescript
  * compiler that `input` is indeed a number.
  *
- * @param input
+ * @param input -
  * the value to inspect
  *
- * @category BasicTypes
+ * @public
  */
 export const isNumber: TypeGuard<number>
     = (input: unknown): input is number =>

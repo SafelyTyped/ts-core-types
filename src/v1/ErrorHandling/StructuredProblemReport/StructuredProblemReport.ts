@@ -44,8 +44,8 @@ import { HttpStatusCode } from "../../SupportingTypes/HttpStatusCode/HttpStatusC
  * Create a `StructuredProblemReport` class for each of your {@link AppError}
  * classes.
  *
- * @category ErrorHandling
- * @template E
+ * @public
+ * @typeParam E -
  * This is the type that describes your error's per-instance data
  * (the unique data about the error that has occurred).
  */
@@ -55,7 +55,7 @@ export class StructuredProblemReport<E extends AnyExtraData>
     /**
      * `Constructor` creates a new `StructuredProblemReport`.
      *
-     * @param input
+     * @param input -
      * The data that makes up this specific problem report.
      */
     public constructor(input: StructuredProblemReportData<E>) {
@@ -65,9 +65,6 @@ export class StructuredProblemReport<E extends AnyExtraData>
     /**
      * `.definedBy` contains the name of the module that defined this
      * `StructuredProblemReport` class.
-     *
-     * It is taken from the corresponding {@link ErrorTableEntry} in the
-     * module's {@link ErrorTable}.
      */
     get definedBy(): NodeJSModuleName {
         return this._value.definedBy;
@@ -109,9 +106,6 @@ export class StructuredProblemReport<E extends AnyExtraData>
 
     /**
      * `.status` contains the HTTP status that best fits this error.
-     *
-     * It is taken from the corresponding {@link ErrorTableEntry} in the
-     * module's {@link ErrorTable}.
      *
      * NOTE that this is from the point-of-view of the code that throws
      * the error.

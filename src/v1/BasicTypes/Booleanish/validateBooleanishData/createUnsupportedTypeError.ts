@@ -41,16 +41,16 @@ import { DataPath } from "../../../SupportingTypes";
  *
  * See {@link DEFAULT_BOOLEANISH} for the default conversion rules.
  *
- * @param path
+ * @param path -
  * where we are in the data structure that you are validating
- * @param input
+ * @param input -
  * the value that failed inspection
- * @param booleanish
+ * @param booleanish -
  * the rules for converting `input` into a boolean value
  * @returns
  * - an {@link AppError} explaining why the input failed validation
  *
- * @category BasicTypes
+ * @public
  * @ignore
  */
 export function createUnsupportedTypeError(

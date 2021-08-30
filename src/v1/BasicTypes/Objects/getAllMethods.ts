@@ -38,17 +38,17 @@ import { findMethods } from "./Filters";
  * implemented by `target`, including methods inherited from any parent
  * classes and from `Object.prototype`.
  *
- * @template T
+ * @typeParam T -
  * The type of object to inspect. This is used internally to convince
  * the Typescript compiler to let us access individual properties on
  * `target`. You shouldn't have to supply this yourself. The Typescript
  * compiler's type-inference should handle this auto-magically.
- * @param target
+ * @param target -
  * The object to inspect.
  * @returns
  * - a map of all methods found. The list will not contain duplicate names.
  *
- * @category BasicTypes
+ * @public
  */
 export function getAllMethods<T extends object>(target: T): Map<string, PropertyDescriptor> {
     return findMethods(target);

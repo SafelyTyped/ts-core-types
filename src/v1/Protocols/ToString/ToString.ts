@@ -36,7 +36,7 @@
  * `ToString` is a protocol. It describes an object that has the function
  * `.toString()`.
  *
- * @category Protocols
+ * @public
  */
 export interface ToString {
     toString(): string;

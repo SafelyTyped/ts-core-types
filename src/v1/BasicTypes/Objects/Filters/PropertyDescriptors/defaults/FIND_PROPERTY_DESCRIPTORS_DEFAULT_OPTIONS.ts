@@ -36,9 +36,9 @@ import { PropertyDescriptorFilterOptions } from "../PropertyDescriptorFilterOpti
 
 /**
  * `FIND_PROPERTIES_DEFAULT_OPTIONS` are the default user-supplied options
- * for {@link findProperties}, {@link FindAttributes} and {@link FindMethods}.
+ * for {@link findProperties}, {@link findAttributes} and {@link findMethods}.
  *
- * @category BasicTypes
+ * @public
  */
 export const FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS: PropertyDescriptorFilterOptions = {
     nextPrototype: NEXT_PROTOTYPE

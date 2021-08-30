@@ -39,10 +39,10 @@ import { StructuredProblemReportData } from "./StructuredProblemReportData";
  * `makeStructuredProblemReport()` is a smart constructor. It will create
  * a new `StructuredProblemReport` from the given input data.
  *
- * @category ErrorHandling
- * @template E
+ * @public
+ * @typeParam E -
  * This is the 'XXXData' interface for your {@link AppError}.
- * @param input
+ * @param input -
  * The data required to build your `StructuredProblemReport`.
  * @returns
  * `input` converted into a {@link StructuredProblemReport}

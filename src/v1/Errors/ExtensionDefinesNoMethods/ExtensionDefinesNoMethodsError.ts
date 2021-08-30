@@ -43,7 +43,7 @@ import { ExtensionDefinesNoMethodsData } from "./ExtensionDefinesNoMethodsData";
  * This is normally seen when we're trying to use a runtime Protocol and
  * Extension.
  *
- * @category Errors
+ * @public
  */
 export class ExtensionDefinesNoMethodsError extends AppError<ExtensionDefinesNoMethodsData> {
     public constructor(params: ExtensionDefinesNoMethodsData & AppErrorData) {

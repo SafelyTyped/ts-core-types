@@ -39,12 +39,12 @@
  * The list is ordered so that child classes come before parent classes.
  * 'Object' is always the final class in the list.
  *
- * @param input
+ * @param input -
  * the object to inspect
  * @returns
  * the object's class, plus a list of all of its parents
  *
- * @category BasicTypes
+ * @public
  */
 export function getClassNames(
     input: object

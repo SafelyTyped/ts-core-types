@@ -38,6 +38,6 @@ import { SmartConstructor } from "./SmartConstructor";
  * when your function will accept any possible SmartConstructor as
  * a parameter.
  *
- * @category Archetypes
+ * @public
  */
 export type AnySmartConstructor = SmartConstructor<any, any, any, any>;

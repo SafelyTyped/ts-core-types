@@ -40,6 +40,6 @@ import { RefinedPrimitive } from "./RefinedPrimitive";
  *
  * Use this in function parameters and generic type constraints.
  *
- * @category RefinedTypes
+ * @public
  */
 export type AnyRefinedPrimitive = RefinedPrimitive<AnyPrimitiveType, any>;

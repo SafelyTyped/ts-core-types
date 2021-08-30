@@ -38,10 +38,10 @@ import { FunctionPointerTable } from "../../SupportingTypes";
  * `NumericalConversionRules` describes the table that tells
  * {@link resolveNumerical} how to convert any given type to a `number`.
  *
- * Use {@link DEFAULT_NUMERICAL_RULES} if you ever need to pass the
- * default ruleset into a function.
+ * Use {@link DEFAULT_NUMERICAL_CONVERSION_RULES} if you ever need to pass
+ * the default ruleset into a function.
  *
- * @category OptionTypes
+ * @public
  */
 export type NumericalConversionRules = FunctionPointerTable<
     any,
