@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,22 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./DeepImmutable";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Immutable";
-export * from "./Maybe";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./RequireAllAttributesMap";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { AttributeKeys } from "./AttributeKeys";
+
+/**
+ * `RequireAllAttributesMap` is a utility type. Use it to create a new
+ * type where all the attributes of `IN` must exist, with a common
+ * type of `OUT`.
+ *
+ * This is commonly used in an intersection type with {@link HashMap}<OUT>
+ * so that your code can use array syntax (`object[key]`) to retrieve
+ * items from the new type programaticaly.
+ */
+export type RequireAllAttributesMap<IN, OUT> = {
+    [K in AttributeKeys<IN>]-?: OUT;
+}
