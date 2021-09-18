@@ -1,3 +1,4 @@
+// tslint:disable: ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,8 +33,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
-export * from "./DispatchMap";
-export * from "./FunctionPointerTable";
-export * from "./HttpStatusCode";
-export * from "./NodeJSModuleName";
+import { AnyFunction } from "../../Archetypes";
+import { DispatchMap } from "./DispatchMap";
+
+/**
+ * `AnyDispatchMap` represents all possible {@link DispatchMap}s. Use it
+ * for function parameters and in generic type parameters.
+ *
+ * @public
+ */
+export type AnyDispatchMap = DispatchMap<any, AnyFunction>;

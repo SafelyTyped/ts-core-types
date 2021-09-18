@@ -21,6 +21,23 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.5
+
+Released Saturday, 18th September 2021.
+
+### New
+
+* Added `DispatchMap` (replaces the old `FunctionPointerTable`)
+* Added `AnyDispatchMap` (replaces the old `AnyFunctionPointerTable`)
+* Added `searchDispatchMap()` (replaces the old `searchFunctionPointerTable()`)
+* Added `DispatchMapReturnTypes` mapped type
+
+## Deprecated
+
+* Deprecated `FunctionPointerTable` (now an alias for `DispatchMap`)
+* Deprecated `AnyFunctionPointerTable` (now an alias for `AnyDispatchMap`)
+* Deprecated `searchFunctionPointerTable()` (now an alias for `searchDispatchMap()` )
+
 ## v0.3.4
 
 Released Sunday, 5th September 2021.

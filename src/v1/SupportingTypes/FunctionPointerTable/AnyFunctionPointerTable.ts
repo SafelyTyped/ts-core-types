@@ -33,14 +33,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyFunction } from "../../Archetypes";
-import { FunctionPointerTable } from "./FunctionPointerTable";
+import { AnyDispatchMap } from "../DispatchMap";
 
 /**
- * `AnyFunctionPointerTable` represents all possible
- * {@link FunctionPointerTable}s. Use it for function parameters and in
- * generic type parameters.
+ * `AnyFunctionPointerTable` is a type alias for {@link AnyDispatchMap}
  *
  * @public
+ * @deprecated
  */
-export type AnyFunctionPointerTable = FunctionPointerTable<any, AnyFunction>;
+export type AnyFunctionPointerTable = AnyDispatchMap;

@@ -1,3 +1,4 @@
+// tslint:disable: ban-types
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,8 +33,21 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
-export * from "./DispatchMap";
-export * from "./FunctionPointerTable";
-export * from "./HttpStatusCode";
-export * from "./NodeJSModuleName";
+import { AnyFunction } from "../../Archetypes";
+
+/**
+ * `DispatchMap` is a good old-fashioned function pointer table :)
+ *
+ * Function pointer tables are an old machine-code / C programmer's trick.
+ * It's a hashmap of functions and their names. They're a high-performance
+ * alternative to large 'if/else' ladders.
+ *
+ * Use {@link searchDispatchMap} to find the right function in
+ * your `DispatchMap`.
+ *
+ * @public
+ */
+export type DispatchMap<
+    K extends string | number | symbol,
+    F extends AnyFunction,
+> = Record<K, F>;

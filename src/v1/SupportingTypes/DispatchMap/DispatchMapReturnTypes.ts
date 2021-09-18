@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,16 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
-export * from "./DispatchMap";
-export * from "./FunctionPointerTable";
-export * from "./HttpStatusCode";
-export * from "./NodeJSModuleName";
+import { AnyDispatchMap } from "./AnyDispatchMap";
+
+/**
+ * `DispatchMapReturnTypes` is a mapped typed. Use it to build a type
+ * that contains a list of all of the types that your DispatchMap's
+ * functions return.
+ *
+ * If you want to generate a list of these return types as a union
+ * type, use `ValueOf<DispatchMapReturnTypes<typeof your-dispatch-map>>`
+ */
+export type DispatchMapReturnTypes<T extends AnyDispatchMap> = {
+    [Property in keyof T]: ReturnType<T[Property]>
+}
