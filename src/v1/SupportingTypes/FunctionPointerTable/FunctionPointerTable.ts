@@ -34,20 +34,15 @@
 //
 
 import { AnyFunction } from "../../Archetypes";
+import { DispatchMap } from "../DispatchMap";
 
 /**
- * `FunctionPointerTable` is a good old-fashioned function pointer table :)
- *
- * Function pointer tables are an old machine-code / C programmer's trick.
- * It's a hashmap of functions and their names. They're a high-performance
- * alternative to large 'if/else' ladders.
- *
- * Use {@link searchFunctionPointerTable} to find the right function in
- * your `FunctionPointerTable`.
+ * `FunctionPointerTable` is a type alias for {@link DispatchMap}
  *
  * @public
+ * @deprecated
  */
 export type FunctionPointerTable<
     K extends string | number | symbol,
     F extends AnyFunction,
-> = Record<K, F>;
+> = DispatchMap<K,F>;
