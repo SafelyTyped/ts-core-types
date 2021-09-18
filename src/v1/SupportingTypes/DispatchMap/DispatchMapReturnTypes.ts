@@ -32,7 +32,16 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AnyDispatchMap";
-export * from "./DispatchMap";
-export * from "./DispatchMapReturnTypes";
-export * from "./searchDispatchMap";
+import { AnyDispatchMap } from "./AnyDispatchMap";
+
+/**
+ * `DispatchMapReturnTypes` is a mapped typed. Use it to build a type
+ * that contains a list of all of the types that your DispatchMap's
+ * functions return.
+ *
+ * If you want to generate a list of these return types as a union
+ * type, use `ValueOf<DispatchMapReturnTypes<typeof your-dispatch-map>>`
+ */
+export type DispatchMapReturnTypes<T extends AnyDispatchMap> = {
+    [Property in keyof T]: ReturnType<T[Property]>
+}

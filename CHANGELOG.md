@@ -23,9 +23,10 @@ The following changes have been completed, and will be included in the next tagg
 
 ### New
 
-* Added `DispatchMap`
-* Added `AnyDispatchMap`
-* Added `searchDispatchMap()`
+* Added `DispatchMap` (replaces the old `FunctionPointerTable`)
+* Added `AnyDispatchMap` (replaces the old `AnyFunctionPointerTable`)
+* Added `searchDispatchMap()` (replaces the old `searchFunctionPointerTable()`)
+* Added `DispatchMapReturnTypes` mapped type
 
 ## Deprecated
 
