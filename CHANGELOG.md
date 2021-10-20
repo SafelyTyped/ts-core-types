@@ -25,6 +25,7 @@ The following changes have been completed, and will be included in the next tagg
 
 * Added `Nullable` utility type.
 * Added `NonNullable` utility type.
+* Added `NonNullableObject` utility type.
 
 ## v0.3.5
 

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,20 +32,18 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./NonNullObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./validateObjectNotEmpty";
-export * from "./Filters";
+import { NonNullable } from "../../Archetypes";
+
+/**
+ * NonNullableObject is a utility type. Use it whenever you need to use any
+ * object as a type, but eslint rules are forbidding you from using
+ * `object`.
+ *
+ * @remarks
+ *
+ * eslint's ban-types rule recommends using `Record<K,V>` instead. I believe
+ * that `NonNullableObject` is a better option, because `Record<K,V>` allows
+ * you to write code without further proving what type of object you're
+ * actually dealing with.
+ */
+export type NonNullableObject = NonNullable<object>;
