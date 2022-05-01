@@ -35,6 +35,8 @@
 
 import { AnyFunction } from "../../Archetypes";
 import { DispatchMap } from "./DispatchMap";
+import { AnyDispatchMapKey } from "./AnyDispatchMapKey";
+import { getProperty, hasProperty } from "../../BasicTypes";
 
 /**
  * `searchDispatchMap()` will iterate through `keysToTry`
@@ -62,15 +64,18 @@ import { DispatchMap } from "./DispatchMap";
  * @public
  */
  export function searchDispatchMap<F extends AnyFunction>(
-    table: DispatchMap<any, F>,
-    keysToTry: string[],
+    table: DispatchMap<AnyDispatchMapKey, F>,
+    keysToTry: AnyDispatchMapKey[],
     fallback: F,
 ): F {
     // do we have any of the requested keys?
+    //
+    // Typescript does not support using symbols as object property
+    // names here. We use a workaround to avoid littering our code
+    // with casts to `any`.
     for (const keyToTry of keysToTry) {
-        if (table[keyToTry]) {
-            // we have a winner!
-            return table[keyToTry];
+        if (hasProperty(table, keyToTry)) {
+            return getProperty(table, keyToTry);
         }
     }
 

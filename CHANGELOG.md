@@ -32,6 +32,7 @@ The following changes have been completed, and will be included in the next tagg
 
 ### Fixes
 
+* `searchDispatchMap()` now supports symbols as keys to search for.
 * Use `searchDispatchMap()` instead of the deprecated `searchFunctionPointerTable()`:
   - `resolveNumerical()` updated
   - `validateBooleanishData()` updated

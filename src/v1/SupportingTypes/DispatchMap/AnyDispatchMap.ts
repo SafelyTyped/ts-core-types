@@ -34,6 +34,7 @@
 //
 
 import { AnyFunction } from "../../Archetypes";
+import { AnyDispatchMapKey } from "./AnyDispatchMapKey";
 import { DispatchMap } from "./DispatchMap";
 
 /**
@@ -42,4 +43,4 @@ import { DispatchMap } from "./DispatchMap";
  *
  * @public
  */
-export type AnyDispatchMap = DispatchMap<any, AnyFunction>;
+export type AnyDispatchMap = DispatchMap<AnyDispatchMapKey, AnyFunction>;

@@ -34,6 +34,7 @@
 //
 
 import { AnyFunction } from "../../Archetypes";
+import { AnyDispatchMapKey } from "./AnyDispatchMapKey";
 
 /**
  * `DispatchMap` is a good old-fashioned function pointer table :)
@@ -48,6 +49,6 @@ import { AnyFunction } from "../../Archetypes";
  * @public
  */
 export type DispatchMap<
-    K extends string | number | symbol,
+    K extends AnyDispatchMapKey,
     F extends AnyFunction,
 > = Record<K, F>;
