@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { searchFunctionPointerTable } from "../../SupportingTypes";
+import { searchDispatchMap } from "../../SupportingTypes";
 import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
 import { numerical } from "./numerical";
 import { NumericalConversionRules } from "./NumericalConversionRules";
@@ -63,9 +63,9 @@ export function resolveNumerical(
         conversionRules?: NumericalConversionRules
     } = {}
 ): number {
-    return searchFunctionPointerTable(
+    return searchDispatchMap(
         conversionRules,
         [ typeof input ],
-        () => NaN,
+        (arg: any) => NaN,
     )(input);
 }

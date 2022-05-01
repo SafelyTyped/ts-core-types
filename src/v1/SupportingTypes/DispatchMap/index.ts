@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./AnyDispatchMapKey";
 export * from "./AnyDispatchMap";
 export * from "./DispatchMap";
 export * from "./DispatchMapReturnTypes";

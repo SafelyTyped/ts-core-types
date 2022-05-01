@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2021-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,25 +32,18 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./DeepImmutable";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Immutable";
-export * from "./Maybe";
-export * from "./NonNullable";
-export * from "./Nullable";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./RequireAllAttributesMap";
-export * from "./ValueOf";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+import { NonNullable } from "../../Archetypes";
+
+/**
+ * NonNullableObject is a utility type. Use it whenever you need to use any
+ * object as a type, but eslint rules are forbidding you from using
+ * `object`.
+ *
+ * @remarks
+ *
+ * eslint's ban-types rule recommends using `Record<K,V>` instead. I believe
+ * that `NonNullableObject` is a better option, because `Record<K,V>` allows
+ * you to write code without further proving what type of object you're
+ * actually dealing with.
+ */
+export type NonNullableObject = NonNullable<object>;

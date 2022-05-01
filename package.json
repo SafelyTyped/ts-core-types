@@ -1,6 +1,6 @@
 {
   "name": "@safelytyped/core-types",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Core safe types for Typescript",
   "repository": "github:SafelyTyped/ts-core-types",
   "main": "lib/v1/index.js",
@@ -59,7 +59,7 @@
     "rimraf": "^3.0.0",
     "ts-node": "^9.0",
     "tslint": "^6.1.3",
-    "typedoc": "^0.20.36",
+    "typedoc": "^0.22.15",
     "typescript": "^4.0"
   }
 }

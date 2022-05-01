@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,25 +32,4 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AttributeFilterMap";
-export * from "./AttributeKeys";
-export * from "./AttributeTransformerMap";
-export * from "./DeepImmutable";
-export * from "./Definitely";
-export * from "./EquivalentKeys";
-export * from "./EquivalentOptionalKeys";
-export * from "./EquivalentOptionalPart";
-export * from "./EquivalentPart";
-export * from "./IdenticallyNamedKeys";
-export * from "./IdenticallyNamedPart";
-export * from "./IfEquals";
-export * from "./Immutable";
-export * from "./Maybe";
-export * from "./NonNullable";
-export * from "./Nullable";
-export * from "./OptionalKeys";
-export * from "./OptionalPart";
-export * from "./RequireAllAttributesMap";
-export * from "./ValueOf";
-export * from "./WritableKeys";
-export * from "./WritablePart";
+export type AnyDispatchMapKey = string | number | symbol;

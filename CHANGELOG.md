@@ -21,6 +21,30 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.6
+
+Released Sunday, 1st May 2022.
+
+### New
+
+* Added `Nullable` utility type.
+* Added `NonNullable` utility type.
+* Added `NonNullableObject` utility type.
+* Added `getProperty()` as a workaround for Typescript not supporting symbols as property names fully.
+* Added `hasProperty()` as a workaround for Typescript not supporting symbols as property names fully.
+* Added `AnyDispatchMapKey` type.
+
+### Fixes
+
+* `searchDispatchMap()` now supports symbols as keys to search for.
+* Use `searchDispatchMap()` instead of the deprecated `searchFunctionPointerTable()`:
+  - `resolveNumerical()` updated
+  - `validateBooleanishData()` updated
+
+### Dependencies
+
+* Bump dependencies to resolve dependabot security alerts.
+
 ## v0.3.5
 
 Released Saturday, 18th September 2021.

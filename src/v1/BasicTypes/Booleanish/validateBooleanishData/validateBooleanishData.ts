@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppErrorOr } from "../../../OptionTypes";
-import { DataPath, searchFunctionPointerTable } from "../../../SupportingTypes";
+import { DataPath, searchDispatchMap } from "../../../SupportingTypes";
 import { getTypeNames } from "../../Unknowns";
 import { BooleanishDataOptions } from "../BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
@@ -71,10 +71,10 @@ export function validateBooleanishData(
     const possibleRuleNames = getTypeNames(input);
 
     // find and execute the matching rule
-    return searchFunctionPointerTable(
+    return searchDispatchMap(
         booleanish,
         possibleRuleNames,
-        () => createUnsupportedTypeError(path, input, { supportedTypes })
+        (x, y, z) => createUnsupportedTypeError(x, y, z)
     )(
         path,
         input,
