@@ -111,4 +111,27 @@ describe("getProperty()", () => {
 
         expect(actualValue).eql(expectedValue);
     });
+
+    it("returns `undefined` when the property is not found", () => {
+        // ----------------------------------------------------------------
+        // setup your test
+
+        const unit = {
+            "a": () => 1,
+            "b": () => 2,
+            "c": () => 3,
+            4: () => "4a",
+        }
+        const expectedValue = undefined;
+
+        // ----------------------------------------------------------------
+        // perform the change
+
+        const actualValue = getProperty(unit, "z");
+
+        // ----------------------------------------------------------------
+        // test the results
+
+        expect(actualValue).eql(expectedValue);
+    });
 });
