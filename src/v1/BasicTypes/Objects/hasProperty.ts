@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,22 +32,26 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getProperty";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./hasProperty";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./NonNullObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./validateObjectNotEmpty";
-export * from "./Filters";
+/**
+ * `hasProperty()` will tell you if the object `target` has a property
+ * called `propName` (or not).
+ *
+ * This is a workaround added because Typescript does not support
+ * symbols as object property names out of the box. You can call this
+ * function to avoid adding linter comments everywhere in your own code.
+ *
+ * @param target -
+ * The object that we are inspecting.
+ * @param propName -
+ * The property that we are looking for.
+ * @returns
+ * - `true` if `target[propName]` exists
+ * - `false` otherwise
+ */
+export function hasProperty(target: object, propName: string|number|symbol): boolean {
+    if ((target as Record<typeof propName, any>)[propName as any]) {
+        return true;
+    }
+
+    return false;
+}
