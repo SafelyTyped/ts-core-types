@@ -28,6 +28,7 @@ The following changes have been completed, and will be included in the next tagg
 * Added `NonNullableObject` utility type.
 * Added `getProperty()` as a workaround for Typescript not supporting symbols as property names fully.
 * Added `hasProperty()` as a workaround for Typescript not supporting symbols as property names fully.
+* Added `AnyDispatchMapKey` type.
 
 ### Fixes
 
