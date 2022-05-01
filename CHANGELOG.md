@@ -26,6 +26,7 @@ The following changes have been completed, and will be included in the next tagg
 * Added `Nullable` utility type.
 * Added `NonNullable` utility type.
 * Added `NonNullableObject` utility type.
+* Added `getProperty()` as a workaround for Typescript not supporting symbols as property names fully.
 
 ## v0.3.5
 

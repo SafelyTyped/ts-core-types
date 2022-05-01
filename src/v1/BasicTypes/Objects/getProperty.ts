@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,21 +32,29 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getProperty";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./NonNullObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./validateObjectNotEmpty";
-export * from "./Filters";
+/**
+ * `getProperty()` retrieve the property called `propName` from the
+ * given `target` object.
+ *
+ * This is a workaround added because Typescript does not support
+ * symbols as object property names out of the box. You can call this
+ * function to avoid adding linter comments everywhere in your own code.
+ *
+ * @param target -
+ * The object that we are retrieving from.
+ * @param propName -
+ * The property that we are looking for.
+ *
+ * @typeParam T -
+ * The type of the returned value.
+ *
+ * @returns
+ * - `target[propName]` if it exists
+ * - `undefined` otherwise
+ */
+ export function getProperty<T = unknown>(
+     target: object,
+     propName: string|number|symbol
+): T {
+    return (target as Record<typeof propName, any>)[propName as any] ?? undefined;
+}
