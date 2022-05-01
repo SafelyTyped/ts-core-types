@@ -29,6 +29,12 @@ The following changes have been completed, and will be included in the next tagg
 * Added `getProperty()` as a workaround for Typescript not supporting symbols as property names fully.
 * Added `hasProperty()` as a workaround for Typescript not supporting symbols as property names fully.
 
+### Fixes
+
+* Use `searchDispatchMap()` instead of the deprecated `searchFunctionPointerTable()`:
+  - `resolveNumerical()` updated
+  - `validateBooleanishData()` updated
+
 ## v0.3.5
 
 Released Saturday, 18th September 2021.
