@@ -37,6 +37,10 @@ The following changes have been completed, and will be included in the next tagg
   - `resolveNumerical()` updated
   - `validateBooleanishData()` updated
 
+### Dependencies
+
+* Bump dependencies to resolve dependabot security alerts.
+
 ## v0.3.5
 
 Released Saturday, 18th September 2021.
