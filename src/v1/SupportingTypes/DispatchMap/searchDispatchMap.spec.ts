@@ -35,16 +35,18 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 import { DispatchMap } from "./DispatchMap";
-import { AnyFunction } from "../../Archetypes";
 import { searchDispatchMap } from "./searchDispatchMap";
 import { getProperty } from "../../BasicTypes";
+
+// this type is needed to make Typescript 4.6.4 happy
+type UnitMapType = () => number | string | undefined;
 
 describe("searchDispatchMap()", () => {
     it("matches the first key found", () => {
         // ----------------------------------------------------------------
         // setup your test
 
-        const unit: DispatchMap<any, AnyFunction> = {
+        const unit: DispatchMap<string, UnitMapType> = {
             "a": () => 1,
             "b": () => 2,
             "c": () => 3,
@@ -70,7 +72,7 @@ describe("searchDispatchMap()", () => {
         // ----------------------------------------------------------------
         // setup your test
 
-        const unit: DispatchMap<any, AnyFunction> = {
+        const unit: DispatchMap<string, UnitMapType> = {
             "a": () => 1,
             "b": () => 2,
             "c": () => 3,
@@ -101,7 +103,7 @@ describe("searchDispatchMap()", () => {
         const sym2 = Symbol("sym2");
         const sym3 = Symbol("sym3");
 
-        const unit: DispatchMap<any, AnyFunction> = {
+        const unit: DispatchMap<string|symbol, UnitMapType> = {
             "a": () => 1,
             "b": () => 2,
             "c": () => 3,
@@ -131,7 +133,7 @@ describe("searchDispatchMap()", () => {
         // ----------------------------------------------------------------
         // setup your test
 
-        const unit: DispatchMap<any, AnyFunction> = {
+        const unit: DispatchMap<string, UnitMapType> = {
             "a": () => 1,
             "b": () => 2,
             "c": () => 3,

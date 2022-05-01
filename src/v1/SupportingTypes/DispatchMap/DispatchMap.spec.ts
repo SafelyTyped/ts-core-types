@@ -47,7 +47,7 @@ describe("DispatchMap", () => {
         // perform the change
 
         // if this compiles, it works
-        const unit: DispatchMap<any, AnyFunction> = {
+        const unit: DispatchMap<string, AnyFunction> = {
             "a": () => 1,
             "b": () => 2,
             "c": () => 3,
@@ -68,7 +68,7 @@ describe("DispatchMap", () => {
         // perform the change
 
         // if this compiles, it works
-        const unit: DispatchMap<any, AnyFunction> = {
+        const unit: DispatchMap<number, AnyFunction> = {
             1: () => 1,
             2: () => 2,
             3: () => 3,
@@ -92,7 +92,7 @@ describe("DispatchMap", () => {
         // perform the change
 
         // if this compiles, it works
-        const unit: DispatchMap<any, AnyFunction> = {
+        const unit: DispatchMap<symbol, AnyFunction> = {
             [sym1]: () => 1,
             [sym2]: () => 2,
             [sym3]: () => 3,

@@ -66,6 +66,6 @@ export function resolveNumerical(
     return searchDispatchMap(
         conversionRules,
         [ typeof input ],
-        () => NaN,
+        (arg: any) => NaN,
     )(input);
 }

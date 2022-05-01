@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { ComposableFunction } from "../../Archetypes";
-import { FunctionPointerTable } from "../../SupportingTypes";
+import { AnyDispatchMapKey, DispatchMap } from "../../SupportingTypes";
 
 /**
  * `NumericalConversionRules` describes the table that tells
@@ -43,7 +43,7 @@ import { FunctionPointerTable } from "../../SupportingTypes";
  *
  * @public
  */
-export type NumericalConversionRules = FunctionPointerTable<
-    any,
+export type NumericalConversionRules = DispatchMap<
+    AnyDispatchMapKey,
     ComposableFunction<any, number>
 >;

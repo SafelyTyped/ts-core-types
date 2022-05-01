@@ -32,4 +32,4 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export type AnyDispatchMapKey = number | string | symbol;
+export type AnyDispatchMapKey = string | number | symbol;

@@ -52,7 +52,7 @@
  * - `target[propName]` if it exists
  * - `undefined` otherwise
  */
- export function getProperty<T = unknown>(
+export function getProperty<T = unknown>(
      target: object,
      propName: string|number|symbol
 ): T {

@@ -74,7 +74,7 @@ export function validateBooleanishData(
     return searchDispatchMap(
         booleanish,
         possibleRuleNames,
-        () => createUnsupportedTypeError(path, input, { supportedTypes })
+        (x, y, z) => createUnsupportedTypeError(x, y, z)
     )(
         path,
         input,
