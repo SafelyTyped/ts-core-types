@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.6
+
+Released Sunday, 1st May 2022.
+
 ### New
 
 * Added `Nullable` utility type.
