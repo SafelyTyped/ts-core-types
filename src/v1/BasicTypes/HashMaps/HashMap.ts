@@ -248,6 +248,37 @@ export class HashMap<T> {
     }
 
     /**
+     * `values()` returns a list of all the property values from the given
+     * HashMap.
+     *
+     * `HashMap.values()` only returns the values of properties that
+     * belong to `target` (ie nothing that belongs to its prototypes).
+     *
+     * The order of values in the returned list is deterministic, but is
+     * dependent upon the behaviour of the underlying runtime.
+     *
+     * This is inspired by {@link Map.values}.
+     *
+     * @param target -
+     * the HashMap to retrieve property values from
+     * @returns
+     * the (possibly empty) list of attribute values from `target`.
+     */
+    public static values<T>(target: HashMap<T>): T[] {
+        // this will hold our return value
+        const retval: T[] = [];
+
+        // probably not the fastest way to do this, but
+        // certainly extremely reliable
+        HashMap.keys(target).forEach((key) => {
+            retval.push(target[key]);
+        })
+
+        // all done
+        return retval;
+    }
+
+    /**
      * `has()` inspects the given HashMap to see if it has the
      * given `propName` property.
      *

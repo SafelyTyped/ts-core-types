@@ -521,6 +521,98 @@ describe("HashMap()", () => {
         });
     });
 
+    describe(".keys()", () => {
+        it("returns a list of the keys in the hashmap", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = [ "attr1", "attr2", "attr3" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.keys(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns an empty list if the hashmap is empty", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {};
+
+            const expectedResult: string[] = [];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.keys(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".values()", () => {
+        it("returns a list of the values in the hashmap", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = [
+                "this is attr1",
+                "this is attr2",
+                "this is attr3"
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.values(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns an empty list if the hashmap is empty", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {};
+
+            const expectedResult: string[] = [];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.values(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
     describe(".has()", () => {
         it("returns true if the property exists", () => {
             // ----------------------------------------------------------------
