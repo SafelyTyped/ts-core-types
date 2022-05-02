@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,23 +32,33 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./assignOptionalFields";
-export * from "./assignOptionalFieldsUsingTransformers";
-export * from "./deleteProperty";
-export * from "./getAllMethodNames";
-export * from "./getAllMethods";
-export * from "./getMissingMethodNames";
-export * from "./getProperty";
-export * from "./getPublicMethods";
-export * from "./getPublicMethodNames";
-export * from "./hasProperty";
-export * from "./isAttributeName";
-export * from "./isGetterName";
-export * from "./isMethodName";
-export * from "./isObject";
-export * from "./mustBeObject";
-export * from "./NonNullObject";
-export * from "./validateObject";
-export * from "./validateObjectHasAllMethodsCalled";
-export * from "./validateObjectNotEmpty";
-export * from "./Filters";
+import { hasProperty } from "./hasProperty";
+
+/**
+ * `deleteProperty()` removes the given property from the `target` object.
+ *
+ * It is inspired by {@link Map.delete}.
+ *
+ * @param target -
+ * the object to remove a property from
+ * @param propName -
+ * the name of the property to remove
+ * @returns
+ * - `true` if the property existed and was removed
+ * - `false` if the property did not exist
+ */
+export function deleteProperty(
+    target: object,
+    propName: string | number | symbol
+) {
+    // do we have a property to delete?
+    if (!hasProperty(target, propName)) {
+        return false;
+    }
+
+    // yes we do
+    delete (target as Record<typeof propName, any>)[propName as any];
+
+    // let the caller know that we acted
+    return true;
+}
