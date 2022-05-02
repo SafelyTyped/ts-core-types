@@ -284,4 +284,18 @@ export class HashMap<T> {
     ) {
         return getProperty<T>(target, propName);
     }
+
+    /**
+     * `size()` returns the number of key/value pairs in the given HashMap.
+     *
+     * @param target -
+     * the HashMap to inspect
+     * @returns
+     * the number of key/value pairs in the given `target`
+     */
+    public static size<T>(
+        target: HashMap<T>
+    ): number {
+        return HashMap.keys(target).length;
+    }
 }
