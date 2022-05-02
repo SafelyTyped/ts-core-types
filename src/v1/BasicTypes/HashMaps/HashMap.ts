@@ -501,4 +501,101 @@ export class HashMap<T> {
         // if we get here, we did not find a match
         return undefined;
     }
+
+    /**
+     * `buildIndex()` creates a new HashMap, where the keys point to entries
+     * inside the given `source` HashMap.
+     *
+     * We pass four parameters into your `callbackFn()`:
+     *
+     * - the value to be indexed
+     * - the key from your `source` HashMap
+     * - your `source` HashMap
+     * - the index HashMap that we are building
+     *
+     * If your `callbackFn()` returns duplicate keys, then any existing entry
+     * in the index HashMap will be overwritten. If you want to treat
+     * duplicate keys as errors, add your own duplicate checking in your
+     * `callbackFn()`.
+     *
+     * This is useful for creating lookup maps, when your `source` HashMap
+     * contains entries that can have multiple aliases.
+     *
+     * Originally added to help with the command-line parser of SPv3.
+     *
+     * @param source -
+     * the HashMap to index
+     * @param callbackfn -
+     * your function to build a list of index keys to use
+     * @returns
+     * the newly-built index HashMap
+     */
+    public static buildIndex<T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, source: HashMap<T>, target: HashMap<T>) => string[]
+    ): HashMap<T> {
+        // this will hold our return value
+        const retval: HashMap<T> = {};
+
+        // let's get building!
+        HashMap.keys(source).forEach((key) => {
+            // indexMap is a list of keys & values to add to our return
+            // value
+            const indexMap = callbackfn(source[key], key, source, retval);
+
+            // let's get them added!
+            indexMap.forEach((indexedKey) => {
+                retval[indexedKey] = source[key];
+            });
+        });
+
+        // all done
+        return retval;
+    }
+
+    /**
+     * `updateIndex()` updates an existing `target` HashMap, where the keys
+     * point to  entries inside the given `source` HashMap.
+     *
+     * Use {@link HashMap.buildIndex} to build your initial `target` HashMap.
+     *
+     * We pass four parameters into your `callbackFn()`:
+     *
+     * - the value to be indexed
+     * - the key from your `source` HashMap
+     * - your `source` HashMap
+     * - the index HashMap that we are building
+     *
+     * If your `callbackFn()` returns duplicate keys, then any existing entry
+     * in the `target` HashMap will be overwritten. If you want to detect
+     * duplicate entries, do this in your `callbackFn()`.
+     *
+     * Originally added to help with the command-line parser of SPv3.
+     *
+     * @param source -
+     * the HashMap to index
+     * @param target -
+     * the HashMap of indexes to update
+     * @param callbackfn -
+     * your function to build a list of index keys to use
+     */
+     public static updateIndex<T>(
+        source: HashMap<T>,
+        target: HashMap<T>,
+        callbackfn: (value: T, name: string, source: HashMap<T>, target: HashMap<T>) => string[],
+    ) {
+        // let's get building!
+        HashMap.keys(source).forEach((key) => {
+            // indexMap is a list of keys & values to add to the given
+            // `target`
+            const indexMap = callbackfn(source[key], key, source, target);
+
+            // let's get them added!
+            indexMap.forEach((indexedKey) => {
+                target[indexedKey] = source[key];
+            });
+        });
+
+        // all done
+    }
 }

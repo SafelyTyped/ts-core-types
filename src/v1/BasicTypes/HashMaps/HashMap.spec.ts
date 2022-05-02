@@ -37,6 +37,10 @@ import { resolveNumerical } from "../../OptionTypes";
 
 import { HashMap } from "./HashMap";
 
+type BuildIndexTestValue = {
+    aliases: string[];
+    contents: string;
+}
 
 describe("HashMap()", () => {
     it("can be used as a type for anonymous data", () => {
@@ -1146,6 +1150,91 @@ describe("HashMap()", () => {
 
                 return false;
             });
+        });
+    });
+
+    describe(".buildIndex()", () => {
+        it ("returns the new index", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<BuildIndexTestValue> = {
+                "help": {
+                    aliases: [ "--help", "-?"],
+                    contents: "this is the help option",
+                },
+                "verbose": {
+                    aliases: [ "-v", "--verbose" ],
+                    contents: "this is the verbose option",
+                },
+            }
+
+            const expectedResult: HashMap<BuildIndexTestValue> = {
+                "--help": unit.help,
+                "-?": unit.help,
+                "-v": unit.verbose,
+                "--verbose": unit.verbose,
+            }
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.buildIndex(
+                unit,
+                (value) => value.aliases
+            );
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".updateIndex()", () => {
+        it ("updates the existing index", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<BuildIndexTestValue> = {
+                "help": {
+                    aliases: [ "--help", "-?"],
+                    contents: "this is the help option",
+                },
+                "verbose": {
+                    aliases: [ "-v", "--verbose" ],
+                    contents: "this is the verbose option",
+                },
+            }
+
+            const inputValue: HashMap<BuildIndexTestValue> = {
+                "--namespace": {
+                    aliases: [ "--namespace" ],
+                    contents: "this is the namespace option",
+                },
+            }
+
+            const expectedResult: HashMap<BuildIndexTestValue> = {
+                "--namespace": inputValue['--namespace'],
+                "--help": unit.help,
+                "-?": unit.help,
+                "-v": unit.verbose,
+                "--verbose": unit.verbose,
+            }
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.updateIndex(
+                unit,
+                inputValue,
+                (value) => value.aliases
+            );
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(inputValue).eql(expectedResult);
         });
     });
 });
