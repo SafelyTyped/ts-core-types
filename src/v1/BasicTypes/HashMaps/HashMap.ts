@@ -372,10 +372,10 @@ export class HashMap<T> {
 
     /**
      * `map()` builds a new HashMap, by calling the given `callbackfn()`
-     * once for every property on the given `target` HashMap.
+     * once for every property on the given `source` HashMap.
      *
      * The returned HashMap is a new object, which contains the same
-     * keys as the original `target` HashMap.
+     * keys as the original `source` HashMap.
      *
      * You can use `.map()` to change the type of the values (e.g. turn
      * a HashMap of strings into a HashMap of numbers).
@@ -408,5 +408,64 @@ export class HashMap<T> {
 
         // all done
         return retval;
+    }
+
+    /**
+     * `mapToArray()` builds a new array, by calling the given `callbackfn()`
+     * once for every property on the given `source` HashMap.
+     *
+     * The returned array is a new array, which contains the same number
+     * of entries as the original `source` HashMap.
+     *
+     * @param source -
+     * the HashMap we want to map from
+     * @param callbackfn -
+     * the function to transform a property to go into the new arary
+     * @returns
+     * the newly-constructed array
+     *
+     * @typeParam T -
+     * the type of value held in the input `target` HashMap
+     * @typeParam R -
+     * the type of value held in the returned array
+     */
+    public static mapToArray<T,R=T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => R
+    ) {
+        // our new array
+        const retval: R[] = [];
+
+        // use the callbackfn to build our return value
+        HashMap.keys(source).forEach((key) => {
+            retval.push(callbackfn(source[key], key, source));
+        });
+
+        // all done
+        return retval;
+    }
+
+    /**
+     * `getKeyValuePairs()` returns a new array. The array is a list
+     * of all key/value pairs from the given HashMap, as strings.
+     *
+     * It's useful (for example) for converting a HashMap of query string
+     * parameters that can then be joined into a single string.
+     *
+     * @param source -
+     * the HashMap to get the key/value pairs from
+     * @param separator -
+     * the string to put between each key and value
+     * @returns
+     * an array of 'key=value' entries
+     */
+    public static getKeyValuePairs(
+        source: HashMap<string>,
+        separator: string = '=',
+    ) {
+        return HashMap.mapToArray(
+            source,
+            (value, key) => { return key + separator + value; }
+        );
     }
 }

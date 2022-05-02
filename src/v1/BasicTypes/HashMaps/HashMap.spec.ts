@@ -902,7 +902,8 @@ describe("HashMap()", () => {
             // ----------------------------------------------------------------
             // perform the change
 
-            // this will build a new object that is identical to `unit`
+            // this will build a new object where the values have changed
+            // from a mixture to numbers
             const actualResult = HashMap.map(unit, (value) => {
                 return resolveNumerical(value);
             });
@@ -914,4 +915,153 @@ describe("HashMap()", () => {
         });
     });
 
+    describe(".mapToArray()", () => {
+        it ("calls the given callbackfn exactly once for each property", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = {
+                attr1: 1,
+                attr2: 1,
+                attr3: 1,
+            };
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult: HashMap<number> = {
+                attr1: 0,
+                attr2: 0,
+                attr3: 0,
+            }
+            HashMap.mapToArray(unit, (value, key) => {
+                actualResult[key]++;
+            })
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it ("returns an array", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult: string[] = [
+                "this is attr1",
+                "this is attr2",
+                "this is attr3",
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.mapToArray(unit, (value) => {
+                return value;
+            });
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it ("the callbackfn can change the type of each value", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string|boolean> = {
+                attr1: "100",
+                attr2: true,
+                attr3: false,
+            }
+
+            const expectedResult: number[] = [
+                100,
+                1,
+                0,
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.mapToArray(unit, (value) => {
+                return resolveNumerical(value);
+            });
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".getKeyValuePairs()", () => {
+        it ("returns an array of key/value pairs", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult: string[] = [
+                "attr1=this is attr1",
+                "attr2=this is attr2",
+                "attr3=this is attr3",
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.getKeyValuePairs(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it ("it accepts a different separator", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult: string[] = [
+                "attr1: this is attr1",
+                "attr2: this is attr2",
+                "attr3: this is attr3",
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.getKeyValuePairs(unit, ': ');
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
 });
