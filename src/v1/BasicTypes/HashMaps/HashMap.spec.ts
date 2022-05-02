@@ -617,6 +617,32 @@ describe("HashMap()", () => {
         });
     });
 
+    describe(".clear()", () => {
+        it("empties the given HashMap", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = 0;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.clear(unit);
+            const actualResult = HashMap.size(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
     describe(".size()", () => {
         it ("returns the number of keys in the given HashMap", () => {
             // ----------------------------------------------------------------

@@ -23,6 +23,7 @@ The following changes have been completed, and will be included in the next tagg
 
 ### New
 
+* Added `HashMap.clear()`
 * Added `HashMap.has()`
 * Added `HashMap.get()`
 * Added `HashMap.size()`

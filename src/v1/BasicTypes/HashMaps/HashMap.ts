@@ -286,6 +286,20 @@ export class HashMap<T> {
     }
 
     /**
+     * `clear()` removes all key/value pairs from the given HashMap.
+     *
+     * @param target -
+     * the HashMap to empty
+     */
+    public static clear<T>(
+        target: HashMap<T>
+    ) {
+        HashMap.keys(target).forEach((key)=> {
+            delete target[key];
+        });
+    }
+
+    /**
      * `size()` returns the number of key/value pairs in the given HashMap.
      *
      * @param target -
