@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.8
+
+Released Monday, 2nd May 2022.
+
 ### New
 
 * Added `HashMap.buildIndex()`
