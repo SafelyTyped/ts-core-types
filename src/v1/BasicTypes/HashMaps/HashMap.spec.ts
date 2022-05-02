@@ -523,7 +523,7 @@ describe("HashMap()", () => {
     });
 
     describe(".keys()", () => {
-        it("returns a list of the keys in the hashmap", () => {
+        it("returns a list of the keys in the HashMap", () => {
             // ----------------------------------------------------------------
             // setup your test
 
@@ -546,7 +546,7 @@ describe("HashMap()", () => {
             expect(actualResult).eql(expectedResult);
         });
 
-        it("returns an empty list if the hashmap is empty", () => {
+        it("returns an empty list if the HashMap is empty", () => {
             // ----------------------------------------------------------------
             // setup your test
 
@@ -567,7 +567,7 @@ describe("HashMap()", () => {
     });
 
     describe(".values()", () => {
-        it("returns a list of the values in the hashmap", () => {
+        it("returns a list of the values in the HashMap", () => {
             // ----------------------------------------------------------------
             // setup your test
 
@@ -594,7 +594,7 @@ describe("HashMap()", () => {
             expect(actualResult).eql(expectedResult);
         });
 
-        it("returns an empty list if the hashmap is empty", () => {
+        it("returns an empty list if the HashMap is empty", () => {
             // ----------------------------------------------------------------
             // setup your test
 
@@ -1037,7 +1037,7 @@ describe("HashMap()", () => {
             expect(actualResult).eql(expectedResult);
         });
 
-        it ("it accepts a different separator", () => {
+        it ("accepts a different separator", () => {
             // ----------------------------------------------------------------
             // setup your test
 
@@ -1062,6 +1062,90 @@ describe("HashMap()", () => {
             // test the results
 
             expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".find()", () => {
+        it("iterates over the given HashMap", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = Object.values(unit);
+
+            const actualResult: string[] = []
+
+            HashMap.find(unit, (value) => {
+                actualResult.push(value);
+                return false;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns the value of whichever property satisfies the callback function", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = "this is attr2";
+
+            const actualResult = HashMap.find(unit, (value, name) => {
+                return name === "attr2";
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns undefined if no value satisfies the callback function", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = undefined;
+
+            const actualResult = HashMap.find(unit, (value) => {
+                return value.includes("attr4");
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the attribute's name as the callback's second parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = true;
+
+            let actualResult = true;
+            HashMap.find(unit, (value, name) => {
+                if (unit[name] !== value) {
+                    actualResult = false;
+                }
+
+                return false;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the target object as the callback's third parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+
+            HashMap.find(unit, (value, name, obj) => {
+                expect(obj).to.equal(unit);
+
+                return false;
+            });
         });
     });
 });

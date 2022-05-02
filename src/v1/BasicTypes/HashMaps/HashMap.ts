@@ -468,4 +468,37 @@ export class HashMap<T> {
             (value, key) => { return key + separator + value; }
         );
     }
+
+    /**
+     * `find()` returns the first value in the given HashMap that satisfies
+     * the given `callbackfn()`.
+     *
+     * If no values satisfy the `callbackfn()`, we return `undefined`.
+     *
+     * This is the equivalent of {@link Array.find}.
+     *
+     * @param source -
+     * the HashMap to inspect
+     * @param callbackfn -
+     * a function to decide if the value has been found or not
+     * @returns
+     * - the value passed into `callbackfn` if `callbackfn` returns `true`,
+     * - `undefined` if `callbackfn()` never returns `true`
+     */
+    public static find<T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
+    ): T|undefined {
+        // we need a list of keys to search
+        const propNames = HashMap.keys(source);
+
+        for(const name of propNames) {
+            if (callbackfn(source[name], name, source)) {
+                return source[name];
+            }
+        }
+
+        // if we get here, we did not find a match
+        return undefined;
+    }
 }

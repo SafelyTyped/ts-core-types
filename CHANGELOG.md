@@ -27,9 +27,10 @@ The focus of this release has been on making HashMap much more complete.
 
 * Added `HashMap.clear()`
 * Added `HashMap.delete()`
-* Added `HashMap.has()`
+* Added `HashMap.find()`
 * Added `HashMap.get()`
 * Added `HashMap.getKeyValuePairs()`
+* Added `HashMap.has()`
 * Added `HashMap.map()`
 * Added `HashMap.mapToArray()`
 * Added `HashMap.size()`
