@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { findPropertyNames } from "../Objects";
+import { deleteProperty, findPropertyNames, getProperty, hasProperty } from "../Objects";
 import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes";
 
 /**
@@ -235,7 +235,7 @@ export class HashMap<T> {
      * that belong to `target` (ie nothing that belongs to its prototypes).
      *
      * @param target -
-     * the HashMap to example
+     * the HashMap to retrieve property names from
      * @returns
      * the (possibly empty) list of attribute names from `target`
      */
@@ -245,5 +245,260 @@ export class HashMap<T> {
             target,
             { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
         );
+    }
+
+    /**
+     * `values()` returns a list of all the property values from the given
+     * HashMap.
+     *
+     * `HashMap.values()` only returns the values of properties that
+     * belong to `target` (ie nothing that belongs to its prototypes).
+     *
+     * The order of values in the returned list is deterministic, but is
+     * dependent upon the behaviour of the underlying runtime.
+     *
+     * This is inspired by {@link Map.values}.
+     *
+     * @param target -
+     * the HashMap to retrieve property values from
+     * @returns
+     * the (possibly empty) list of attribute values from `target`.
+     */
+    public static values<T>(target: HashMap<T>): T[] {
+        // this will hold our return value
+        const retval: T[] = [];
+
+        // probably not the fastest way to do this, but
+        // certainly extremely reliable
+        HashMap.keys(target).forEach((key) => {
+            retval.push(target[key]);
+        })
+
+        // all done
+        return retval;
+    }
+
+    /**
+     * `has()` inspects the given HashMap to see if it has the
+     * given `propName` property.
+     *
+     * This is inspired by {@link Map.has}.
+     *
+     * @param target -
+     * the HashMap to inspect
+     * @param propName -
+     * the name of the property you want to look for
+     * @returns
+     * - `true` if the property exists on the given HashMap
+     * - `false` otherwise
+     */
+    public static has<T>(
+        target: HashMap<T>,
+        propName: string
+    ) {
+        return hasProperty(target, propName);
+    }
+
+    /**
+     * `get()` returns the value of given property from the
+     * given HashMap, if it exists.
+     *
+     * This is inspired by {@link Map.get}.
+     *
+     * @param target -
+     * the HashMap to retrieve from
+     * @param propName -
+     * the name of the property you want to retrieve
+     * @returns
+     * - the property if it exists on the given HashMap
+     * - `undefined` otherwise
+     */
+    public static get<T>(
+        target: HashMap<T>,
+        propName: string
+    ) {
+        return getProperty<T>(target, propName);
+    }
+
+    /**
+     * `clear()` removes all key/value pairs from the given HashMap.
+     *
+     * This is inspired by {@link Map.clear}.
+     *
+     * @param target -
+     * the HashMap to empty
+     */
+    public static clear<T>(
+        target: HashMap<T>
+    ) {
+        HashMap.keys(target).forEach((key)=> {
+            delete target[key];
+        });
+    }
+
+    /**
+     * `delete()` removes the given property from the `target` HashMap.
+     *
+     * This is inspired by {@link Map.delete}.
+     *
+     * @param target -
+     * the HashMap to remove a property from
+     * @param propName -
+     * the property that you want to delete
+     * @returns
+     * - `true` if the property existed and was deleted
+     * - `false` if the property did not exist
+     */
+    public static delete<T>(
+        target: HashMap<T>,
+        propName: string
+    ) {
+        return deleteProperty(target, propName);
+    }
+
+    /**
+     * `size()` returns the number of key/value pairs in the given HashMap.
+     *
+     * @param target -
+     * the HashMap to inspect
+     * @returns
+     * the number of key/value pairs in the given `target`
+     */
+    public static size<T>(
+        target: HashMap<T>
+    ): number {
+        return HashMap.keys(target).length;
+    }
+
+    /**
+     * `map()` builds a new HashMap, by calling the given `callbackfn()`
+     * once for every property on the given `source` HashMap.
+     *
+     * The returned HashMap is a new object, which contains the same
+     * keys as the original `source` HashMap.
+     *
+     * You can use `.map()` to change the type of the values (e.g. turn
+     * a HashMap of strings into a HashMap of numbers).
+     *
+     * It is inspired by {@link Array.map}.
+     *
+     * @param source -
+     * the HashMap we want to map from
+     * @param callbackfn -
+     * the function to transform a property to go into the new HashMap
+     * @returns
+     * the newly-constructed HashMap
+     *
+     * @typeParam T -
+     * the type of value held in the input `target` HashMap
+     * @typeParam R -
+     * the type of value held in the returned HashMap
+     */
+    public static map<T,R=T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => R
+    ) {
+        // our new HashMap
+        const retval: HashMap<R> = {};
+
+        // use the callbackfn to build our return value
+        HashMap.keys(source).forEach((key) => {
+            retval[key] = callbackfn(source[key], key, source);
+        });
+
+        // all done
+        return retval;
+    }
+
+    /**
+     * `mapToArray()` builds a new array, by calling the given `callbackfn()`
+     * once for every property on the given `source` HashMap.
+     *
+     * The returned array is a new array, which contains the same number
+     * of entries as the original `source` HashMap.
+     *
+     * @param source -
+     * the HashMap we want to map from
+     * @param callbackfn -
+     * the function to transform a property to go into the new arary
+     * @returns
+     * the newly-constructed array
+     *
+     * @typeParam T -
+     * the type of value held in the input `target` HashMap
+     * @typeParam R -
+     * the type of value held in the returned array
+     */
+    public static mapToArray<T,R=T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => R
+    ) {
+        // our new array
+        const retval: R[] = [];
+
+        // use the callbackfn to build our return value
+        HashMap.keys(source).forEach((key) => {
+            retval.push(callbackfn(source[key], key, source));
+        });
+
+        // all done
+        return retval;
+    }
+
+    /**
+     * `getKeyValuePairs()` returns a new array. The array is a list
+     * of all key/value pairs from the given HashMap, as strings.
+     *
+     * It's useful (for example) for converting a HashMap of query string
+     * parameters that can then be joined into a single string.
+     *
+     * @param source -
+     * the HashMap to get the key/value pairs from
+     * @param separator -
+     * the string to put between each key and value
+     * @returns
+     * an array of 'key=value' entries
+     */
+    public static getKeyValuePairs(
+        source: HashMap<string>,
+        separator: string = '=',
+    ) {
+        return HashMap.mapToArray(
+            source,
+            (value, key) => { return key + separator + value; }
+        );
+    }
+
+    /**
+     * `find()` returns the first value in the given HashMap that satisfies
+     * the given `callbackfn()`.
+     *
+     * If no values satisfy the `callbackfn()`, we return `undefined`.
+     *
+     * This is the equivalent of {@link Array.find}.
+     *
+     * @param source -
+     * the HashMap to inspect
+     * @param callbackfn -
+     * a function to decide if the value has been found or not
+     * @returns
+     * - the value passed into `callbackfn` if `callbackfn` returns `true`,
+     * - `undefined` if `callbackfn()` never returns `true`
+     */
+    public static find<T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => boolean
+    ): T|undefined {
+        // we need a list of keys to search
+        const propNames = HashMap.keys(source);
+
+        for(const name of propNames) {
+            if (callbackfn(source[name], name, source)) {
+                return source[name];
+            }
+        }
+
+        // if we get here, we did not find a match
+        return undefined;
     }
 }

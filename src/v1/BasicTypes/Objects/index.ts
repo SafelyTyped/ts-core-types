@@ -34,6 +34,7 @@
 
 export * from "./assignOptionalFields";
 export * from "./assignOptionalFieldsUsingTransformers";
+export * from "./deleteProperty";
 export * from "./getAllMethodNames";
 export * from "./getAllMethods";
 export * from "./getMissingMethodNames";

@@ -32,29 +32,33 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { hasProperty } from "./hasProperty";
+
 /**
- * `getProperty()` retrieve the property called `propName` from the
- * given `target` object.
+ * `deleteProperty()` removes the given property from the `target` object.
  *
- * This is a workaround added because Typescript does not support
- * symbols as object property names out of the box. You can call this
- * function to avoid adding linter comments everywhere in your own code.
+ * It is inspired by {@link Map.delete}.
  *
  * @param target -
- * The object that we are retrieving from.
+ * the object to remove a property from
  * @param propName -
- * The property that we are looking for.
- *
- * @typeParam T -
- * The type of the returned value.
- *
+ * the name of the property to remove
  * @returns
- * - `target[propName]` if it exists
- * - `undefined` otherwise
+ * - `true` if the property existed and was removed
+ * - `false` if the property did not exist
  */
-export function getProperty<T = unknown>(
-     target: object,
-     propName: string|number|symbol
-): T|undefined {
-    return (target as Record<typeof propName, any>)[propName as any] ?? undefined;
+export function deleteProperty(
+    target: object,
+    propName: string | number | symbol
+) {
+    // do we have a property to delete?
+    if (!hasProperty(target, propName)) {
+        return false;
+    }
+
+    // yes we do
+    delete (target as Record<typeof propName, any>)[propName as any];
+
+    // let the caller know that we acted
+    return true;
 }

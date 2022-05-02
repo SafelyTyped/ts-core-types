@@ -33,6 +33,7 @@
 //
 import { expect } from "chai";
 import { describe } from "mocha";
+import { resolveNumerical } from "../../OptionTypes";
 
 import { HashMap } from "./HashMap";
 
@@ -514,6 +515,633 @@ describe("HashMap()", () => {
             };
 
             HashMap.firstKey(unit, (value, name, obj) => {
+                expect(obj).to.equal(unit);
+
+                return false;
+            });
+        });
+    });
+
+    describe(".keys()", () => {
+        it("returns a list of the keys in the HashMap", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = [ "attr1", "attr2", "attr3" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.keys(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns an empty list if the HashMap is empty", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {};
+
+            const expectedResult: string[] = [];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.keys(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".values()", () => {
+        it("returns a list of the values in the HashMap", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = [
+                "this is attr1",
+                "this is attr2",
+                "this is attr3"
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.values(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns an empty list if the HashMap is empty", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {};
+
+            const expectedResult: string[] = [];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.values(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".has()", () => {
+        it("returns true if the property exists", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = true;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.has(unit, "attr2");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns false if the property does not exist", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = false;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.has(unit, "attr4");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".get()", () => {
+        it("returns the property's value, if the property exists", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = unit.attr2;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.get(unit, "attr2");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns undefined if the property does not exist", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = undefined;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.get(unit, "attr4");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".clear()", () => {
+        it("empties the given HashMap", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = 0;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.clear(unit);
+            const actualResult = HashMap.size(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".delete()", () => {
+        it("removes the given property", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = true;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.delete(unit, "attr2");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+            expect(HashMap.size(unit)).eql(2);
+            expect(unit.attr2).eql(undefined);
+        });
+
+        it("returns false if the given property does not exist", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = false;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.delete(unit, "attr4");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+            expect(HashMap.size(unit)).eql(3);
+        });
+    });
+
+    describe(".size()", () => {
+        it ("returns the number of keys in the given HashMap", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = 3;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.size(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".map()", () => {
+        it ("calls the given callbackfn exactly once for each property", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = {
+                attr1: 1,
+                attr2: 1,
+                attr3: 1,
+            };
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult: HashMap<number> = {
+                attr1: 0,
+                attr2: 0,
+                attr3: 0,
+            }
+            HashMap.map(unit, (value, key) => {
+                actualResult[key]++;
+            })
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it ("returns a new object", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3",
+                attr4: "this is not unit",
+            };
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            // this will build a new object that is identical to `unit`
+            const actualResult = HashMap.map(unit, (value) => {
+                return value;
+            });
+
+            // now, we need to modify `actualResult` to prove that it
+            // is different to `unit`
+            actualResult.attr4 = "this is not unit";
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+            expect(actualResult).not.eql(unit);
+        });
+
+        it ("the callbackfn can change the type of each value", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string|boolean> = {
+                attr1: "100",
+                attr2: true,
+                attr3: false,
+            }
+
+            const expectedResult: HashMap<number> = {
+                attr1: 100,
+                attr2: 1,
+                attr3: 0,
+            };
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            // this will build a new object where the values have changed
+            // from a mixture to numbers
+            const actualResult = HashMap.map(unit, (value) => {
+                return resolveNumerical(value);
+            });
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".mapToArray()", () => {
+        it ("calls the given callbackfn exactly once for each property", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = {
+                attr1: 1,
+                attr2: 1,
+                attr3: 1,
+            };
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult: HashMap<number> = {
+                attr1: 0,
+                attr2: 0,
+                attr3: 0,
+            }
+            HashMap.mapToArray(unit, (value, key) => {
+                actualResult[key]++;
+            })
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it ("returns an array", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult: string[] = [
+                "this is attr1",
+                "this is attr2",
+                "this is attr3",
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.mapToArray(unit, (value) => {
+                return value;
+            });
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it ("the callbackfn can change the type of each value", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string|boolean> = {
+                attr1: "100",
+                attr2: true,
+                attr3: false,
+            }
+
+            const expectedResult: number[] = [
+                100,
+                1,
+                0,
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.mapToArray(unit, (value) => {
+                return resolveNumerical(value);
+            });
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".getKeyValuePairs()", () => {
+        it ("returns an array of key/value pairs", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult: string[] = [
+                "attr1=this is attr1",
+                "attr2=this is attr2",
+                "attr3=this is attr3",
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.getKeyValuePairs(unit);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it ("accepts a different separator", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult: string[] = [
+                "attr1: this is attr1",
+                "attr2: this is attr2",
+                "attr3: this is attr3",
+            ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.getKeyValuePairs(unit, ': ');
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".find()", () => {
+        it("iterates over the given HashMap", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = Object.values(unit);
+
+            const actualResult: string[] = []
+
+            HashMap.find(unit, (value) => {
+                actualResult.push(value);
+                return false;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns the value of whichever property satisfies the callback function", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = "this is attr2";
+
+            const actualResult = HashMap.find(unit, (value, name) => {
+                return name === "attr2";
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("returns undefined if no value satisfies the callback function", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = undefined;
+
+            const actualResult = HashMap.find(unit, (value) => {
+                return value.includes("attr4");
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the attribute's name as the callback's second parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+            const expectedResult = true;
+
+            let actualResult = true;
+            HashMap.find(unit, (value, name) => {
+                if (unit[name] !== value) {
+                    actualResult = false;
+                }
+
+                return false;
+            });
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("passes the target object as the callback's third parameter", () => {
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            };
+
+            HashMap.find(unit, (value, name, obj) => {
                 expect(obj).to.equal(unit);
 
                 return false;

@@ -21,6 +21,31 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.7
+
+Released Monday, 2nd May 2022.
+
+### New
+
+The focus of this release has been on making HashMap much more complete.
+
+* Added `HashMap.clear()`
+* Added `HashMap.delete()`
+* Added `HashMap.find()`
+* Added `HashMap.get()`
+* Added `HashMap.getKeyValuePairs()`
+* Added `HashMap.has()`
+* Added `HashMap.map()`
+* Added `HashMap.mapToArray()`
+* Added `HashMap.size()`
+* Added `HashMap.values()`
+* Added `deleteProperty()`
+
+### Fixes
+
+* `getProperty()` type signature updated to show that it can return `undefined`
+  - unfortunately, the TS compiler wasn't always able to work this out by itself
+
 ## v0.3.6
 
 Released Sunday, 1st May 2022.

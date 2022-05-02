@@ -36,7 +36,7 @@
 import { AnyFunction } from "../../Archetypes";
 import { DispatchMap } from "./DispatchMap";
 import { AnyDispatchMapKey } from "./AnyDispatchMapKey";
-import { getProperty, hasProperty } from "../../BasicTypes";
+import { getProperty } from "../../BasicTypes";
 
 /**
  * `searchDispatchMap()` will iterate through `keysToTry`
@@ -74,8 +74,9 @@ import { getProperty, hasProperty } from "../../BasicTypes";
     // names here. We use a workaround to avoid littering our code
     // with casts to `any`.
     for (const keyToTry of keysToTry) {
-        if (hasProperty(table, keyToTry)) {
-            return getProperty(table, keyToTry);
+        const retval = getProperty<F>(table, keyToTry);
+        if (retval) {
+            return retval;
         }
     }
 
