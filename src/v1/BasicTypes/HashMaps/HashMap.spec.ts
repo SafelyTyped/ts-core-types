@@ -521,7 +521,7 @@ describe("HashMap()", () => {
         });
     });
 
-    describe(".hasProperty()", () => {
+    describe(".has()", () => {
         it("returns true if the property exists", () => {
             // ----------------------------------------------------------------
             // setup your test
@@ -537,7 +537,7 @@ describe("HashMap()", () => {
             // ----------------------------------------------------------------
             // perform the change
 
-            const actualResult = HashMap.hasProperty(unit, "attr2");
+            const actualResult = HashMap.has(unit, "attr2");
 
             // ----------------------------------------------------------------
             // test the results
@@ -560,7 +560,7 @@ describe("HashMap()", () => {
             // ----------------------------------------------------------------
             // perform the change
 
-            const actualResult = HashMap.hasProperty(unit, "attr4");
+            const actualResult = HashMap.has(unit, "attr4");
 
             // ----------------------------------------------------------------
             // test the results
@@ -569,7 +569,7 @@ describe("HashMap()", () => {
         });
     });
 
-    describe(".getProperty()", () => {
+    describe(".get()", () => {
         it("returns the property's value, if the property exists", () => {
             // ----------------------------------------------------------------
             // setup your test
@@ -585,7 +585,7 @@ describe("HashMap()", () => {
             // ----------------------------------------------------------------
             // perform the change
 
-            const actualResult = HashMap.getProperty(unit, "attr2");
+            const actualResult = HashMap.get(unit, "attr2");
 
             // ----------------------------------------------------------------
             // test the results
@@ -608,7 +608,7 @@ describe("HashMap()", () => {
             // ----------------------------------------------------------------
             // perform the change
 
-            const actualResult = HashMap.getProperty(unit, "attr4");
+            const actualResult = HashMap.get(unit, "attr4");
 
             // ----------------------------------------------------------------
             // test the results

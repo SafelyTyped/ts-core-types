@@ -23,8 +23,8 @@ The following changes have been completed, and will be included in the next tagg
 
 ### New
 
-* Added `HashMap.hasProperty()`
-* Added `HashMap.getProperty()`
+* Added `HashMap.has()`
+* Added `HashMap.get()`
 * Added `HashMap.size()`
 
 ### Fixes

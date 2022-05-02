@@ -248,7 +248,7 @@ export class HashMap<T> {
     }
 
     /**
-     * `hasProperty()` inspects the given HashMap to see if it has the
+     * `has()` inspects the given HashMap to see if it has the
      * given `propName` property.
      *
      * @param target -
@@ -259,7 +259,7 @@ export class HashMap<T> {
      * - `true` if the property exists on the given HashMap
      * - `false` otherwise
      */
-    public static hasProperty<T>(
+    public static has<T>(
         target: HashMap<T>,
         propName: string
     ) {
@@ -267,7 +267,7 @@ export class HashMap<T> {
     }
 
     /**
-     * `getProperty()` returns the value of given property from the
+     * `get()` returns the value of given property from the
      * given HashMap, if it exists.
      *
      * @param target -
@@ -278,7 +278,7 @@ export class HashMap<T> {
      * - the property if it exists on the given HashMap
      * - `undefined` otherwise
      */
-    public static getProperty<T>(
+    public static get<T>(
         target: HashMap<T>,
         propName: string
     ) {
