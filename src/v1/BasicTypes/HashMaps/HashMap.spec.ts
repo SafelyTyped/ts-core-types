@@ -520,4 +520,100 @@ describe("HashMap()", () => {
             });
         });
     });
+
+    describe(".hasProperty()", () => {
+        it("returns true if the property exists", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = true;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.hasProperty(unit, "attr2");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns false if the property does not exist", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = false;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.hasProperty(unit, "attr4");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
+
+    describe(".getProperty()", () => {
+        it("returns the property's value, if the property exists", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = unit.attr2;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.getProperty(unit, "attr2");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("returns undefined if the property does not exist", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = undefined;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.getProperty(unit, "attr4");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+    });
 });

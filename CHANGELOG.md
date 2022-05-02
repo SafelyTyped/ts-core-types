@@ -21,6 +21,11 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### New
+
+* Added `HashMap.hasProperty()`
+* Added `HashMap.getProperty()`
+
 ### Fixes
 
 * `getProperty()` type signature updated to show that it can return `undefined`

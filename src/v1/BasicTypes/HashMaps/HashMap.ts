@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { findPropertyNames } from "../Objects";
+import { findPropertyNames, getProperty, hasProperty } from "../Objects";
 import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes";
 
 /**
@@ -235,7 +235,7 @@ export class HashMap<T> {
      * that belong to `target` (ie nothing that belongs to its prototypes).
      *
      * @param target -
-     * the HashMap to example
+     * the HashMap to retrieve property names from
      * @returns
      * the (possibly empty) list of attribute names from `target`
      */
@@ -245,5 +245,43 @@ export class HashMap<T> {
             target,
             { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
         );
+    }
+
+    /**
+     * `hasProperty()` inspects the given HashMap to see if it has the
+     * given `propName` property.
+     *
+     * @param target -
+     * the HashMap to inspect
+     * @param propName -
+     * the name of the property you want to look for
+     * @returns
+     * - `true` if the property exists on the given HashMap
+     * - `false` otherwise
+     */
+    public static hasProperty<T>(
+        target: HashMap<T>,
+        propName: string
+    ) {
+        return hasProperty(target, propName);
+    }
+
+    /**
+     * `getProperty()` returns the value of given property from the
+     * given HashMap, if it exists.
+     *
+     * @param target -
+     * the HashMap to retrieve from
+     * @param propName -
+     * the name of the property you want to retrieve
+     * @returns
+     * - the property if it exists on the given HashMap
+     * - `undefined` otherwise
+     */
+    public static getProperty<T>(
+        target: HashMap<T>,
+        propName: string
+    ) {
+        return getProperty<T>(target, propName);
     }
 }
