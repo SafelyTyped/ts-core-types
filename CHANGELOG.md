@@ -23,7 +23,10 @@ The following changes have been completed, and will be included in the next tagg
 
 ### New
 
+The focus of this release has been on making HashMap much more complete.
+
 * Added `HashMap.clear()`
+* Added `HashMap.delete()`
 * Added `HashMap.has()`
 * Added `HashMap.get()`
 * Added `HashMap.size()`

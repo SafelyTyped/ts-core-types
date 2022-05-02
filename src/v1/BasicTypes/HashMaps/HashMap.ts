@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { findPropertyNames, getProperty, hasProperty } from "../Objects";
+import { deleteProperty, findPropertyNames, getProperty, hasProperty } from "../Objects";
 import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes";
 
 /**
@@ -251,6 +251,8 @@ export class HashMap<T> {
      * `has()` inspects the given HashMap to see if it has the
      * given `propName` property.
      *
+     * This is inspired by {@link Map.has}.
+     *
      * @param target -
      * the HashMap to inspect
      * @param propName -
@@ -270,6 +272,8 @@ export class HashMap<T> {
      * `get()` returns the value of given property from the
      * given HashMap, if it exists.
      *
+     * This is inspired by {@link Map.get}.
+     *
      * @param target -
      * the HashMap to retrieve from
      * @param propName -
@@ -288,6 +292,8 @@ export class HashMap<T> {
     /**
      * `clear()` removes all key/value pairs from the given HashMap.
      *
+     * This is inspired by {@link Map.clear}.
+     *
      * @param target -
      * the HashMap to empty
      */
@@ -297,6 +303,26 @@ export class HashMap<T> {
         HashMap.keys(target).forEach((key)=> {
             delete target[key];
         });
+    }
+
+    /**
+     * `delete()` removes the given property from the `target` HashMap.
+     *
+     * This is inspired by {@link Map.delete}.
+     *
+     * @param target -
+     * the HashMap to remove a property from
+     * @param propName -
+     * the property that you want to delete
+     * @returns
+     * - `true` if the property existed and was deleted
+     * - `false` if the property did not exist
+     */
+    public static delete<T>(
+        target: HashMap<T>,
+        propName: string
+    ) {
+        return deleteProperty(target, propName);
     }
 
     /**

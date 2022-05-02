@@ -643,6 +643,57 @@ describe("HashMap()", () => {
         });
     });
 
+    describe(".delete()", () => {
+        it("removes the given property", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = true;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.delete(unit, "attr2");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+            expect(HashMap.size(unit)).eql(2);
+            expect(unit.attr2).eql(undefined);
+        });
+
+        it("returns false if the given property does not exist", () => {
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit: HashMap<string> = {
+                attr1: "this is attr1",
+                attr2: "this is attr2",
+                attr3: "this is attr3"
+            }
+
+            const expectedResult = false;
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.delete(unit, "attr4");
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+            expect(HashMap.size(unit)).eql(3);
+        });
+    });
+
     describe(".size()", () => {
         it ("returns the number of keys in the given HashMap", () => {
             // ----------------------------------------------------------------
