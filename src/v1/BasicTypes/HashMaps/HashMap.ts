@@ -369,4 +369,44 @@ export class HashMap<T> {
     ): number {
         return HashMap.keys(target).length;
     }
+
+    /**
+     * `map()` builds a new HashMap, by calling the given `callbackfn()`
+     * once for every property on the given `target` HashMap.
+     *
+     * The returned HashMap is a new object, which contains the same
+     * keys as the original `target` HashMap.
+     *
+     * You can use `.map()` to change the type of the values (e.g. turn
+     * a HashMap of strings into a HashMap of numbers).
+     *
+     * It is inspired by {@link Array.map}.
+     *
+     * @param source -
+     * the HashMap we want to map from
+     * @param callbackfn -
+     * the function to transform a property to go into the new HashMap
+     * @returns
+     * the newly-constructed HashMap
+     *
+     * @typeParam T -
+     * the type of value held in the input `target` HashMap
+     * @typeParam R -
+     * the type of value held in the returned HashMap
+     */
+    public static map<T,R=T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => R
+    ) {
+        // our new HashMap
+        const retval: HashMap<R> = {};
+
+        // use the callbackfn to build our return value
+        HashMap.keys(source).forEach((key) => {
+            retval[key] = callbackfn(source[key], key, source);
+        });
+
+        // all done
+        return retval;
+    }
 }
