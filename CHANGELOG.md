@@ -25,6 +25,10 @@ The following changes have been completed, and will be included in the next tagg
 
 * Added `validateHashMap()`
 
+### Fixes
+
+* Added missing export for `isAppError()`
+
 ### Dependencies
 
 * Updated to the latest deps.
