@@ -36,3 +36,4 @@ export * from "./NonEmptyArray";
 export * from "./OptionTypes";
 export * from "./Regex";
 export * from "./StringMatches";
+export * from "./HashMaps";
