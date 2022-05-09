@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.9
+
+Released Monday, 9th May 2022.
+
 ### New
 
 * Added `isHashMap()`
@@ -34,6 +38,14 @@ The following changes have been completed, and will be included in the next tagg
 ### Dependencies
 
 * Updated to the latest deps.
+
+### Tools
+
+* CI workflow now checks against:
+  - NodeJS v12.x
+  - NodeJS v14.x
+  - NodeJS v16.x
+  - NodeJS v18.x
 
 ## v0.3.8
 
