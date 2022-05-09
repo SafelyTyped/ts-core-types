@@ -49,5 +49,6 @@ export * from "./UnreachableCode";
 export * from "./UnsupportedBooleanishValue";
 export * from "./UnsupportedNumericalValue";
 export * from "./UnsupportedType";
+export * from "./UnsupportedStringLengthRange";
 export * from "./UnsupportedStringPrefix";
 export * from "./UnsupportedStringValue";

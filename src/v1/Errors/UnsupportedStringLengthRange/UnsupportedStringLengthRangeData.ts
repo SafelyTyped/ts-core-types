@@ -32,10 +32,20 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./isString";
-export * from "./mustBeString";
-export * from "./validateString";
-export * from "./validateStringLengthBetween";
-export * from "./validateStringMatches";
-export * from "./validateStringStartsWith";
-export * from "./validateStringValue";
+import { ExtraPublicData } from "../../ErrorHandling";
+import { DataPath } from "../../SupportingTypes";
+
+/**
+ * `UnsupportedStringLengthRangeData` is the input that
+ * {@link UnsupportedStringLengthRangeError} requires.
+ *
+ * @public
+ */
+export interface UnsupportedStringLengthRangeData extends ExtraPublicData {
+    public: {
+        dataPath: DataPath,
+        minLength: number;
+        maxLength: number;
+        actualLength: number;
+    }
+}

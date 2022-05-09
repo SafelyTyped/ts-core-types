@@ -31,11 +31,25 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./isString";
-export * from "./mustBeString";
-export * from "./validateString";
-export * from "./validateStringLengthBetween";
-export * from "./validateStringMatches";
-export * from "./validateStringStartsWith";
-export * from "./validateStringValue";
+import { UnsupportedStringLengthRangeError } from "./UnsupportedStringLengthRangeError";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+
+describe("UnsupportedStringLengthError", () => {
+    describe(".constructor()", () => {
+        it("creates a Javascript error", () => {
+            const unit = new UnsupportedStringLengthRangeError({
+                public: {
+                    dataPath: DEFAULT_DATA_PATH,
+                    minLength: 10,
+                    maxLength: 1000,
+                    actualLength: 1,
+                },
+            });
+
+            expect(unit).to.be.instanceOf(Error);
+        });
+    });
+});

@@ -31,11 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { HttpStatusCode } from "../../SupportingTypes";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import { UnsupportedStringLengthRangeData } from "./UnsupportedStringLengthRangeData";
 
-export * from "./isString";
-export * from "./mustBeString";
-export * from "./validateString";
-export * from "./validateStringLengthBetween";
-export * from "./validateStringMatches";
-export * from "./validateStringStartsWith";
-export * from "./validateStringValue";
+/**
+ * `UnsupportedStringLengthRangeError` is a throwable Error. It is thrown when
+ * a string's length falls outside the permitted range.
+ *
+ * @public
+ */
+export class UnsupportedStringLengthRangeError extends AppError<UnsupportedStringLengthRangeData> {
+    public constructor(params: UnsupportedStringLengthRangeData & AppErrorData) {
+        const spr = makeStructuredProblemReport<UnsupportedStringLengthRangeData>({
+            definedBy: MODULE_NAME,
+            description: "validation failed; string length out of range",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+            status: 422 as HttpStatusCode,
+        });
+        super(spr);
+    }
+}

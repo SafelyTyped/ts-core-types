@@ -31,11 +31,51 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { UnsupportedStringLengthRangeError } from "../../Errors";
 
-export * from "./isString";
-export * from "./mustBeString";
-export * from "./validateString";
-export * from "./validateStringLengthBetween";
-export * from "./validateStringMatches";
-export * from "./validateStringStartsWith";
-export * from "./validateStringValue";
+/**
+ * `validateStringLengthBetween()` is a {@link DataValidator}. It proves that
+ * the `input` string has a length within the permitted range.
+ *
+ * @param minLength -
+ * how short can the string be?
+ * @param maxLength -
+ * how long can the string be?
+ * use `-1` if the string can be as long as you like (not recommended,
+ * but supported)
+ * @param path -
+ * where you are in your data structure. Use {@link DEFAULT_DATA_PATH}
+ * if you're not sure what value to provide.
+ * @param input -
+ * the string to validate
+ * @returns
+ * - `input` if the input successfully validates
+ * - an AppError if the input did not validate
+ *
+ * @public
+ */
+export function validateStringLengthBetween(
+    minLength: number,
+    maxLength: number,
+    path: DataPath,
+    input: string
+): AppErrorOr<string> {
+    // does our input string validate?
+    if (input.length >= minLength) {
+        // so far, so good
+        if (maxLength < 0 || input.length <= maxLength) {
+            // all good
+            return input;
+        }
+    }
+
+    // let's give them the bad news
+    return new UnsupportedStringLengthRangeError({ public: {
+        dataPath: path,
+        minLength,
+        maxLength,
+        actualLength: input.length,
+    }});
+}
