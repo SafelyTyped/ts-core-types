@@ -31,25 +31,25 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectCannotBeEmpty";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./RegexDoesNotCompile";
-export * from "./RegexReturnedNoNamedGroups";
-export * from "./RegexReturnedNoResults";
-export * from "./StringIsTooShort";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringLengthRange";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+import { UnsupportedStringLengthRangeError } from "./UnsupportedStringLengthRangeError";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+
+describe("UnsupportedStringLengthError", () => {
+    describe(".constructor()", () => {
+        it("creates a Javascript error", () => {
+            const unit = new UnsupportedStringLengthRangeError({
+                public: {
+                    dataPath: DEFAULT_DATA_PATH,
+                    minLength: 10,
+                    maxLength: 1000,
+                    actualLength: 1,
+                },
+            });
+
+            expect(unit).to.be.instanceOf(Error);
+        });
+    });
+});

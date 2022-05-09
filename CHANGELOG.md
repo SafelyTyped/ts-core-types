@@ -21,6 +21,17 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.3.10
+
+Released Monday, 9th May, 2022.
+
+### New
+
+* Added `validateStringLengthBetween()`
+* Added `validateStringMinLength()`
+* Added `StringIsTooShort` Error
+* Added `UnsupportedStringLengthRange` Error
+
 ## v0.3.9
 
 Released Monday, 9th May 2022.

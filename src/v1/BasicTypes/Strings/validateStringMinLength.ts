@@ -32,24 +32,44 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectCannotBeEmpty";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./RegexDoesNotCompile";
-export * from "./RegexReturnedNoNamedGroups";
-export * from "./RegexReturnedNoResults";
-export * from "./StringIsTooShort";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringLengthRange";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath } from "../../SupportingTypes";
+import { StringIsTooShortError } from "../../Errors";
+
+/**
+ * `validateStringMinLength()` is a {@link DataValidator}. It proves that
+ * the `input` string is at least `minLength` characters long.
+ *
+ * @param minLength -
+ * how short can the string be?
+ * @param path -
+ * where you are in your data structure. Use {@link DEFAULT_DATA_PATH}
+ * if you're not sure what value to provide.
+ * @param input -
+ * the string to validate
+ * @returns
+ * - `input` if the input successfully validates
+ * - an AppError if the input did not validate
+ *
+ * @public
+ */
+export function validateStringMinLength(
+    minLength: number,
+    path: DataPath,
+    input: string
+): AppErrorOr<string> {
+    // does our input string validate?
+    if (input.length >= minLength) {
+        // all good
+        return input;
+    }
+
+    // let's give them the bad news
+    return new StringIsTooShortError({
+        public: {
+            dataPath: path,
+            minLength,
+            actualLength: input.length,
+        }
+    });
+}
