@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,69 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./HashMap";
-export * from "./AnyHashMap";
-export * from "./validateHashMap";
-export * from "./isHashMap";
-export * from "./mustBeHashMap";
+import { AnyTypeValidator } from "../../Archetypes";
+import { validateAny } from "../Any";
+import { validateBoolean } from "../Booleans";
+import { AnyHashMap, validateHashMap } from "../HashMaps";
+import { validateObject } from "../Objects";
+import { validateString } from "../Strings";
+
+type ValidHashMapFixture = {
+    inputValue: AnyHashMap,
+    valueValidator: AnyTypeValidator,
+}
+
+export const ValidHashMapData: ValidHashMapFixture[] = [
+    {
+        inputValue: {
+            1: true,
+            2: true,
+            3: true,
+        },
+        valueValidator: validateBoolean,
+    },
+];
+
+type InvalidHashMapFixture = {
+    inputValue: any,
+    valueValidator: AnyTypeValidator,
+}
+
+export const InvalidHashMapData: InvalidHashMapFixture[] = [
+    {
+        inputValue: null,
+        valueValidator: validateAny,
+    },
+    {
+        inputValue: undefined,
+        valueValidator: validateAny,
+    },
+    {
+        inputValue: [],
+        valueValidator: validateAny,
+    },
+    {
+        inputValue: true,
+        valueValidator: validateBoolean,
+    },
+    {
+        inputValue: false,
+        valueValidator: validateBoolean,
+    },
+    {
+        inputValue: validateHashMap,
+        valueValidator: validateObject,
+    },
+    {
+        inputValue: "hello world!",
+        valueValidator: validateString,
+    },
+    {
+        inputValue: {
+            1: true,
+            2: true,
+            3: "false",
+        },
+        valueValidator: validateBoolean,
+    }
+];

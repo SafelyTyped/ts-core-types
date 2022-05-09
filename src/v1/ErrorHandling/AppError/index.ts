@@ -35,3 +35,4 @@
 export * from "./AppError";
 export * from "./AppErrorData";
 export * from "./AnyAppError";
+export * from "./isAppError";

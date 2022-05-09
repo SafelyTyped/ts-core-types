@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,41 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./HashMap";
-export * from "./AnyHashMap";
-export * from "./validateHashMap";
-export * from "./isHashMap";
-export * from "./mustBeHashMap";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { ValidHashMapData, InvalidHashMapData } from "../_fixtures";
+import { AppError } from "../../ErrorHandling";
+import { mustBeHashMap } from "./mustBeHashMap";
+
+describe("mustBeHashMap()", () => {
+    describe("returns `input` when given a valid HashMap", () => {
+        ValidHashMapData.forEach(({inputValue, valueValidator}) => {
+            it("accepts example " + JSON.stringify(inputValue), () => {
+                const actualValue = mustBeHashMap(
+                    valueValidator,
+                    inputValue
+                );
+                expect(actualValue).eql(inputValue);
+            });
+        });
+    });
+
+    describe("throws an `AppError` otherwise", () => {
+        InvalidHashMapData.forEach(({inputValue, valueValidator}) => {
+            it("rejects example " + JSON.stringify(inputValue), () => {
+                let actualValue: any = false;
+
+                try {
+                    actualValue = mustBeHashMap(
+                        valueValidator,
+                        inputValue
+                    );
+                }
+                catch (e) {
+                    actualValue = e;
+                }
+                expect(actualValue).to.be.instanceOf(AppError);
+            });
+        });
+    });
+});

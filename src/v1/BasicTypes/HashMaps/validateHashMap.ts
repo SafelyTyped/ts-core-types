@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,45 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./HashMap";
-export * from "./AnyHashMap";
-export * from "./validateHashMap";
-export * from "./isHashMap";
-export * from "./mustBeHashMap";
+import { TypeValidator } from "../../Archetypes";
+import { AppError, isAppError } from "../../ErrorHandling";
+import { AppErrorOr } from "../../OptionTypes";
+import { DataPath, extendDataPath } from "../../SupportingTypes";
+import { validateObject } from "../Objects";
+import { HashMap } from "./HashMap";
+
+export function validateHashMap<T>(
+    valueValidator: TypeValidator<T>,
+    path: DataPath,
+    input: unknown
+): AppErrorOr<HashMap<T>> {
+    // do we have an object?
+    const objRes = validateObject(path, input);
+    if (isAppError(objRes)) {
+        return objRes;
+    }
+
+    // at this point, we know that our input is an object
+    const inputObj = input as HashMap<unknown>;
+
+    // our return value
+    let retval: AppErrorOr<HashMap<T>> = input as HashMap<T>;
+
+    // this will stop at the first error we run into
+    Object.keys(input as object).every((key, index) => {
+        const keyPath = extendDataPath(path, `['${index}']`);
+        const res = valueValidator(keyPath, inputObj[key], {});
+
+        // do we have a problem?
+        if (res instanceof AppError) {
+            retval = res;
+            return false;
+        }
+
+        // no we do not, so on to the next value
+        return true;
+    });
+
+    // all done
+    return retval;
+}

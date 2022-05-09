@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,42 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./HashMap";
-export * from "./AnyHashMap";
-export * from "./validateHashMap";
-export * from "./isHashMap";
-export * from "./mustBeHashMap";
+import { AnyTypeValidator } from "../../Archetypes";
+import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { HashMap } from "./HashMap";
+import { validateHashMap } from "./validateHashMap";
+
+/**
+ * `isHashMap()` is a type guard.
+ *
+ * Use it to convince the Typescript compiler that `input` really is
+ * a HashMap<T>
+ *
+ * @param valueValidator -
+ * the validator to use to make sure your HashMap contains the kind of
+ * data that you expect
+ * @param path -
+ * where you are in your data structures. Use {@link DEFAULT_DATA_PATH}
+ * if you don't know what else to pass in here.
+ * @param input -
+ * the value to check
+ * @returns
+ * - `true` if `input` is a `HashMap<T>`
+ * - `false` otherwise
+ */
+export function isHashMap<T>(
+    valueValidator: AnyTypeValidator,
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: {
+        path?: DataPath
+    } = {}
+): input is HashMap<T> {
+    return isType(
+        () => validateHashMap(valueValidator, path, input),
+        input,
+        IS_TYPE_DEFAULT_OPTIONS
+    );
+}
