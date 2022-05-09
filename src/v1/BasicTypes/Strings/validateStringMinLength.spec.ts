@@ -31,25 +31,44 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-export * from "./defaults/MODULE_NAME";
-export * from "./ArrayCannotBeEmpty";
-export * from "./ExtensionDefinesNoMethods";
-export * from "./HttpStatusCodeOutOfRange";
-export * from "./InvalidNodeJSModuleName";
-export * from "./NotImplemented";
-export * from "./NumberOutOfRange";
-export * from "./ObjectCannotBeEmpty";
-export * from "./ObjectHasMissingMethods";
-export * from "./ObjectIsImmutable";
-export * from "./RegexDoesNotCompile";
-export * from "./RegexReturnedNoNamedGroups";
-export * from "./RegexReturnedNoResults";
-export * from "./StringIsTooShort";
-export * from "./UnreachableCode";
-export * from "./UnsupportedBooleanishValue";
-export * from "./UnsupportedNumericalValue";
-export * from "./UnsupportedType";
-export * from "./UnsupportedStringLengthRange";
-export * from "./UnsupportedStringPrefix";
-export * from "./UnsupportedStringValue";
+import { StringIsTooShortError } from "../../Errors";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateStringMinLength } from "./validateStringMinLength";
+
+
+describe("validateStringMinLength()", () => {
+    it("returns `input` when the input validates", () => {
+        const inputValue = "hello";
+        const expectedValue = inputValue;
+
+        const actualValue = validateStringMinLength(
+            0,
+            DEFAULT_DATA_PATH,
+            inputValue
+        );
+        expect(actualValue).to.eql(expectedValue);
+    });
+
+    it("returns an `AppError` when the input is too short", () => {
+        const inputValue = "goodbye!";
+        const expectedValue = new StringIsTooShortError({
+            public: {
+                dataPath: DEFAULT_DATA_PATH,
+                minLength: 10,
+                actualLength: 8,
+            }
+        })
+        const actualValue = validateStringMinLength(
+            10,
+            DEFAULT_DATA_PATH,
+            inputValue
+        );
+        expect(actualValue).to.be.instanceOf(StringIsTooShortError);
+        if (actualValue instanceof StringIsTooShortError) {
+            expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);
+        }
+    });
+});

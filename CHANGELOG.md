@@ -24,6 +24,8 @@ The following changes have been completed, and will be included in the next tagg
 ### New
 
 * Added `validateStringLengthBetween()`
+* Added `validateStringMinLength()`
+* Added `StringIsTooShort` Error
 * Added `UnsupportedStringLengthRange` Error
 
 ## v0.3.9
