@@ -35,6 +35,14 @@ The following changes have been completed, and will be included in the next tagg
 
 * Updated to the latest deps.
 
+### Tools
+
+* CI workflow now checks against:
+  - NodeJS v12.x
+  - NodeJS v14.x
+  - NodeJS v16.x
+  - NodeJS v18.x
+
 ## v0.3.8
 
 Released Monday, 2nd May 2022.
