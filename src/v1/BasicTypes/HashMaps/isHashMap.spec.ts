@@ -35,7 +35,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 import { ValidHashMapData, InvalidHashMapData } from "../_fixtures";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { isHashMap } from "./isHashMap";
 
 describe("isHashMap()", () => {
@@ -44,7 +43,6 @@ describe("isHashMap()", () => {
             it("accepts example " + JSON.stringify(inputValue), () => {
                 const actualValue = isHashMap(
                     valueValidator,
-                    DEFAULT_DATA_PATH,
                     inputValue
                 );
                 expect(actualValue).eql(true);
@@ -57,7 +55,6 @@ describe("isHashMap()", () => {
             it("rejects example " + JSON.stringify(inputValue), () => {
                 const actualValue = isHashMap(
                     valueValidator,
-                    DEFAULT_DATA_PATH,
                     inputValue
                 );
                 expect(actualValue).eql(false);

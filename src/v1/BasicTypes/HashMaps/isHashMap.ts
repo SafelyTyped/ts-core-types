@@ -34,7 +34,7 @@
 
 import { AnyTypeValidator } from "../../Archetypes";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
-import { DataPath } from "../../SupportingTypes";
+import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { HashMap } from "./HashMap";
 import { validateHashMap } from "./validateHashMap";
 
@@ -58,8 +58,12 @@ import { validateHashMap } from "./validateHashMap";
  */
 export function isHashMap<T>(
     valueValidator: AnyTypeValidator,
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: {
+        path?: DataPath
+    } = {}
 ): input is HashMap<T> {
     return isType(
         () => validateHashMap(valueValidator, path, input),
