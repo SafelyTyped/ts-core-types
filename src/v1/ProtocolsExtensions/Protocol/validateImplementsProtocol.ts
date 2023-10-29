@@ -64,7 +64,7 @@ import { ProtocolDefinition } from "../ProtocolDefinition";
  */
 export function validateImplementsProtocol<T>(
     path: DataPath,
-    input: object & ({} | T),
+    input: object,
     protocol: ProtocolDefinition,
 ): AppErrorOr<T> {
     // okay, we're good to go here

@@ -41,4 +41,4 @@ import { searchDispatchMap } from "../DispatchMap";
  * @public
  * @deprecated
  */
- export const searchFunctionPointerTable = searchDispatchMap;
+export const searchFunctionPointerTable = searchDispatchMap;

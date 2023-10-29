@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { getPrototypeOf } from "../Objects";
+
 /**
  * `getClassNames()` returns a list of the classes that this object was
  * built from.
@@ -47,7 +49,7 @@
  * @public
  */
 export function getClassNames(
-    input: object
+    input: unknown
 ): string[] {
     // our return value
     const retval: string[] = [];
@@ -58,12 +60,13 @@ export function getClassNames(
     }
 
     // we need to keep track of where we are in the inheritence chain
-    let item = Object.getPrototypeOf(input);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    let item = getPrototypeOf(input);
 
     // walk the inheritence chain
     while (item !== null) {
         retval.push(item.constructor.name);
-        item = Object.getPrototypeOf(item);
+        item = getPrototypeOf(item);
     }
 
     // all done

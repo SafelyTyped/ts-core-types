@@ -7,7 +7,8 @@
         "**/*.spec.ts",
         "**/*.spec.js",
         "coverage/**",
-        "spec/**"
+        "spec/**",
+        ".elintrc.js"
     ],
     "reporter": [
         "json",

@@ -61,8 +61,8 @@ import { validateImplementsProtocol } from "./validateImplementsProtocol";
  *
  * @public
  */
-export function implementsProtocol<T>(
-    target: object & ({} | T),
+export function implementsProtocol<T extends object>(
+    target: object,
     protocol: ProtocolDefinition,
     {
         path = DEFAULT_DATA_PATH

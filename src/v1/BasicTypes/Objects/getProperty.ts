@@ -53,8 +53,8 @@
  * - `undefined` otherwise
  */
 export function getProperty<T = unknown>(
-     target: object,
-     propName: string|number|symbol
+    target: object,
+    propName: string|number|symbol
 ): T|undefined {
-    return (target as Record<typeof propName, any>)[propName as any] ?? undefined;
+    return (target as Record<typeof propName, T>)[propName] ?? undefined;
 }

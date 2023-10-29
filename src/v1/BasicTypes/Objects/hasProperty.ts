@@ -49,7 +49,7 @@
  * - `false` otherwise
  */
 export function hasProperty(target: object, propName: string|number|symbol): boolean {
-    if ((target as Record<typeof propName, any>)[propName as any]) {
+    if ((target as Record<typeof propName, any>)[propName]) {
         return true;
     }
 

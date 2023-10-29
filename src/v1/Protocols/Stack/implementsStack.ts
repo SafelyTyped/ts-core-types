@@ -48,5 +48,5 @@ export function implementsStack(input: unknown): input is Stack {
         return false;
     }
 
-    return (typeof (input as any).stack === "string");
+    return (typeof (input as Stack).stack === "string");
 }

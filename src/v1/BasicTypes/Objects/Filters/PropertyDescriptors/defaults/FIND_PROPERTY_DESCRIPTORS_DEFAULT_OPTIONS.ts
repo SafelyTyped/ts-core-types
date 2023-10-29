@@ -42,4 +42,4 @@ import { PropertyDescriptorFilterOptions } from "../PropertyDescriptorFilterOpti
  */
 export const FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS: PropertyDescriptorFilterOptions = {
     nextPrototype: NEXT_PROTOTYPE
-}
+};

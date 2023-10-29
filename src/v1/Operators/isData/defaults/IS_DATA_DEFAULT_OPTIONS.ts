@@ -42,4 +42,4 @@ import { IsDataOptions } from "../IsDataOptions";
  */
 export const IS_DATA_DEFAULT_OPTIONS: IsDataOptions = {
     path: DEFAULT_DATA_PATH,
-}
+};

@@ -1,4 +1,4 @@
-// tslint:disable ban-types
+/* eslint-disable @typescript-eslint/ban-types */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -58,5 +58,5 @@ export const mustBeFunction: TypeGuarantee<Function, TypeGuaranteeOptions> = (
         path = DEFAULT_DATA_PATH
     }: Partial<TypeGuaranteeOptions> = {}
 ) => mustBe(input, { onError })
-     .next((x) => validateFunction(path, x))
-     .value();
+    .next((x) => validateFunction(path, x))
+    .value();

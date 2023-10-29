@@ -31,25 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { IfEquals } from "./IfEquals";
 
 /**
- * `EquivalentOptionalKeys` is a utility type. Use it to create a set of
- * attributes that:
- *
- * - exist in both `A` and `B`, and
- * - that have the same type,
- * - and are optional fields
- *
- * If an attribute exists in both `A` and `B`, but it has different types
- * in `A` and `B`, it will not be considered to be an equivalent key.
+ * `AnyArrayKey` is a type alias. Use it to represent any allowable
+ * array index key.
  *
  * @public
  */
-export type EquivalentOptionalKeys<A extends object, B extends object> = {
-    [K in keyof A]-?: unknown extends Pick<A, K>
-        ? K extends keyof B
-        ? IfEquals<A[K], B[K], K, never>
-        : never
-        : never
-}[keyof A];
+export type AnyArrayKey = string | number | symbol;

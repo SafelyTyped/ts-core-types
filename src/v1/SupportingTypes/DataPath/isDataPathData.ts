@@ -45,4 +45,4 @@ import { validateDataPathData } from "./validateDataPathData";
  * @public
  */
 export const isDataPathData = (input: string): boolean =>
-    isData(validateDataPathData, input, IS_DATA_DEFAULT_OPTIONS)
+    isData(validateDataPathData, input, IS_DATA_DEFAULT_OPTIONS);

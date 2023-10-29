@@ -91,15 +91,15 @@ export function extractReasonFromCaught(
         return reason;
     }
     switch(typeof e) {
-        case "number":
-            if (isNaN(e)) {
-                return reason;
-            }
-            return e.toString();
-        case "string":
-            return e;
-        case "boolean":
+    case "number":
+        if (isNaN(e)) {
             return reason;
+        }
+        return e.toString();
+    case "string":
+        return e;
+    case "boolean":
+        return reason;
     }
 
     // do we have something we can ask?

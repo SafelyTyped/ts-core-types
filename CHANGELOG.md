@@ -21,6 +21,17 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+* Upgrade to Typescript 5.x
+* Switch from tslint to @typescript-eslint
+  * Lots of tweaks to satisfy @typescript-eslint
+* Added `AnyArrayKey`
+* Added `getPropertyOf()`
+* Added `isObjectish()`
+* Added `mustBeObjectish()`
+* Added `validateObjectish()`
+* Added `off`, `nack` and `narp` as recognised `false` values to the `DEFAULT_BOOLEANISH_RULES`
+* Added `on`, `ack`, `yarp` as recognised `true` values to the `DEFAULT_BOOLEANISH_RULES`
+
 ## v0.3.10
 
 Released Monday, 9th May, 2022.

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -49,7 +50,6 @@ import { getTypeNames } from "../Unknowns";
  *
  * @public
  */
-// tslint:disable-next-line: ban-types
 export function validateFunction(path: DataPath, input: unknown): AppErrorOr<Function> {
     // shorthand
     const expectedMsg = "function";

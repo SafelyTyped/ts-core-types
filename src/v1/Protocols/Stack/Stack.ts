@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
- /**
-  * `Stack` is a protocol. It describes objects that (hopefully!) contain
-  * a stack trace of some kind.
-  *
-  * @public
-  */
- export interface Stack {
+/**
+ * `Stack` is a protocol. It describes objects that (hopefully!) contain
+ * a stack trace of some kind.
+ *
+ * @public
+ */
+export interface Stack {
     stack: string;
 }

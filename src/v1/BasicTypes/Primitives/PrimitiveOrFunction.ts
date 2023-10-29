@@ -1,4 +1,4 @@
-// tslint:disable: ban-types
+/* eslint-disable @typescript-eslint/ban-types */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.

@@ -57,7 +57,7 @@ export const applyFunctionalOptions = <T, OPT>(
     ...fnOpts: FunctionalOption<T,OPT>[]
 ) => {
     // apply the options (if we have any)
-    fnOpts.forEach((fnOpt) => { input = fnOpt(input, options)});
+    fnOpts.forEach((fnOpt) => { input = fnOpt(input, options); });
 
     // all done
     return input;

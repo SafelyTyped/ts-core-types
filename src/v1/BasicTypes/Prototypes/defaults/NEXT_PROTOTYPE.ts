@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -32,6 +33,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { getPrototypeOf } from "../../Objects";
 import { NextPrototypeChain } from "../NextPrototypeChain";
 
 /**
@@ -41,4 +43,4 @@ import { NextPrototypeChain } from "../NextPrototypeChain";
  * @public
  */
 export const NEXT_PROTOTYPE: NextPrototypeChain
-    = (x) => Object.getPrototypeOf(x);
+    = (x) => getPrototypeOf(x);

@@ -63,7 +63,7 @@ import { getProperty } from "../../BasicTypes";
  *
  * @public
  */
- export function searchDispatchMap<F extends AnyFunction, K extends AnyDispatchMapKey>(
+export function searchDispatchMap<F extends AnyFunction, K extends AnyDispatchMapKey>(
     table: DispatchMap<K, F>,
     keysToTry: AnyDispatchMapKey[],
     fallback: F,

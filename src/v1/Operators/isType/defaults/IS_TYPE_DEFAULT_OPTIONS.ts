@@ -42,4 +42,4 @@ import { IsTypeOptions } from "../IsTypeOptions";
  */
 export const IS_TYPE_DEFAULT_OPTIONS: IsTypeOptions = {
     path: DEFAULT_DATA_PATH,
-}
+};

@@ -31,25 +31,24 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { IfEquals } from "./IfEquals";
+import { expect } from "chai";
+import { describe } from "mocha";
 
-/**
- * `EquivalentOptionalKeys` is a utility type. Use it to create a set of
- * attributes that:
- *
- * - exist in both `A` and `B`, and
- * - that have the same type,
- * - and are optional fields
- *
- * If an attribute exists in both `A` and `B`, but it has different types
- * in `A` and `B`, it will not be considered to be an equivalent key.
- *
- * @public
- */
-export type EquivalentOptionalKeys<A extends object, B extends object> = {
-    [K in keyof A]-?: unknown extends Pick<A, K>
-        ? K extends keyof B
-        ? IfEquals<A[K], B[K], K, never>
-        : never
-        : never
-}[keyof A];
+import { AnyBranded, Branded } from ".";
+
+type BrandedUuid = Branded<string, "uuid">;
+type Kilometer = Branded<number, "kilometer">;
+
+function acceptsBrandedUuid(input: AnyBranded) {
+	return true;
+}
+
+describe("AnyBranded type", () => {
+	it("can be used typed argument", () => {
+		const unit1 = "123e4567-e89b-12d3-a456-426655440000" as BrandedUuid;
+		const unit2 = 25 as Kilometer;
+
+		expect(acceptsBrandedUuid(unit1)).to.be.true;
+		expect(acceptsBrandedUuid(unit2)).to.be.true;
+	});
+});

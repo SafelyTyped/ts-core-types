@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyTypeValidator } from "../../Archetypes";
+import { TypeValidator } from "../../Archetypes";
 import { DataGuaranteeOptions } from "../../Archetypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
@@ -62,7 +62,7 @@ import { validateHashMap } from "./validateHashMap";
  * `input` (typecast to HashMap<T>) on success
  */
 export function mustBeHashMap<T>(
-    valueValidator: AnyTypeValidator,
+    valueValidator: TypeValidator<T>,
     input: unknown,
     {
         onError = THROW_THE_ERROR,
@@ -70,6 +70,6 @@ export function mustBeHashMap<T>(
     }: Partial<DataGuaranteeOptions> = {}
 ): HashMap<T> {
     return mustBe(input, { onError })
-    .next((x) => validateHashMap(valueValidator, path, x))
-    .value();
+        .next((x) => validateHashMap(valueValidator, path, x))
+        .value();
 }

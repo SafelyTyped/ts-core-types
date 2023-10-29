@@ -31,25 +31,33 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { IfEquals } from "./IfEquals";
+import { TypeGuarantee, TypeGuaranteeOptions } from "../../Archetypes";
+import { THROW_THE_ERROR } from "../../ErrorHandling";
+import { mustBe } from "../../Operators";
+import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { validateObjectish } from "./validateObjectish";
 
 /**
- * `EquivalentOptionalKeys` is a utility type. Use it to create a set of
- * attributes that:
+ * `mustBeObject()` is a {@link TypeGuarantee}. Use it to ensure that
+ * the unknown `input` is, in fact, an object.
  *
- * - exist in both `A` and `B`, and
- * - that have the same type,
- * - and are optional fields
+ * `null` is NOT an object, according to this test.
  *
- * If an attribute exists in both `A` and `B`, but it has different types
- * in `A` and `B`, it will not be considered to be an equivalent key.
+ * @param input -
+ * the value to inspect
+ * @param onError -
+ * We'll call this if validation fails.
+ * @param path -
+ * where are you in the validation of your data structure?
  *
  * @public
  */
-export type EquivalentOptionalKeys<A extends object, B extends object> = {
-    [K in keyof A]-?: unknown extends Pick<A, K>
-        ? K extends keyof B
-        ? IfEquals<A[K], B[K], K, never>
-        : never
-        : never
-}[keyof A];
+export const mustBeObjectish: TypeGuarantee<object, TypeGuaranteeOptions> = (
+    input: unknown,
+    {
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeGuaranteeOptions> = {}
+) => mustBe(input, { onError })
+    .next((x) => validateObjectish(path, x))
+    .value();

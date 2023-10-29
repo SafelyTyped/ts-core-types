@@ -44,4 +44,4 @@ import { NonEmptyArray } from "./NonEmptyArray";
  */
 export const isNonEmptyArray = <T>(input: T[]): input is NonEmptyArray<T> => {
     return input.length > 0;
-}
+};

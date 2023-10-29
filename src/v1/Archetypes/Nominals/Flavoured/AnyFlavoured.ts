@@ -39,4 +39,4 @@ import { Flavoured } from "./Flavoured";
  *
  * @public
  */
- export type AnyFlavoured = Flavoured<any, any>;
+export type AnyFlavoured = Flavoured<unknown, string>;

@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { getPrototypeOf } from "../../Objects";
 import { NextPrototypeChain } from "../NextPrototypeChain";
 
 /**
@@ -42,10 +43,12 @@ import { NextPrototypeChain } from "../NextPrototypeChain";
  */
 export const STOP_AT_OBJECT_PROTOTYPE: NextPrototypeChain
     = (x) => {
-        const retval = Object.getPrototypeOf(x);
+        const retval = getPrototypeOf(x);
+
+        // special case - we've reached the Object prototype
         if (retval === Object.prototype) {
             return null;
         }
 
         return retval;
-    }
+    };

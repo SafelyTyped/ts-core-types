@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-declaration-merging */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -68,8 +69,7 @@ export class HashMap<T> {
         HashMap.keys(target)
             .forEach((name: string) => {
                 callbackfn(target[name], name, target);
-            }
-        );
+            });
     }
 
     /**
@@ -126,8 +126,7 @@ export class HashMap<T> {
         return HashMap.keys(target)
             .some((name: string) => {
                 return callbackfn(target[name], name, target);
-            }
-        );
+            });
     }
 
     /**
@@ -151,8 +150,7 @@ export class HashMap<T> {
         return HashMap.keys(target)
             .every((name: string) => {
                 return callbackfn(target[name], name, target);
-            }
-        );
+            });
     }
 
     /**
@@ -272,7 +270,7 @@ export class HashMap<T> {
         // certainly extremely reliable
         HashMap.keys(target).forEach((key) => {
             retval.push(target[key]);
-        })
+        });
 
         // all done
         return retval;
@@ -461,7 +459,7 @@ export class HashMap<T> {
      */
     public static getKeyValuePairs(
         source: HashMap<string>,
-        separator: string = '=',
+        separator: string = "=",
     ) {
         return HashMap.mapToArray(
             source,
@@ -579,7 +577,7 @@ export class HashMap<T> {
      * @param callbackfn -
      * your function to build a list of index keys to use
      */
-     public static updateIndex<T>(
+    public static updateIndex<T>(
         source: HashMap<T>,
         target: HashMap<T>,
         callbackfn: (value: T, name: string, source: HashMap<T>, target: HashMap<T>) => string[],

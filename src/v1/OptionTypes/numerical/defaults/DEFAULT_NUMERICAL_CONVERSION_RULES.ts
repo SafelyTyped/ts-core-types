@@ -55,4 +55,4 @@ export const DEFAULT_NUMERICAL_CONVERSION_RULES: NumericalConversionRules = {
         return NaN;
     },
     string: (x: string) => Number(x),
-}
+};

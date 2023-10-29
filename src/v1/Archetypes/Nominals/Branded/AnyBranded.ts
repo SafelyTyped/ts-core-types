@@ -39,4 +39,4 @@ import { Branded } from "./Branded";
  *
  * @public
  */
- export type AnyBranded = Branded<any, any>;
+export type AnyBranded = Branded<unknown, string>;

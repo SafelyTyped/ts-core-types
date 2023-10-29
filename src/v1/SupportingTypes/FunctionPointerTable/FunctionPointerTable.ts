@@ -34,7 +34,7 @@
 //
 
 import { AnyFunction } from "../../Archetypes";
-import { DispatchMap } from "../DispatchMap";
+import { AnyDispatchMapKey, DispatchMap } from "../DispatchMap";
 
 /**
  * `FunctionPointerTable` is a type alias for {@link DispatchMap}
@@ -43,6 +43,6 @@ import { DispatchMap } from "../DispatchMap";
  * @deprecated
  */
 export type FunctionPointerTable<
-    K extends string | number | symbol,
+    K extends AnyDispatchMapKey,
     F extends AnyFunction,
 > = DispatchMap<K,F>;

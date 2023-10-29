@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./AnyArrayKey";
 export * from "./NonEmptyArray";
 export * from "./isNonEmptyArray";
 export * from "./isArray";

@@ -32,4 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export type AnyDispatchMapKey = string | number | symbol;
+import { AnyArrayKey } from "../../BasicTypes";
+
+export type AnyDispatchMapKey = AnyArrayKey;

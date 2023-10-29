@@ -39,6 +39,7 @@ import { UnsupportedTypeError } from "../../Errors";
  * `validateObject()` is a {@link TypeGuard}. Use it to prove that the
  * unknown `input` really is an object of some kind.
  *
+ * `array` is treated as NOT an object.
  * `null` is treated as NOT an object.
  *
  * @param path -

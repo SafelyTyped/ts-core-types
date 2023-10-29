@@ -87,7 +87,7 @@ function addSourceMethods(target: object, source: object) {
         (x) => typeof (target as AnyHashMap)[ x.propName ] !== "function"
     )) {
         Object.defineProperty(target, propName, propDesc);
-    };
+    }
 }
 
 function addSeedValues(target: object, seed: object | undefined) {

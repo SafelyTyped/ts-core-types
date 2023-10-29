@@ -86,10 +86,11 @@ export function assignOptionalFieldsUsingTransformers<
         for (const key in source) {
             if (key in transformers) {
                 // shorthand
-                const sourceValue = source[key] as any;
+                const sourceValue = source[key];
                 const transformer = myTransformers[key as keyof object];
 
                 if(typeof sourceValue !== "undefined" && transformer) {
+                    // eslint-disable-next-line
                     myTarget[key] = transformer(sourceValue);
                 }
             }

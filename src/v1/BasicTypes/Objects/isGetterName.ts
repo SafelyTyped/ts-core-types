@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { getPrototypeOf } from "./getPrototypeOf";
+
 // This code has been adapted from:
 //
 // https://stackoverflow.com/a/47714550
@@ -57,7 +59,8 @@
  */
 export function isGetterName<T extends object>(target: T, methodName: keyof T): boolean {
     // this is the object we are going to be looking at
-    let obj = target;
+    let obj: object|null;
+    obj = target;
 
     // we continue until we run out of prototypes to examine
     while (obj !== null) {
@@ -68,7 +71,7 @@ export function isGetterName<T extends object>(target: T, methodName: keyof T): 
         }
 
         // next prototype!
-        obj = Object.getPrototypeOf(obj);
+        obj = getPrototypeOf(obj);
     }
 
     return false;

@@ -50,10 +50,10 @@ import { AppErrorOr } from "../../OptionTypes";
  *
  * @public
  */
-export function validateArray<T>(path: DataPath, input: unknown): AppErrorOr<T[]> {
+export function validateArray(path: DataPath, input: unknown): AppErrorOr<unknown[]> {
     // do we have an array?
     if (Array.isArray(input)) {
-        return input;
+        return input as unknown[];
     }
 
     // hate to be the bearer of bad news ...
@@ -63,5 +63,5 @@ export function validateArray<T>(path: DataPath, input: unknown): AppErrorOr<T[]
             expected: "array",
             actual: typeof input,
         }
-    })
+    });
 }

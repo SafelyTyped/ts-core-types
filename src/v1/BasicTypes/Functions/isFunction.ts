@@ -1,4 +1,4 @@
-// tslint:disable ban-types
+/* eslint-disable @typescript-eslint/ban-types */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.
@@ -48,4 +48,4 @@ import { validateFunction } from "./validateFunction";
  */
 export const isFunction: TypeGuard<Function> =
     (input: unknown): input is Function =>
-        isType(validateFunction, input, IS_TYPE_DEFAULT_OPTIONS)
+        isType(validateFunction, input, IS_TYPE_DEFAULT_OPTIONS);

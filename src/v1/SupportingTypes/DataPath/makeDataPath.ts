@@ -64,4 +64,4 @@ export const makeDataPath = (
     input,
     { onError, path },
     ...fnOpts
-)
+);

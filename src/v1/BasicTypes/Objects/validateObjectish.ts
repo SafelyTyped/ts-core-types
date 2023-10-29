@@ -31,25 +31,53 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { IfEquals } from "./IfEquals";
+
+import { DataPath, AppErrorOr } from "../..";
+import { UnsupportedTypeError } from "../../Errors";
 
 /**
- * `EquivalentOptionalKeys` is a utility type. Use it to create a set of
- * attributes that:
+ * `validateObjectish()` is a {@link TypeGuard}. Use it to prove that the
+ * unknown `input` really is an object of some kind.
  *
- * - exist in both `A` and `B`, and
- * - that have the same type,
- * - and are optional fields
+ * `Array` is treated AS an object.
+ * `null` is treated as NOT an object.
  *
- * If an attribute exists in both `A` and `B`, but it has different types
- * in `A` and `B`, it will not be considered to be an equivalent key.
+ * @param path -
+ * where are we in the data structure you are validating?
+ * @param input -
+ * the value to inspect
+ * @returns
+ * - `input`, type-cast to an object, if validation succeeds, or
+ * - an {@link AppError} explaining why validation failed
  *
  * @public
  */
-export type EquivalentOptionalKeys<A extends object, B extends object> = {
-    [K in keyof A]-?: unknown extends Pick<A, K>
-        ? K extends keyof B
-        ? IfEquals<A[K], B[K], K, never>
-        : never
-        : never
-}[keyof A];
+export function validateObjectish(path: DataPath, input: unknown): AppErrorOr<object> {
+    // shorthand
+    const expectedMsg = "non-null object";
+
+    // easy one first
+    if (typeof input !== "object") {
+        return new UnsupportedTypeError({
+            public: {
+                dataPath: path,
+                expected: expectedMsg,
+                actual: typeof input
+            }
+        });
+    }
+
+    // it's a weird world where null is an object ...
+    if (input === null) {
+        return new UnsupportedTypeError({
+            public: {
+                dataPath: path,
+                expected: expectedMsg,
+                actual: "null"
+            }
+        });
+    }
+
+    // all done!
+    return input;
+}

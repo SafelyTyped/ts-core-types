@@ -80,6 +80,14 @@ describe("validateBooleanishData()", () => {
             "TrUE",
             "yes",
             "yES",
+            "ON",
+            "oN",
+            "on",
+            "ACK",
+            "Ack",
+            "ack",
+            "Yarp",
+            "yarp",
             new UnitTestTrue(),
         ].forEach((inputValue) => {
             it("returns `true` when given " + inputValue + " (" + typeof inputValue + ")", () => {
@@ -98,6 +106,13 @@ describe("validateBooleanishData()", () => {
             "fAlSe",
             "no",
             "nO",
+            "OFF",
+            "Off",
+            "off",
+            "NACK",
+            "nack",
+            "NARP",
+            "narp",
             new UnitTestFalse(),
         ].forEach((inputValue) => {
             it("returns `false` when given " + inputValue + " (" + typeof inputValue + ")", () => {
@@ -138,7 +153,7 @@ describe("validateBooleanishData()", () => {
                     public: {
                         dataPath: typeof inputValue === "object" && implementsOwnOrInheritedToString(inputValue) ? "input.toString()" as DataPath : DEFAULT_DATA_PATH,
                         type: "string",
-                        expected: "0 | false | no | 1 | true | yes",
+                        expected: "0 | false | no | off | nack | narp | 1 | true | yes | on | ack | yarp",
                         actual: typeof inputValue === "object" ? inputValue.toString() : inputValue,
                     }
                 })

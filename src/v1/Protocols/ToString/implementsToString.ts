@@ -57,5 +57,5 @@ export function implementsToString(input: unknown): input is ToString {
     }
 
     // just in case someone is being a bit of a clown
-    return (typeof (input as object).toString === "function");
+    return (typeof input.toString === "function");
 }

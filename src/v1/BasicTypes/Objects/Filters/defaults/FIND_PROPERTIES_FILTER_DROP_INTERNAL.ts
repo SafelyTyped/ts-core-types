@@ -42,4 +42,4 @@ import { PropertyFilter } from "../PropertyFilter";
  * @public
  */
 export const FIND_PROPERTIES_FILTER_DROP_INTERNAL: PropertyFilter
-    = (x) => !x.propName.startsWith("_")
+    = (x) => !x.propName.startsWith("_");

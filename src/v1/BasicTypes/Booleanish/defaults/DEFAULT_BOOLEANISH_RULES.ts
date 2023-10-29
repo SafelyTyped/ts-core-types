@@ -47,9 +47,9 @@ import { validateBooleanishObject } from "../validateBooleanishData/validateBool
  * @public
  */
 export const DEFAULT_BOOLEANISH_STRING_RULES = {
-    false: [ "0", "false", "no" ],
-    true: ["1", "true", "yes" ],
-}
+    false: [ "0", "false", "no", "off", "nack", "narp" ],
+    true: ["1", "true", "yes", "on", "ack", "yarp" ],
+};
 
 /**
  * `DEFAULT_BOOLEANISH` contains the default set of rules for converting
@@ -61,7 +61,7 @@ export const DEFAULT_BOOLEANISH_STRING_RULES = {
  */
 export const DEFAULT_BOOLEANISH_RULES: BooleanishRules = {
     boolean: validateBooleanishBoolean,
-    number: (path, input) => validateBooleanishNumber(
+    number: (path, input: number) => validateBooleanishNumber(
         {
             false: 0,
             true: 1,
@@ -69,15 +69,15 @@ export const DEFAULT_BOOLEANISH_RULES: BooleanishRules = {
         path,
         input,
     ),
-    string: (path, input) => validateBooleanishString(
+    string: (path, input: string) => validateBooleanishString(
         DEFAULT_BOOLEANISH_STRING_RULES,
         path,
         input,
     ),
-    Object: (path, input, { supportedTypes }) => validateBooleanishObject(
+    Object: (path, input: object, { supportedTypes }) => validateBooleanishObject(
         DEFAULT_BOOLEANISH_STRING_RULES,
         supportedTypes,
         path,
         input,
     )
-}
+};

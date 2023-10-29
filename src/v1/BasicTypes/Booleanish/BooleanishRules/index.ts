@@ -34,4 +34,4 @@
 
 export * from "./AnyBooleanishValidator";
 export * from "./BooleanishRules";
-export * from "./BooleanishValidator"
+export * from "./BooleanishValidator";

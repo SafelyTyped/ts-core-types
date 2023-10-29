@@ -31,6 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { isObject } from "../../BasicTypes";
 import { ToPrimitive } from "./ToPrimitive";
 
 /**
@@ -47,7 +48,7 @@ import { ToPrimitive } from "./ToPrimitive";
  */
 export function implementsToPrimitive(input: unknown): input is object & ToPrimitive {
     // special case - prevents runtime errors below
-    if (typeof input !== "object" || input === null || input === undefined) {
+    if (!isObject(input)) {
         return false;
     }
 

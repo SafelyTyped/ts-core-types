@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { AnyArrayKey } from "../Arrays";
 import { hasProperty } from "./hasProperty";
 
 /**
@@ -49,7 +50,7 @@ import { hasProperty } from "./hasProperty";
  */
 export function deleteProperty(
     target: object,
-    propName: string | number | symbol
+    propName: AnyArrayKey
 ) {
     // do we have a property to delete?
     if (!hasProperty(target, propName)) {
@@ -57,7 +58,7 @@ export function deleteProperty(
     }
 
     // yes we do
-    delete (target as Record<typeof propName, any>)[propName as any];
+    delete (target as Record<typeof propName, any>)[propName];
 
     // let the caller know that we acted
     return true;

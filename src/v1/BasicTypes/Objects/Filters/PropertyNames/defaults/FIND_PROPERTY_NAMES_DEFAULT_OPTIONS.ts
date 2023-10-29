@@ -42,4 +42,4 @@ import { NEXT_PROTOTYPE } from "../../../../Prototypes";
  */
 export const FIND_PROPERTY_NAMES_DEFAULT_OPTIONS: PropertyNameFilterOptions = {
     nextPrototype: NEXT_PROTOTYPE
-}
+};

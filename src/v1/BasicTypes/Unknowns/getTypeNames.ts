@@ -57,7 +57,7 @@ export function getTypeNames(input: unknown): string[] {
         return [ "undefined" ];
     }
     if (typeof input === "object") {
-        return getClassNames(input as object);
+        return getClassNames(input);
     }
 
     // general case

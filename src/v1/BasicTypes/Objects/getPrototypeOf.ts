@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,25 +31,41 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { IfEquals } from "./IfEquals";
+
+import { isArray } from "../Arrays";
+import { isObjectish } from "./isObjectish";
 
 /**
- * `EquivalentOptionalKeys` is a utility type. Use it to create a set of
- * attributes that:
+ * `getPrototypeOf()` returns the object prototype of the unknown `input`
+ * if it has one.
  *
- * - exist in both `A` and `B`, and
- * - that have the same type,
- * - and are optional fields
+ * This is a workaround to avoid disabling typescript-eslint's rules around
+ * the `any` type.
  *
- * If an attribute exists in both `A` and `B`, but it has different types
- * in `A` and `B`, it will not be considered to be an equivalent key.
- *
- * @public
+ * @param input -
+ * The object we want a prototype of.
+ * @returns
+ * - `null` if the input doesn't satisfy @link{getObjectish}
+ * - the object's prototype if it has one
+ * - `null` otherwise
  */
-export type EquivalentOptionalKeys<A extends object, B extends object> = {
-    [K in keyof A]-?: unknown extends Pick<A, K>
-        ? K extends keyof B
-        ? IfEquals<A[K], B[K], K, never>
-        : never
-        : never
-}[keyof A];
+export function getPrototypeOf(
+    input: unknown,
+): object|null|unknown[] {
+    // special case - target is a non-object
+    if (!isObjectish(input)) {
+        return null;
+    }
+
+    // go and grab the prototype
+    const retval = Object.getPrototypeOf(input) as object;
+
+    // this typeguard helps the compiler and eslint understand
+    // what is going on, to avoid littering the calling code
+    // with additional type checks / eslint directives
+    if (isArray(retval)) {
+        return retval;
+    }
+
+    return retval;
+}

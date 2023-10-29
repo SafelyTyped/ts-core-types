@@ -33,16 +33,6 @@
 //
 
 /**
- * Branding is an interface that will disappear at runtime. Use it to add
- * an identity to your type (aka nominal typing).
- *
- * @internal
- */
-interface Branding<BrandingT extends string> {
-    _type: BrandingT;
-}
-
-/**
  * Branded allows you to add an identity to type 'T' at compile-time
  * (aka nominal typing).
  *
@@ -53,4 +43,4 @@ interface Branding<BrandingT extends string> {
  *
  * @public
  */
-export type Branded<T, BrandingT extends string> = T & Branding<BrandingT>;
+export type Branded<T, BrandingT extends string> = T & { _type: BrandingT };

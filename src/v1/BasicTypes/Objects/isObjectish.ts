@@ -31,25 +31,23 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { IfEquals } from "./IfEquals";
+
+import { TypeGuard } from "../../Archetypes";
+import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
+import { validateObjectish } from "./validateObjectish";
 
 /**
- * `EquivalentOptionalKeys` is a utility type. Use it to create a set of
- * attributes that:
+ * `isObjectish()` is a {@link TypeGuard}. Use it to prove to the TypeScript
+ * compiler that the unknown `input` really is an object.
  *
- * - exist in both `A` and `B`, and
- * - that have the same type,
- * - and are optional fields
+ * `Array` IS an object, for the purposes of this type guard.
+ * `null` is NOT an object, for the purposes of this type guard.
  *
- * If an attribute exists in both `A` and `B`, but it has different types
- * in `A` and `B`, it will not be considered to be an equivalent key.
+ * @param input -
+ * the value to inspect
  *
  * @public
  */
-export type EquivalentOptionalKeys<A extends object, B extends object> = {
-    [K in keyof A]-?: unknown extends Pick<A, K>
-        ? K extends keyof B
-        ? IfEquals<A[K], B[K], K, never>
-        : never
-        : never
-}[keyof A];
+export const isObjectish: TypeGuard<object> =
+    (input: unknown): input is object =>
+        isType(validateObjectish, input, IS_TYPE_DEFAULT_OPTIONS);
