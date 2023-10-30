@@ -49,7 +49,7 @@ import type { Filter } from "./Filter";
  * - `true` if any filter returns `true`
  * - `false` otherwise
  *
- * @deprecated use {@link SomeGuards} instead
+ * @deprecated use {@link someGuards} instead
  *
  * @public
  */
