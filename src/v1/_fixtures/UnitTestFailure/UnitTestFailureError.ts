@@ -33,7 +33,7 @@
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
-import { UnitTestFailureData } from "./UnitTestFailureData";
+import type { UnitTestFailureData } from "./UnitTestFailureData";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 
 /**

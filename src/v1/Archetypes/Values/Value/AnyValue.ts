@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Value } from "./Value";
+import type { Value } from "./Value";
 
 /**
  * `AnyValue` is shorthand for any possible {@link Value}

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes";
-import { MakeDataPathOptions } from "../MakeDataPathOptions";
+import type { MakeDataPathOptions } from "../MakeDataPathOptions";
 
 /**
  * `MAKE_DATA_PATH_DEFAULT_OPTIONS` are the default options you can pass into

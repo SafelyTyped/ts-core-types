@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr } from "../../../OptionTypes";
+import type { AppErrorOr } from "../../../OptionTypes";
 import { implementsOwnOrInheritedToString } from "../../../Protocols";
 import { DataPath, extendDataPath } from "../../../SupportingTypes";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
@@ -45,11 +45,11 @@ import { BooleanishStrings, validateBooleanishString } from "./validateBooleanis
  * - `.toString()` isn't the default Object.toString(), and
  * - `.toString()` isn't the default Array.toString() either
  *
- * See {@link implementsOwnToString} for the definitive list of rules.
+ * See {@link implementsOwnOrInheritedToString} for the definitive list of rules.
  *
  * @param path -
  * where we are in the data structure you are validating
- * @param input -
+* @param input -
  * the number to try to convert into a boolean
  * @returns
  * - `true` or `false` on success

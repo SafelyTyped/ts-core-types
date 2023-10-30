@@ -33,8 +33,8 @@
 //
 import { searchDispatchMap } from "../../SupportingTypes";
 import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
-import { numerical } from "./numerical";
-import { NumericalConversionRules } from "./NumericalConversionRules";
+import type { numerical } from "./numerical";
+import type { NumericalConversionRules } from "./NumericalConversionRules";
 
 /**
  * `resolveNumerical()` is an option type resolver. It attempts to convert

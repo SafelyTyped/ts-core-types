@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { getPrototypeOf } from "../../Objects";
-import { NextPrototypeChain } from "../NextPrototypeChain";
+import { getPrototypeOf } from "../getPrototypeOf";
+import type { NextPrototypeChain } from "../NextPrototypeChain";
 
 /**
  * `STOP_AT_OBJECT_PROTOTYPE()` is a function that returns the next prototype

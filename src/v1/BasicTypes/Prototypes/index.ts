@@ -32,7 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+// types
+export * from "./Prototype";
 export * from "./NextPrototypeChain";
-export * from "./defaults/NEXT_PROTOTYPE";
-export * from "./defaults/STOP_AT_NEXT_PROTOTYPE";
-export * from "./defaults/STOP_AT_OBJECT_PROTOTYPE";
+
+// module
+export * from "./Prototypes";

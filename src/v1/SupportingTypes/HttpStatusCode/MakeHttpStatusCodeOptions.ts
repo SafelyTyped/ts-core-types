@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { MakeNominalTypeOptions } from "../../Archetypes";
+import type { MakeNominalTypeOptions } from "../../Archetypes";
 
 /**
  * `MakeHttpStatusCodeOptions` are the user-supplied options that

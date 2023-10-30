@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { applyFunctionalOptions, DataGuarantee, FunctionalOption } from "../../FunctionTypes";
-import { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
+import type { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
 import { THROW_THE_ERROR } from "../../../ErrorHandling";
 import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
 

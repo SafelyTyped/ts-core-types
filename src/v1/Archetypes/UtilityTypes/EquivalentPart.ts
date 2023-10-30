@@ -33,7 +33,7 @@
 //
 
 
-import { EquivalentKeys } from "./EquivalentKeys";
+import type { EquivalentKeys } from "./EquivalentKeys";
 
 /**
  * `EquivalentPart` is a mapped type. Use it to create an interface that

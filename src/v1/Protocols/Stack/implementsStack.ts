@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Stack } from "./Stack";
+import type { Stack } from "./Stack";
 
 /**
  * `implementsStack()` is a {@link TypeGuard}. It proves to the compiler that

@@ -33,7 +33,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Primitive } from "./Primitive";
+import type { Primitive } from "./Primitive";
 
 /**
  * `Primitivish` is a type-alias. Use it wherever you want to accept

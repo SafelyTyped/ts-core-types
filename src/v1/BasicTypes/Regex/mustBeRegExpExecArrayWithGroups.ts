@@ -35,7 +35,7 @@ import { OnError, THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
 import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
-import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
+import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**
  * `mustBeRegExpExecArrayWithGroups()` is a {@link DataGuarantee}.

@@ -31,10 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr } from "../../../OptionTypes";
+import type { AppErrorOr } from "../../../OptionTypes";
 import { DataPath, searchDispatchMap } from "../../../SupportingTypes";
 import { getTypeNames } from "../../Unknowns";
-import { BooleanishDataOptions } from "../BooleanishDataOptions";
+import type { BooleanishDataOptions } from "../BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
 

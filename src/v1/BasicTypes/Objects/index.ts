@@ -39,7 +39,6 @@ export * from "./getAllMethodNames";
 export * from "./getAllMethods";
 export * from "./getMissingMethodNames";
 export * from "./getProperty";
-export * from "./getPrototypeOf";
 export * from "./getPublicMethods";
 export * from "./getPublicMethodNames";
 export * from "./hasProperty";

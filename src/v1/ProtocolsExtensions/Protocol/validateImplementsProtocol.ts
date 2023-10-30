@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { validateObjectHasAllMethodsCalled } from "../../BasicTypes";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
-import { ProtocolDefinition } from "../ProtocolDefinition";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
+import type { ProtocolDefinition } from "../ProtocolDefinition";
 
 /**
  * `validateImplementsProtocol()` is a type validator. Use it to prove

@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { PropertyDescriptorFilterData } from "./PropertyDescriptorFilterData";
+import type { PropertyDescriptorFilterData } from "./PropertyDescriptorFilterData";
 
 /**
  * `PropertyDescriptorFilter` is a function signature. It describes a

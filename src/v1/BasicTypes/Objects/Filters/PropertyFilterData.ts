@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Has } from "../../../Protocols";
+import type { Has } from "../../../Protocols";
 
 /**
  * `PropertyFilterData` describes the input data that a {@link PropertyFilter}

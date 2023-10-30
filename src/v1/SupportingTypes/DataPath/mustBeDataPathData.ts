@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataGuaranteeOptions } from "../../Archetypes";
+import type { DataGuaranteeOptions } from "../../Archetypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";

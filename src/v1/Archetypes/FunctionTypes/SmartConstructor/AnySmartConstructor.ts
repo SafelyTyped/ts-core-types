@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { SmartConstructor } from "./SmartConstructor";
+import type { SmartConstructor } from "./SmartConstructor";
 
 /**
  * `AnySmartConstructor` is a type alias. Use it in function signatures

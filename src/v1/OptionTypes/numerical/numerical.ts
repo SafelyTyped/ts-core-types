@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ToPrimitive, ToString } from "../../Protocols";
+import type { ToPrimitive, ToString } from "../../Protocols";
 
 /**
  * `numerical` is an option type. Use it to represent a value that

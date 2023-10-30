@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { UnsupportedStringValueError } from "../../Errors";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
 
 
 /**

@@ -7,7 +7,7 @@
 // This file is in the public domain.
 //
 
-import { Primitivish } from "../../BasicTypes";
+import type { Primitivish } from "../../BasicTypes";
 
 /**
  * `DeepImmutable` is a version of `Readonly` that works on all known types
@@ -31,24 +31,24 @@ export type DeepImmutable<T> =
  * `DeepImmutableArray` is a version of `Readonly` that converts every
  * element in the array (and their children too) into `Readonly` types.
  */
-interface DeepImmutableArray<T> extends ReadonlyArray<DeepImmutable<T>> {}
+export interface DeepImmutableArray<T> extends ReadonlyArray<DeepImmutable<T>> {}
 
 /**
  * `DeepImmutableMap` is a version of `ReadonlyMap` that converts every
  * element of the map (and their children too) into `Readonly` types.
  */
-interface DeepImmutableMap<K,V> extends ReadonlyMap<DeepImmutable<K>, DeepImmutable<V>> {}
+export interface DeepImmutableMap<K,V> extends ReadonlyMap<DeepImmutable<K>, DeepImmutable<V>> {}
 
 /**
  * `DeepImmutableSet` is a version of `ReadonlySet` that converts every
  * entry in the set (and their children too) into `Readonly` types.
  */
-interface DeepImmutableSet<U> extends ReadonlySet<DeepImmutable<U>> {}
+export interface DeepImmutableSet<U> extends ReadonlySet<DeepImmutable<U>> {}
 
 /**
  * `DeepImmutableObject` is a version of `Readonly` that converts every
  * entry in the object (and their children too) into `Readonly` types.
  */
-type DeepImmutableObject<T> = {
+export type DeepImmutableObject<T> = {
     readonly [K in keyof T]: DeepImmutable<T[K]>
 }

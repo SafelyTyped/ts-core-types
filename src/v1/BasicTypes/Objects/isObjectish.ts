@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { TypeGuard } from "../../Archetypes";
+import type { TypeGuard } from "../../Archetypes";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
 import { validateObjectish } from "./validateObjectish";
 

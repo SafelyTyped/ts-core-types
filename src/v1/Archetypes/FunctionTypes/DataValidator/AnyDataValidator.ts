@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataValidator } from "./DataValidator";
+import type { DataValidator } from "./DataValidator";
 
 /**
  * `AnyDataValidator` is a type alias. Use it anywhere that any

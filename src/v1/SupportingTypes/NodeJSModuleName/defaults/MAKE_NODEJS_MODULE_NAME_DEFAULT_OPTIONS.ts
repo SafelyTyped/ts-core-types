@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes";
-import { MakeNodeJSModuleNameOptions } from "../MakeNodeJSModuleNameOptions";
+import type { MakeNodeJSModuleNameOptions } from "../MakeNodeJSModuleNameOptions";
 
 /**
  * `MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS` are the default options you can pass into

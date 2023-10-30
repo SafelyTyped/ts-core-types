@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { ExtraPublicData } from "../../ErrorHandling";
-import { DataPath } from "../../SupportingTypes";
+import type { ExtraPublicData } from "../../ErrorHandling";
+import type { DataPath } from "../../SupportingTypes";
 
 /**
  * `StringIsTooShortData` is the input that {@link StringIsTooShortError}

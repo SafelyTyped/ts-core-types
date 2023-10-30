@@ -33,8 +33,8 @@
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { NumberOutOfRangeData } from "./NumberOutOfRangeData";
-import { HttpStatusCode } from "../../SupportingTypes";
+import type { NumberOutOfRangeData } from "./NumberOutOfRangeData";
+import type { HttpStatusCode } from "../../SupportingTypes";
 
 /**
  * `NumberOutOfRangeError` is thrown whenever we're given a number that

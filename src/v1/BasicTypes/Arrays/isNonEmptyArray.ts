@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { NonEmptyArray } from "./NonEmptyArray";
+import type { NonEmptyArray } from "./NonEmptyArray";
 
 /**
  * `isNonEmptyArray()` is a {@link TypeGuard}. Use it to prove to the

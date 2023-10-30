@@ -31,10 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr } from "../../OptionTypes";
-import { validateStringStartsWith } from "../../BasicTypes/Strings/validateStringStartsWith";
+import type { AppErrorOr } from "../../OptionTypes";
+import { validateStringStartsWith } from "../../BasicTypes";
 import { recast, validate } from "../../Operators";
-import { DataPath } from "./DataPath";
+import type { DataPath } from "./DataPath";
 
 /**
  * `validateDataPathData()` is a {@link DataValidator}. Use it to prove that

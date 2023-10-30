@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyDispatchMap } from "./AnyDispatchMap";
+import type { AnyDispatchMap } from "./AnyDispatchMap";
 
 /**
  * `DispatchMapReturnTypes` is a mapped typed. Use it to build a type

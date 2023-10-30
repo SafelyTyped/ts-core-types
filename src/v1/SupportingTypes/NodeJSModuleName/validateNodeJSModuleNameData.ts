@@ -31,9 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataPath } from "../DataPath";
-import { AppErrorOr } from "../../OptionTypes";
-import { NodeJSModuleName } from "./NodeJSModuleName";
+import type { DataPath } from "../DataPath";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { NodeJSModuleNameDataRegex } from "./regexes";
 import { InvalidNodeJSModuleNameError } from "../../Errors";
 

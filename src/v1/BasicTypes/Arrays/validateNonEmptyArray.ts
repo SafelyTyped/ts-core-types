@@ -33,9 +33,9 @@
 //
 import { ArrayCannotBeEmptyError } from "../../Errors";
 import { validate } from "../../Operators";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
-import { NonEmptyArray } from "./NonEmptyArray";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
+import type { NonEmptyArray } from "./NonEmptyArray";
 import { validateArray } from "./validateArray";
 
 /**

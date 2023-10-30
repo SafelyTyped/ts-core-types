@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AppErrorOr } from "../../../OptionTypes";
-import { DataPath } from "../../../SupportingTypes";
-import { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
+import type { AppErrorOr } from "../../../OptionTypes";
+import type { DataPath } from "../../../SupportingTypes";
+import type { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
 
 /**
  * `BooleanishValidator` is a function signature. It describes a function

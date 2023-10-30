@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { BooleanishValidator } from "./BooleanishValidator";
+import type { BooleanishValidator } from "./BooleanishValidator";
 
 /**
  * `AnyBooleanishValidator` represents all possible {@link BooleanishValidator}

@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AnyHashMap } from "../HashMaps";
+import type { AnyHashMap } from "../HashMaps";
 
 /**
  * `isAttributeName()` is a data guard. Use it to prove that property

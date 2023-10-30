@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnError } from "../OnError";
+import type { OnError } from "../OnError";
 
 /**
  * `THROW_THE_ERROR()` is a predefined error handler. It is often used as the

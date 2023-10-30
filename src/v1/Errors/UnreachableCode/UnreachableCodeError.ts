@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { HttpStatusCode } from "../../SupportingTypes";
+import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { UnreachableCodeData } from "./UnreachableCodeData";
+import type { UnreachableCodeData } from "./UnreachableCodeData";
 
 /**
  * `UnreachableCodeError` is thrown whenever we end up falling out of

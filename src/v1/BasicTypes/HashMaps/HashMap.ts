@@ -33,7 +33,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { deleteProperty, findPropertyNames, getProperty, hasProperty } from "../Objects";
-import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes";
+import { Prototypes } from "../Prototypes";
 
 /**
  * `HashMap` describes an object that doesn't have a set list of keys.
@@ -241,7 +241,7 @@ export class HashMap<T> {
     {
         return findPropertyNames(
             target,
-            { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
+            { nextPrototype: Prototypes.defaults.STOP_AT_NEXT_PROTOTYPE }
         );
     }
 

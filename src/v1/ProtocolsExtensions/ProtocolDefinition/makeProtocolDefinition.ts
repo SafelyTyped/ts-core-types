@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { ProtocolDefinition } from "./ProtocolDefinition";
+import type { ProtocolDefinition } from "./ProtocolDefinition";
 import { getPublicMethodNames, isNonEmptyArray } from "../../BasicTypes";
-import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { type OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import { ExtensionDefinesNoMethodsError } from "../../Errors";
 
 /**

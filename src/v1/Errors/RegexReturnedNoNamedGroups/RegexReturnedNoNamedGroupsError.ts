@@ -19,7 +19,7 @@
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { RegexReturnedNoNamedGroupsData } from "./RegexReturnedNoNamedGroupsData";
+import type { RegexReturnedNoNamedGroupsData } from "./RegexReturnedNoNamedGroupsData";
 
 /**
  * `RegexReturnedNoNamedGroupsError` is a throwable Error. It is thrown

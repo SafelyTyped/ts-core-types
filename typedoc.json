@@ -6,5 +6,9 @@
         "**/_fixtures/**",
         "**/*.spec.*"
     ],
-    "excludeInternal": true
+    "excludeInternal": true,
+
+    "entryPointStrategy": "resolve",
+    "plugin": ["typedoc-theme-hierarchy"],
+    "name": "SafelyTyped core types"
 }

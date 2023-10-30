@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AnyPrimitiveType } from "../AnyPrimitiveType";
+import type { AnyPrimitiveType } from "../AnyPrimitiveType";
 import { RefinedPrimitive } from "./RefinedPrimitive";
 
 /**

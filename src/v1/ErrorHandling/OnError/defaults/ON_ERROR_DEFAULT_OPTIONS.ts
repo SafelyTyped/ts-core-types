@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { THROW_THE_ERROR } from "./THROW_THE_ERROR";
-import { OnErrorOptions } from "../OnErrorOptions";
+import type { OnErrorOptions } from "../OnErrorOptions";
 
 /**
  * `ON_ERROR_DEFAULT_OPTIONS` are the default user-supplied options

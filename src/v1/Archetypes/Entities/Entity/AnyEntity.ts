@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Entity } from "./Entity";
+import type { Entity } from "./Entity";
 
 /**
  * `AnyEntity` is a type alias. Use it anywhere that any {@link Entity}

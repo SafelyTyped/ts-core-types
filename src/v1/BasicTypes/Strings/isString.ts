@@ -34,7 +34,7 @@
 
 import { validateString } from "./validateString";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
-import { TypeGuard } from "../../Archetypes";
+import type { TypeGuard } from "../../Archetypes";
 
 /**
  * `isString()` is a {@link TypeGuard}. Use it to prove to the Typescript

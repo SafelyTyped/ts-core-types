@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { RefinedPrimitive } from "../RefinedPrimitive";
-import { ToPrimitive, PrimitiveHint } from "../../Protocols";
-import { DataGuaranteeOptions } from "../../Archetypes";
+import type { ToPrimitive, PrimitiveHint } from "../../Protocols";
+import type { DataGuaranteeOptions } from "../../Archetypes";
 
 /**
  * `RefinedString` is a base class for defining a subset of strings.

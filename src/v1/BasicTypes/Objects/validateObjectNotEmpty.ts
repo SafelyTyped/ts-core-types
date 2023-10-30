@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { ObjectCannotBeEmptyError } from "../../Errors";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
 
 /**
  * `validateObjectNotEmpty()` is an object validator. Use it to determine

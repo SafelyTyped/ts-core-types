@@ -31,11 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { NEXT_PROTOTYPE } from "../../../Prototypes";
+import { Prototypes } from "../../../Prototypes";
 import { FIND_PROPERTIES_FILTER_KEEP_METHODS } from "../defaults/FIND_PROPERTIES_FILTER_KEEP_METHODS";
 import { findProperties } from "./findProperties";
-import { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
-import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
+import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
+import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
 import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE";
 
 /**
@@ -61,7 +61,7 @@ import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_
 export function findMethods(
     input: object,
     {
-        nextPrototype = NEXT_PROTOTYPE,
+        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE,
     }: Partial<PropertyDescriptorFilterOptions> = {},
     ...filters: PropertyDescriptorFilter[]
 ): Map<string, PropertyDescriptor> {

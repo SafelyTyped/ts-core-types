@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Branded } from "./Branded";
+import type { Branded } from "./Branded";
 
 /**
  * AnyBranded represents any branded type.

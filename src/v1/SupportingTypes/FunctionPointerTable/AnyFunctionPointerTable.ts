@@ -33,7 +33,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyDispatchMap } from "../DispatchMap";
+import type { AnyDispatchMap } from "../DispatchMap";
 
 /**
  * `AnyFunctionPointerTable` is a type alias for {@link AnyDispatchMap}

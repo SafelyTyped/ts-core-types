@@ -31,11 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ValueObject } from "../../Archetypes/Values/ValueObject";
-import { AnyExtraData } from "../ExtraData/AnyExtraData";
-import { StructuredProblemReportData } from "./StructuredProblemReportData";
-import { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/NodeJSModuleName";
-import { HttpStatusCode } from "../../SupportingTypes/HttpStatusCode/HttpStatusCode";
+import { ValueObject } from "../../Archetypes";
+import type { AnyExtraData } from "../ExtraData";
+import type { StructuredProblemReportData } from "./StructuredProblemReportData";
+import type { HttpStatusCode, NodeJSModuleName } from "../../SupportingTypes";
 
 /**
  * `StructuredProblemReport` is a value object. It represents a problem

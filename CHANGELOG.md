@@ -31,6 +31,9 @@ The following changes have been completed, and will be included in the next tagg
 * Added `validateObjectish()`
 * Added `off`, `nack` and `narp` as recognised `false` values to the `DEFAULT_BOOLEANISH_RULES`
 * Added `on`, `ack`, `yarp` as recognised `true` values to the `DEFAULT_BOOLEANISH_RULES`
+* Added `Prototypes` to act as module for prototype-related functions
+* Added `Strings` to act as module for string-related functions
+* Added `Unknowns` to act as module for unknown type-related functions
 
 ## v0.3.10
 

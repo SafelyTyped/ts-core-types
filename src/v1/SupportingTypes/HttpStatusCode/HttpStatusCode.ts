@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { Branded } from "../../Archetypes";
+import type { Branded } from "../../Archetypes";
 
 /**
  * `HttpStatusCode` represents any HTTP status code in the range

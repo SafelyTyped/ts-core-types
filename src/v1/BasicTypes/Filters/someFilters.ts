@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Filter } from "./Filter";
+import type { Filter } from "./Filter";
 
 /**
  * `someFilters()` is a data filter. Use it to apply a set of filters to

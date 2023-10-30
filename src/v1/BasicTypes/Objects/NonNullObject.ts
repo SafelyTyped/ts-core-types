@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { NonNullable } from "../../Archetypes";
+import type { NonNullable } from "../../Archetypes";
 
 /**
  * NonNullableObject is a utility type. Use it whenever you need to use any

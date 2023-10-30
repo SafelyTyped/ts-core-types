@@ -34,3 +34,4 @@
 
 export * from "./Entity";
 export * from "./AnyEntity";
+export * from "./isEntity";

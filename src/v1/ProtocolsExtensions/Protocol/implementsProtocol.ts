@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { ProtocolDefinition } from "../ProtocolDefinition";
+import type { ProtocolDefinition } from "../ProtocolDefinition";
 import { validateImplementsProtocol } from "./validateImplementsProtocol";
 
 /**

@@ -32,8 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { TypeValidator } from "../../Archetypes";
-import { DataGuaranteeOptions } from "../../Archetypes";
+import type { DataGuaranteeOptions, TypeValidator } from "../../Archetypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";

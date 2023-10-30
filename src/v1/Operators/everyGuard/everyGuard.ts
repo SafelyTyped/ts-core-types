@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataGuard } from "../../Archetypes";
+import type { DataGuard } from "../../Archetypes";
 
 /**
  * `everyGuard()` is an operator. Use it to apply a set of {@link DataGuard}

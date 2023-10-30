@@ -34,7 +34,7 @@
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
 import { makeHttpStatusCode } from "../../SupportingTypes";
-import { NeverAdultAgeData } from "./NeverAdultAgeData";
+import type { NeverAdultAgeData } from "./NeverAdultAgeData";
 
 /**
  * @ignore

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { TypeGuard } from "./TypeGuard";
+import type { TypeGuard } from "./TypeGuard";
 
 /**
  * `AnyTypeGuard` is a type alias. Use it wherever any `TypeGuard` is

@@ -32,11 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { FunctionalOption, makeNominalType, SmartConstructor, MakeNominalTypeOptions } from "../../Archetypes";
-import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import { type OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import { DEFAULT_DATA_PATH } from "../DataPath";
-import { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
+import type { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
 import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
-import { NodeJSModuleName } from "./NodeJSModuleName";
+import type { NodeJSModuleName } from "./NodeJSModuleName";
 
 /**
  * `makeNodeJSModuleName()` is a smart constructor. It verifies that the

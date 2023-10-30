@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnErrorOptions } from "../../../ErrorHandling";
+import type { OnErrorOptions } from "../../../ErrorHandling";
 
 /**
  * `SmartConstructorOptions` is the default user-supplied options type for

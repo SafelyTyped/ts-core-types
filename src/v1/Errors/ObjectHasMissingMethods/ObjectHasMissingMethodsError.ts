@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { HttpStatusCode } from "../../SupportingTypes";
+import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { ObjectHasMissingMethodsData } from "./ObjectHasMissingMethodsData";
+import type { ObjectHasMissingMethodsData } from "./ObjectHasMissingMethodsData";
 
 /**
  * `ObjectHasMissingMethodsError` is thrown whenever we encounter an object

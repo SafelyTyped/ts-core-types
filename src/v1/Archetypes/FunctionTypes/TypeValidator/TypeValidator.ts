@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr } from "../../../OptionTypes";
-import { DataPath } from "../../../SupportingTypes";
+import type { AppErrorOr } from "../../../OptionTypes";
+import type { DataPath } from "../../../SupportingTypes";
 
 /**
  * `TypeValidator` is a function type. It describes the type signature of

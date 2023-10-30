@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { TypeValidator } from "../..";
+import type {Validator } from "../..";
 import { AppError } from "../../ErrorHandling";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { validateNumber } from "../Numbers";

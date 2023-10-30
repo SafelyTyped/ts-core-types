@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { NextPrototypeChain } from "../../../Prototypes";
+import type { NextPrototypeChain } from "../../../Prototypes";
 
 /**
  * `PropertyNameFilterOptions` describes the user-supplied options that

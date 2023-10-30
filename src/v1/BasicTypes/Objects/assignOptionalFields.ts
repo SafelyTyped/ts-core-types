@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AttributeFilterMap, EquivalentOptionalPart } from "../../Archetypes";
+import type { AttributeFilterMap, EquivalentOptionalPart } from "../../Archetypes";
 
 /**
  * `updateObjectWithOptionalFields()` is a data modifier. It adds any

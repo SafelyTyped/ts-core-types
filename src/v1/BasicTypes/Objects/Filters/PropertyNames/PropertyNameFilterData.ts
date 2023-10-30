@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { PropertyFilterData } from "../PropertyFilterData";
+import type { PropertyFilterData } from "../PropertyFilterData";
 
 /**
  * `PropertyNameFilterData` describes the data that a

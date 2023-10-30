@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { implementsToPrimitive, implementsToString } from "../../../Protocols";
-import { NumericalConversionRules } from "../NumericalConversionRules";
+import type { NumericalConversionRules } from "../NumericalConversionRules";
 
 /**
  * `DEFAULT_NUMERICAL_CONVERSION_RULES` are the default rules that

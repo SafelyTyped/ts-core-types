@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { isMethodName } from "../../isMethodName";
-import { PropertyFilter } from "../PropertyFilter";
+import type { PropertyFilter } from "../PropertyFilter";
 
 /**
  * `FIND_PROPERTIES_FILTER_KEEP_METHODS` is a {@link PropertyFilter} for

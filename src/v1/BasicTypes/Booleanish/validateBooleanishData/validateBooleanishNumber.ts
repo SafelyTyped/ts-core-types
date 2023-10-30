@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { UnsupportedBooleanishValueError } from "../../../Errors";
-import { AppErrorOr } from "../../../OptionTypes";
-import { DataPath } from "../../../SupportingTypes";
+import type { AppErrorOr } from "../../../OptionTypes";
+import type { DataPath } from "../../../SupportingTypes";
 
 /**
  * `BooleanishNumbers` describes the required information when booleanish

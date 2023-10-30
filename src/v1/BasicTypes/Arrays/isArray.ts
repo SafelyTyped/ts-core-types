@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeGuard } from "../../Archetypes";
+import type { TypeGuard } from "../../Archetypes";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
 import { validateArray } from "./validateArray";
 

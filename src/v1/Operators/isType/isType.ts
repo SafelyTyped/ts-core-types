@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeValidator } from "../../Archetypes";
-import { IsTypeOptions } from "./IsTypeOptions";
+import type { TypeValidator } from "../../Archetypes";
+import type { IsTypeOptions } from "./IsTypeOptions";
 
 /**
  * `isType()` is a helper function. Use it to quickly build {@link TypeGuard}

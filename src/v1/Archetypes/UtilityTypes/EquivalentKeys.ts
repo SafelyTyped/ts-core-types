@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { IfEquals } from "./IfEquals";
+import type { IfEquals } from "./IfEquals";
 
 /**
  * `EquivalentKeys` is a utility type. Use it to create a set of attributes

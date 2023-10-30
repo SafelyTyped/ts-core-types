@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataValidator } from "../../Archetypes";
-import { IsDataOptions } from "./IsDataOptions";
+import type { DataValidator } from "../../Archetypes";
+import type { IsDataOptions } from "./IsDataOptions";
 
 /**
  * `isData()` is a helper function. Use it to quickly build {@link TypeGuard}

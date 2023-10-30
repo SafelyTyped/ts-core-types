@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { HttpStatusCode } from "../../SupportingTypes";
+import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { UnsupportedStringPrefixData } from "./UnsupportedStringPrefixData";
+import type { UnsupportedStringPrefixData } from "./UnsupportedStringPrefixData";
 
 /**
  * `UnsupportedStringPrefixError` is a throwable Error. It is thrown when

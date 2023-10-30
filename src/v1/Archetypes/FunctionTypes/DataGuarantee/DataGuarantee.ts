@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
+import type { DataGuaranteeOptions } from "./DataGuaranteeOptions";
 
 /**
  * A `DataGuarantee` inspects the given data, to see if the given data

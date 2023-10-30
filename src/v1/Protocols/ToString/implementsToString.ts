@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { ToString } from "./ToString";
+import type { ToString } from "./ToString";
 import { isObject } from "../../BasicTypes";
 
 /**

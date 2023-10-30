@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
+import type { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
 
 /**
  * `IdenticallyNamedPart` is a mapped type. Use it to create an interface

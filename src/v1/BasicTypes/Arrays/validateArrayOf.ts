@@ -31,9 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeValidator } from "../../Archetypes";
+import type { TypeValidator } from "../../Archetypes";
 import { AppError } from "../../ErrorHandling";
-import { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../OptionTypes";
 import { DataPath, extendDataPath } from "../../SupportingTypes";
 
 /**

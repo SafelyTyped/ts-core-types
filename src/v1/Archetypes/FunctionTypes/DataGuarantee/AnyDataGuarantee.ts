@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataGuarantee } from "./DataGuarantee";
-import { DataGuaranteeOptions } from "./DataGuaranteeOptions";
+import type { DataGuarantee } from "./DataGuarantee";
+import type { DataGuaranteeOptions } from "./DataGuaranteeOptions";
 
 /**
  * `AnyDataGuarantee` is a type alias. Use it wherever any

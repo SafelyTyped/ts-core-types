@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { isAttributeName } from "../../isAttributeName";
-import { PropertyFilter } from "../PropertyFilter";
+import type { PropertyFilter } from "../PropertyFilter";
 
 /**
  * `FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES` is a {@link PropertyFilter} for

@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { ExtraPublicData } from "../../ErrorHandling";
-import { DataPath } from "../../SupportingTypes";
+import type { ExtraPublicData } from "../../ErrorHandling";
+import type { DataPath } from "../../SupportingTypes";
 
 /**
  * `UnsupportedTypeData` describes the input data that

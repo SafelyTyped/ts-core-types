@@ -31,11 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataGuarantee, DataGuaranteeOptions } from "../../Archetypes";
+import type { DataGuarantee, DataGuaranteeOptions } from "../../Archetypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { BooleanishDataOptions } from "./BooleanishDataOptions";
+import type { BooleanishDataOptions } from "./BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData";
 

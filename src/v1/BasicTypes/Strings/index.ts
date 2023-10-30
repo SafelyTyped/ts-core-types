@@ -40,3 +40,5 @@ export * from "./validateStringMinLength";
 export * from "./validateStringMatches";
 export * from "./validateStringStartsWith";
 export * from "./validateStringValue";
+
+export * from "./Strings";

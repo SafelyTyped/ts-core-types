@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError } from "./AppError";
-import { AnyExtraData } from "../ExtraData";
+import type { AnyExtraData } from "../ExtraData";
 
 /**
  * represents any instance of AppError, including subclasses

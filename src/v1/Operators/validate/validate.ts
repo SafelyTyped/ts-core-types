@@ -25,8 +25,8 @@
 // We (Ganbaro Digital) have modified it to short-circuit if the value
 // has become an Error.
 
-import { ValidationPipelineStep } from "./ValidationPipelineStep";
-import { AppErrorOr } from "../../OptionTypes";
+import type { ValidationPipelineStep } from "./ValidationPipelineStep";
+import type { AppErrorOr } from "../../OptionTypes";
 import { AppError } from "../../ErrorHandling";
 
 /**

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataPath } from "../../SupportingTypes";
+import type { DataPath } from "../../SupportingTypes";
 
 /**
  * `IsTypeOptions` describes the user-supplied options that must be passed

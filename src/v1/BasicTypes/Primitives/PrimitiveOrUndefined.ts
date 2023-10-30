@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Primitive } from "./Primitive";
+import type { Primitive } from "./Primitive";
 
 /**
  * `PrimitiveOrUndefined` is a type alias. Use it when you need to accept

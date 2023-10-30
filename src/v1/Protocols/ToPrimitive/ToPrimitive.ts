@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Primitive } from "../../BasicTypes";
-import { PrimitiveHint } from "./PrimitiveHint";
+import type { Primitive } from "../../BasicTypes";
+import type { PrimitiveHint } from "./PrimitiveHint";
 
 /**
  * `ToPrimitive` is a protocol. It describes an object that supports the

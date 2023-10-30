@@ -31,13 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr } from "..";
+import type { AppErrorOr } from "../AppErrorOr";
 import { UnsupportedNumericalValueError } from "../../Errors";
-import { DataPath } from "../../SupportingTypes";
-import { numerical } from "./numerical";
+import type { DataPath } from "../../SupportingTypes";
+import type { numerical } from "./numerical";
 import { resolveNumerical } from "./resolveNumerical";
 import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
-import { NumericalConversionRules } from "./NumericalConversionRules";
+import type { NumericalConversionRules } from "./NumericalConversionRules";
 
 /**
  * `validateNumericalData()` is a data validator. Use it to prove that

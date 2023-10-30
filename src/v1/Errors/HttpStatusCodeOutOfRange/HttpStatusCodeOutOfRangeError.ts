@@ -31,9 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorData } from "../../ErrorHandling";
+import type { AppErrorData } from "../../ErrorHandling";
 import { NumberOutOfRangeError } from "../NumberOutOfRange";
-import { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
+import type { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
 
 /**
  * `HttpStatusCodeOutOfRangeError` is thrown whenever we're given an

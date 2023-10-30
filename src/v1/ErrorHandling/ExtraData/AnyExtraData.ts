@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ExtraData } from "./ExtraData";
-import { NoExtraData } from "./NoExtraData";
+import type { ExtraData } from "./ExtraData";
+import type { NoExtraData } from "./NoExtraData";
 
 /**
  * `AnyExtraData` represents all supported types of per-instance error data.

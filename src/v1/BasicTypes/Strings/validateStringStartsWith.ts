@@ -31,9 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
-import { UnsupportedStringPrefixError } from "../../Errors/UnsupportedStringPrefix";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
+import { UnsupportedStringPrefixError } from "../../Errors";
 
 /**
  * `validateStringStartsWith()` is {@link DataValidator}. It proves that the

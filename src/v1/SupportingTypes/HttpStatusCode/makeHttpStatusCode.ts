@@ -31,10 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { HttpStatusCode, MakeHttpStatusCodeOptions, mustBeHttpStatusCodeData } from ".";
+
 import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Archetypes";
 import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import { DEFAULT_DATA_PATH } from "../DataPath";
+import type { HttpStatusCode } from "./HttpStatusCode";
+import type { MakeHttpStatusCodeOptions } from "./MakeHttpStatusCodeOptions";
+import { mustBeHttpStatusCodeData } from "./mustBeHttpStatusCodeData";
 
 /**
  * `makeHttpStatusCode()` is a smart constructor. It turns a `number` type

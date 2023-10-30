@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { validate } from "../../Operators";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "..";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../DataPath";
 import { validateInteger } from "../../BasicTypes";
 import { validateHttpStatusCodeDataRange } from "./validateHttpStatusCodeDataRange";
 

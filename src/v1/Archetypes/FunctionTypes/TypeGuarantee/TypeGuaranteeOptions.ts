@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnError } from "../../../ErrorHandling";
-import { DataPath } from "../../../SupportingTypes";
+import type { OnError } from "../../../ErrorHandling";
+import type { DataPath } from "../../../SupportingTypes";
 
 /**
  * `TypeGuaranteeOptions` describes the user-supplied options supported

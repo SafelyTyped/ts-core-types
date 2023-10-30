@@ -34,7 +34,7 @@
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
 import { makeHttpStatusCode } from "../../SupportingTypes";
-import { NeverABrandedUuidData } from "./NeverABrandedUuidData";
+import type { NeverABrandedUuidData } from "./NeverABrandedUuidData";
 
 /**
  * @ignore

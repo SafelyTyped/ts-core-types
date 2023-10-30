@@ -31,9 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ExtraPublicData } from "../../ErrorHandling";
-import { DataPath } from "../../SupportingTypes";
-import { NonEmptyArray } from "../../BasicTypes";
+import type { ExtraPublicData } from "../../ErrorHandling";
+import type { DataPath } from "../../SupportingTypes";
+import type { NonEmptyArray } from "../../BasicTypes";
 
 /**
  * `ObjectHasMissingMethodsData` is the input data that

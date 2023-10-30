@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Definitely } from "./Definitely";
-import { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
+import type { Definitely } from "./Definitely";
+import type { IdenticallyNamedKeys } from "./IdenticallyNamedKeys";
 
 /**
  * `AttributeTransformerMap` is a mapped type. Use it to build an interface

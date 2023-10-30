@@ -33,6 +33,7 @@
 //
 
 export * from "./BooleanishRules";
+export * from "./BooleanishDataOptions";
 export * from "./defaults/DEFAULT_BOOLEANISH_RULES";
 export * from "./validateBooleanishData";
 export * from "./isBooleanishData";

@@ -33,8 +33,8 @@
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { ArrayCannotBeEmptyData } from "./ArrayCannotBeEmptyData";
-import { HttpStatusCode } from "../../SupportingTypes";
+import type { ArrayCannotBeEmptyData } from "./ArrayCannotBeEmptyData";
+import type { HttpStatusCode } from "../../SupportingTypes";
 
 /**
  * `ArrayCannotBeEmptyError` is thrown whenever we're given a number that

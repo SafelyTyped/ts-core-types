@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataPath } from "../../SupportingTypes";
+import type { DataPath } from "../../SupportingTypes";
 import { UnsupportedTypeError } from "../../Errors";
-import { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../OptionTypes";
 
 /**
  * `validateArray()` is a {@link TypeValidator}. Use it to prove that an

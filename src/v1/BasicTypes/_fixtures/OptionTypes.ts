@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { validateString } from "../Strings";
+import { Strings } from "../Strings";
 import { validateNumber } from "../Numbers";
 import { validateBoolean } from "../Booleans";
-import { TypeValidator } from "../../Archetypes";
+import type { TypeValidator } from "../../Archetypes";
 
 /**
  * @ignore
@@ -50,14 +50,14 @@ export const ValidOptionTypeData: OptionTypeTestData[] = [
     // option A wins
     {
         inputValue: "this is a test",
-        aValidator: validateString,
+        aValidator: Strings.validateString,
         bValidator: validateNumber,
     },
     // option B wins
     {
         inputValue: "this is a test",
         aValidator: validateNumber,
-        bValidator: validateString,
+        bValidator: Strings.validateString,
     }
 ];
 

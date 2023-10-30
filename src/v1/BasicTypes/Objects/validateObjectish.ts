@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataPath, AppErrorOr } from "../..";
 import { UnsupportedTypeError } from "../../Errors";
+import type { AppErrorOr, DataPath } from "../..";
 
 /**
  * `validateObjectish()` is a {@link TypeGuard}. Use it to prove that the

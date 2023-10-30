@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ExtraLogsOnlyData } from "../../ErrorHandling";
+import type { ExtraLogsOnlyData } from "../../ErrorHandling";
 
 /**
  * `ObjectIsImmutableData` is the input data that

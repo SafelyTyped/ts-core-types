@@ -33,9 +33,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyFunction } from "../../Archetypes";
-import { AnyDispatchMapKey } from "./AnyDispatchMapKey";
-import { DispatchMap } from "./DispatchMap";
+import type { AnyFunction } from "../../Archetypes";
+import type { AnyDispatchMapKey } from "./AnyDispatchMapKey";
+import type { DispatchMap } from "./DispatchMap";
 
 /**
  * `AnyDispatchMap` represents all possible {@link DispatchMap}s. Use it

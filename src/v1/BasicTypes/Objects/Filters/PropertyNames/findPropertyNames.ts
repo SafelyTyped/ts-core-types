@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { everyFilter } from "../../../Filters";
-import { PropertyNameFilter } from "./PropertyNameFilter";
-import { NEXT_PROTOTYPE } from "../../../Prototypes";
-import { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
+import type { PropertyNameFilter } from "./PropertyNameFilter";
+import { Prototypes } from "../../../Prototypes";
+import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
 
 /**
  * `findPropertyNames()` is a data filter. It returns a list of all properties
@@ -46,7 +46,7 @@ import { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
  * The object to inspect.
  * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
- * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
+ * {@link Prototypes.defaults.STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
  * inherited from Object.
  * @param filters -
  * The filters to apply.
@@ -58,7 +58,7 @@ import { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
 export function findPropertyNames(
     target: object,
     {
-        nextPrototype = NEXT_PROTOTYPE
+        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE
     }: Partial<PropertyNameFilterOptions> = {},
     ...filters: PropertyNameFilter[]
 ): string[] {

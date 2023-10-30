@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { HttpStatusCode } from "../../SupportingTypes";
+import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { InvalidNodeJSModuleNameData } from "./InvalidNodeJSModuleNameData";
+import type { InvalidNodeJSModuleNameData } from "./InvalidNodeJSModuleNameData";
 
 /**
  * `InvalidNodeJSModuleNameError` is thrown when we've been given data that

@@ -31,9 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataGuard } from "../../Archetypes";
-import { IS_TYPE_DEFAULT_OPTIONS, isType, IsTypeOptions } from "../../Operators";
-import { BooleanishDataOptions } from "./BooleanishDataOptions";
+import type { DataGuard } from "../../Archetypes";
+import { IS_TYPE_DEFAULT_OPTIONS, isType, type IsTypeOptions } from "../../Operators";
+import type { BooleanishDataOptions } from "./BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
 

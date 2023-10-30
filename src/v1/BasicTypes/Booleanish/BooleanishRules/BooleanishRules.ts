@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { BooleanishValidator } from "./BooleanishValidator";
+import type { BooleanishValidator } from "./BooleanishValidator";
 
 /**
  * `BooleanishRules` describes how to convert from different types to a

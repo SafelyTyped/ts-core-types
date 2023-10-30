@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { NextPrototypeChain } from "../NextPrototypeChain";
+import type { NextPrototypeChain } from "../NextPrototypeChain";
 
 /**
  * `STOP_AT_NEXT_PROTOTYPE()` is a function that never returns the

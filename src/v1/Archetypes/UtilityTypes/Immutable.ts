@@ -7,7 +7,7 @@
 // This file is in the public domain.
 //
 
-import { Primitivish } from "../../BasicTypes";
+import type { Primitivish } from "../../BasicTypes";
 
 /**
  * `Immutable` is a version of `Readonly` that works on all known types.

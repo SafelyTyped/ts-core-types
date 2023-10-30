@@ -1,31 +1,37 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Recommended",
     "compilerOptions": {
-      "lib": ["es2023"],
-      "target": "es2022",
+        "target": "es2020",
+        "module": "node16",
+        "strict": true,
+        "alwaysStrict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": false,
+        "forceConsistentCasingInFileNames": true,
+        "verbatimModuleSyntax": false,
+        "isolatedModules": true,
 
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
+        "declaration": true,                      /* Generates corresponding '.d.ts' file. */
+        "declarationMap": true,                   /* Generates a sourcemap for each corresponding '.d.ts' file. */
+        "sourceMap": true,                        /* Generates corresponding '.map' file. */
+        "outDir": "./lib",                        /* Redirect output structure to the directory. */
+        "rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
 
-      "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-      "declaration": true,                      /* Generates corresponding '.d.ts' file. */
-      "declarationMap": true,                   /* Generates a sourcemap for each corresponding '.d.ts' file. */
-      "sourceMap": true,                        /* Generates corresponding '.map' file. */
-      "outDir": "./lib",                        /* Redirect output structure to the directory. */
-      "rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+        "noUnusedLocals": true,                   /* Report errors on unused locals. */
+        "noImplicitReturns": true,                /* Report error when not all code paths in function return a value. */
 
-      "noUnusedLocals": true,                   /* Report errors on unused locals. */
-      "noImplicitReturns": true,                /* Report error when not all code paths in function return a value. */
-
-      "experimentalDecorators": true,           /* Enables experimental support for ES7 decorators. */
-      "emitDecoratorMetadata": true,            /* Enables experimental support for emitting type metadata for decorators. */
+        "experimentalDecorators": true,           /* Enables experimental support for ES7 decorators. */
+        "emitDecoratorMetadata": true            /* Enables experimental support for emitting type metadata for decorators. */
     },
     "include": [
-      "src"
+        "src"
     ],
     "exclude": [
-      "**/*.spec.ts",
-      "src/spec/**"
-    ]
+        "**/*.spec.ts",
+        "src/spec/**"
+    ],
+    "ts-node": {
+        "swc": true
+    }
 }

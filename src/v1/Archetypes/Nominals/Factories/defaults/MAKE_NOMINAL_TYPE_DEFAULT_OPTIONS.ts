@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { THROW_THE_ERROR } from "../../../../ErrorHandling";
-import { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
+import type { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
 import { DEFAULT_DATA_PATH } from "../../../../SupportingTypes";
 
 /**

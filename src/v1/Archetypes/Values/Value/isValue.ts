@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Value } from "./Value";
+import type { Value } from "./Value";
 
 /**
  * `isValue()` is a type guard. It proves whether or not the given `input`

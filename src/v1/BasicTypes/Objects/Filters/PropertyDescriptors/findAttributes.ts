@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { NEXT_PROTOTYPE } from "../../../Prototypes";
+import { Prototypes } from "../../../Prototypes";
 import {
     FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES,
 } from "../defaults/FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES";
@@ -39,8 +39,8 @@ import {
     FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE,
 } from "../defaults/FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE";
 import { findProperties } from "./findProperties";
-import { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
-import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
+import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
+import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
 
 /**
  * `findAttributes()` is a data filter. It returns a list of all attributes
@@ -65,7 +65,7 @@ import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptio
 export function findAttributes(
     input: object,
     {
-        nextPrototype = NEXT_PROTOTYPE
+        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE
     }: Partial<PropertyDescriptorFilterOptions> = {},
     ...filters: PropertyDescriptorFilter[]
 ): Map<string, PropertyDescriptor> {

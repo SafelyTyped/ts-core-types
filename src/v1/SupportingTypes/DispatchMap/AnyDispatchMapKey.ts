@@ -32,6 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyArrayKey } from "../../BasicTypes";
+import type { AnyArrayKey } from "../../BasicTypes";
 
 export type AnyDispatchMapKey = AnyArrayKey;

@@ -33,8 +33,8 @@
 //
 import { extractReasonFromCaught } from "../../ErrorHandling";
 import { RegexDoesNotCompileError } from "../../Errors";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
 
 /**
  * `validateRegexCompiles()` is a {@link DataValidator}. Use it to prove

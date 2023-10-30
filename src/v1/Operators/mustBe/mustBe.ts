@@ -25,8 +25,8 @@
 // We (Ganbaro Digital) have modified it to short-circuit if the value
 // has become an Error.
 import { AppError, OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import { AppErrorOr } from "../../OptionTypes";
-import { MustBePipelineStep } from "./MustBePipelineStep";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { MustBePipelineStep } from "./MustBePipelineStep";
 
 /**
  * `mustBe()` executes a series of functions, one after the next.

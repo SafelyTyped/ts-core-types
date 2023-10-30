@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
+import type { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
 
 /**
  * A `TypeGuarantee` inspects a piece of data to see if the data is the given

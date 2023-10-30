@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { makeHttpStatusCode } from "../../SupportingTypes/HttpStatusCode";
+import { makeHttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { RegexReturnedNoResultsData } from "./RegexReturnedNoResultsData";
+import type { RegexReturnedNoResultsData } from "./RegexReturnedNoResultsData";
 
 /**
  * `RegexReturnedNoResultsError` is a throwable Error. It is thrown whenever

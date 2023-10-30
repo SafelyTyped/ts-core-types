@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AttributeTransformerMap } from "../../Archetypes";
+import type { AttributeTransformerMap } from "../../Archetypes";
 import { HashMap } from "../HashMaps";
 
 /**

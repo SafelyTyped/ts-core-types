@@ -9,7 +9,7 @@
 // Written by Matt McCutchen https://github.com/mattmccutchen
 //
 
-import { WritableKeys } from "./WritableKeys";
+import type { WritableKeys } from "./WritableKeys";
 
 /**
  * `WritablePart` is a mapped type. Use it to create an interface that only

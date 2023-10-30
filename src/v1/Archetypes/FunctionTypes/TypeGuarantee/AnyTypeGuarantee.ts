@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { TypeGuarantee } from "./TypeGuarantee";
+import type { TypeGuarantee } from "./TypeGuarantee";
 
 /**
  * `AnyTypeGuarantee` is a type alias. Use it wherever any

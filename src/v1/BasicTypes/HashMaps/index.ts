@@ -32,8 +32,19 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { isHashMap } from "./isHashMap";
+import { mustBeHashMap } from "./mustBeHashMap";
+import { validateHashMap } from "./validateHashMap";
+
 export * from "./HashMap";
 export * from "./AnyHashMap";
 export * from "./validateHashMap";
 export * from "./isHashMap";
 export * from "./mustBeHashMap";
+
+export class HashMaps
+{
+    static isHashMap = isHashMap;
+    static mustBeHashMap = mustBeHashMap;
+    static validateHashMap = validateHashMap;
+}

@@ -32,4 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { getClassNames } from "./getClassNames";
+
 export * from "./getClassNames";
+
+export class Classes
+{
+    static getClassNames = getClassNames;
+}

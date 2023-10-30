@@ -32,7 +32,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { NumberOutOfRangeData } from "../NumberOutOfRange";
+import type { NumberOutOfRangeData } from "../NumberOutOfRange";
 
 /**
  * `HttpStatusCodeOutOfRangeData` defines the data that every

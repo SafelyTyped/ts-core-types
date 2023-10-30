@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyTypeValidator } from "../../Archetypes";
+import type { AnyTypeValidator } from "../../Archetypes";
 import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
 import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { HashMap } from "./HashMap";

@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { HttpStatusCode } from "../../SupportingTypes";
+import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { UnsupportedStringLengthRangeData } from "./UnsupportedStringLengthRangeData";
+import type { UnsupportedStringLengthRangeData } from "./UnsupportedStringLengthRangeData";
 
 /**
  * `UnsupportedStringLengthRangeError` is a throwable Error. It is thrown when

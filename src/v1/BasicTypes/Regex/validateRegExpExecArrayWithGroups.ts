@@ -17,9 +17,9 @@
 // <https://www.gnu.org/licenses/>.
 //
 import { RegexReturnedNoNamedGroupsError } from "../../Errors";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
-import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
+import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 import { isObject } from "../Objects";
 
 /**

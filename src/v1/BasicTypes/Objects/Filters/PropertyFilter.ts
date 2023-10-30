@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { PropertyFilterData } from "./PropertyFilterData";
+import type { PropertyFilterData } from "./PropertyFilterData";
 
 /**
  * `PropertyFilter` is a function signature. It describes a function

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { TypeValidator } from "./TypeValidator";
+import type { TypeValidator } from "./TypeValidator";
 
 /**
  * `AnyTypeValidator` is a type alias. Use it wherever any {@link TypeValidator}

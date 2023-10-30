@@ -32,4 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+export * from "./validateBooleanishBoolean";
 export * from "./validateBooleanishData";
+export * from "./validateBooleanishNumber";
+export * from "./validateBooleanishObject";
+export * from "./validateBooleanishString";

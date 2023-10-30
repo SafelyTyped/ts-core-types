@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { isObject } from "../../BasicTypes";
-import { ToPrimitive } from "./ToPrimitive";
+import type { ToPrimitive } from "./ToPrimitive";
 
 /**
  * `implementsToPrimitive()` is a type guard. Use it to prove that the

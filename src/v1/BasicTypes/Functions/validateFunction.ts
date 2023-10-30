@@ -32,8 +32,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppErrorOr, DataPath } from "../..";
+
 import { UnsupportedTypeError } from "../../Errors";
+import type { AppErrorOr, DataPath } from "../..";
 import { getTypeNames } from "../Unknowns";
 
 /**

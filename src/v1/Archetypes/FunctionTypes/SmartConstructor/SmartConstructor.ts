@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FunctionalOption } from "../FunctionalOption";
-import { SmartConstructorOptions } from "./SmartConstructorOptions";
+import type { FunctionalOption } from "../FunctionalOption";
+import type { SmartConstructorOptions } from "./SmartConstructorOptions";
 
 /**
  * `SmartConstructor` is a function signature. It describes a function that

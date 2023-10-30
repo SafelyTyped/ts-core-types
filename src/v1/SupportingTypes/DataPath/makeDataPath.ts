@@ -31,11 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataPath } from ".";
-import { FunctionalOption, makeNominalType } from "../../Archetypes";
+import type { DataPath } from "./DataPath";
+import { type FunctionalOption, makeNominalType } from "../../Archetypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBeDataPathData } from "./mustBeDataPathData";
-import { MakeDataPathOptions } from "./MakeDataPathOptions";
+import type { MakeDataPathOptions } from "./MakeDataPathOptions";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 
 /**

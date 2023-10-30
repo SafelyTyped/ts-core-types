@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { isObject } from "../../BasicTypes";
-import { Has } from "./Has";
+import type { Has } from "./Has";
 
 /**
  * `implementsHas()` is a type guard. Use it to prove that the input:

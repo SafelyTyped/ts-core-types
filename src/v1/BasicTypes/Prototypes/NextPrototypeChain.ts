@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { Prototype } from "./Prototype";
+
 /**
  * `NextPrototypeChain()` is a function signature. It's a function
  * that returns the object's prototype, or `null` if it doesn't want to
@@ -39,4 +41,4 @@
  *
  * @public
  */
-export type NextPrototypeChain = (x: object) => object|null;
+export type NextPrototypeChain = (x: object) => Prototype|null;

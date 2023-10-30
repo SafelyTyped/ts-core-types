@@ -9,7 +9,7 @@
 // Written by Matt McCutchen https://github.com/mattmccutchen
 //
 
-import { IfEquals } from "./IfEquals";
+import type { IfEquals } from "./IfEquals";
 
 /**
  * `WritableKeys` is a utility type. Use it to create a set of attributes in

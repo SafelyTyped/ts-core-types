@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
-import { IsTypeOptions } from "../IsTypeOptions";
+import type { IsTypeOptions } from "../IsTypeOptions";
 
 /**
  * `IS_TYPE_DEFAULT_OPTIONS` are the default options you can pass to

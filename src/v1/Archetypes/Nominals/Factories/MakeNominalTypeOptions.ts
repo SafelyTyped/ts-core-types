@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeGuaranteeOptions } from "../../FunctionTypes";
+import type { TypeGuaranteeOptions } from "../../FunctionTypes";
 
 /**
  * `MakeNominalTypeOptions` is the list of user-supplied options

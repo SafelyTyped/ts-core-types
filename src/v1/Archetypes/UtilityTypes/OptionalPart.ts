@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { OptionalKeys } from "./OptionalKeys";
+import type { OptionalKeys } from "./OptionalKeys";
 
 
 /**

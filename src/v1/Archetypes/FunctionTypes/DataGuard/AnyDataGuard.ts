@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataGuard } from "./DataGuard";
+import type { DataGuard } from "./DataGuard";
 
 /**
  * `AnyDataGuard` is a type alias. Use it wherever any {@link DataGuard}

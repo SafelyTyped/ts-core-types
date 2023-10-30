@@ -35,7 +35,7 @@
 import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { AppError } from "../../ErrorHandling";
-import { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
+import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**
  * `isRegExpExecArrayWithGroups()` is a type guard. Use it to convince the

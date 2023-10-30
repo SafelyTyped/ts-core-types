@@ -33,8 +33,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { getPrototypeOf } from "../../Objects";
-import { NextPrototypeChain } from "../NextPrototypeChain";
+import { getPrototypeOf } from "../getPrototypeOf";
+import type { NextPrototypeChain } from "../NextPrototypeChain";
 
 /**
  * `NEXT_PROTOTYPE()` is a function that returns the next prototype

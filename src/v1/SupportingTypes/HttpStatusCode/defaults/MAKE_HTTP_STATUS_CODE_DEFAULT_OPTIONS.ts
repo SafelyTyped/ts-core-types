@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes";
-import { MakeHttpStatusCodeOptions } from "../MakeHttpStatusCodeOptions";
+import type { MakeHttpStatusCodeOptions } from "../MakeHttpStatusCodeOptions";
 
 /**
  * `MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS` are the default options to pass

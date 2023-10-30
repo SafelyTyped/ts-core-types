@@ -31,10 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { everyFilter } from "../../../Filters/everyFilter";
-import { NEXT_PROTOTYPE } from "../../../Prototypes";
-import { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
-import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
+import { everyFilter } from "../../../Filters";
+import { Prototypes } from "../../../Prototypes";
+import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
+import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
 
 /**
  * `findProperties()` is a data filter. It returns a list of all properties
@@ -53,7 +53,7 @@ import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptio
  * The object to inspect.
  * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
- * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
+ * {@link Prototypes.defaults.STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
  * inherited from Object.
  * @param filters -
  * The filters to apply.
@@ -65,7 +65,7 @@ import { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptio
 export function findProperties(
     target: object,
     {
-        nextPrototype = NEXT_PROTOTYPE
+        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE
     }: Partial<PropertyDescriptorFilterOptions> = {},
     ...filters: PropertyDescriptorFilter[]
 ): Map<string, PropertyDescriptor> {

@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { ExtraLogsOnlyData } from "./ExtraLogsOnlyData";
-import { ExtraPublicData } from "./ExtraPublicData";
+import type { ExtraLogsOnlyData } from "./ExtraLogsOnlyData";
+import type { ExtraPublicData } from "./ExtraPublicData";
 
 /**
  * `AllExtraData` represents error data that requires both `public` and

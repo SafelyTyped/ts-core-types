@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { EquivalentOptionalKeys } from "./EquivalentOptionalKeys";
+import type { EquivalentOptionalKeys } from "./EquivalentOptionalKeys";
 
 /**
  * `EquivalentOptionalPart` is a mapped type. Use it to create an interface

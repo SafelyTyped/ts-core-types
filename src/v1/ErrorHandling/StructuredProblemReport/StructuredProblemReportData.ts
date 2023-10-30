@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { NodeJSModuleName, HttpStatusCode } from "../..";
-import { NoExtraData, ExtraData } from "../ExtraData";
+
+import type { HttpStatusCode, NodeJSModuleName } from "../..";
+import type { NoExtraData, ExtraData } from "../ExtraData";
 
 /**
  * `StructuredProblemReportData` defines a databag. It holds all of the

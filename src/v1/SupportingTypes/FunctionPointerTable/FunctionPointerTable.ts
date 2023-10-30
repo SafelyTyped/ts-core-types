@@ -33,8 +33,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyFunction } from "../../Archetypes";
-import { AnyDispatchMapKey, DispatchMap } from "../DispatchMap";
+import type { AnyFunction } from "../../Archetypes";
+import type { AnyDispatchMapKey, DispatchMap } from "../DispatchMap";
 
 /**
  * `FunctionPointerTable` is a type alias for {@link DispatchMap}

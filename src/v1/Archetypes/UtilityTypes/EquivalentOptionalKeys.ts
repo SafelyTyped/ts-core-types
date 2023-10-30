@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { IfEquals } from "./IfEquals";
+import type { IfEquals } from "./IfEquals";
 
 /**
  * `EquivalentOptionalKeys` is a utility type. Use it to create a set of

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Flavoured } from "./Flavoured";
+import type { Flavoured } from "./Flavoured";
 
 /**
  * AnyFlavoured represents any flavoured type.

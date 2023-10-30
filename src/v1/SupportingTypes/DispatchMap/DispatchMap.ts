@@ -33,8 +33,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AnyFunction } from "../../Archetypes";
-import { AnyDispatchMapKey } from "./AnyDispatchMapKey";
+import type { AnyFunction } from "../../Archetypes";
+import type { AnyDispatchMapKey } from "./AnyDispatchMapKey";
 
 /**
  * `DispatchMap` is a good old-fashioned function pointer table :)

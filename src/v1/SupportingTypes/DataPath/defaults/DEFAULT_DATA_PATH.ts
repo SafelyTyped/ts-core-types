@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DataPath } from "../DataPath";
+import type { DataPath } from "../DataPath";
 
 /**
  * `DEFAULT_DATA_PATH` is the `path` value we use when we're not validating

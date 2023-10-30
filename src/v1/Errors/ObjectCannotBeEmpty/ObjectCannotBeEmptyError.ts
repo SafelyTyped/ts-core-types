@@ -34,7 +34,7 @@
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { makeHttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import { ObjectCannotBeEmptyData } from "./ObjectCannotBeEmptyData";
+import type { ObjectCannotBeEmptyData } from "./ObjectCannotBeEmptyData";
 
 /**
  * `ObjectCannotBeEmptyError` is a throwable Error. It is thrown whenever

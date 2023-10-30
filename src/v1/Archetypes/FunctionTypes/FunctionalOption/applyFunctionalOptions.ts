@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { FunctionalOption } from "./FunctionalOption";
+import type { FunctionalOption } from "./FunctionalOption";
 
 /**
  * `applyFunctionalOptions()` is a helper function. Wrap this around

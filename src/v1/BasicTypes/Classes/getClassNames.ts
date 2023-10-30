@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { getPrototypeOf } from "../Objects";
+import { Prototypes } from "../Prototypes";
 
 /**
  * `getClassNames()` returns a list of the classes that this object was
@@ -61,12 +61,12 @@ export function getClassNames(
 
     // we need to keep track of where we are in the inheritence chain
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    let item = getPrototypeOf(input);
+    let item = Prototypes.getPrototypeOf(input);
 
     // walk the inheritence chain
     while (item !== null) {
         retval.push(item.constructor.name);
-        item = getPrototypeOf(item);
+        item = Prototypes.getPrototypeOf(item);
     }
 
     // all done

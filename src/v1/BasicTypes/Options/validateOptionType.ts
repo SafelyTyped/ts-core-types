@@ -31,12 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { TypeValidator } from "../../Archetypes";
-import { AppError, extractReasonFromCaught } from "../../ErrorHandling";
-import { AppErrorOr } from "../../OptionTypes";
-import { DataPath } from "../../SupportingTypes";
-import { UnsupportedTypeError } from "../../Errors";
 
+import type { TypeValidator } from "../../Archetypes";
+import { AppError, extractReasonFromCaught } from "../../ErrorHandling";
+import type { AppErrorOr } from "../../OptionTypes";
+import type { DataPath } from "../../SupportingTypes";
+import { UnsupportedTypeError } from "../../Errors";
 
 /**
  * `validateOptionalType()` is a {@link TypeValidator}. Use it to prove

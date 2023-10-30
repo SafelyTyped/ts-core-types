@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AttributeKeys } from "./AttributeKeys";
+import type { AttributeKeys } from "./AttributeKeys";
 
 /**
  * `AttributeFilterMap` is a utility type. Use it to create an interface

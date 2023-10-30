@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { BooleanishRules } from "./BooleanishRules";
+import type { BooleanishRules } from "./BooleanishRules";
 
 /**
  * `BooleanishDataOptions` is the list of user-supplied options that
