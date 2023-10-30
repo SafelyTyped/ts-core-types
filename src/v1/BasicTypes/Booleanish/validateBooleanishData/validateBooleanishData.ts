@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr } from "../../../ErrorHandling";
-import { DataPath, searchDispatchMap } from "../../../SupportingTypes";
+import type { AppErrorOr, DataPath } from "../../../ErrorHandling";
+import { searchDispatchMap } from "../../../SupportingTypes";
 import { getTypeNames } from "../../Unknowns";
 import type { BooleanishDataOptions } from "../BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";

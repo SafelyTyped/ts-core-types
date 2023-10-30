@@ -33,7 +33,7 @@
 //
 import { validate } from "../../Operators";
 import type { AppErrorOr } from "../../ErrorHandling";
-import type { DataPath } from "../DataPath";
+import type { DataPath } from "../../ErrorHandling";
 import { validateInteger } from "../../BasicTypes";
 import { validateHttpStatusCodeDataRange } from "./validateHttpStatusCodeDataRange";
 

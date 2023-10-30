@@ -31,11 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath } from "../DataPath";
-import type { AppErrorOr } from "../../ErrorHandling";
+import type { AppErrorOr, DataPath } from "../../ErrorHandling";
+import { InvalidNodeJSModuleNameError } from "../../Errors";
 import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { NodeJSModuleNameDataRegex } from "./regexes";
-import { InvalidNodeJSModuleNameError } from "../../Errors";
 
 /**
  * `validateNodeJSModuleNameData()` is a {@link DataValidator}. Use it to

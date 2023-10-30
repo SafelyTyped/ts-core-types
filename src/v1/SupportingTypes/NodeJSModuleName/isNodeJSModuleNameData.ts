@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { isData } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
 import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
 
 /**

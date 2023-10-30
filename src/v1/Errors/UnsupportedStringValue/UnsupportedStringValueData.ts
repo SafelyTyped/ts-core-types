@@ -32,8 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { ExtraPublicData } from "../../ErrorHandling";
-import type { DataPath } from "../../SupportingTypes";
+import type { DataPath, ExtraPublicData } from "../../ErrorHandling";
 
 /**
  * `UnsupportedStringValueData` is the input that

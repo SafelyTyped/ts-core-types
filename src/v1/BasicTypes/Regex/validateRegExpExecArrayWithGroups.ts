@@ -16,11 +16,10 @@
 // License along with this program. If not, see
 // <https://www.gnu.org/licenses/>.
 //
+import type { AppErrorOr, DataPath } from "../../ErrorHandling";
 import { RegexReturnedNoNamedGroupsError } from "../../Errors";
-import type { AppErrorOr } from "../../ErrorHandling";
-import type { DataPath } from "../../SupportingTypes";
-import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 import { isObject } from "../Objects";
+import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**
  * `validateRegExpExecArrayWithGroups()` is a data validator. Use it to

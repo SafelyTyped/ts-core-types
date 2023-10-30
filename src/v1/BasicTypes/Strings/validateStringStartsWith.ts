@@ -31,8 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr } from "../../ErrorHandling";
-import type { DataPath } from "../../SupportingTypes";
+import type { AppErrorOr, DataPath } from "../../ErrorHandling";
 import { UnsupportedStringPrefixError } from "../../Errors";
 
 /**

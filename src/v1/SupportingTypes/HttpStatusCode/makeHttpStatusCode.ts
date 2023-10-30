@@ -33,8 +33,7 @@
 //
 
 import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Archetypes";
-import { OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import { DEFAULT_DATA_PATH } from "../DataPath";
+import { DEFAULT_DATA_PATH, OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
 import type { HttpStatusCode } from "./HttpStatusCode";
 import type { MakeHttpStatusCodeOptions } from "./MakeHttpStatusCodeOptions";
 import { mustBeHttpStatusCodeData } from "./mustBeHttpStatusCodeData";

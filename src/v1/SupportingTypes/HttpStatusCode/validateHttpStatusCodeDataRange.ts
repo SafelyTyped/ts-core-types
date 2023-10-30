@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath } from "../DataPath";
+import type { DataPath } from "../../ErrorHandling";
 import { validateNumberRange } from "../../BasicTypes";
 import { HttpStatusCodeOutOfRangeError } from "../../Errors";
 import type { AppErrorOr } from "../../ErrorHandling";

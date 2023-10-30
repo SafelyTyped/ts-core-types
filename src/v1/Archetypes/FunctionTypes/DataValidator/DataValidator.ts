@@ -32,8 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr } from "../../../ErrorHandling";
-import type { DataPath } from "../../../SupportingTypes";
+import type { AppErrorOr, DataPath } from "../../../ErrorHandling";
 
 /**
  * `DataValidator` is a function type. It describes the type signature of

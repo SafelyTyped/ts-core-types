@@ -32,10 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
+import { AppError, DEFAULT_DATA_PATH } from "../../ErrorHandling";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
+import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 
 /**
  * `isRegExpExecArrayWithGroups()` is a type guard. Use it to convince the

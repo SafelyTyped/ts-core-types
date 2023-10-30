@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { AppErrorOr } from "../../../ErrorHandling";
+import { DataPath, extendDataPath } from "../../../ErrorHandling";
 import { implementsOwnOrInheritedToString } from "../../../Protocols";
-import { DataPath, extendDataPath } from "../../../SupportingTypes";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
 import { BooleanishStrings, validateBooleanishString } from "./validateBooleanishString";
 

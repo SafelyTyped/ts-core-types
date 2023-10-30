@@ -33,8 +33,8 @@
 //
 
 import type { AnyTypeValidator } from "../../Archetypes";
-import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
-import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, DataPath } from "../../ErrorHandling";
+import { IS_TYPE_DEFAULT_OPTIONS, isType } from "../../Operators";
 import { HashMap } from "./HashMap";
 import { validateHashMap } from "./validateHashMap";
 

@@ -32,9 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataPath } from "../../SupportingTypes";
+import type { AppErrorOr, DataPath } from "../../ErrorHandling";
 import { UnsupportedTypeError } from "../../Errors";
-import type { AppErrorOr } from "../../ErrorHandling";
 
 /**
  * `validateArray()` is a {@link TypeValidator}. Use it to prove that an

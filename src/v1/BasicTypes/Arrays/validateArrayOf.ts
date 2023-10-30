@@ -32,9 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { TypeValidator } from "../../Archetypes";
-import { AppError } from "../../ErrorHandling";
 import type { AppErrorOr } from "../../ErrorHandling";
-import { DataPath, extendDataPath } from "../../SupportingTypes";
+import { AppError, DataPath, extendDataPath } from "../../ErrorHandling";
 
 /**
  * `validateArrayOf()` is a {@link TypeValidator}. Use it to prove that

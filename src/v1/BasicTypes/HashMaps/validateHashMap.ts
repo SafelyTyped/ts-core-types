@@ -33,9 +33,8 @@
 //
 
 import type { TypeValidator } from "../../Archetypes";
-import { AppError, isAppError } from "../../ErrorHandling";
 import type { AppErrorOr } from "../../ErrorHandling";
-import { DataPath, extendDataPath } from "../../SupportingTypes";
+import { AppError, DataPath, extendDataPath, isAppError } from "../../ErrorHandling";
 import { validateObject } from "../Objects";
 import { HashMap } from "./HashMap";
 

@@ -32,9 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { DataGuaranteeOptions, TypeGuarantee } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import type { NonEmptyArray } from "./NonEmptyArray";
 import { validateNonEmptyArray } from "./validateNonEmptyArray";
 

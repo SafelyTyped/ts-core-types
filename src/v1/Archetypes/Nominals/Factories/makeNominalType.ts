@@ -33,8 +33,7 @@
 //
 import { applyFunctionalOptions, DataGuarantee, FunctionalOption } from "../../FunctionTypes";
 import type { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
-import { THROW_THE_ERROR } from "../../../ErrorHandling";
-import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
+import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../../ErrorHandling";
 
 /**
  * `makeNominalType()` converts your input type into a branded or

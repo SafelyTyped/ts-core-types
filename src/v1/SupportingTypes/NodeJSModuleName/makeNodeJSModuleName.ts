@@ -33,7 +33,7 @@
 //
 import { FunctionalOption, makeNominalType, SmartConstructor, MakeNominalTypeOptions } from "../../Archetypes";
 import { type OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import { DEFAULT_DATA_PATH } from "../DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
 import type { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
 import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
 import type { NodeJSModuleName } from "./NodeJSModuleName";

@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./DataPath";
 export * from "./DispatchMap";
 export * from "./FunctionPointerTable";
 export * from "./HttpStatusCode";

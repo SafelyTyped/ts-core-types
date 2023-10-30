@@ -33,9 +33,8 @@
 //
 
 import type { DataGuaranteeOptions, TypeValidator } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import { HashMap } from "./HashMap";
 import { validateHashMap } from "./validateHashMap";
 

@@ -34,7 +34,7 @@
 
 import { isData } from "../../Operators";
 import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
-import { DEFAULT_DATA_PATH } from "../DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
 
 /**
  * `isHttpStatusCodeData()` is a data guard. It checks to see if the `input`

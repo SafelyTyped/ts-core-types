@@ -32,9 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { DataGuarantee, DataGuaranteeOptions } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
 import type { BooleanishDataOptions } from "./BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData";

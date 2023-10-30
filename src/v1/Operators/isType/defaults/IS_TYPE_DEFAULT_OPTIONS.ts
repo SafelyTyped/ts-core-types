@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DEFAULT_DATA_PATH } from "../../../SupportingTypes";
+import { DEFAULT_DATA_PATH } from "../../../ErrorHandling";
 import type { IsTypeOptions } from "../IsTypeOptions";
 
 /**

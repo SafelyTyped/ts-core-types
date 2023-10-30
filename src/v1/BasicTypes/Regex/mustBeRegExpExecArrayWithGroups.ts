@@ -31,11 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { OnError, THROW_THE_ERROR } from "../../ErrorHandling";
+import { DEFAULT_DATA_PATH, DataPath, OnError, THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe } from "../../Operators";
-import { DataPath, DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
+import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 
 /**
  * `mustBeRegExpExecArrayWithGroups()` is a {@link DataGuarantee}.

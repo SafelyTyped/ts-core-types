@@ -34,7 +34,7 @@
 import type { DataGuaranteeOptions } from "../../Archetypes";
 import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBe, recast } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
 import type { HttpStatusCode } from "./HttpStatusCode";
 import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
 

@@ -31,9 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import type { AppErrorOr, DataPath } from "../../../ErrorHandling";
 import { UnsupportedBooleanishValueError } from "../../../Errors";
-import type { AppErrorOr } from "../../../ErrorHandling";
-import type { DataPath } from "../../../SupportingTypes";
 
 /**
  * `BooleanishStrings` describes the required information when booleanish

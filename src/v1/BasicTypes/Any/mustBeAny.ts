@@ -32,8 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { DataGuaranteeOptions, TypeGuarantee } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
 
 /**
  * `mustBeAny()` is a {@link TypeGuarantee}. Use it to accept any kind

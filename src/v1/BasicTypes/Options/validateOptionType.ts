@@ -33,9 +33,8 @@
 //
 
 import type { TypeValidator } from "../../Archetypes";
+import type { AppErrorOr, DataPath } from "../../ErrorHandling";
 import { AppError, extractReasonFromCaught } from "../../ErrorHandling";
-import type { AppErrorOr } from "../../ErrorHandling";
-import type { DataPath } from "../../SupportingTypes";
 import { UnsupportedTypeError } from "../../Errors";
 
 /**

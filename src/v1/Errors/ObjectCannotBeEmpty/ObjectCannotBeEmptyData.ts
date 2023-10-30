@@ -32,8 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { ExtraPublicData } from "../../ErrorHandling";
-import type { DataPath } from "../../SupportingTypes";
+import type { DataPath, ExtraPublicData } from "../../ErrorHandling";
 
 /**
  * `ObjectCannotBeEmptyData` is the input that
