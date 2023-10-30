@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { ValueObject } from "../../Archetypes";
+import { ValueObject } from "../../Archetypes/Values/ValueObject/ValueObject";
 import type { AnyExtraData } from "../ExtraData";
 import type { StructuredProblemReportData } from "./StructuredProblemReportData";
 import type { HttpStatusCode, NodeJSModuleName } from "../../SupportingTypes";

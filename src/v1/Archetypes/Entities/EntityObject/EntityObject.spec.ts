@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { EntityObject } from "./EntityObject";
+import { EntityObject } from "../../../";
 
 interface ExampleRecord {
     id: number;
