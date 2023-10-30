@@ -47,8 +47,8 @@ import { Entity } from "./Entity";
  * the data to inspect
  * @returns
  * - `true` if:
- *   - `input` implements {@link Entity.implementsEntity},
- *   - and if that method returns `true`
+ *   - `input` implements {@link Entity},
+ *   - and if the `implementsEntity()` method returns `true`
  * - `false` otherwise
  */
 export function isEntity<ID = any, T = any>(input: unknown): input is Entity<ID,T> {
