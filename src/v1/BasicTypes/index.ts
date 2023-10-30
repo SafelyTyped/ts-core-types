@@ -37,7 +37,6 @@ export * from "./Arrays";
 export * from "./Booleanish";
 export * from "./Booleans";
 export * from "./Classes";
-export * from "./Filters";
 export * from "./Functions";
 export * from "./HashMaps";
 export * from "./Integers";

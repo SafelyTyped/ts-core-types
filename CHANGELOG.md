@@ -45,6 +45,10 @@ The following changes have been completed, and will be included in the next tagg
 * Upgrade to Typescript 5.2
 * Switch from tslint to @typescript-eslint
   * Lots of tweaks to satisfy @typescript-eslint
+* Removed `everyFilter()`
+  - use `everyGuard()` instead
+* Removed `someFilters()`
+  - use `someGuards()` instead
 
 ## v0.3.10
 

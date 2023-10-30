@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { everyFilter } from "../../../Filters";
+
+import { everyGuard } from "../../../../Operators/everyGuard";
 import { Prototypes } from "../../../Prototypes";
 import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
 import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
@@ -82,7 +83,7 @@ export function findProperties(
 
         // and which ones do we want to keep?
         const propNames = Object.getOwnPropertyNames(obj).filter(
-            (propName) => everyFilter(
+            (propName) => everyGuard(
                 {
                     // for some reason, TypeScript thinks obj isn't
                     // an object here

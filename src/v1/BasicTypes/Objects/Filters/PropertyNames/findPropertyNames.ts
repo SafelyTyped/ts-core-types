@@ -31,10 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { everyFilter } from "../../../Filters";
 import type { PropertyNameFilter } from "./PropertyNameFilter";
 import { Prototypes } from "../../../Prototypes";
 import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
+import { everyGuard } from "../../../../Operators/everyGuard";
 
 /**
  * `findPropertyNames()` is a data filter. It returns a list of all properties
@@ -72,7 +72,7 @@ export function findPropertyNames(
     while(obj !== null) {
         // what does this prototype have for us today?
         const propNames = Object.getOwnPropertyNames(obj).filter(
-            (propName) => everyFilter(
+            (propName) => everyGuard(
                 {
                     obj: obj as object,
                     propName,
