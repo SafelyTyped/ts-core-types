@@ -39,6 +39,7 @@ The following changes have been completed, and will be included in the next tagg
 ### Refactors
 
 * Moved `AppErrorOr` into the `ErrorHandling` folder
+* Moved `numerical` into the `BasicTypes` folder
 
 ### B/C Breaks
 

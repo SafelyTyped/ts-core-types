@@ -41,6 +41,7 @@ export * from "./Functions";
 export * from "./HashMaps";
 export * from "./Integers";
 export * from "./Numbers";
+export * from "./numerical";
 export * from "./Objects";
 export * from "./Options";
 export * from "./Primitives";
