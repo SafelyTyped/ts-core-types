@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { validateNumberRange } from "./validateNumberRange";
-import { DEFAULT_DATA_PATH, NumberOutOfRangeError } from "../..";
+import { describe } from "mocha";
+
+import { DEFAULT_DATA_PATH, NumberOutOfRangeError, validateNumberRange } from "../../";
 
 class UnitTestExample extends NumberOutOfRangeError {
     public unique: string = "hello there!";

@@ -32,10 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { DataGuard } from "../../Archetypes";
-import { someGuards } from "./someGuards";
+import { describe } from "mocha";
+import { DataGuard, someGuards } from "../../";
 
 describe("someGuards()", () => {
     it("returns `true` if any guard does so", () => {

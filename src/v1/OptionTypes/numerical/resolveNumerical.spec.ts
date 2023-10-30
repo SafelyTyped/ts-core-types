@@ -35,10 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { ValueObject } from "../../Archetypes";
-import { RefinedNumber, RefinedString } from "../../RefinedTypes";
-import { NumericalConversionRules } from "./NumericalConversionRules";
-import { resolveNumerical } from "./resolveNumerical";
+import { NumericalConversionRules, RefinedNumber, RefinedString, ValueObject, resolveNumerical } from "../../";
 
 const noPrototype = {}
 Object.setPrototypeOf(noPrototype, null);

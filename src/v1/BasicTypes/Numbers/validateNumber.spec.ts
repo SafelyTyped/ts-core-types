@@ -34,10 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedTypeError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateNumber } from "./validateNumber";
-
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, validateNumber } from "../../";
 
 describe("validateNumber()", () => {
     it("returns `input` when given a number", () => {

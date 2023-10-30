@@ -32,10 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { Filter } from "./Filter";
-import { someFilters } from "./someFilters";
+import { describe } from "mocha";
+import { Filter, someFilters } from "../../";
 
 describe("someFilters()", () => {
     it("returns `true` if any filter does so", () => {

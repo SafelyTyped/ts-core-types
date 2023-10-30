@@ -34,10 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedStringLengthRangeError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateStringLengthBetween } from "./validateStringLengthBetween";
-
+import { DEFAULT_DATA_PATH, UnsupportedStringLengthRangeError, validateStringLengthBetween } from "../../";
 
 describe("validateStringLength()", () => {
     it("returns `input` when the input validates", () => {

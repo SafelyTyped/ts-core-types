@@ -34,10 +34,8 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
+import { AnyAppError, FunctionalOption, OnErrorOptions, RefinedNumber, THROW_THE_ERROR, ValueObject, applyFunctionalOptions } from "../../";
 import { NeverAdultAgeError } from "../../_fixtures";
-import { ValueObject, FunctionalOption, applyFunctionalOptions } from "../../Archetypes";
-import { AnyAppError, OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import { RefinedNumber } from "../RefinedNumber";
 
 function mustBeAdultAge(input: number): void {
     return;

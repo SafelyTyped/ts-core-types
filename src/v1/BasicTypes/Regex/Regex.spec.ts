@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { RegexDoesNotCompileError, RegexReturnedNoResultsError } from "../../Errors";
-import { Regex } from "./Regex";
+import { Regex, RegexDoesNotCompileError, RegexReturnedNoResultsError } from "../../";
 
 describe("Regex", () => {
     it("is a RegExp", () => {

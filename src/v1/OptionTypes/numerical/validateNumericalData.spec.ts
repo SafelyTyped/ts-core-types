@@ -35,12 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { ValueObject } from "../../Archetypes";
-import { UnsupportedNumericalValueError } from "../../Errors";
-import { RefinedNumber, RefinedString } from "../../RefinedTypes";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateNumericalData } from "./validateNumericalData";
-
+import { DEFAULT_DATA_PATH, RefinedNumber, RefinedString, UnsupportedNumericalValueError, ValueObject, validateNumericalData } from "../../";
 
 const noPrototype = {}
 Object.setPrototypeOf(noPrototype, null);

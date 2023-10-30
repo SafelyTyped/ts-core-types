@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { NotImplementedError } from "./NotImplementedError";
+import { NotImplementedError } from "../../";
 
 describe("NotImplementedError", () => {
     describe(".constructor()", () => {

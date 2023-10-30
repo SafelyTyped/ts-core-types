@@ -32,13 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { ValidRegExpExecArrayWithGroupsData, InvalidRegExpExecArrayWithGroupsData } from "../_fixtures";
-import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
-
+import { describe } from "mocha";
+import { AppError, DEFAULT_DATA_PATH, validateRegExpExecArrayWithGroups } from "../../";
+import { InvalidRegExpExecArrayWithGroupsData, ValidRegExpExecArrayWithGroupsData } from "../_fixtures";
 
 describe("validateRegExpExecArrayWithGroups()", () => {
     describe("accepts valid RegExpExecArrayWithGroups", () => {

@@ -35,7 +35,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { getClassNames } from "./getClassNames";
+import { getClassNames } from "../../";
 
 class UnitTestClassOne {
 

@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { InvalidNodeJSModuleNameError } from "./InvalidNodeJSModuleNameError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, InvalidNodeJSModuleNameError } from "../../";
 
 describe("InvalidNodeJSModuleNameError", () => {
     describe(".constructor()", () => {

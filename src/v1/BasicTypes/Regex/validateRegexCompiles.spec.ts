@@ -34,10 +34,8 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError } from "../../ErrorHandling";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { AppError, DEFAULT_DATA_PATH, validateRegexCompiles } from "../../";
 import { InvalidRegexData, ValidRegexData } from "../_fixtures";
-import { validateRegexCompiles } from "./validateRegexCompiles";
 
 describe("validateRegex()", () => {
     describe("accepts valid regex strings", () => {

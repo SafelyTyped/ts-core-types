@@ -32,12 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { ValidHashMapData, InvalidHashMapData } from "../_fixtures";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
-import { validateHashMap } from "./validateHashMap";
+import { describe } from "mocha";
+import { AppError, DEFAULT_DATA_PATH, validateHashMap } from "../../";
+import { InvalidHashMapData, ValidHashMapData } from "../_fixtures";
 
 describe("validateHashMap()", () => {
     describe("accepts any object that has keys of the right type", () => {

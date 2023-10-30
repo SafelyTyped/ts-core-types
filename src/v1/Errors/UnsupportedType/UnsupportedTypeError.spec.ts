@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedTypeError } from "./UnsupportedTypeError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError } from "../../";
 
 describe("UnsupportedTypeError", () => {
     describe(".constructor()", () => {

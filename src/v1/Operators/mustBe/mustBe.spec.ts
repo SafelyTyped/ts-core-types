@@ -34,11 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { isObject } from "../../BasicTypes";
-import { AnyAppError, OnError } from "../../ErrorHandling";
-import { UnreachableCodeError, UnsupportedTypeError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { mustBe } from "./mustBe";
+import { AnyAppError, DEFAULT_DATA_PATH, OnError, UnreachableCodeError, UnsupportedTypeError, isObject, mustBe } from "../../";
 
 describe("mustBe()", () => {
     it("if the input is an AppError, it throws that error", () => {

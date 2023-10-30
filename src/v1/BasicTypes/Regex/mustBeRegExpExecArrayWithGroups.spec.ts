@@ -32,11 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { ValidRegExpExecArrayWithGroupsData, InvalidRegExpExecArrayWithGroupsData } from "../_fixtures";
-import { mustBeRegExpExecArrayWithGroups } from "./mustBeRegExpExecArrayWithGroups";
-import { AppError } from "../../ErrorHandling";
+import { describe } from "mocha";
+import { AppError, mustBeRegExpExecArrayWithGroups } from "../../";
+import { InvalidRegExpExecArrayWithGroupsData, ValidRegExpExecArrayWithGroupsData } from "../_fixtures";
 
 describe("mustBeRegExpExecArrayWithGroupsData()", () => {
     describe("accepts valid RegExpExecArrayWithGroupsData", () => {

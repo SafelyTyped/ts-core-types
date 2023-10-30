@@ -34,10 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedTypeError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { mustBeObject } from "./mustBeObject";
-
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeObject } from "../../";
 
 describe("mustBeObject()", () => {
     it("returns `input` when given an object", () => {

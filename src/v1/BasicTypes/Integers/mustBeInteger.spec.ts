@@ -34,9 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedTypeError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { mustBeInteger } from "./mustBeInteger";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeInteger } from "../../";
 
 
 describe("mustBeInteger()", () => {

@@ -48,6 +48,7 @@ export * from "./isMethodName";
 export * from "./isObject";
 export * from "./isObjectish";
 export * from "./mustBeObject";
+export * from "./mustBeObjectish";
 export * from "./NonNullObject";
 export * from "./validateObject";
 export * from "./validateObjectish";

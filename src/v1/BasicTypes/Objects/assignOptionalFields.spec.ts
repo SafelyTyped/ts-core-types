@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { assignOptionalFields } from "./assignOptionalFields";
+import { assignOptionalFields } from "../../";
 
 interface UnitTestTarget {
     one?: any;

@@ -33,11 +33,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { implementsToPrimitive } from "./implementsToPrimitive";
-import { RefinedNumber, RefinedString } from "../../RefinedTypes";
-import { ValueObject } from "../..";
+import { describe } from "mocha";
+
+import { RefinedNumber, RefinedString, ValueObject, implementsToPrimitive } from "../../";
 
 class UnitTestRefinedNumber extends RefinedNumber {
     public constructor(input: number) {

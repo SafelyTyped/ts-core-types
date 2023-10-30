@@ -32,11 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { DispatchMap } from "./DispatchMap";
-import { searchDispatchMap } from "./searchDispatchMap";
-import { getProperty } from "../../BasicTypes";
+import { describe } from "mocha";
+
+import { DispatchMap, getProperty, searchDispatchMap } from "../../";
 
 // this type is needed to make Typescript 4.6.4 happy
 type UnitMapType = () => number | string | undefined;

@@ -32,12 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { ValidNonEmptyArrayData, InvalidNonEmptyArrayData } from "../_fixtures";
-import { validateNonEmptyArray } from "./validateNonEmptyArray";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
+import { describe } from "mocha";
+
+import { AppError, DEFAULT_DATA_PATH, validateNonEmptyArray } from "../../";
+import { InvalidNonEmptyArrayData, ValidNonEmptyArrayData } from "../_fixtures";
 
 describe("validateNonEmptyArray()", () => {
     describe("accepts any array that has content", () => {

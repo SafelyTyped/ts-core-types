@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedStringPrefixError } from "./UnsupportedStringPrefixError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, UnsupportedStringPrefixError } from "../../";
 
 describe("UnsupportedStringPrefixError", () => {
     describe(".constructor()", () => {

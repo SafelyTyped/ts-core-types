@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { isObjectish } from "./isObjectish";
+import { isObjectish } from "../../";
 
 describe("isObjectish()", () => {
     it("returns `true` when given an object", () => {

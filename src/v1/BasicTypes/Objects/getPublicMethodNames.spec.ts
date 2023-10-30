@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { getPublicMethodNames } from "./getPublicMethodNames";
+import { getPublicMethodNames } from "../../";
 
 class UnitTestBaseClass {
     public fn1(): string {

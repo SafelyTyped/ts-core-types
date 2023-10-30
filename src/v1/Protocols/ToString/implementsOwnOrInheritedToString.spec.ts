@@ -34,9 +34,9 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { implementsOwnOrInheritedToString } from "./implementsOwnOrInheritedToString";
+import { implementsOwnOrInheritedToString } from "../../";
 
-describe("implementsOwnToString()", () => {
+describe("implementsOwnOrInheritedToString()", () => {
     [
         null,
         undefined,

@@ -34,9 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { validateObjectNotEmpty } from "./validateObjectNotEmpty";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
+import { AppError, DEFAULT_DATA_PATH, validateObjectNotEmpty } from "../../";
 
 describe("validateObjectNotEmpty()", () => {
     it("returns `input` if the input is not empty", () => {

@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { ArrayCannotBeEmptyError } from "./ArrayCannotBeEmptyError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { ArrayCannotBeEmptyError, DEFAULT_DATA_PATH } from "../../";
 
 describe("ArrayCannotBeEmptyError", () => {
     describe(".constructor()", () => {

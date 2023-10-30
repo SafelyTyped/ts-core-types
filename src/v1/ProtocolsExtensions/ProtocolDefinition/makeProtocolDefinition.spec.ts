@@ -34,11 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { addExtension } from "../Extensions";
-import { makeProtocolDefinition } from "./makeProtocolDefinition";
-import { implementsProtocol } from "../Protocol";
-import { getPublicMethodNames } from "../../BasicTypes";
-import { ExtensionDefinesNoMethodsError } from "../../Errors";
+import { ExtensionDefinesNoMethodsError, addExtension, getPublicMethodNames, implementsProtocol, makeProtocolDefinition } from "../../";
 
 interface ExampleValue {
     valueOf(): string;

@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 import { ValidHashMapData, InvalidHashMapData } from "../_fixtures";
-import { isHashMap } from "./isHashMap";
+import { isHashMap } from "../../";
 
 describe("isHashMap()", () => {
     describe("accepts any object that has keys of the right type", () => {

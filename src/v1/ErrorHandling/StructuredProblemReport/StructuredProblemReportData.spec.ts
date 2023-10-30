@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { StructuredProblemReportData } from ".";
-import { makeHttpStatusCode, MODULE_NAME } from "../..";
+import { makeHttpStatusCode, MODULE_NAME, StructuredProblemReportData } from "../../";
 import { UnitTestFailureData } from "../../_fixtures";
 
 describe("StructuredProblemReportData", () => {

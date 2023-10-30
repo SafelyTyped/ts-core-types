@@ -33,8 +33,9 @@
 //
 
 import { describe } from "mocha";
-import { implementsStack } from "./implementsStack";
 import { expect } from "chai";
+
+import { implementsStack } from "../../";
 
 describe("implementsStack()", () => {
     it("returns `true` for an Error", () => {

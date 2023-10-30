@@ -34,13 +34,8 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
+import { MODULE_NAME, NoExtraData, StructuredProblemReport, StructuredProblemReportData, makeHttpStatusCode, makeStructuredProblemReport } from "../../";
 import { UnitTestFailureData } from "../../_fixtures";
-import { StructuredProblemReport } from "./StructuredProblemReport";
-import { makeStructuredProblemReport } from "./makeStructuredProblemReport";
-import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
-import { StructuredProblemReportData } from "./StructuredProblemReportData";
-import { NoExtraData } from "../ExtraData";
 
 describe("StructuredProblemReport", () => {
     describe(".constructor()", () => {

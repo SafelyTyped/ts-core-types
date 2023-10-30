@@ -36,5 +36,8 @@
 export * from "./Prototype";
 export * from "./NextPrototypeChain";
 
+// functions
+export * from "./getPrototypeOf";
+
 // module
 export * from "./Prototypes";

@@ -35,7 +35,7 @@ import { expect } from "chai";
 import { describe } from "mocha";
 
 import { UnitTestFailureError } from "../../_fixtures";
-import { isAppError } from "./isAppError";
+import { isAppError } from "../../";
 
 describe("isAppError()", () => {
     it("is a type-guard for AppError objects", () => {

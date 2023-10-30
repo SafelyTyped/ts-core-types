@@ -32,12 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
+import { describe } from "mocha";
 
-import { validateObjectHasAllMethodsCalled } from "./validateObjectHasAllMethodsCalled";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { ObjectHasMissingMethodsError } from "../../Errors";
+import { DEFAULT_DATA_PATH, ObjectHasMissingMethodsError, validateObjectHasAllMethodsCalled } from "../../";
 
 class UnitTestBaseClass {
     public fn1(): string {

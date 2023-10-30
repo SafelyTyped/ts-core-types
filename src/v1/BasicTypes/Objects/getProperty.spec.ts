@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { getProperty } from "./getProperty";
+import { getProperty } from "../../";
 
 describe("getProperty()", () => {
     it("supports string property names", () => {

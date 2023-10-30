@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Prototypes } from ".";
+import { Prototypes } from "../../";
 
 describe("getPrototypeOf()", () => {
 	it("returns an object when given an object", () => {

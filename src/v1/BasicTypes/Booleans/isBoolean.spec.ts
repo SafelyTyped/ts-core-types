@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { isBoolean } from "./isBoolean";
+import { isBoolean } from "../../";
 
 describe("isBoolean()", () => {
     it("returns `true` when given a boolean", () => {

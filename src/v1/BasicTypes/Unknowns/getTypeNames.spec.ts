@@ -36,7 +36,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { getTypeNames } from "./getTypeNames";
+import { getTypeNames } from "../../";
 
 interface TestItem<T> {
     testItems: T[];

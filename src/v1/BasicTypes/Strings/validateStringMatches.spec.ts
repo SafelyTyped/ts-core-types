@@ -32,12 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { ValidStringMatchesData, InvalidStringMatchesData } from "../_fixtures";
-import { validateStringMatches } from "./validateStringMatches";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
+import { describe } from "mocha";
+import { AppError, DEFAULT_DATA_PATH, validateStringMatches } from "../../";
+import { InvalidStringMatchesData, ValidStringMatchesData } from "../_fixtures";
 
 describe("validateStringMatches()", () => {
     describe("accepts valid StringMatches", () => {

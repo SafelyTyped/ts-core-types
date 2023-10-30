@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { isNonEmptyArray } from "./isNonEmptyArray";
+import { isNonEmptyArray } from "../../";
 
 describe("isNonEmptyArray()", () => {
     describe("is a generic function", () => {

@@ -33,9 +33,8 @@
 //
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppErrorOr } from "../../OptionTypes";
 
-import { recast } from "./recast";
+import { AppErrorOr, recast } from "../../";
 
 describe("recast()", () => {
     it("converts from one type to another", () => {

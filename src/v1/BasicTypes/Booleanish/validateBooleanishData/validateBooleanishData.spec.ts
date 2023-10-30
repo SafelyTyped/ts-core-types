@@ -34,12 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedTypeError, UnsupportedBooleanishValueError } from "../../../Errors";
-import { DEFAULT_DATA_PATH, DataPath } from "../../../SupportingTypes";
-import { validateBooleanishData } from "./validateBooleanishData";
-import { implementsOwnOrInheritedToString } from "../../../Protocols";
-import { BooleanishRules } from "../BooleanishRules";
-import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
+import { BooleanishRules, DEFAULT_BOOLEANISH_RULES, DEFAULT_DATA_PATH, DataPath, UnsupportedBooleanishValueError, UnsupportedTypeError, implementsOwnOrInheritedToString, validateBooleanishData } from "../../../";
 
 class UnitTestTrue {
     public toString() { return "yes"; }

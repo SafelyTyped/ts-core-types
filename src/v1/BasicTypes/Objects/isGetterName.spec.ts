@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isGetterName } from "./isGetterName";
+import { isGetterName } from "../../";
 
 class UnitTestExample {
     public attr1: string = "";

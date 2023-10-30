@@ -33,9 +33,8 @@
 //
 import { expect } from "chai";
 import { describe } from "mocha";
+import { AppError, StructuredProblemReport } from "../../";
 import { UnitTestFailureError } from "../../_fixtures";
-import { StructuredProblemReport } from "../StructuredProblemReport";
-import { AppError } from "./AppError";
 
 describe("AppError", () => {
     it("is an Error", () => {

@@ -34,10 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedStringValueError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateStringValue } from "./validateStringValue";
-
+import { DEFAULT_DATA_PATH, UnsupportedStringValueError, validateStringValue } from "../../";
 
 describe("validateStringValue()", () => {
     it("returns `input` when the input validates", () => {

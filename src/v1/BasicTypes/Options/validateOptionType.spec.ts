@@ -32,12 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { ValidOptionTypeData, InvalidOptionTypeData } from "../_fixtures";
-import { validateOptionType } from "./validateOptionType";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { AppError } from "../../ErrorHandling";
+import { describe } from "mocha";
+
+import { AppError, DEFAULT_DATA_PATH, validateOptionType } from "../../";
+import { InvalidOptionTypeData, ValidOptionTypeData } from "../_fixtures";
 
 describe("validateOptionType()", () => {
     describe("accepts valid OptionType", () => {

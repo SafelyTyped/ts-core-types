@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { implementsHas } from "./implementsHas";
+import { implementsHas } from "../../";
 
 describe("implementsHas()", () => {
     it("returns `true` if an object has a method called `has()`", () => {

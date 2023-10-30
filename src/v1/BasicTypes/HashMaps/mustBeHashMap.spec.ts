@@ -32,11 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { ValidHashMapData, InvalidHashMapData } from "../_fixtures";
-import { AppError } from "../../ErrorHandling";
-import { mustBeHashMap } from "./mustBeHashMap";
+import { describe } from "mocha";
+import { AppError, mustBeHashMap } from "../../";
+import { InvalidHashMapData, ValidHashMapData } from "../_fixtures";
 
 describe("mustBeHashMap()", () => {
     describe("returns `input` when given a valid HashMap", () => {

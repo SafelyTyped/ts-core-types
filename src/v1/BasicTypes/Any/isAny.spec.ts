@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isAny } from "./isAny";
+import { isAny } from "../../";
 
 describe("isAny()", () => {
     const examples = [

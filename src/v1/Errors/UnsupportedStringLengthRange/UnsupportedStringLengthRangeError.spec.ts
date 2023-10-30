@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedStringLengthRangeError } from "./UnsupportedStringLengthRangeError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, UnsupportedStringLengthRangeError } from "../../";
 
 describe("UnsupportedStringLengthError", () => {
     describe(".constructor()", () => {

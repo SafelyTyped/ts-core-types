@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedNumericalValueError } from "./UnsupportedNumericalValueError";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, UnsupportedNumericalValueError } from "../../";
 
 describe("UnsupportedNumericalValueError", () => {
     describe(".constructor()", () => {

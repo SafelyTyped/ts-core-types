@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { mustBeDataPathData } from "./mustBeDataPathData";
-import { AppError } from "../../ErrorHandling";
+import { describe } from "mocha";
+
+import { AppError, mustBeDataPathData } from "../../";
 
 describe("mustBeDataPathData()", () => {
     it("creates a new DataPath", () => {

@@ -34,8 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { RegexReturnedNoNamedGroupsError } from "./RegexReturnedNoNamedGroupsError";
+import { DEFAULT_DATA_PATH, RegexReturnedNoNamedGroupsError } from "../../";
 
 describe("RegexReturnedNoNamedGroupsError", () => {
     describe(".constructor()", () => {

@@ -34,10 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedStringPrefixError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateStringStartsWith } from "./validateStringStartsWith";
-
+import { DEFAULT_DATA_PATH, UnsupportedStringPrefixError, validateStringStartsWith } from "../../";
 
 describe("validateString()", () => {
     it("returns `input` when the input validates", () => {

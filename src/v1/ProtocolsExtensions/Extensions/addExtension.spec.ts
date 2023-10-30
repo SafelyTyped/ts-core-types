@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { addExtension } from "./addExtension";
+import { addExtension } from "../../";
 
 class Unit1 {
     public prop1 = 100;

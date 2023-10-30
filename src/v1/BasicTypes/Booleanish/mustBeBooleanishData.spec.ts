@@ -32,10 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { mustBeBooleanishData } from "./mustBeBooleanishData";
-import { AppError } from "../../ErrorHandling";
+import { describe } from "mocha";
+import { AppError, mustBeBooleanishData } from "../../";
 
 describe("mustBeBooleanishData() (using default ruleset)", () => {
     [

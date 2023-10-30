@@ -34,8 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { validateAny } from "./validateAny";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
+import { DEFAULT_DATA_PATH, validateAny } from "../../";
 
 const ValidAny = [
     null,

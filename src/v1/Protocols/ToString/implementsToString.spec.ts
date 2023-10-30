@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { implementsToString } from "./implementsToString";
+import { implementsToString } from "../../";
 
 describe("implementsToString()", () => {
     [

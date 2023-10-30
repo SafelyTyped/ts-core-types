@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { describe } from "mocha";
 import { expect } from "chai";
-import { DispatchMap } from "./DispatchMap";
-import { AnyFunction } from "../../Archetypes";
+import { describe } from "mocha";
+
+import { AnyFunction, DispatchMap } from "../../";
 
 describe("DispatchMap", () => {
     it("supports strings as keys", () => {

@@ -34,10 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedTypeError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateBoolean } from "./validateBoolean";
-
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, validateBoolean } from "../../";
 
 describe("validateBoolean()", () => {
     it("returns `input` when given a boolean", () => {

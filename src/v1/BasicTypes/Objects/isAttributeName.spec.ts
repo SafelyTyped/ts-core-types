@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isAttributeName } from "./isAttributeName";
+import { isAttributeName } from "../../";
 
 class UnitTestBaseClass {
     public fn1(): string {

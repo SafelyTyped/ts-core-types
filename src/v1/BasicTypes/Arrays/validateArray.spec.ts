@@ -34,10 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnsupportedTypeError } from "../../Errors";
-import { DEFAULT_DATA_PATH } from "../../SupportingTypes";
-import { validateArray } from "./validateArray";
-
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, validateArray } from "../../";
 
 describe("validateArray()", () => {
     it("returns `input` when given an array", () => {

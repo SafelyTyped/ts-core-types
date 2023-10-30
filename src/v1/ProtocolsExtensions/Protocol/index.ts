@@ -31,3 +31,4 @@
 //
 
 export * from "./implementsProtocol";
+export * from "./validateImplementsProtocol";

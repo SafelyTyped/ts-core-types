@@ -34,9 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyAppError } from "../../ErrorHandling";
-import { makeNodeJSModuleName } from "./makeNodeJSModuleName";
-import { MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS } from ".";
+import { AnyAppError, MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS, makeNodeJSModuleName } from "../../";
 
 const onError = (e: AnyAppError): never => {
     throw new Error("ONERROR CALLED");

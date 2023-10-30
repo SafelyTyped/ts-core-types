@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { isBooleanishData } from "./isBooleanishData";
+import { isBooleanishData } from "../../";
 
 describe("isBooleanishData() (using default ruleset)", () => {
     [
