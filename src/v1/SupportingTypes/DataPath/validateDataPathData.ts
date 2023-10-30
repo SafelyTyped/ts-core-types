@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 import { validateStringStartsWith } from "../../BasicTypes";
 import { recast, validate } from "../../Operators";
 import type { DataPath } from "./DataPath";

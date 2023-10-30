@@ -33,6 +33,7 @@
 //
 
 export * from "./AppError";
+export * from "./AppErrorOr";
 export * from "./ExtraData";
 export * from "./Helpers";
 export * from "./OnError";

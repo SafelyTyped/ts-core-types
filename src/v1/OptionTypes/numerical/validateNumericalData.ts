@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr } from "../AppErrorOr";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr";
 import { UnsupportedNumericalValueError } from "../../Errors";
 import type { DataPath } from "../../SupportingTypes";
 import type { numerical } from "./numerical";

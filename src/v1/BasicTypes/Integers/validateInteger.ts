@@ -33,7 +33,7 @@
 //
 import { AppError } from "../../ErrorHandling";
 import { UnsupportedTypeError } from "../../Errors";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 import type { DataPath } from "../../SupportingTypes";
 import { validateNumber } from "../Numbers";
 

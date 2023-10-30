@@ -26,7 +26,7 @@
 // has become an Error.
 
 import type { ValidationPipelineStep } from "./ValidationPipelineStep";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 import { AppError } from "../../ErrorHandling";
 
 /**

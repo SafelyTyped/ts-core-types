@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { validateObjectHasAllMethodsCalled } from "../../BasicTypes";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 import type { DataPath } from "../../SupportingTypes";
 import type { ProtocolDefinition } from "../ProtocolDefinition";
 

@@ -33,7 +33,7 @@
 //
 
 import type { DataPath } from "../../SupportingTypes";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 
 /**
  * `validateArray()` is a {@link TypeValidator}. Use it to accept any

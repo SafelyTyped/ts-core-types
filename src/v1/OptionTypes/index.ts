@@ -32,5 +32,4 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-export * from "./AppErrorOr";
 export * from "./numerical";

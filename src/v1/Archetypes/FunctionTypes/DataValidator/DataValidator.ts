@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr } from "../../../OptionTypes";
+import type { AppErrorOr } from "../../../ErrorHandling";
 import type { DataPath } from "../../../SupportingTypes";
 
 /**

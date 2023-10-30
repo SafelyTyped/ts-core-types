@@ -33,7 +33,7 @@
 //
 import type { TypeValidator } from "../../Archetypes";
 import { AppError } from "../../ErrorHandling";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 import { DataPath, extendDataPath } from "../../SupportingTypes";
 
 /**

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { DataPath } from "../DataPath";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { NodeJSModuleNameDataRegex } from "./regexes";
 import { InvalidNodeJSModuleNameError } from "../../Errors";

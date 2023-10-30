@@ -33,7 +33,7 @@
 //
 import { extractReasonFromCaught } from "../../ErrorHandling";
 import { RegexDoesNotCompileError } from "../../Errors";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 import type { DataPath } from "../../SupportingTypes";
 
 /**

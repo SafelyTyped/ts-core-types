@@ -34,7 +34,7 @@
 import type { DataPath } from "../DataPath";
 import { validateNumberRange } from "../../BasicTypes";
 import { HttpStatusCodeOutOfRangeError } from "../../Errors";
-import type { AppErrorOr } from "../../OptionTypes";
+import type { AppErrorOr } from "../../ErrorHandling";
 
 /**
  * `validateHttpStatusCodeDataRange()` is a {@link DataValidator}. It proves

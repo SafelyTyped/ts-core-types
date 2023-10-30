@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyAppError } from "../../ErrorHandling";
+import type { AnyAppError } from "..";
 
 /**
  * `AppErrorOr` is an option type. It describes a type that be one of:

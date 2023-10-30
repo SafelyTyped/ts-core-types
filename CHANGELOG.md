@@ -21,9 +21,8 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
-* Upgrade to Typescript 5.x
-* Switch from tslint to @typescript-eslint
-  * Lots of tweaks to satisfy @typescript-eslint
+### New
+
 * Added `AnyArrayKey`
 * Added `getPropertyOf()`
 * Added `isObjectish()`
@@ -34,6 +33,18 @@ The following changes have been completed, and will be included in the next tagg
 * Added `Prototypes` to act as module for prototype-related functions
 * Added `Strings` to act as module for string-related functions
 * Added `Unknowns` to act as module for unknown type-related functions
+
+### Fixes
+
+### Refactors
+
+* Moved `AppErrorOr` into the `ErrorHandling` folder
+
+### B/C Breaks
+
+* Upgrade to Typescript 5.2
+* Switch from tslint to @typescript-eslint
+  * Lots of tweaks to satisfy @typescript-eslint
 
 ## v0.3.10
 
