@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { MODULE_NAME, NoExtraData, StructuredProblemReport, StructuredProblemReportData, makeHttpStatusCode, makeStructuredProblemReport } from "../../";
+import { MODULE_NAME, NoExtraData, StructuredProblemReport, StructuredProblemReportData, makeStructuredProblemReport } from "../../";
 import { UnitTestFailureData } from "../../_fixtures";
 
 describe("StructuredProblemReport", () => {
@@ -43,7 +43,6 @@ describe("StructuredProblemReport", () => {
             const inputValue: StructuredProblemReportData<UnitTestFailureData> = {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
-                status: makeHttpStatusCode(500),
                 extra: {
                     public: {
                         field1: "first field",
@@ -63,7 +62,6 @@ describe("StructuredProblemReport", () => {
             const inputValue: StructuredProblemReportData<NoExtraData> = {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
-                status: makeHttpStatusCode(500),
                 extra: undefined,
             };
 
@@ -78,7 +76,6 @@ describe("StructuredProblemReport", () => {
             const inputValue: StructuredProblemReportData<UnitTestFailureData> = {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
-                status: makeHttpStatusCode(500),
                 extra: {
                     public: {
                         field1: "first field",
@@ -103,7 +100,6 @@ describe("StructuredProblemReport", () => {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
                 errorId: "this is our error ID",
-                status: makeHttpStatusCode(500),
                 extra: {
                     public: {
                         field1: "first field",
@@ -125,7 +121,6 @@ describe("StructuredProblemReport", () => {
             const inputValue: StructuredProblemReportData<UnitTestFailureData> = {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
-                status: makeHttpStatusCode(500),
                 extra: {
                     public: {
                         field1: "first field",
@@ -149,7 +144,6 @@ describe("StructuredProblemReport", () => {
             const inputValue: StructuredProblemReportData<UnitTestFailureData> = {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
-                status: makeHttpStatusCode(500),
                 extra: {
                     public: {
                         field1: "first field",
@@ -173,7 +167,6 @@ describe("StructuredProblemReport", () => {
             const inputValue: StructuredProblemReportData<NoExtraData> = {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
-                status: makeHttpStatusCode(500),
                 extra: undefined,
             };
 
@@ -184,36 +177,11 @@ describe("StructuredProblemReport", () => {
         });
     });
 
-    describe(".status", () => {
-        it("returns the `status` field from the underlying data", () => {
-            const inputValue: StructuredProblemReportData<UnitTestFailureData> = {
-                definedBy: MODULE_NAME,
-                description: "this is a test",
-                status: makeHttpStatusCode(500),
-                extra: {
-                    public: {
-                        field1: "first field",
-                    },
-                    logsOnly: {
-                        field2: "second field",
-                    },
-                }
-            };
-            const expectedValue = inputValue.status;
-
-            const unit = makeStructuredProblemReport(inputValue);
-            const actualValue = unit.status;
-
-            expect(actualValue).to.equal(expectedValue);
-        });
-    });
-
     describe("protocols", () => {
         it("implements Value", () => {
             const inputValue: StructuredProblemReportData<UnitTestFailureData> = {
                 definedBy: MODULE_NAME,
                 description: "this is a test",
-                status: makeHttpStatusCode(500),
                 extra: {
                     public: {
                         field1: "first field",

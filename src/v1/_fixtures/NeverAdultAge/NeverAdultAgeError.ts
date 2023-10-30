@@ -33,7 +33,6 @@
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 import type { NeverAdultAgeData } from "./NeverAdultAgeData";
 
 /**
@@ -46,7 +45,6 @@ export class NeverAdultAgeError extends AppError<NeverAdultAgeData>{
             description: "value is lower than minimum adult age",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: makeHttpStatusCode(422),
         });
 
         super(srp);

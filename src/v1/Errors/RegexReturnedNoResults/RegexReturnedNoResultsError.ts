@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { RegexReturnedNoResultsData } from "./RegexReturnedNoResultsData";
 
@@ -51,7 +50,6 @@ export class RegexReturnedNoResultsError extends AppError<RegexReturnedNoResults
             extra: {
                 logsOnly: params.logsOnly
             },
-            status: makeHttpStatusCode(500),
         });
 
         super(spr);

@@ -33,7 +33,6 @@
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 import type { NeverABrandedUuidData } from "./NeverABrandedUuidData";
 
 /**
@@ -46,7 +45,6 @@ export class NeverABrandedUuidError extends AppError<NeverABrandedUuidData>{
             description: "value is not a branded Uuid",
             errorId: params.errorId,
             extra: undefined,
-            status: makeHttpStatusCode(500),
         });
 
         super(srp);

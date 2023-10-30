@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { UnsupportedBooleanishValueData } from "./UnsupportedBooleanishValueData";
 
@@ -52,7 +51,6 @@ export class UnsupportedBooleanishValueError extends AppError<UnsupportedBoolean
             extra: {
                 public: params.public
             },
-            status: 422 as HttpStatusCode,
         });
 
         super(spr);

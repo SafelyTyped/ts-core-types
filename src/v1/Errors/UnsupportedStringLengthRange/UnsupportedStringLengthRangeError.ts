@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { UnsupportedStringLengthRangeData } from "./UnsupportedStringLengthRangeData";
 
@@ -51,7 +50,6 @@ export class UnsupportedStringLengthRangeError extends AppError<UnsupportedStrin
             extra: {
                 public: params.public
             },
-            status: 422 as HttpStatusCode,
         });
         super(spr);
     }

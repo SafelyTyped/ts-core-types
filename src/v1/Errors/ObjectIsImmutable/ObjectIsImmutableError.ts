@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { ObjectIsImmutableData } from "./ObjectIsImmutableData";
 
@@ -52,7 +51,6 @@ export class ObjectIsImmutableError extends AppError<ObjectIsImmutableData> {
             description: "attempt made to modify read-only object",
             errorId: params.errorId,
             extra: { logsOnly: params.logsOnly },
-            status: 500 as HttpStatusCode,
         });
 
         super(spr);

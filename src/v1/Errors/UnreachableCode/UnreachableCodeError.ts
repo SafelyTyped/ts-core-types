@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { UnreachableCodeData } from "./UnreachableCodeData";
 
@@ -52,7 +51,6 @@ export class UnreachableCodeError extends AppError<UnreachableCodeData> {
             description: "unreachable code has been executed",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: 500 as HttpStatusCode,
         });
 
         super(spr);

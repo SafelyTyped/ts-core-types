@@ -34,7 +34,6 @@
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { NumberOutOfRangeData } from "./NumberOutOfRangeData";
-import type { HttpStatusCode } from "../../SupportingTypes";
 
 /**
  * `NumberOutOfRangeError` is thrown whenever we're given a number that
@@ -56,7 +55,6 @@ export class NumberOutOfRangeError extends AppError<NumberOutOfRangeData> {
             description: description,
             errorId: params.errorId,
             extra: { public: params.public },
-            status: 422 as HttpStatusCode,
         });
 
         super(spr);

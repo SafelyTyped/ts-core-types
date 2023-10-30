@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { NotImplementedData } from "./NotImplementedData";
 
@@ -58,7 +57,6 @@ export class NotImplementedError extends AppError<NotImplementedData> {
             description: "function / feature has not been implemented yet",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: 500 as HttpStatusCode,
         });
 
         super(spr);

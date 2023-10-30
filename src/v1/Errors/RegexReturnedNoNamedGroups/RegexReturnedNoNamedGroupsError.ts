@@ -17,7 +17,6 @@
 // <https://www.gnu.org/licenses/>.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { RegexReturnedNoNamedGroupsData } from "./RegexReturnedNoNamedGroupsData";
 
@@ -37,7 +36,6 @@ export class RegexReturnedNoNamedGroupsError extends AppError<RegexReturnedNoNam
             extra: {
                 logsOnly: params.logsOnly
             },
-            status: makeHttpStatusCode(422),
         });
 
         super(spr);

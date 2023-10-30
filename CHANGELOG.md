@@ -51,6 +51,8 @@ The following changes have been completed, and will be included in the next tagg
   - use `everyGuard()` instead
 * Removed `someFilters()`
   - use `someGuards()` instead
+* Simplified `AppError` and the like:
+  - dropped `status` field from `StructuredProblemReportData`
 
 ## v0.3.10
 

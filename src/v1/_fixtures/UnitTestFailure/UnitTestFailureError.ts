@@ -34,7 +34,6 @@
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../../Errors";
 import type { UnitTestFailureData } from "./UnitTestFailureData";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 
 /**
  * @ignore
@@ -49,7 +48,6 @@ export class UnitTestFailureError extends AppError<UnitTestFailureData> {
                 public: params.public,
                 logsOnly: params.logsOnly
             },
-            status: makeHttpStatusCode(500),
         });
 
         super(srp);

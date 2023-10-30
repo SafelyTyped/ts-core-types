@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { makeHttpStatusCode, MODULE_NAME, StructuredProblemReportData } from "../../";
+import { MODULE_NAME, StructuredProblemReportData } from "../../";
 import { UnitTestFailureData } from "../../_fixtures";
 
 describe("StructuredProblemReportData", () => {
@@ -42,7 +42,6 @@ describe("StructuredProblemReportData", () => {
         const unit: StructuredProblemReportData<UnitTestFailureData> = {
             definedBy: MODULE_NAME,
             description: "this is a test",
-            status: makeHttpStatusCode(500),
             extra: {
                 public: {
                     field1: "first field",

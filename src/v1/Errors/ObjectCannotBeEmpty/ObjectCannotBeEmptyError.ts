@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import { makeHttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { ObjectCannotBeEmptyData } from "./ObjectCannotBeEmptyData";
 
@@ -51,7 +50,6 @@ export class ObjectCannotBeEmptyError extends AppError<ObjectCannotBeEmptyData> 
             extra: {
                 public: params.public
             },
-            status: makeHttpStatusCode(422),
         });
 
         super(spr);

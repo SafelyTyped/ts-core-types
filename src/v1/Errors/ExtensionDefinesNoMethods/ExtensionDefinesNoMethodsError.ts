@@ -32,7 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
-import type { HttpStatusCode } from "../../SupportingTypes";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { ExtensionDefinesNoMethodsData } from "./ExtensionDefinesNoMethodsData";
 
@@ -52,7 +51,6 @@ export class ExtensionDefinesNoMethodsError extends AppError<ExtensionDefinesNoM
             description: "extension must define at least one method",
             errorId: params.errorId,
             extra: { public: params.public },
-            status: 500 as HttpStatusCode,
         });
 
         super(spr);

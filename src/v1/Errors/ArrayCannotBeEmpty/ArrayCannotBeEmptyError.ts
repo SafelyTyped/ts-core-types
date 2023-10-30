@@ -34,7 +34,6 @@
 import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { ArrayCannotBeEmptyData } from "./ArrayCannotBeEmptyData";
-import type { HttpStatusCode } from "../../SupportingTypes";
 
 /**
  * `ArrayCannotBeEmptyError` is thrown whenever we're given a number that
@@ -56,7 +55,6 @@ export class ArrayCannotBeEmptyError extends AppError<ArrayCannotBeEmptyData> {
             description: description,
             errorId: params.errorId,
             extra: { public: params.public },
-            status: 422 as HttpStatusCode,
         });
 
         super(spr);

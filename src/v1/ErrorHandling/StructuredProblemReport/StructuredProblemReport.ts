@@ -34,7 +34,7 @@
 import { ValueObject } from "../../Archetypes/Values/ValueObject/ValueObject";
 import type { AnyExtraData } from "../ExtraData";
 import type { StructuredProblemReportData } from "./StructuredProblemReportData";
-import type { HttpStatusCode, NodeJSModuleName } from "../../SupportingTypes";
+import type { NodeJSModuleName } from "../../SupportingTypes";
 
 /**
  * `StructuredProblemReport` is a value object. It represents a problem
@@ -101,21 +101,5 @@ export class StructuredProblemReport<E extends AnyExtraData>
      */
     get extra(): E {
         return this._value.extra;
-    }
-
-    /**
-     * `.status` contains the HTTP status that best fits this error.
-     *
-     * NOTE that this is from the point-of-view of the code that throws
-     * the error.
-     *
-     * e.g. a library may report a `422` (validation failure),
-     * but it doesn't know where the rejected input comes from.
-     *
-     * The calling app DOES know, and it may decide to report a `500`
-     * (internal server error) back to the end-user instead.
-     */
-    get status(): HttpStatusCode {
-        return this._value.status;
     }
 }
