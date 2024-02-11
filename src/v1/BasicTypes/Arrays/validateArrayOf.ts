@@ -31,9 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeValidator } from "../../Archetypes";
-import type { AppErrorOr } from "../../ErrorHandling";
-import { AppError, DataPath, extendDataPath } from "../../ErrorHandling";
+
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { extendDataPath } from "../../ErrorHandling/DataPath/extendDataPath";
 
 /**
  * `validateArrayOf()` is a {@link TypeValidator}. Use it to prove that

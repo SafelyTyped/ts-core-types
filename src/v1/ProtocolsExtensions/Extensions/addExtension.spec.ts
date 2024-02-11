@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { addExtension } from "../../";
+import { addExtension } from "@safelytyped/core-types";
 
 class Unit1 {
     public prop1 = 100;

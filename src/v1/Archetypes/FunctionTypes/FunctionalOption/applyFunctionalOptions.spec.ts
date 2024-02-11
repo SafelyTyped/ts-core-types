@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { applyFunctionalOptions } from "./applyFunctionalOptions";
+import { applyFunctionalOptions } from "@safelytyped/core-types";
 
 describe("applyFunctionalOptions()", () => {
     it("applies all of the functional options", () => {

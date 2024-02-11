@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { isDataPathData } from "../../";
+import { isDataPathData } from "@safelytyped/core-types";
 
 describe("isDataPathData()", () => {
     it("creates a new DataPath", () => {

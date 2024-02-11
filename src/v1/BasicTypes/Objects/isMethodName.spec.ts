@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isMethodName } from "../../";
+import { isMethodName } from "@safelytyped/core-types";
 
 class UnitTestBaseClass {
     public fn1(): string {

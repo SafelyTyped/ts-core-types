@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { isObject } from "../../BasicTypes";
+import { isObject } from "../../BasicTypes/Objects/isObject";
 import type { ToPrimitive } from "./ToPrimitive";
 
 /**

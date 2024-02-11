@@ -31,12 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { Prototypes } from "../../../Prototypes";
 import { FIND_PROPERTIES_FILTER_KEEP_METHODS } from "../defaults/FIND_PROPERTIES_FILTER_KEEP_METHODS";
 import { findPropertyNames } from "./findPropertyNames";
 import type { PropertyNameFilter } from "./PropertyNameFilter";
 import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
 import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE";
+import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
 
 /**
  * `findMethodNames()` is a data filter. It returns a list of all methods
@@ -58,7 +58,7 @@ import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_
 export function findMethodNames(
     input: object,
     {
-        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE
+        nextPrototype = NEXT_PROTOTYPE
     }: Partial<PropertyNameFilterOptions> = {},
     ...filters: PropertyNameFilter[]
 ): string[] {

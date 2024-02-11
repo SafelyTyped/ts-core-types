@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { isNodeJSModuleNameData } from "../../";
+import { isNodeJSModuleNameData } from "@safelytyped/core-types";
 
 describe("isNodeJSModuleNameData()", () => {
     it("supports non-scoped NPM package names", () => {

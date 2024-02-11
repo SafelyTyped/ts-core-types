@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedStringPrefixError, validateStringStartsWith } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedStringPrefixError, validateStringStartsWith } from "@safelytyped/core-types";
 
 describe("validateString()", () => {
     it("returns `input` when the input validates", () => {

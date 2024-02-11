@@ -31,7 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AnyHashMap, Prototypes, findAttributes, findMethods } from "../../BasicTypes";
+
+import type { AnyHashMap } from "../../BasicTypes/HashMaps/AnyHashMap";
+import { findAttributes } from "../../BasicTypes/Objects/Filters/PropertyDescriptors/findAttributes";
+import { findMethods } from "../../BasicTypes/Objects/Filters/PropertyDescriptors/findMethods";
+import { STOP_AT_NEXT_PROTOTYPE } from "../../BasicTypes/Prototypes/defaults/STOP_AT_NEXT_PROTOTYPE";
+import { STOP_AT_OBJECT_PROTOTYPE } from "../../BasicTypes/Prototypes/defaults/STOP_AT_OBJECT_PROTOTYPE";
 
 /**
  * `addExtension()` is a object transformer. It turns `target` into an
@@ -81,7 +86,7 @@ function addSourceMethods(target: object, source: object) {
     // add all of source's methods to target
     for (const [ propName, propDesc ] of findMethods(
         source,
-        { nextPrototype: Prototypes.defaults.STOP_AT_OBJECT_PROTOTYPE },
+        { nextPrototype: STOP_AT_OBJECT_PROTOTYPE },
         // don't overwrite methods that already exist
         (x) => typeof (target as AnyHashMap)[ x.propName ] !== "function"
     )) {
@@ -96,7 +101,7 @@ function addSeedValues(target: object, seed: object | undefined) {
 
     for (const [ propName, propDesc ] of findAttributes(
         seed,
-        { nextPrototype: Prototypes.defaults.STOP_AT_NEXT_PROTOTYPE }
+        { nextPrototype: STOP_AT_NEXT_PROTOTYPE }
     )) {
         Object.defineProperty(target, propName, propDesc);
     }

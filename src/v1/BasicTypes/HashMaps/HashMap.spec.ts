@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { HashMap, resolveNumerical } from "../../";
+import { HashMap, resolveNumerical } from "@safelytyped/core-types";
 
 type BuildIndexTestValue = {
     aliases: string[];

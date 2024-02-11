@@ -34,7 +34,7 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { DataGuard, everyGuard } from "../../";
+import { type DataGuard, everyGuard } from "@safelytyped/core-types";
 
 describe("everyGuard()", () => {
     it("returns `true` if every guard does so", () => {

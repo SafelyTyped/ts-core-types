@@ -31,7 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { NotImplementedData } from "./NotImplementedData";
 

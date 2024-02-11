@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AnyExtraData } from "../ExtraData";
-import { StructuredProblemReport } from "../StructuredProblemReport";
+
+import type { AnyExtraData } from "../ExtraData/AnyExtraData";
+import type { StructuredProblemReport } from "../StructuredProblemReport/StructuredProblemReport";
 
 /**
  * `AppError` is a base class for throwable Javascript Errors.

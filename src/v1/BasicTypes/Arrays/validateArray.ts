@@ -32,8 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { UnsupportedTypeError } from "../../Errors";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
+
 
 /**
  * `validateArray()` is a {@link TypeValidator}. Use it to prove that an
@@ -49,7 +51,10 @@ import { UnsupportedTypeError } from "../../Errors";
  *
  * @public
  */
-export function validateArray(path: DataPath, input: unknown): AppErrorOr<unknown[]> {
+export function validateArray(
+    path: DataPath,
+    input: unknown
+): AppErrorOr<unknown[]> {
     // do we have an array?
     if (Array.isArray(input)) {
         return input as unknown[];

@@ -16,9 +16,11 @@
 // License along with this program. If not, see
 // <https://www.gnu.org/licenses/>.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { RegexReturnedNoNamedGroupsError } from "../../Errors";
-import { isObject } from "../Objects";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { RegexReturnedNoNamedGroupsError } from "../../Errors/RegexReturnedNoNamedGroups/RegexReturnedNoNamedGroupsError";
+import { isObject } from "../Objects/isObject";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 
 /**

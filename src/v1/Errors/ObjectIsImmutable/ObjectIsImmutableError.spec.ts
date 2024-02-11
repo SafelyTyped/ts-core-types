@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { ObjectIsImmutableError } from "../../";
+import { ObjectIsImmutableError } from "@safelytyped/core-types";
 
 describe("ObjectIsImmutableError", () => {
     describe(".constructor()", () => {

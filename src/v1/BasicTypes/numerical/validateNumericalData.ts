@@ -31,9 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath } from "../../ErrorHandling";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr";
-import { UnsupportedNumericalValueError } from "../../Errors";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedNumericalValueError } from "../../Errors/UnsupportedNumericalValue/UnsupportedNumericalValueError";
 import type { NumericalConversionRules } from "./NumericalConversionRules";
 import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
 import type { numerical } from "./numerical";

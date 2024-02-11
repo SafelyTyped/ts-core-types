@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isGetterName } from "../../";
+import { isGetterName } from "@safelytyped/core-types";
 
 class UnitTestExample {
     public attr1: string = "";

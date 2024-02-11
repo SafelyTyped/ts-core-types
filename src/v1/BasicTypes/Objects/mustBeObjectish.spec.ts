@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeObjectish } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeObjectish } from "@safelytyped/core-types";
 
 describe("mustBeObjectish()", () => {
     it("returns `input` when given an object", () => {

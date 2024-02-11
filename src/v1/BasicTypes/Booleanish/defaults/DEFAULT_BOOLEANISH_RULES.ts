@@ -33,10 +33,10 @@
 //
 
 import type { BooleanishRules } from "../BooleanishRules/BooleanishRules";
-import { validateBooleanishBoolean } from "../validateBooleanishData";
-import { validateBooleanishNumber } from "../validateBooleanishData";
-import { validateBooleanishString } from "../validateBooleanishData";
-import { validateBooleanishObject } from "../validateBooleanishData";
+import { validateBooleanishBoolean } from "../validateBooleanishData/validateBooleanishBoolean";
+import { validateBooleanishNumber } from "../validateBooleanishData/validateBooleanishNumber";
+import { validateBooleanishString } from "../validateBooleanishData/validateBooleanishString";
+import { validateBooleanishObject } from "../validateBooleanishData/validateBooleanishObject";
 
 /**
  * `DEFAULT_BOOLEANISH_STRING_RULES` specify which strings we can convert

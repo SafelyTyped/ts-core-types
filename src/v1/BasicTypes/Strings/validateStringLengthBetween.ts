@@ -31,8 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { UnsupportedStringLengthRangeError } from "../../Errors";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedStringLengthRangeError } from "../../Errors/UnsupportedStringLengthRange/UnsupportedStringLengthRangeError";
 
 /**
  * `validateStringLengthBetween()` is a {@link DataValidator}. It proves that

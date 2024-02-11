@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { isData } from "../../Operators";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { isData } from "../../Operators/isData/isData";
 import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
 
 /**
  * `isHttpStatusCodeData()` is a data guard. It checks to see if the `input`

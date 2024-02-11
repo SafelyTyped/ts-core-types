@@ -32,8 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { FunctionalOption, makeNominalType, SmartConstructor } from "../../Archetypes";
-import { DEFAULT_DATA_PATH, OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
+import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
+import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
+import { makeNominalType } from "../../Archetypes/Nominals/Factories/makeNominalType";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import type { HttpStatusCode } from "./HttpStatusCode";
 import type { MakeHttpStatusCodeOptions } from "./MakeHttpStatusCodeOptions";
 import { mustBeHttpStatusCodeData } from "./mustBeHttpStatusCodeData";

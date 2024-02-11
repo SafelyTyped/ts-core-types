@@ -34,7 +34,10 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { ProtocolDefinition, implementsProtocol } from "../../";
+import {
+    type ProtocolDefinition,
+    implementsProtocol
+} from "@safelytyped/core-types";
 
 interface GuessMediaType {
     guessMediaType(): string;

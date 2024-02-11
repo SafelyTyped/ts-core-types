@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeNumber } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeNumber } from "@safelytyped/core-types";
 
 describe("mustBeNumber()", () => {
     it("returns `input` when given a number", () => {

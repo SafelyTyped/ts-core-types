@@ -31,10 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { AppError } from "../../ErrorHandling";
-import { UnsupportedTypeError } from "../../Errors";
-import { validateNumber } from "../Numbers";
+
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
+import { validateNumber } from "../Numbers/validateNumber";
 
 /**
  * `validateInteger()` is a {@link TypeValidator}. Use it to prove that
@@ -46,7 +48,10 @@ import { validateNumber } from "../Numbers";
  *
  * @public
  */
-export function validateInteger(path: DataPath, input: unknown): AppErrorOr<number> {
+export function validateInteger(
+    path: DataPath,
+    input: unknown
+): AppErrorOr<number> {
     const res = validateNumber(path, input);
     if (res instanceof AppError) {
         return res;

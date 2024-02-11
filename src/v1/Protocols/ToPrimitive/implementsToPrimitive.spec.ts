@@ -36,7 +36,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { RefinedNumber, RefinedString, ValueObject, implementsToPrimitive } from "../../";
+import { RefinedNumber, RefinedString, ValueObject, implementsToPrimitive } from "@safelytyped/core-types";
 
 class UnitTestRefinedNumber extends RefinedNumber {
     public constructor(input: number) {

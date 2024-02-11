@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Prototypes } from "../../";
+import { getPrototypeOf } from "@safelytyped/core-types";
 
 describe("getPrototypeOf()", () => {
 	it("returns an object when given an object", () => {
@@ -56,7 +56,7 @@ describe("getPrototypeOf()", () => {
 		// ----------------------------------------------------------------
 		// perform the change
 
-		const actualValue = Prototypes.getPrototypeOf(unit);
+		const actualValue = getPrototypeOf(unit);
 
 		// ----------------------------------------------------------------
 		// test the results
@@ -79,7 +79,7 @@ describe("getPrototypeOf()", () => {
 		// ----------------------------------------------------------------
 		// perform the change
 
-		const actualValue = Prototypes.getPrototypeOf(unit);
+		const actualValue = getPrototypeOf(unit);
 
 		// ----------------------------------------------------------------
 		// test the results
@@ -102,7 +102,7 @@ describe("getPrototypeOf()", () => {
 		// ----------------------------------------------------------------
 		// perform the change
 
-		const actualValue = Prototypes.getPrototypeOf(unit);
+		const actualValue = getPrototypeOf(unit);
 
 		// ----------------------------------------------------------------
 		// test the results
@@ -135,7 +135,7 @@ describe("getPrototypeOf()", () => {
 			// ----------------------------------------------------------------
 			// perform the change
 
-			const actualValue = Prototypes.getPrototypeOf(unit);
+			const actualValue = getPrototypeOf(unit);
 
 			// ----------------------------------------------------------------
 			// test the results

@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS, findMethods } from "./Filters";
+import { FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS } from "./Filters/PropertyDescriptors/defaults/FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS";
+import { findMethods } from "./Filters/PropertyDescriptors/findMethods";
 import {
     FIND_PROPERTIES_FILTER_DROP_INTERNAL,
 } from "./Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";

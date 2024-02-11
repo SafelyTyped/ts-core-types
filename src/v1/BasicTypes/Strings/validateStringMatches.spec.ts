@@ -34,8 +34,8 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppError, DEFAULT_DATA_PATH, validateStringMatches } from "../../";
-import { InvalidStringMatchesData, ValidStringMatchesData } from "../_fixtures";
+import { AppError, DEFAULT_DATA_PATH, validateStringMatches } from "@safelytyped/core-types";
+import { InvalidStringMatchesData, ValidStringMatchesData } from "../_fixtures/StringMatches";
 
 describe("validateStringMatches()", () => {
     describe("accepts valid StringMatches", () => {

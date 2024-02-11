@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyBranded, Branded } from "../../../";
+import { type AnyBranded, type Branded } from "@safelytyped/core-types";
 
 type BrandedUuid = Branded<string, "uuid">;
 type Kilometer = Branded<number, "kilometer">;

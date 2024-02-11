@@ -31,7 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { implementsToPrimitive, implementsToString } from "../../../Protocols";
+
+import { implementsToPrimitive } from "../../../Protocols/ToPrimitive/implementsToPrimitive";
+import { implementsToString } from "../../../Protocols/ToString/implementsToString";
 import type { NumericalConversionRules } from "../NumericalConversionRules";
 
 /**

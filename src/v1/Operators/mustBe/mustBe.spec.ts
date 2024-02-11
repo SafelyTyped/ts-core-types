@@ -34,7 +34,15 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyAppError, DEFAULT_DATA_PATH, OnError, UnreachableCodeError, UnsupportedTypeError, isObject, mustBe } from "../../";
+import {
+    type AnyAppError,
+    DEFAULT_DATA_PATH,
+    type OnError,
+    UnreachableCodeError,
+    UnsupportedTypeError,
+    isObject,
+    mustBe
+} from "@safelytyped/core-types";
 
 describe("mustBe()", () => {
     it("if the input is an AppError, it throws that error", () => {

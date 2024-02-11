@@ -24,8 +24,10 @@
 //
 // We (Ganbaro Digital) have modified it to short-circuit if the value
 // has become an Error.
-import { AppError, OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import type { AppErrorOr } from "../../ErrorHandling";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import type { MustBePipelineStep } from "./MustBePipelineStep";
 
 /**

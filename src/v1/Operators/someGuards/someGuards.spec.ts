@@ -34,7 +34,7 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { DataGuard, someGuards } from "../../";
+import { type DataGuard, someGuards } from "@safelytyped/core-types";
 
 describe("someGuards()", () => {
     it("returns `true` if any guard does so", () => {

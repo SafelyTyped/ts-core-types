@@ -35,7 +35,7 @@
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { isBooleanishData } from "./isBooleanishData";
 import { mustBeBooleanishData } from "./mustBeBooleanishData";
-import { validateBooleanishData } from "./validateBooleanishData";
+import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
 
 /**
  * Booleanish allows you to treat non-boolean data types as-if they are

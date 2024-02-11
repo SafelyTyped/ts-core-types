@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AppError, DEFAULT_DATA_PATH } from "../../ErrorHandling";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 

@@ -32,8 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { UnsupportedTypeError } from "../../Errors";
-import type { AppErrorOr, DataPath } from "../..";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
+
 
 /**
  * `validateObject()` is a {@link TypeGuard}. Use it to prove that the
@@ -52,7 +54,10 @@ import type { AppErrorOr, DataPath } from "../..";
  *
  * @public
  */
-export function validateObject(path: DataPath, input: unknown): AppErrorOr<object> {
+export function validateObject(
+    path: DataPath,
+    input: unknown
+): AppErrorOr<object> {
     // shorthand
     const expectedMsg = "non-null, non-array object";
 

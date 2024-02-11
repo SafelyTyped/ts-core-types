@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { isInteger } from "../../";
+import { isInteger } from "@safelytyped/core-types";
 
 describe("isInteger()", () => {
     it("returns `true` when given a integer", () => {

@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, TypeValidator, validateArrayOf, validateNumber, validateString } from "../../";
+import { AppError, DEFAULT_DATA_PATH, type TypeValidator, validateArrayOf, validateNumber, validateString } from "@safelytyped/core-types";
 
 const ValidArrayOfData = [
     // empty array

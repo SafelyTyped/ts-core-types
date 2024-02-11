@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { hasProperty } from "../../";
+import { hasProperty } from "@safelytyped/core-types";
 
 describe("hasProperty()", () => {
     it("supports string property names", () => {

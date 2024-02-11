@@ -31,12 +31,14 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataGuaranteeOptions } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
-import { mustBe, recast } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
+
 import type { HttpStatusCode } from "./HttpStatusCode";
 import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { mustBe } from "../../Operators/mustBe/mustBe";
+import { recast } from "../../Operators/recast/recast";
 
 /**
  * `mustBeHttpStatusCodeData` is a data guarantee. It ensures that `input` is

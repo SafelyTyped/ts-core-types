@@ -32,9 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyTypeValidator } from "../../Archetypes";
-import { DEFAULT_DATA_PATH, DataPath } from "../../ErrorHandling";
-import { IS_TYPE_DEFAULT_OPTIONS, isType } from "../../Operators";
+import type { AnyTypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
+import { isType } from "../../Operators/isType/isType";
 import { HashMap } from "./HashMap";
 import { validateHashMap } from "./validateHashMap";
 

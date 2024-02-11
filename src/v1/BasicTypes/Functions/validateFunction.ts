@@ -33,9 +33,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { UnsupportedTypeError } from "../../Errors";
-import type { AppErrorOr, DataPath } from "../..";
-import { getTypeNames } from "../Unknowns";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
+import { getTypeNames } from "../Unknowns/getTypeNames";
+
 
 /**
  * `validateFunction()` is a {@link TypeGuard}. Use it to prove that the
@@ -51,7 +53,10 @@ import { getTypeNames } from "../Unknowns";
  *
  * @public
  */
-export function validateFunction(path: DataPath, input: unknown): AppErrorOr<Function> {
+export function validateFunction(
+    path: DataPath,
+    input: unknown
+): AppErrorOr<Function> {
     // shorthand
     const expectedMsg = "function";
 

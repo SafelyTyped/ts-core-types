@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataPath, DEFAULT_DATA_PATH } from "../../ErrorHandling";
-import type { ProtocolDefinition } from "../ProtocolDefinition";
+import type { ProtocolDefinition } from "../..";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { validateImplementsProtocol } from "./validateImplementsProtocol";
 
 /**

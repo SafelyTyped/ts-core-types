@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuard } from "../../Archetypes";
+import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
 
 /**
  * `someGuards()` is an operator. Use it to apply a set of {@link DataGuard}

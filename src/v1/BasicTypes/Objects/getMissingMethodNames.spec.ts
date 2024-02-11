@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { getMissingMethodNames } from "../../";
+import { getMissingMethodNames } from "@safelytyped/core-types";
 
 
 class UnitTestBaseClass {

@@ -31,8 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../../ErrorHandling";
-import { UnsupportedTypeError } from "../../../Errors";
+
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/UnsupportedTypeError";
 
 /**
  * `createUnsupportedTypeError()` creates the {@link UnsupportedTypeError}

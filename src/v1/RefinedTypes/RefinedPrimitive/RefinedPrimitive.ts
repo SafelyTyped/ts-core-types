@@ -31,10 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedType } from "../RefinedType";
-import type { AnyPrimitiveType } from "../AnyPrimitiveType";
-import type { PrimitiveHint } from "../../Protocols";
-import type { DataGuaranteeOptions } from "../../Archetypes";
+
+import { RefinedType } from "../RefinedType/RefinedType";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import type { AnyPrimitiveType } from "../AnyPrimitiveType/AnyPrimitiveType";
+import type { PrimitiveHint } from "../../Protocols/ToPrimitive/PrimitiveHint";
 
 /**
  * `RefinedPrimitive` is a base class for defining a subset of any primitive

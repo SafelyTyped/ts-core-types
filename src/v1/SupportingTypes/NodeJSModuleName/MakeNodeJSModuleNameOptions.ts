@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { MakeNominalTypeOptions } from "../../Archetypes";
+
+import type { MakeNominalTypeOptions } from "../../Archetypes/Nominals/Factories/MakeNominalTypeOptions.js";
 
 /**
  * `MakeNodeJSModuleNameOptions` defines the options that you can pass into

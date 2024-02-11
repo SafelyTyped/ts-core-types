@@ -34,7 +34,16 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { BooleanishRules, DEFAULT_BOOLEANISH_RULES, DEFAULT_DATA_PATH, DataPath, UnsupportedBooleanishValueError, UnsupportedTypeError, implementsOwnOrInheritedToString, validateBooleanishData } from "../../../";
+import {
+    type BooleanishRules,
+    DEFAULT_BOOLEANISH_RULES,
+    DEFAULT_DATA_PATH,
+    type DataPath,
+    UnsupportedBooleanishValueError,
+    UnsupportedTypeError,
+    implementsOwnOrInheritedToString,
+    validateBooleanishData
+} from "@safelytyped/core-types";
 
 class UnitTestTrue {
     public toString() { return "yes"; }

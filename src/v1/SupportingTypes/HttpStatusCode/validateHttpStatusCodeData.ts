@@ -31,11 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { validate } from "../../Operators";
-import type { AppErrorOr } from "../../ErrorHandling";
-import type { DataPath } from "../../ErrorHandling";
-import { validateInteger } from "../../BasicTypes";
+
 import { validateHttpStatusCodeDataRange } from "./validateHttpStatusCodeDataRange";
+import { validateInteger } from "../../BasicTypes/Integers/validateInteger";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import { validate } from "../../Operators/validate/validate";
 
 /**
  * `validateHttpStatusCodeData()` is a {@link DataValidator}. Use it to

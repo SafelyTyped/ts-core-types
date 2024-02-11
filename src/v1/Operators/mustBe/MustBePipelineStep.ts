@@ -25,7 +25,8 @@
 // We (Ganbaro Digital) have modified it to short-circuit if the value
 // has become an Error.
 
-import type { AppErrorOr } from "../../ErrorHandling";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+
 
 /**
  * `MustBePipelineStep` describes the structure of a wrapper around

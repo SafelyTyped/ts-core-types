@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { searchDispatchMap } from "../../SupportingTypes";
+import { searchDispatchMap } from "../../SupportingTypes/DispatchMap/searchDispatchMap";
 import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
 import type { numerical } from "./numerical";
 import type { NumericalConversionRules } from "./NumericalConversionRules";

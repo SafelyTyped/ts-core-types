@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { OnErrorOptions } from "../../../ErrorHandling";
+
+import type { OnError } from "../../../ErrorHandling/OnError/OnError";
 
 /**
  * `SmartConstructorOptions` is the default user-supplied options type for
@@ -39,4 +40,6 @@ import type { OnErrorOptions } from "../../../ErrorHandling";
  *
  * @public
  */
-export type SmartConstructorOptions = OnErrorOptions;
+export type SmartConstructorOptions = {
+    onError: OnError
+}

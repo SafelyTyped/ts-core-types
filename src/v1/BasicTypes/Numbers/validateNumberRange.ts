@@ -31,8 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { NumberOutOfRangeError } from "../../Errors";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { NumberOutOfRangeError } from "../../Errors/NumberOutOfRange/NumberOutOfRangeError";
 
 /**
  * `validateNumberRange()` is a {@link TypeValidator}. Use it to prove that

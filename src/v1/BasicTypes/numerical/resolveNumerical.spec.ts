@@ -35,7 +35,13 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { NumericalConversionRules, RefinedNumber, RefinedString, ValueObject, resolveNumerical } from "../../";
+import {
+    type NumericalConversionRules,
+    RefinedNumber,
+    RefinedString,
+    ValueObject,
+    resolveNumerical
+} from "@safelytyped/core-types";
 
 const noPrototype = {}
 Object.setPrototypeOf(noPrototype, null);

@@ -34,7 +34,10 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyAppError, mustBeNodeJSModuleNameData } from "../../";
+import {
+    type AnyAppError,
+    mustBeNodeJSModuleNameData
+} from "@safelytyped/core-types";
 
 const onError = (e: AnyAppError): never => {
     throw new Error("ONERROR CALLED");

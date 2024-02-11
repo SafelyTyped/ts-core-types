@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { implementsOwnOrInheritedToString } from "../../";
+import { implementsOwnOrInheritedToString } from "@safelytyped/core-types";
 
 describe("implementsOwnOrInheritedToString()", () => {
     [

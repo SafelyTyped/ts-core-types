@@ -35,7 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyFunction, DispatchMap } from "../../";
+import { type AnyFunction, type DispatchMap } from "@safelytyped/core-types";
 
 describe("DispatchMap", () => {
     it("supports strings as keys", () => {

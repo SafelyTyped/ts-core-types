@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AttributeTransformerMap } from "../../Archetypes";
-import { HashMap } from "../HashMaps";
+
+import type { AttributeTransformerMap } from "../../Archetypes/UtilityTypes/AttributeTransformerMap";
+import type { HashMap } from "../HashMaps/HashMap";
 
 /**
  * `assignOptionalFieldsWithTransformers()` is a data modifier. Use it to

@@ -31,9 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataGuaranteeOptions, TypeGuarantee } from "../../Archetypes";
-import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
-import { mustBe } from "../../Operators";
+
+import type { TypeGuarantee } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { mustBe } from "../../Operators/mustBe/mustBe";
 import type { NonEmptyArray } from "./NonEmptyArray";
 import { validateNonEmptyArray } from "./validateNonEmptyArray";
 
@@ -52,12 +55,12 @@ import { validateNonEmptyArray } from "./validateNonEmptyArray";
  *
  * @public
  */
-export const mustBeNonEmptyArray: TypeGuarantee<NonEmptyArray<unknown>, DataGuaranteeOptions> = (
+export const mustBeNonEmptyArray: TypeGuarantee<NonEmptyArray<unknown>, TypeGuaranteeOptions> = (
     input: unknown,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<DataGuaranteeOptions> = {}
+    }: Partial<TypeGuaranteeOptions> = {}
 ) => mustBe(input, { onError })
     .next((x) => validateNonEmptyArray(path, x))
     .value();

@@ -31,12 +31,14 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataGuarantee, DataGuaranteeOptions } from "../../Archetypes";
-import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
-import { mustBe } from "../../Operators";
+import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { mustBe } from "../../Operators/mustBe/mustBe";
 import type { BooleanishDataOptions } from "./BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
-import { validateBooleanishData } from "./validateBooleanishData";
+import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
 
 /**
  * `mustBeBooleanishData()` is a {@link DataGuarantee}. Use it to ensure

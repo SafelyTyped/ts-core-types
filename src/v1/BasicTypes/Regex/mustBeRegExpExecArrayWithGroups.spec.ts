@@ -34,8 +34,8 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppError, mustBeRegExpExecArrayWithGroups } from "../../";
-import { InvalidRegExpExecArrayWithGroupsData, ValidRegExpExecArrayWithGroupsData } from "../_fixtures";
+import { AppError, mustBeRegExpExecArrayWithGroups } from "@safelytyped/core-types";
+import { InvalidRegExpExecArrayWithGroupsData, ValidRegExpExecArrayWithGroupsData } from "../_fixtures/Regex";
 
 describe("mustBeRegExpExecArrayWithGroupsData()", () => {
     describe("accepts valid RegExpExecArrayWithGroupsData", () => {

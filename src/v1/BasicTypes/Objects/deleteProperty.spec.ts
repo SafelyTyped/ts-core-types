@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { deleteProperty } from "../../";
+import { deleteProperty } from "@safelytyped/core-types";
 
 describe("deleteProperty()", () => {
     it("supports string property names", () => {

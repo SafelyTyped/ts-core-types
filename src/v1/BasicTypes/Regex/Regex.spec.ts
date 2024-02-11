@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { Regex, RegexDoesNotCompileError, RegexReturnedNoResultsError } from "../../";
+import { Regex, RegexDoesNotCompileError, RegexReturnedNoResultsError } from "@safelytyped/core-types";
 
 describe("Regex", () => {
     it("is a RegExp", () => {

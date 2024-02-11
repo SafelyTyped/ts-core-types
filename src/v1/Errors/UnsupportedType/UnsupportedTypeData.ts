@@ -32,7 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataPath, ExtraPublicData } from "../../ErrorHandling";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicData";
+
 
 /**
  * `UnsupportedTypeData` describes the input data that

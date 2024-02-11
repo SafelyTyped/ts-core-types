@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { PropertyNameFilter } from "./PropertyNameFilter";
-import { Prototypes } from "../../../Prototypes";
 import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
-import { everyGuard } from "../../../../Operators/everyGuard";
+import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
+import { everyGuard } from "../../../../Operators/everyGuard/everyGuard";
 
 /**
  * `findPropertyNames()` is a data filter. It returns a list of all properties
@@ -58,7 +58,7 @@ import { everyGuard } from "../../../../Operators/everyGuard";
 export function findPropertyNames(
     target: object,
     {
-        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE
+        nextPrototype = NEXT_PROTOTYPE
     }: Partial<PropertyNameFilterOptions> = {},
     ...filters: PropertyNameFilter[]
 ): string[] {

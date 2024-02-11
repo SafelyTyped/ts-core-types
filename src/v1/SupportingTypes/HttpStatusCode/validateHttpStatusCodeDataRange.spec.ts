@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, HttpStatusCodeOutOfRangeError, validateHttpStatusCodeDataRange } from "../../";
+import { DEFAULT_DATA_PATH, HttpStatusCodeOutOfRangeError, validateHttpStatusCodeDataRange } from "@safelytyped/core-types";
 
 describe("validateHttpStatusCodeRange()", () => {
     it("accepts integers in the range 100-599 inclusive", () => {

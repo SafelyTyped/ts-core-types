@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeValidator } from "../../Archetypes";
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
 import type { IsTypeOptions } from "./IsTypeOptions";
 
 /**

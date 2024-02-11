@@ -31,8 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DEFAULT_DATA_PATH, DataPath, OnError, THROW_THE_ERROR } from "../../ErrorHandling";
-import { mustBe } from "../../Operators";
+
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { OnError } from "../../ErrorHandling/OnError/OnError";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { mustBe } from "../../Operators/mustBe/mustBe";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 

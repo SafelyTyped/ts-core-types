@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { isObject } from "../../BasicTypes/Objects/isObject";
 import type { ToString } from "./ToString";
-import { isObject } from "../../BasicTypes";
 
 /**
  * `implementsToString()` is a type guard. Use it to prove that the input:

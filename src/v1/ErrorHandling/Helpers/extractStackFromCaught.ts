@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { implementsStack } from "../../Protocols";
+import { implementsStack } from "../../Protocols/Stack/implementsStack";
+
 
 /**
  * `extractStackFromCaught()` is a helper method. Use it to get the stack

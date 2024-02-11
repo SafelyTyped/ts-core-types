@@ -32,8 +32,6 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { NonNullable } from "../../Archetypes";
-
 /**
  * NonNullableObject is a utility type. Use it whenever you need to use any
  * object as a type, but eslint rules are forbidding you from using

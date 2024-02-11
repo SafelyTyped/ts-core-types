@@ -34,8 +34,14 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { MODULE_NAME, NoExtraData, StructuredProblemReport, StructuredProblemReportData, makeStructuredProblemReport } from "../../";
-import { UnitTestFailureData } from "../../_fixtures";
+import {
+    MODULE_NAME,
+    type NoExtraData,
+    StructuredProblemReport,
+    type StructuredProblemReportData,
+    makeStructuredProblemReport
+} from "@safelytyped/core-types";
+import { type UnitTestFailureData } from "../../_fixtures/UnitTestFailure/UnitTestFailureData";
 
 describe("StructuredProblemReport", () => {
     describe(".constructor()", () => {

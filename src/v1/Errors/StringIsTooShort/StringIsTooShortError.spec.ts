@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, StringIsTooShortError } from "../../";
+import { DEFAULT_DATA_PATH, StringIsTooShortError } from "@safelytyped/core-types";
 
 describe("StringIsTooShortError", () => {
     describe(".constructor()", () => {

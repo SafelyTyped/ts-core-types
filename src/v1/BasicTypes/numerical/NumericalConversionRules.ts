@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { ComposableFunction } from "../../Archetypes";
-import type { AnyDispatchMapKey, DispatchMap } from "../../SupportingTypes";
+import type { ComposableFunction } from "../../Archetypes/FunctionTypes/ComposableFunction/ComposableFunction";
+import type { AnyDispatchMapKey } from "../../SupportingTypes/DispatchMap/AnyDispatchMapKey";
+import type { DispatchMap } from "../../SupportingTypes/DispatchMap/DispatchMap";
 
 /**
  * `NumericalConversionRules` describes the table that tells

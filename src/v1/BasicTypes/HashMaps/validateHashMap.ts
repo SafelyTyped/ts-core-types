@@ -32,10 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidator } from "../../Archetypes";
-import type { AppErrorOr } from "../../ErrorHandling";
-import { AppError, DataPath, extendDataPath, isAppError } from "../../ErrorHandling";
-import { validateObject } from "../Objects";
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import { isAppError } from "../../ErrorHandling/AppError/isAppError";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { extendDataPath } from "../../ErrorHandling/DataPath/extendDataPath";
+import { validateObject } from "../Objects/validateObject";
 import { HashMap } from "./HashMap";
 
 export function validateHashMap<T>(

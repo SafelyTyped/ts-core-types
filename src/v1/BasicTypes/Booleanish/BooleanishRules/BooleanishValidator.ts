@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr, DataPath } from "../../../ErrorHandling";
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
 import type { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
 
 /**

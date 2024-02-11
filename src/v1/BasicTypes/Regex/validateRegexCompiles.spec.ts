@@ -34,8 +34,8 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateRegexCompiles } from "../../";
-import { InvalidRegexData, ValidRegexData } from "../_fixtures";
+import { AppError, DEFAULT_DATA_PATH, validateRegexCompiles } from "@safelytyped/core-types";
+import { InvalidRegexData, ValidRegexData } from "../_fixtures/Regex";
 
 describe("validateRegex()", () => {
     describe("accepts valid regex strings", () => {

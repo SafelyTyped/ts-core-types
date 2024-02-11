@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AnyAppError } from "../AppError";
+
+import type { AnyAppError } from "../AppError/AnyAppError";
 
 /**
  * OnError is the signature for all error-handling functions.

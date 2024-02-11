@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { isData } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
+
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { isData } from "../../Operators/isData/isData";
 import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
 
 /**

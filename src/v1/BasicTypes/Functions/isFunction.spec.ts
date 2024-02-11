@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { isFunction } from "../../";
+import { isFunction } from "@safelytyped/core-types";
 
 describe("isFunction()", () => {
     it("returns `true` when given a function", () => {

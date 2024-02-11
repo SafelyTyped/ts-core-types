@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { ArrayCannotBeEmptyError, DEFAULT_DATA_PATH, mustBeNonEmptyArray, UnsupportedTypeError } from "../../";
+import { ArrayCannotBeEmptyError, DEFAULT_DATA_PATH, mustBeNonEmptyArray, UnsupportedTypeError } from "@safelytyped/core-types";
 
 describe("mustBeNonEmptyArray()", () => {
     it("returns `input` for non-empty arrays", () => {

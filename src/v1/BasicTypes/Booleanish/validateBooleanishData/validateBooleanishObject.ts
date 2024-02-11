@@ -31,11 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr } from "../../../ErrorHandling";
-import { DataPath, extendDataPath } from "../../../ErrorHandling";
-import { implementsOwnOrInheritedToString } from "../../../Protocols";
+
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import { extendDataPath } from "../../../ErrorHandling/DataPath/extendDataPath";
+import { implementsOwnOrInheritedToString } from "../../../Protocols/ToString/implementsOwnOrInheritedToString";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
-import { BooleanishStrings, validateBooleanishString } from "./validateBooleanishString";
+import { type BooleanishStrings, validateBooleanishString } from "./validateBooleanishString";
 
 /**
  * `validateBooleanishObject()` converts the `input` into a boolean

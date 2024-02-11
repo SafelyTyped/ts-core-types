@@ -34,8 +34,16 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyAppError, FunctionalOption, OnErrorOptions, RefinedNumber, THROW_THE_ERROR, ValueObject, applyFunctionalOptions } from "../../";
-import { NeverAdultAgeError } from "../../_fixtures";
+import {
+    type AnyAppError,
+    type FunctionalOption,
+    type OnErrorOptions,
+    RefinedNumber,
+    THROW_THE_ERROR,
+    ValueObject,
+    applyFunctionalOptions
+} from "@safelytyped/core-types";
+import { NeverAdultAgeError } from "../../_fixtures/NeverAdultAge/NeverAdultAgeError";
 
 function mustBeAdultAge(input: number): void {
     return;

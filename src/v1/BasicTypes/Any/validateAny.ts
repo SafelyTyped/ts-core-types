@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
 
 /**
  * `validateArray()` is a {@link TypeValidator}. Use it to accept any
@@ -47,6 +48,9 @@ import type { AppErrorOr, DataPath } from "../../ErrorHandling";
  *
  * @public
  */
-export function validateAny(path: DataPath, input: any): AppErrorOr<any> {
+export function validateAny(
+    path: DataPath,
+    input: any
+): AppErrorOr<any> {
     return input;
 }

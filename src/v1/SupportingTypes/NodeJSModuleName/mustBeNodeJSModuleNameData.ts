@@ -31,12 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataGuaranteeOptions } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
-import { mustBe } from "../../Operators";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
+
 import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.js";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { mustBe } from "../../Operators/mustBe/mustBe";
 
 /**
  * `mustBeNodeJSModuleNameData()` is a data guarantee. It calls the supplied

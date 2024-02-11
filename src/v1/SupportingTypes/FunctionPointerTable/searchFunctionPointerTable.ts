@@ -33,7 +33,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { searchDispatchMap } from "../DispatchMap";
+import { searchDispatchMap } from "../DispatchMap/searchDispatchMap";
+
 
 /**
  * `searchFunctionPointerTable()` is an alias for {@link searchDispatchMap}.

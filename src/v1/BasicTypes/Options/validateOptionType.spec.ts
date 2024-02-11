@@ -35,8 +35,8 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateOptionType } from "../../";
-import { InvalidOptionTypeData, ValidOptionTypeData } from "../_fixtures";
+import { AppError, DEFAULT_DATA_PATH, validateOptionType } from "@safelytyped/core-types";
+import { InvalidOptionTypeData, ValidOptionTypeData } from "../_fixtures/OptionTypes";
 
 describe("validateOptionType()", () => {
     describe("accepts valid OptionType", () => {

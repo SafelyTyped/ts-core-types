@@ -35,7 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, makeDataPath } from "../../";
+import { AppError, makeDataPath } from "@safelytyped/core-types";
 
 describe("makeDataPath()", () => {
     it("creates a new DataPath", () => {

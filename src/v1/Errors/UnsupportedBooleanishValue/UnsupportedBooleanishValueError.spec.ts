@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedBooleanishValueError } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedBooleanishValueError } from "@safelytyped/core-types";
 
 describe("UnsupportedBooleanishValueError", () => {
     describe(".constructor()", () => {

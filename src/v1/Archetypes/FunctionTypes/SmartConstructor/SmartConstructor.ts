@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { FunctionalOption } from "../FunctionalOption";
+import type { FunctionalOption } from "../FunctionalOption/FunctionalOption";
 import type { SmartConstructorOptions } from "./SmartConstructorOptions";
 
 /**

@@ -34,8 +34,14 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyAppError, OnErrorOptions, RefinedString, THROW_THE_ERROR, ValueObject } from "../../";
-import { NeverABrandedUuidError } from "../../_fixtures";
+import {
+    type AnyAppError,
+    type OnErrorOptions,
+    RefinedString,
+    THROW_THE_ERROR,
+    ValueObject
+} from "@safelytyped/core-types";
+import { NeverABrandedUuidError } from "../../_fixtures/NeverABrandedUuid/NeverABrandedUuidError";
 
 function mustBeUuid(input: string): void {
     return;

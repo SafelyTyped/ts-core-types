@@ -16,8 +16,9 @@
 // License along with this program. If not, see
 // <https://www.gnu.org/licenses/>.
 //
-import { AppError, DEFAULT_DATA_PATH } from "../../ErrorHandling";
-import { RegexReturnedNoResultsError } from "../../Errors";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { RegexReturnedNoResultsError } from "../../Errors/RegexReturnedNoResults/RegexReturnedNoResultsError";
 import { validateRegexCompiles } from "./validateRegexCompiles";
 
 /**

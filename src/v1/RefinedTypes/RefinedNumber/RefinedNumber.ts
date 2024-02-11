@@ -31,9 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { RefinedPrimitive } from "../RefinedPrimitive";
-import type { ToPrimitive, PrimitiveHint } from "../../Protocols";
-import type { DataGuaranteeOptions } from "../../Archetypes";
+
+import { RefinedPrimitive } from "../RefinedPrimitive/RefinedPrimitive";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import type { ToPrimitive } from "../../Protocols/ToPrimitive/ToPrimitive";
+import type { PrimitiveHint } from "../../Protocols/ToPrimitive/PrimitiveHint";
 
 /**
  * `RefinedNumber` is a base class for defining a subset of numbers.

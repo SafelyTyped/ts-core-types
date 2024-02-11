@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { ExtraPublicData } from "../../ErrorHandling";
+
+import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicData";
 
 /**
  * @ignore

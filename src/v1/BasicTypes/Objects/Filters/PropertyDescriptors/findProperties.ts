@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { everyGuard } from "../../../../Operators/everyGuard";
-import { Prototypes } from "../../../Prototypes";
+import { everyGuard } from "../../../../Operators/everyGuard/everyGuard";
+import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
 import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
 import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
 
@@ -66,7 +66,7 @@ import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilter
 export function findProperties(
     target: object,
     {
-        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE
+        nextPrototype = NEXT_PROTOTYPE
     }: Partial<PropertyDescriptorFilterOptions> = {},
     ...filters: PropertyDescriptorFilter[]
 ): Map<string, PropertyDescriptor> {

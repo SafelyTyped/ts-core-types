@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { findMethodNames } from "./Filters";
+
+import { findMethodNames } from "./Filters/PropertyNames/findMethodNames";
 
 /**
  * `getAllMethodNames()` is a data filter. It returns a list of all methods

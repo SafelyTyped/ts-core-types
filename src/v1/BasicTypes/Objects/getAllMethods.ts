@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { findMethods } from "./Filters";
+
+import { findMethods } from "./Filters/PropertyDescriptors/findMethods";
 
 /**
  * `getAllMethods()` is a data filter. It returns a list of all methods

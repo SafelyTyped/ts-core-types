@@ -31,8 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { UnsupportedTypeError } from "../../Errors";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
 
 /**
  * `validateString()` is a {@link TypeValidator}. Use it to prove that
@@ -44,7 +46,10 @@ import { UnsupportedTypeError } from "../../Errors";
  *
  * @public
  */
-export function validateString(path: DataPath, input: unknown): AppErrorOr<string> {
+export function validateString(
+    path: DataPath,
+    input: unknown
+): AppErrorOr<string> {
     // does the input validate?
     if (typeof input !== "string") {
         return new UnsupportedTypeError({

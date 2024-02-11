@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { Primitive } from "../../BasicTypes";
+import type { Primitive } from "../../BasicTypes/Primitives/Primitive";
 import type { PrimitiveHint } from "./PrimitiveHint";
 
 /**

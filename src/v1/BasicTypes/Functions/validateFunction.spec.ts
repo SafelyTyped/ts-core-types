@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedTypeError, validateFunction } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, validateFunction } from "@safelytyped/core-types";
 
 describe("validateFunction()", () => {
     it("returns `input` when given a function", () => {

@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, HttpStatusCodeOutOfRangeError } from "../../";
+import { DEFAULT_DATA_PATH, HttpStatusCodeOutOfRangeError } from "@safelytyped/core-types";
 
 describe("HttpStatusCodeOutOfRangeError", () => {
     describe(".constructor()", () => {

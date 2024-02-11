@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { Entity } from "../Entity";
+
+import type { Entity } from "../Entity/Entity";
 
 /**
  * EntityObject is the base class for defining your Entity hierarchies.

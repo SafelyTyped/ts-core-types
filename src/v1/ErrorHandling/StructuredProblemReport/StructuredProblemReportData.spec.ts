@@ -34,8 +34,8 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { MODULE_NAME, StructuredProblemReportData } from "../../";
-import { UnitTestFailureData } from "../../_fixtures";
+import { MODULE_NAME, type StructuredProblemReportData } from "@safelytyped/core-types";
+import { type UnitTestFailureData } from "../../_fixtures/UnitTestFailure/UnitTestFailureData";
 
 describe("StructuredProblemReportData", () => {
     it("instance can be created inline", () => {

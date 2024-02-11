@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { implementsStack } from "../../";
+import { implementsStack } from "@safelytyped/core-types";
 
 describe("implementsStack()", () => {
     it("returns `true` for an Error", () => {

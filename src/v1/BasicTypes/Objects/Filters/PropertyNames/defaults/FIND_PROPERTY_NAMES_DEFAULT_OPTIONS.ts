@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { NEXT_PROTOTYPE } from "../../../../Prototypes/defaults/NEXT_PROTOTYPE";
 import type { PropertyNameFilterOptions } from "../PropertyNameFilterOptions";
-import { Prototypes } from "../../../../Prototypes";
 
 /**
  * `FIND_PROPERTY_NAMES_DEFAULT_OPTIONS` are the default user-supplied options
@@ -41,5 +41,5 @@ import { Prototypes } from "../../../../Prototypes";
  * @public
  */
 export const FIND_PROPERTY_NAMES_DEFAULT_OPTIONS: PropertyNameFilterOptions = {
-    nextPrototype: Prototypes.defaults.NEXT_PROTOTYPE
+    nextPrototype: NEXT_PROTOTYPE
 };

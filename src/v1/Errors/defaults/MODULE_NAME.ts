@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { NodeJSModuleName } from "../../SupportingTypes";
+
+import type { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/NodeJSModuleName";
 
 /**
  * `MODULE_NAME` is used by all of our errors to show which package they

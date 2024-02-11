@@ -33,8 +33,8 @@
 //
 
 import type { Prototype } from "./Prototype";
-import { isArray } from "../Arrays";
 import { isObjectish } from "../Objects/isObjectish";
+import { isArray } from "../Arrays/isArray";
 
 /**
  * `getPrototypeOf()` returns the object prototype of the unknown `input`

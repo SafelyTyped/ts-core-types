@@ -31,9 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { validateObjectHasAllMethodsCalled } from "../../BasicTypes";
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import type { ProtocolDefinition } from "../ProtocolDefinition";
+
+import type { ProtocolDefinition } from "../..";
+import { validateObjectHasAllMethodsCalled } from "../../BasicTypes/Objects/validateObjectHasAllMethodsCalled";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
 
 /**
  * `validateImplementsProtocol()` is a type validator. Use it to prove

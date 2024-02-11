@@ -35,7 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DispatchMap, getProperty, searchDispatchMap } from "../../";
+import { type DispatchMap, getProperty, searchDispatchMap } from "@safelytyped/core-types";
 
 // this type is needed to make Typescript 4.6.4 happy
 type UnitMapType = () => number | string | undefined;

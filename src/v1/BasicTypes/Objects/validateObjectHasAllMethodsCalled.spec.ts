@@ -35,7 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, ObjectHasMissingMethodsError, validateObjectHasAllMethodsCalled } from "../../";
+import { DEFAULT_DATA_PATH, ObjectHasMissingMethodsError, validateObjectHasAllMethodsCalled } from "@safelytyped/core-types";
 
 class UnitTestBaseClass {
     public fn1(): string {

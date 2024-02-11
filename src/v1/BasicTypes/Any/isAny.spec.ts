@@ -35,7 +35,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 
-import { isAny } from "../../";
+import { isAny } from "@safelytyped/core-types";
 
 describe("isAny()", () => {
     const examples = [

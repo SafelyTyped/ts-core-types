@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, RegexDoesNotCompileError } from "../../";
+import { DEFAULT_DATA_PATH, RegexDoesNotCompileError } from "@safelytyped/core-types";
 
 describe("RegexDoesNotCompileError", () => {
     describe(".constructor()", () => {

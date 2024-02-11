@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { mustBeAny } from "../../";
+import { mustBeAny } from "@safelytyped/core-types";
 
 const ValidAny = [
     null,

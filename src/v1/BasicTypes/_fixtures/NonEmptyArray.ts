@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { validateNonEmptyArray } from "../Arrays";
+import { validateNonEmptyArray } from "../Arrays/validateNonEmptyArray";
 
 /**
  * @ignore

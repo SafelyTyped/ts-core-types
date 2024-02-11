@@ -31,9 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { applyFunctionalOptions, DataGuarantee, FunctionalOption } from "../../FunctionTypes";
+
 import type { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
-import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../../ErrorHandling";
+import type { DataGuarantee } from "../../FunctionTypes/DataGuarantee/DataGuarantee";
+import type { FunctionalOption } from "../../FunctionTypes/FunctionalOption/FunctionalOption";
+import { applyFunctionalOptions } from "../../FunctionTypes/FunctionalOption/applyFunctionalOptions";
+import { THROW_THE_ERROR } from "../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 
 /**
  * `makeNominalType()` converts your input type into a branded or

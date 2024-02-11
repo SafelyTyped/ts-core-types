@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { UnreachableCodeError } from "../../";
+import { UnreachableCodeError } from "@safelytyped/core-types";
 
 describe("UnreachableCodeError", () => {
     describe(".constructor()", () => {

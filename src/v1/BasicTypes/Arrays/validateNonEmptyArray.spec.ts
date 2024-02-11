@@ -35,8 +35,8 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateNonEmptyArray } from "../../";
-import { InvalidNonEmptyArrayData, ValidNonEmptyArrayData } from "../_fixtures";
+import { AppError, DEFAULT_DATA_PATH, validateNonEmptyArray } from "@safelytyped/core-types";
+import { InvalidNonEmptyArrayData, ValidNonEmptyArrayData } from "../_fixtures/NonEmptyArray";
 
 describe("validateNonEmptyArray()", () => {
     describe("accepts any array that has content", () => {

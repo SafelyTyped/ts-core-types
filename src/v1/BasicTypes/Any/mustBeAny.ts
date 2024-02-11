@@ -31,8 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataGuaranteeOptions, TypeGuarantee } from "../../Archetypes";
-import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
+
+import type { TypeGuarantee } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 
 /**
  * `mustBeAny()` is a {@link TypeGuarantee}. Use it to accept any kind
@@ -47,10 +50,10 @@ import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../ErrorHandling";
  *
  * @public
  */
-export const mustBeAny: TypeGuarantee<any, DataGuaranteeOptions> = (
+export const mustBeAny: TypeGuarantee<any, TypeGuaranteeOptions> = (
     input: unknown,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<DataGuaranteeOptions> = {}
+    }: Partial<TypeGuaranteeOptions> = {}
 ) => input;

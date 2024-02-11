@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { assignOptionalFields } from "../../";
+import { assignOptionalFields } from "@safelytyped/core-types";
 
 interface UnitTestTarget {
     one?: any;

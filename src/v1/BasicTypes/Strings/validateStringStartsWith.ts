@@ -31,8 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { UnsupportedStringPrefixError } from "../../Errors";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { UnsupportedStringPrefixError } from "../../Errors/UnsupportedStringPrefix/UnsupportedStringPrefixError";
 
 /**
  * `validateStringStartsWith()` is {@link DataValidator}. It proves that the
@@ -47,7 +49,11 @@ import { UnsupportedStringPrefixError } from "../../Errors";
  *
  * @public
  */
-export function validateStringStartsWith(searchTerm: string, path: DataPath, input: string): AppErrorOr<string> {
+export function validateStringStartsWith(
+    searchTerm: string,
+    path: DataPath,
+    input: string
+): AppErrorOr<string> {
     // does our input string validate?
     if (input.startsWith(searchTerm)) {
         return input;

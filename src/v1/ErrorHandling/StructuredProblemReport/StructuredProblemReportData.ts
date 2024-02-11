@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { NodeJSModuleName } from "../..";
-import type { NoExtraData, ExtraData } from "../ExtraData";
+import type { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/NodeJSModuleName";
+import type { ExtraData } from "../ExtraData/ExtraData";
+import type { NoExtraData } from "../ExtraData/NoExtraData";
 
 /**
  * `StructuredProblemReportData` defines a databag. It holds all of the

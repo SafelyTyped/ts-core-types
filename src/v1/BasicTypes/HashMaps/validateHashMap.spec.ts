@@ -34,8 +34,8 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppError, DEFAULT_DATA_PATH, validateHashMap } from "../../";
-import { InvalidHashMapData, ValidHashMapData } from "../_fixtures";
+import { AppError, DEFAULT_DATA_PATH, validateHashMap } from "@safelytyped/core-types";
+import { InvalidHashMapData, ValidHashMapData } from "../_fixtures/HashMaps";
 
 describe("validateHashMap()", () => {
     describe("accepts any object that has keys of the right type", () => {

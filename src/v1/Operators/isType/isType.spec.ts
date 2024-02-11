@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, isType } from "../../";
+import { DEFAULT_DATA_PATH, isType } from "@safelytyped/core-types";
 
 interface UnitTestExample {
     toString: () => string;

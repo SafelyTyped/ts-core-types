@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeBoolean } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, mustBeBoolean } from "@safelytyped/core-types";
 
 
 describe("mustBeBoolean()", () => {

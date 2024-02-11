@@ -31,9 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { ObjectHasMissingMethodsError } from "../../Errors";
-import { isNonEmptyArray } from "../Arrays";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { ObjectHasMissingMethodsError } from "../../Errors/ObjectHasMissingMethods/ObjectHasMissingMethodsError";
+import { isNonEmptyArray } from "../Arrays/isNonEmptyArray";
 import { getMissingMethodNames } from "./getMissingMethodNames";
 
 

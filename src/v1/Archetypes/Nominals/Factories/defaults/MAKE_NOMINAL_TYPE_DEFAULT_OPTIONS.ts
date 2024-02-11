@@ -31,7 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DEFAULT_DATA_PATH, THROW_THE_ERROR } from "../../../../ErrorHandling";
+
+import { DEFAULT_DATA_PATH } from "../../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { THROW_THE_ERROR } from "../../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import type { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
 
 /**

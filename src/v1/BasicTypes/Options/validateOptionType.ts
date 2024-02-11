@@ -32,10 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidator } from "../../Archetypes";
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { AppError, extractReasonFromCaught } from "../../ErrorHandling";
-import { UnsupportedTypeError } from "../../Errors";
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { extractReasonFromCaught } from "../../ErrorHandling/Helpers/extractReasonFromCaught";
+import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
 
 /**
  * `validateOptionalType()` is a {@link TypeValidator}. Use it to prove

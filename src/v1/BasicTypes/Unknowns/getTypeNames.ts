@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { getClassNames } from "../Classes";
+import { getClassNames } from "../Classes/getClassNames";
+
 
 /**
  * `getTypeNames()` is an inspector. It returns a list of all possible

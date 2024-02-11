@@ -31,7 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath, ExtraLogsOnlyData } from "../../ErrorHandling";
+
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { ExtraLogsOnlyData } from "../../ErrorHandling/ExtraData/ExtraLogsOnlyData";
 
 /**
  * `RegexReturnedNoResultsData` is the input that

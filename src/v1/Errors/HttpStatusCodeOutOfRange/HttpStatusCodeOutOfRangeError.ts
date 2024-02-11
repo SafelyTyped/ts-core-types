@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorData } from "../../ErrorHandling";
-import { NumberOutOfRangeError } from "../NumberOutOfRange";
+
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import { NumberOutOfRangeError } from "../NumberOutOfRange/NumberOutOfRangeError";
 import type { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
 
 /**

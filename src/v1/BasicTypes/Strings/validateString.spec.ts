@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedTypeError, validateString } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, validateString } from "@safelytyped/core-types";
 
 describe("validateString()", () => {
     it("returns `input` when given a string", () => {

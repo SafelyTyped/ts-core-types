@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { isValue, ValueObject } from "../../../"
+import { isValue, ValueObject } from "@safelytyped/core-types"
 
 class ExampleValue extends ValueObject<string> {
     public static from(input: string): ExampleValue {

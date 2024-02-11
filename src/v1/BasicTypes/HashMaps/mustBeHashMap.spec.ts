@@ -34,8 +34,8 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppError, mustBeHashMap } from "../../";
-import { InvalidHashMapData, ValidHashMapData } from "../_fixtures";
+import { AppError, mustBeHashMap } from "@safelytyped/core-types";
+import { InvalidHashMapData, ValidHashMapData } from "../_fixtures/HashMaps";
 
 describe("mustBeHashMap()", () => {
     describe("returns `input` when given a valid HashMap", () => {

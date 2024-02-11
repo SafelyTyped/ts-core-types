@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { NonEmptyArray } from "../../BasicTypes";
+import type { NonEmptyArray } from "../../BasicTypes/Arrays/NonEmptyArray";
+
 
 /**
  * `ProtocolDefinition` contains a list of the methods that make up an

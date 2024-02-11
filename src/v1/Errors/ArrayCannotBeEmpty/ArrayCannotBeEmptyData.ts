@@ -31,7 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath, ExtraPublicData } from "../../ErrorHandling";
+
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicData";
 
 /**
  * `ArrayCannotBeEmptyData` defines the data that every

@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { ExtensionDefinesNoMethodsError } from "../../";
+import { ExtensionDefinesNoMethodsError } from "@safelytyped/core-types";
 
 describe("ExtensionDefinesNoMethodsError", () => {
     describe(".constructor()", () => {

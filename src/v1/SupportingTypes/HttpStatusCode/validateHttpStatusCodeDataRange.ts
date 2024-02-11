@@ -31,10 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath } from "../../ErrorHandling";
-import { validateNumberRange } from "../../BasicTypes";
-import { HttpStatusCodeOutOfRangeError } from "../../Errors";
-import type { AppErrorOr } from "../../ErrorHandling";
+import { validateNumberRange } from "../../BasicTypes/Numbers/validateNumberRange";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import { HttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfRange/HttpStatusCodeOutOfRangeError";
 
 /**
  * `validateHttpStatusCodeDataRange()` is a {@link DataValidator}. It proves

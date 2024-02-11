@@ -32,8 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { StringIsTooShortError } from "../../Errors";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { StringIsTooShortError } from "../../Errors/StringIsTooShort/StringIsTooShortError";
+
 
 /**
  * `validateStringMinLength()` is a {@link DataValidator}. It proves that

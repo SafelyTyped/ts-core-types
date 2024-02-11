@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { implementsOwnOrInheritedToString } from "../../Protocols/ToString/implementsOwnOrInheritedToString";
 import { DEFAULT_ERROR_REASON } from "./defaults/DEFAULT_ERROR_REASON";
-import { implementsOwnOrInheritedToString } from "../../Protocols";
 
 /**
  * `extractReasonFromCaught()` is a helper function. Use it to turn a value

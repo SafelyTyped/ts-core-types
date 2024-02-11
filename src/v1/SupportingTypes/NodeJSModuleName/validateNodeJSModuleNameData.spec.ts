@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateNodeJSModuleNameData } from "../../";
+import { AppError, DEFAULT_DATA_PATH, validateNodeJSModuleNameData } from "@safelytyped/core-types";
 
 describe("validateNodeJSModuleNameData()", () => {
     describe("it validates non-scoped NPM package names", () => {

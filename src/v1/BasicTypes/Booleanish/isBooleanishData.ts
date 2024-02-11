@@ -31,12 +31,14 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataGuard } from "../../Archetypes";
-import { IS_TYPE_DEFAULT_OPTIONS, isType, type IsTypeOptions } from "../../Operators";
+
+import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
+import type { IsTypeOptions } from "../../Operators/isType/IsTypeOptions";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
+import { isType } from "../../Operators/isType/isType";
 import type { BooleanishDataOptions } from "./BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
-
 
 /**
  * `isBooleanishData()` is a {@link DataGuard}. Use it to prove that the

@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppErrorOr, recast } from "../../";
+import { type AppErrorOr, recast } from "@safelytyped/core-types";
 
 describe("recast()", () => {
     it("converts from one type to another", () => {

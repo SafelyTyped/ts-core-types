@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Entity } from "./Entity";
+import type { Entity } from "./Entity";
+
 
 /**
  * `isEntity()` is a type guard. It proves whether or not the given `input`

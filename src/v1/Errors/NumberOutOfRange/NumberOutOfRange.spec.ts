@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, NumberOutOfRangeError } from "../../";
+import { DEFAULT_DATA_PATH, NumberOutOfRangeError } from "@safelytyped/core-types";
 
 describe("NumberOutOfRangeError", () => {
     describe(".constructor()", () => {

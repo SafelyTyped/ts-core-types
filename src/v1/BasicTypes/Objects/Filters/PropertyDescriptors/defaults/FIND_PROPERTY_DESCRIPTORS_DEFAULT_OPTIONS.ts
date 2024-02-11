@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { Prototypes } from "../../../../Prototypes";
+import { NEXT_PROTOTYPE } from "../../../../Prototypes/defaults/NEXT_PROTOTYPE";
 import type { PropertyDescriptorFilterOptions } from "../PropertyDescriptorFilterOptions";
 
 /**
@@ -41,5 +41,5 @@ import type { PropertyDescriptorFilterOptions } from "../PropertyDescriptorFilte
  * @public
  */
 export const FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS: PropertyDescriptorFilterOptions = {
-    nextPrototype: Prototypes.defaults.NEXT_PROTOTYPE
+    nextPrototype: NEXT_PROTOTYPE
 };

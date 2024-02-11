@@ -31,9 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AppErrorOr, DataPath } from "../../ErrorHandling";
-import { ArrayCannotBeEmptyError } from "../../Errors";
-import { validate } from "../../Operators";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { ArrayCannotBeEmptyError } from "../../Errors/ArrayCannotBeEmpty/ArrayCannotBeEmptyError";
+import { validate } from "../../Operators/validate/validate";
 import type { NonEmptyArray } from "./NonEmptyArray";
 import { validateArray } from "./validateArray";
 
@@ -52,7 +54,10 @@ import { validateArray } from "./validateArray";
  *
  * @public
  */
-export function validateNonEmptyArray(path: DataPath, input: unknown): AppErrorOr<NonEmptyArray<unknown>> {
+export function validateNonEmptyArray(
+    path: DataPath,
+    input: unknown
+): AppErrorOr<NonEmptyArray<unknown>> {
     return validate(input)
         .next((x) => validateArray(path, x))
         .next((x) => validateArrayIsNotEmpty(path, x))
@@ -62,7 +67,10 @@ export function validateNonEmptyArray(path: DataPath, input: unknown): AppErrorO
 /**
  * @ignore
  */
-function validateArrayIsNotEmpty(path: DataPath, input: unknown[]): AppErrorOr<NonEmptyArray<unknown>> {
+function validateArrayIsNotEmpty(
+    path: DataPath,
+    input: unknown[]
+): AppErrorOr<NonEmptyArray<unknown>> {
     if (input.length > 0) {
         return input as NonEmptyArray<unknown>;
     }

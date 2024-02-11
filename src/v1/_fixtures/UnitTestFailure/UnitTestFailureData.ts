@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AllExtraData } from "../../ErrorHandling";
+
+import type { AllExtraData } from "../../ErrorHandling/ExtraData/AllExtraData";
 
 /**
  * @ignore

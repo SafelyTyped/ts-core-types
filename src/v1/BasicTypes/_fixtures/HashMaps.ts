@@ -32,12 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyTypeValidator } from "../../Archetypes";
-import { validateAny } from "../Any";
-import { validateBoolean } from "../Booleans";
-import { AnyHashMap, validateHashMap } from "../HashMaps";
-import { validateObject } from "../Objects";
-import { Strings } from "../Strings";
+import type { AnyTypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator";
+import { validateAny } from "../Any/validateAny";
+import { validateBoolean } from "../Booleans/validateBoolean";
+import type { AnyHashMap } from "../HashMaps/AnyHashMap";
+import { validateHashMap } from "../HashMaps/validateHashMap";
+import { validateObject } from "../Objects/validateObject";
+import { validateString } from "../Strings/validateString";
+
 
 type ValidHashMapFixture = {
     inputValue: AnyHashMap,
@@ -87,7 +89,7 @@ export const InvalidHashMapData: InvalidHashMapFixture[] = [
     },
     {
         inputValue: "hello world!",
-        valueValidator: Strings.validateString,
+        valueValidator: validateString,
     },
     {
         inputValue: {

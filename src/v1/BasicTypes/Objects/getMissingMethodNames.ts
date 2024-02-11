@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { HashMap } from "../HashMaps";
+import type { HashMap } from "../HashMaps/HashMap";
 import { isMethodName } from "./isMethodName";
 
 /**

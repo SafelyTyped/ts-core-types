@@ -34,12 +34,16 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { NeverABrandedUuidError } from "../../../_fixtures";
-import { AnyAppError, OnErrorOptions, THROW_THE_ERROR } from "../../../ErrorHandling";
-import { AnySmartConstructor } from "../../FunctionTypes";
-import { Branded } from "../Branded";
-import { Flavoured } from "../Flavoured";
-import { makeNominalType } from "./makeNominalType";
+import { NeverABrandedUuidError } from "../../../_fixtures/NeverABrandedUuid/NeverABrandedUuidError";
+import {
+    type AnyAppError,
+    type AnySmartConstructor,
+    type Branded,
+    type Flavoured,
+    makeNominalType,
+    type OnErrorOptions,
+    THROW_THE_ERROR
+} from "@safelytyped/core-types";
 
 function defaultErrorHandler(e: AnyAppError): never {
     throw new Error("DEFAULT ERROR HANDLER CALLED");

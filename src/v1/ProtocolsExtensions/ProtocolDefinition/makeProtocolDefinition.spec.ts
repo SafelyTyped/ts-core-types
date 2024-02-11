@@ -34,7 +34,13 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { ExtensionDefinesNoMethodsError, addExtension, getPublicMethodNames, implementsProtocol, makeProtocolDefinition } from "../../";
+import {
+    ExtensionDefinesNoMethodsError,
+    addExtension,
+    getPublicMethodNames,
+    implementsProtocol,
+    makeProtocolDefinition
+} from "@safelytyped/core-types";
 
 interface ExampleValue {
     valueOf(): string;

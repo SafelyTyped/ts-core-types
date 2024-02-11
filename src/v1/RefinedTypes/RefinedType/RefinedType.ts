@@ -31,7 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DataGuarantee, DataGuaranteeOptions, ValueObject } from "../../Archetypes";
+
+import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import { ValueObject } from "../../Archetypes/Values/ValueObject/ValueObject";
 
 /**
  * `RefinedType` is a base class for defining a subset of any given type.

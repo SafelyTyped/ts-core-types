@@ -33,7 +33,7 @@
 //
 import { describe } from "mocha";
 
-import { extractStackFromCaught } from "../../";
+import { extractStackFromCaught } from "@safelytyped/core-types";
 
 // tslint:disable-next-line: no-var-requires
 const { expect } = require("chai")

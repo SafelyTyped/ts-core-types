@@ -31,12 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { Prototypes } from "../../../Prototypes";
 import { FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES } from "../defaults/FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES";
 import { findPropertyNames } from "./findPropertyNames";
 import type { PropertyNameFilter } from "./PropertyNameFilter";
 import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
 import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE";
+import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
 
 /**
  * `findAttributeNames()` is a data filter. It returns a list of all
@@ -58,7 +58,7 @@ import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_
 export function findAttributeNames(
     input: object,
     {
-        nextPrototype = Prototypes.defaults.NEXT_PROTOTYPE
+        nextPrototype = NEXT_PROTOTYPE
     }: Partial<PropertyNameFilterOptions> = {},
     ...filters: PropertyNameFilter[]
 ): string[] {

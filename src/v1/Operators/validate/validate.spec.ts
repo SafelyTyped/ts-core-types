@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedTypeError, isObject, validate } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedTypeError, isObject, validate } from "@safelytyped/core-types";
 
 describe("validate()", () => {
     it("returns a ValidationPipelineStep", () => {

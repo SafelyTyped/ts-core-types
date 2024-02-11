@@ -34,7 +34,7 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { isArray } from "../../";
+import { isArray } from "@safelytyped/core-types";
 
 describe("isArray()", () => {
     it("returns `true` when given an array", () => {

@@ -26,8 +26,8 @@
 // has become an Error.
 
 import type { ValidationPipelineStep } from "./ValidationPipelineStep";
-import type { AppErrorOr } from "../../ErrorHandling";
-import { AppError } from "../../ErrorHandling";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 
 /**
  * `validate()` executes a series of functions, one after the next.

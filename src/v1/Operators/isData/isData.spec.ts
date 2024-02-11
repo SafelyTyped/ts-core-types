@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, isData } from "../../";
+import { DEFAULT_DATA_PATH, isData } from "@safelytyped/core-types";
 
 describe("isData()", () => {
     it("returns `true` if the validator does not return an Error", () => {

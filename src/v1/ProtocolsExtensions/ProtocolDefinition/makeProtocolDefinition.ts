@@ -33,9 +33,11 @@
 //
 
 import type { ProtocolDefinition } from "./ProtocolDefinition";
-import { getPublicMethodNames, isNonEmptyArray } from "../../BasicTypes";
-import { type OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import { ExtensionDefinesNoMethodsError } from "../../Errors";
+import { getPublicMethodNames } from "../../BasicTypes/Objects/getPublicMethodNames";
+import { isNonEmptyArray } from "../../BasicTypes/Arrays/isNonEmptyArray";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
+import { ExtensionDefinesNoMethodsError } from "../../Errors/ExtensionDefinesNoMethods/ExtensionDefinesNoMethodsError";
 
 /**
  * `makeProtocolDefinition()` is a type factory. Use it to build a

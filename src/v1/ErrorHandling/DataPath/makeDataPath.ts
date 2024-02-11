@@ -32,11 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { DataPath } from "./DataPath";
-import { type FunctionalOption, makeNominalType } from "../../Archetypes";
-import { THROW_THE_ERROR } from "../../ErrorHandling";
 import { mustBeDataPathData } from "./mustBeDataPathData";
 import type { MakeDataPathOptions } from "./MakeDataPathOptions";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
+import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
+import { makeNominalType } from "../../Archetypes/Nominals/Factories/makeNominalType";
+import { THROW_THE_ERROR } from "../OnError/defaults/THROW_THE_ERROR";
 
 /**
  * `makeDataPath()` is a {@link SmartConstructor}. Use it to turn a string

@@ -34,7 +34,13 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AnyAppError, HttpStatusCodeOutOfRangeError, OnError, UnsupportedTypeError, makeHttpStatusCode } from "../../";
+import {
+    type AnyAppError,
+    HttpStatusCodeOutOfRangeError,
+    type OnError,
+    UnsupportedTypeError,
+    makeHttpStatusCode
+} from "@safelytyped/core-types";
 
 describe("makeHttpStatusCode()", () => {
     const expectedMessage = "UNIT TEST ERROR HANDLER CALLED!!";

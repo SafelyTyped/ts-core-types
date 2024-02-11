@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { Prototypes } from "../Prototypes";
+import { getPrototypeOf } from "../Prototypes/getPrototypeOf";
+
 
 // This code has been adapted from:
 //
@@ -71,7 +72,7 @@ export function isGetterName<T extends object>(target: T, methodName: keyof T): 
         }
 
         // next prototype!
-        obj = Prototypes.getPrototypeOf(obj);
+        obj = getPrototypeOf(obj);
     }
 
     return false;

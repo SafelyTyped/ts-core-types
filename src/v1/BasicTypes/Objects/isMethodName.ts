@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AnyHashMap } from "../HashMaps";
+
+import type { AnyHashMap } from "../HashMaps/AnyHashMap";
 
 /**
  * `isMethodName()` is a data guard. Use it to prove that property

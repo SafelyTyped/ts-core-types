@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedNumericalValueError } from "../../";
+import { DEFAULT_DATA_PATH, UnsupportedNumericalValueError } from "@safelytyped/core-types";
 
 describe("UnsupportedNumericalValueError", () => {
     describe(".constructor()", () => {

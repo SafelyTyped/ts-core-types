@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { Value } from "../Value";
+
+import type { Value } from "../Value/Value";
 
 /**
  * ValueObject is the base class for defining your Value Object

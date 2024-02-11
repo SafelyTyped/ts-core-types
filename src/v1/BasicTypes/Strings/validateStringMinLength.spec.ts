@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, StringIsTooShortError, validateStringMinLength } from "../../";
+import { DEFAULT_DATA_PATH, StringIsTooShortError, validateStringMinLength } from "@safelytyped/core-types";
 
 describe("validateStringMinLength()", () => {
     it("returns `input` when the input validates", () => {

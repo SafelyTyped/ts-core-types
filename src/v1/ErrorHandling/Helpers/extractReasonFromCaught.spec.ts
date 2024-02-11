@@ -33,7 +33,7 @@
 //
 import { describe } from "mocha";
 
-import { DEFAULT_ERROR_REASON, extractReasonFromCaught } from "../../";
+import { DEFAULT_ERROR_REASON, extractReasonFromCaught } from "@safelytyped/core-types";
 
 // tslint:disable-next-line: no-var-requires
 const { expect } = require("chai")

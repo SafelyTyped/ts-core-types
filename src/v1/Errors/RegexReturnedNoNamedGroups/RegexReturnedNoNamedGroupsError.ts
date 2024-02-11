@@ -16,7 +16,9 @@
 // License along with this program. If not, see
 // <https://www.gnu.org/licenses/>.
 //
-import { AppError, AppErrorData, makeStructuredProblemReport } from "../../ErrorHandling";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { RegexReturnedNoNamedGroupsData } from "./RegexReturnedNoNamedGroupsData";
 

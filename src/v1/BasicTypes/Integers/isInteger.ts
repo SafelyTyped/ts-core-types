@@ -33,8 +33,9 @@
 //
 
 import { validateInteger } from "./validateInteger";
-import { isType, IS_TYPE_DEFAULT_OPTIONS } from "../../Operators";
-import type { TypeGuard } from "../../Archetypes";
+import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
+import { isType } from "../../Operators/isType/isType";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 
 /**
  * `isInteger()` is a {@link TypeGuard}. Use it to prove to the Typescript

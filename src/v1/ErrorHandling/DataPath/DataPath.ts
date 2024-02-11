@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { Branded } from "../../Archetypes";
+import type { Branded } from "../../Archetypes/Nominals/Branded/Branded";
+
 
 /**
  * `DataPath` represents a path through a data structure. It is used

@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, RegexReturnedNoResultsError } from "../../";
+import { DEFAULT_DATA_PATH, RegexReturnedNoResultsError } from "@safelytyped/core-types";
 
 describe("RegexReturnedNoResultsError", () => {
     describe(".constructor()", () => {

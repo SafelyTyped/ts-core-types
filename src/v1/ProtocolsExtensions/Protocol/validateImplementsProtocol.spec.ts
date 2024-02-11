@@ -34,7 +34,12 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, ObjectHasMissingMethodsError, ProtocolDefinition, validateImplementsProtocol } from "../../";
+import {
+    DEFAULT_DATA_PATH,
+    ObjectHasMissingMethodsError,
+    type ProtocolDefinition,
+    validateImplementsProtocol
+} from "@safelytyped/core-types";
 
 interface GuessMediaType {
     guessMediaType(): string;

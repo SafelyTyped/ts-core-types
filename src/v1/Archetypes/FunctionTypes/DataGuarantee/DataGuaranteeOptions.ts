@@ -31,7 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath, OnError } from "../../../ErrorHandling";
+
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import type { OnError } from "../../../ErrorHandling/OnError/OnError";
 
 /**
  * `DataGuaranteeOptions` describes the user-supplied options supported
@@ -41,5 +43,5 @@ import type { DataPath, OnError } from "../../../ErrorHandling";
  */
 export interface DataGuaranteeOptions {
     onError: OnError,
-    path: DataPath
+    path: DataPath,
 }

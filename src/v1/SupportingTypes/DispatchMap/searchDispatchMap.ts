@@ -33,10 +33,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyFunction } from "../../Archetypes";
 import type { DispatchMap } from "./DispatchMap";
 import type { AnyDispatchMapKey } from "./AnyDispatchMapKey";
-import { getProperty } from "../../BasicTypes";
+import type { AnyFunction } from "../../Archetypes/FunctionTypes/AnyFunction/AnyFunction";
+import { getProperty } from "../../BasicTypes/Objects/getProperty";
 
 /**
  * `searchDispatchMap()` will iterate through `keysToTry`

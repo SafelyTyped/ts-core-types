@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { Branded } from "../../Archetypes";
+
+import type { Branded } from "../../Archetypes/Nominals/Branded/Branded";
 
 /**
  * `NodeJSModuleName` represents the name of a NodeJS module.

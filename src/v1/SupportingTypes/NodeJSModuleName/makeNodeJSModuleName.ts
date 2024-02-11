@@ -31,12 +31,16 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { FunctionalOption, makeNominalType, SmartConstructor, MakeNominalTypeOptions } from "../../Archetypes";
-import { type OnErrorOptions, THROW_THE_ERROR } from "../../ErrorHandling";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling";
+import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
+import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
+import type { MakeNominalTypeOptions } from "../../Archetypes/Nominals/Factories/MakeNominalTypeOptions";
+import { makeNominalType } from "../../Archetypes/Nominals/Factories/makeNominalType";
 import type { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
 import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
 import type { NodeJSModuleName } from "./NodeJSModuleName";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
 
 /**
  * `makeNodeJSModuleName()` is a smart constructor. It verifies that the

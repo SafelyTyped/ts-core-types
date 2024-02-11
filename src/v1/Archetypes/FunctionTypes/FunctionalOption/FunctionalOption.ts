@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { OnErrorOptions } from "../../../ErrorHandling";
+
+import type { OnErrorOptions } from "../../../ErrorHandling/OnError/OnErrorOptions";
 
 /**
  * FunctionalOption is a function signature. It describes a function that

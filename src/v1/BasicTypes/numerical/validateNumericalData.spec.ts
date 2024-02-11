@@ -35,7 +35,14 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, RefinedNumber, RefinedString, UnsupportedNumericalValueError, ValueObject, validateNumericalData } from "../..";
+import {
+    DEFAULT_DATA_PATH,
+    RefinedNumber,
+    RefinedString,
+    UnsupportedNumericalValueError,
+    ValueObject,
+    validateNumericalData
+} from "@safelytyped/core-types";
 
 const noPrototype = {}
 Object.setPrototypeOf(noPrototype, null);

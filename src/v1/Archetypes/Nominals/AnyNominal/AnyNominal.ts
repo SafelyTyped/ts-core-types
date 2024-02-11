@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyBranded } from "../Branded";
-import type { AnyFlavoured } from "../Flavoured";
+import type { AnyBranded } from "../Branded/AnyBranded";
+import type { AnyFlavoured } from "../Flavoured/AnyFlavoured";
 
 /**
  * AnyNominal represents any branded or flavoured type.

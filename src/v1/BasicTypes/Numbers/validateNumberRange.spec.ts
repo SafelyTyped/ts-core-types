@@ -35,7 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, NumberOutOfRangeError, validateNumberRange } from "../../";
+import { DEFAULT_DATA_PATH, NumberOutOfRangeError, validateNumberRange } from "@safelytyped/core-types";
 
 class UnitTestExample extends NumberOutOfRangeError {
     public unique: string = "hello there!";
