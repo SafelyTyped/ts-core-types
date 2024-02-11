@@ -7,6 +7,7 @@
         "**/*.spec.*"
     ],
     "excludeInternal": true,
+    "excludeReferences": true,
 
     "entryPointStrategy": "resolve",
     "plugin": ["typedoc-theme-hierarchy"],
