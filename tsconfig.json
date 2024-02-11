@@ -3,13 +3,13 @@
     "display": "Recommended",
     "compilerOptions": {
         "target": "es2020",
-        "module": "node16",
+        "moduleResolution": "node",
         "strict": true,
         "alwaysStrict": true,
-        "esModuleInterop": true,
+        // "esModuleInterop": true,
         "skipLibCheck": false,
         "forceConsistentCasingInFileNames": true,
-        "verbatimModuleSyntax": false,
+        "verbatimModuleSyntax": true,
         "isolatedModules": true,
 
         "declaration": true,                      /* Generates corresponding '.d.ts' file. */
@@ -22,16 +22,21 @@
         "noImplicitReturns": true,                /* Report error when not all code paths in function return a value. */
 
         "experimentalDecorators": true,           /* Enables experimental support for ES7 decorators. */
-        "emitDecoratorMetadata": true            /* Enables experimental support for emitting type metadata for decorators. */
+        "emitDecoratorMetadata": true,            /* Enables experimental support for emitting type metadata for decorators. */
+        "paths": {
+            "@safelytyped/core-types": [ "./src/v1/index" ]
+        },
+        "baseUrl": "."
     },
     "include": [
         "src"
     ],
     "exclude": [
-        "**/*.spec.ts",
-        "src/spec/**"
+        // "**/*.spec.ts",
+        // "src/spec/**"
     ],
     "ts-node": {
-        "swc": true
+        "swc": true,
+        "require": ["tsconfig-paths/register"]
     }
 }
