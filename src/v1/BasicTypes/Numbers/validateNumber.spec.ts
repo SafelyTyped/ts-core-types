@@ -41,7 +41,7 @@ describe("validateNumber()", () => {
         const inputValue = 100;
         const expectedValue = inputValue;
 
-        const actualValue = validateNumber(DEFAULT_DATA_PATH, inputValue);
+        const actualValue = validateNumber(inputValue);
         expect(actualValue).to.eql(expectedValue);
     })
 
@@ -63,7 +63,7 @@ describe("validateNumber()", () => {
                     actual: typeof val,
                 }
             })
-            const actualValue = validateNumber(DEFAULT_DATA_PATH, val);
+            const actualValue = validateNumber(val);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + val);

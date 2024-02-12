@@ -34,7 +34,8 @@
 
 import { describe } from "mocha";
 import { expect } from "chai";
-import { DEFAULT_DATA_PATH, validateAny } from "@safelytyped/core-types";
+
+import { validateAny } from "@safelytyped/core-types";
 
 const ValidAny = [
     null,
@@ -55,7 +56,7 @@ describe("validateAny()", () => {
     describe("accepts any input", () => {
         ValidAny.forEach((inputValue) => {
             it("accepts example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateAny(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateAny(inputValue);
                 expect(actualValue).equal(inputValue);
             });
         });

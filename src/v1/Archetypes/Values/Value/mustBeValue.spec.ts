@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,15 +32,38 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { expect } from "chai";
+import { describe } from "mocha";
 
+import { ValueObject, mustBeValue } from "../../..";
 
-/**
- * `IsDataOptions` describes the user-supplied options that must be passed
- * into any {@link isData} function call.
- *
- * @public
- */
-export interface IsDataOptions {
-    path: DataPath;
+class ExampleValue extends ValueObject<string> {
+    public static from(input: string): ExampleValue {
+        return new ExampleValue(input);
+    }
 }
+
+describe("mustBeValue()", () => {
+    it("returns `input` when given a Value", () => {
+        // ----------------------------------------------------------------
+        // explain your test
+
+        // this test proves that `mustBeValue()` returns the given `input`
+
+        // ----------------------------------------------------------------
+        // setup your test
+
+        const inputValue = ExampleValue.from("12345");
+        const expectedResult = inputValue;
+
+        // ----------------------------------------------------------------
+        // perform the change
+
+        const actualResult = mustBeValue(inputValue);
+
+        // ----------------------------------------------------------------
+        // test the results
+
+        expect(actualResult).to.eql(expectedResult);
+    })
+})

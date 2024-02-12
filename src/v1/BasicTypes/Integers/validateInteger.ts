@@ -32,11 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
-import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { validate } from "../../Operators/validate/validate";
 import { validateNumber } from "../Numbers/validateNumber";
+import { validateNumberIsInteger } from "../Numbers/validateNumberIsInteger";
 
 /**
  * `validateInteger()` is a {@link TypeValidator}. Use it to prove that
@@ -49,25 +50,13 @@ import { validateNumber } from "../Numbers/validateNumber";
  * @public
  */
 export function validateInteger(
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<number> {
-    const res = validateNumber(path, input);
-    if (res instanceof AppError) {
-        return res;
-    }
-
-    // slower than bitwise operations, but always safe
-    if (Math.trunc(res) !== res) {
-        return new UnsupportedTypeError({
-            public: {
-                dataPath: path,
-                expected: "number (with an integer value)",
-                actual: "number (with a non-integer value)"
-            }
-        });
-    }
-
-    // all done
-    return res;
+    return validate(input)
+        .next((x) => validateNumber(x, { path }))
+        .next((x) => validateNumberIsInteger(x, { path }))
+        .value();
 }

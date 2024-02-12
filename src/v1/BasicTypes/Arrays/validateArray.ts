@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
 
 
@@ -41,10 +42,10 @@ import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTy
  * `validateArray()` is a {@link TypeValidator}. Use it to prove that an
  * unknown `input` really is some kind of array.
  *
- * @param path -
- * Where we are in the data structure you are validating
  * @param input -
  * the value to inspect
+ * @param path -
+ * Where we are in the data structure you are validating
  * @returns
  * - `input` if it is an array, or
  * - an AppError explaining why validation failed
@@ -52,8 +53,10 @@ import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTy
  * @public
  */
 export function validateArray(
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<unknown[]> {
     // do we have an array?
     if (Array.isArray(input)) {

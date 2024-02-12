@@ -35,7 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateOptionType } from "@safelytyped/core-types";
+import { AppError, validateOptionType } from "@safelytyped/core-types";
 import { InvalidOptionTypeData, ValidOptionTypeData } from "../_fixtures/OptionTypes";
 
 describe("validateOptionType()", () => {
@@ -46,7 +46,6 @@ describe("validateOptionType()", () => {
                 const actualValue = validateOptionType(
                     aValidator,
                     bValidator,
-                    DEFAULT_DATA_PATH,
                     inputValue
                 );
                 expect(actualValue).equal(inputValue);
@@ -61,7 +60,6 @@ describe("validateOptionType()", () => {
                 const actualValue = validateOptionType(
                     aValidator,
                     bValidator,
-                    DEFAULT_DATA_PATH,
                     inputValue
                 );
                 expect(actualValue).to.be.instanceOf(AppError);

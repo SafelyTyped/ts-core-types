@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { IS_DATA_DEFAULT_OPTIONS } from "../../Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
+import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 import { isData } from "../../Operators/isData/isData";
+import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 import { validateDataPathData } from "./validateDataPathData";
 
 /**
@@ -45,5 +46,8 @@ import { validateDataPathData } from "./validateDataPathData";
  *
  * @public
  */
-export const isDataPathData = (input: string): boolean =>
-    isData(validateDataPathData, input, IS_DATA_DEFAULT_OPTIONS);
+export const isDataPathData = (
+    input: string,
+    { path = DEFAULT_DATA_PATH }: Partial<DataGuardOptions> = {}
+): boolean =>
+    isData(validateDataPathData, input, { path });

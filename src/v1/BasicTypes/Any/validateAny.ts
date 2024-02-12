@@ -32,25 +32,30 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 
 /**
  * `validateArray()` is a {@link TypeValidator}. Use it to accept any
  * type of data whatsoever.
  *
- * @param path -
- * Where we are in the data structure you are validating
+ * It exists only for completeness.
+ *
  * @param input -
  * the value to inspect
+ * @param path -
+ * Where we are in the data structure you are validating
  * @returns
  * - `input`
  *
  * @public
  */
 export function validateAny(
-    path: DataPath,
-    input: any
+    input: any,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<any> {
     return input;
 }

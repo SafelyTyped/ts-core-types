@@ -70,6 +70,6 @@ export function mustBeHashMap<T>(
     }: Partial<DataGuaranteeOptions> = {}
 ): HashMap<T> {
     return mustBe(input, { onError })
-        .next((x) => validateHashMap(valueValidator, path, x))
+        .next((x) => validateHashMap(valueValidator, x, { path }))
         .value();
 }

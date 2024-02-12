@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 
 /**
  * `validateBooleanishNumber()` converts the `input` into a boolean
@@ -50,8 +51,10 @@ import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
  * @public
  */
 export function validateBooleanishBoolean(
-    path: DataPath,
     input: boolean,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<boolean> {
     return input;
 }

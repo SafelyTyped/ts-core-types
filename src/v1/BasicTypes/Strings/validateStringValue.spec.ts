@@ -44,7 +44,6 @@ describe("validateStringValue()", () => {
 
         const actualValue = validateStringValue(
             permittedValues,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.eql(expectedValue);
@@ -62,7 +61,6 @@ describe("validateStringValue()", () => {
         })
         const actualValue = validateStringValue(
             permittedValues,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.be.instanceOf(UnsupportedStringValueError);

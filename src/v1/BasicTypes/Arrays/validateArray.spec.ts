@@ -41,7 +41,7 @@ describe("validateArray()", () => {
         const inputValue = [ 1, 2, 3, 4];
         const expectedValue = inputValue;
 
-        const actualValue = validateArray(DEFAULT_DATA_PATH, inputValue);
+        const actualValue = validateArray(inputValue);
         expect(actualValue).to.eql(expectedValue);
     })
 
@@ -64,7 +64,7 @@ describe("validateArray()", () => {
                     actual: typeof val,
                 }
             })
-            const actualValue = validateArray(DEFAULT_DATA_PATH, val);
+            const actualValue = validateArray(val);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + val);

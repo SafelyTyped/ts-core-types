@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { ArrayCannotBeEmptyError } from "../../Errors/ArrayCannotBeEmpty/ArrayCannotBeEmptyError";
 import { validate } from "../../Operators/validate/validate";
 import type { NonEmptyArray } from "./NonEmptyArray";
@@ -55,12 +56,14 @@ import { validateArray } from "./validateArray";
  * @public
  */
 export function validateNonEmptyArray(
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<NonEmptyArray<unknown>> {
     return validate(input)
-        .next((x) => validateArray(path, x))
-        .next((x) => validateArrayIsNotEmpty(path, x))
+        .next((x) => validateArray(x, { path }))
+        .next((x) => validateArrayIsNotEmpty(x, { path }))
         .value();
 }
 
@@ -68,8 +71,10 @@ export function validateNonEmptyArray(
  * @ignore
  */
 function validateArrayIsNotEmpty(
-    path: DataPath,
-    input: unknown[]
+    input: unknown[],
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<NonEmptyArray<unknown>> {
     if (input.length > 0) {
         return input as NonEmptyArray<unknown>;

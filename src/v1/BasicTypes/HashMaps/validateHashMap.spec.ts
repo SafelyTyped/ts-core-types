@@ -34,7 +34,7 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppError, DEFAULT_DATA_PATH, validateHashMap } from "@safelytyped/core-types";
+import { AppError, validateHashMap } from "@safelytyped/core-types";
 import { InvalidHashMapData, ValidHashMapData } from "../_fixtures/HashMaps";
 
 describe("validateHashMap()", () => {
@@ -43,8 +43,7 @@ describe("validateHashMap()", () => {
             it("accepts example " + JSON.stringify(inputValue), () => {
                 const actualValue = validateHashMap(
                     valueValidator,
-                    DEFAULT_DATA_PATH,
-                    inputValue
+                    inputValue,
                 );
                 expect(actualValue).eql(inputValue);
             });
@@ -56,8 +55,7 @@ describe("validateHashMap()", () => {
             it("rejects example " + JSON.stringify(inputValue), () => {
                 const actualValue = validateHashMap(
                     valueValidator,
-                    DEFAULT_DATA_PATH,
-                    inputValue
+                    inputValue,
                 );
                 expect(actualValue).to.be.instanceOf(AppError);
             });

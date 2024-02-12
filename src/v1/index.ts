@@ -48,14 +48,18 @@ export type { AnyEntityObject } from "./Archetypes/Entities/EntityObject/AnyEnti
 // FunctionTypes
 export type { AnyFunction } from "./Archetypes/FunctionTypes/AnyFunction/AnyFunction";
 export type { ComposableFunction } from "./Archetypes/FunctionTypes/ComposableFunction/ComposableFunction";
+
 export type { AnyDataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/AnyDataGuarantee";
 export type { DataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
 export type { DataGuaranteeOptions } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+
 export type { AnyDataGuard } from "./Archetypes/FunctionTypes/DataGuard/AnyDataGuard";
 export type { DataGuard } from "./Archetypes/FunctionTypes/DataGuard/DataGuard";
+export type { DataGuardOptions } from "./Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 
 export type { AnyDataValidator } from "./Archetypes/FunctionTypes/DataValidator/AnyDataValidator";
 export type { DataValidator } from "./Archetypes/FunctionTypes/DataValidator/DataValidator";
+export type { DataValidatorOptions } from "./Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 
 export type { AnyFunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/AnyFunctionalOption";
 export type { FunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
@@ -71,9 +75,11 @@ export type { TypeGuaranteeOptions } from "./Archetypes/FunctionTypes/TypeGuaran
 
 export type { AnyTypeGuard } from "./Archetypes/FunctionTypes/TypeGuard/AnyTypeGuard";
 export type { TypeGuard } from "./Archetypes/FunctionTypes/TypeGuard/TypeGuard";
+export type { TypeGuardOptions } from "./Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
 
 export type { AnyTypeValidator } from "./Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator";
 export type { TypeValidator } from "./Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+export type { TypeValidatorOptions } from "./Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 
 // Nominals
 export type { AnyNominal } from "./Archetypes/Nominals/AnyNominal/AnyNominal";
@@ -115,6 +121,11 @@ export type { WritablePart } from "./Archetypes/UtilityTypes/WritablePart";
 export type { AnyValue } from "./Archetypes/Values/Value/AnyValue";
 export type { Value } from "./Archetypes/Values/Value/Value";
 export { isValue } from "./Archetypes/Values/Value/isValue";
+export { isValueOf } from "./Archetypes/Values/Value/isValueOf";
+export { mustBeValue } from "./Archetypes/Values/Value/mustBeValue";
+export { mustBeValueOf } from "./Archetypes/Values/Value/mustBeValueOf";
+export { validateValue } from "./Archetypes/Values/Value/validateValue";
+export { validateValueOf } from "./Archetypes/Values/Value/validateValueOf";
 export { ValueObject } from "./Archetypes/Values/ValueObject/ValueObject";
 
 // ================================================================
@@ -178,6 +189,7 @@ export { validateInteger } from "./BasicTypes/Integers/validateInteger";
 export { isNumber } from "./BasicTypes/Numbers/isNumber";
 export { mustBeNumber } from "./BasicTypes/Numbers/mustBeNumber";
 export { validateNumber } from "./BasicTypes/Numbers/validateNumber";
+export { validateNumberIsInteger } from "./BasicTypes/Numbers/validateNumberIsInteger";
 export { validateNumberRange } from "./BasicTypes/Numbers/validateNumberRange";
 
 // Numerical
@@ -256,6 +268,7 @@ export { Regex } from "./BasicTypes/Regex/Regex";
 export type { RegExpExecArrayWithGroups } from "./BasicTypes/Regex/RegExpExecArrayWithGroups";
 export { isRegExpExecArrayWithGroups } from "./BasicTypes/Regex/isRegExpExecArrayWithGroups";
 export { mustBeRegExpExecArrayWithGroups } from "./BasicTypes/Regex/mustBeRegExpExecArrayWithGroups";
+export { regexMustCompile } from "./BasicTypes/Regex/regexMustCompile";
 export { validateRegexCompiles } from "./BasicTypes/Regex/validateRegexCompiles";
 export { validateRegExpExecArrayWithGroups } from "./BasicTypes/Regex/validateRegExpExecArrayWithGroups";
 
@@ -280,7 +293,9 @@ export { getTypeNames } from "./BasicTypes/Unknowns/getTypeNames";
 
 // AppError
 export type { AnyAppError } from "./ErrorHandling/AppError/AnyAppError";
+export type { AnyAppErrorConstructor } from "./ErrorHandling/AppError/AnyAppErrorConstructor";
 export { AppError } from "./ErrorHandling/AppError/AppError";
+export type { AppErrorData } from "./ErrorHandling/AppError/AppErrorData";
 export { isAppError } from "./ErrorHandling/AppError/isAppError";
 
 // AppErrorOr
@@ -334,12 +349,14 @@ export type { ExtensionDefinesNoMethodsData } from "./Errors/ExtensionDefinesNoM
 export { ExtensionDefinesNoMethodsError } from "./Errors/ExtensionDefinesNoMethods/ExtensionDefinesNoMethodsError";
 export type { HttpStatusCodeOutOfRangeData } from "./Errors/HttpStatusCodeOutOfRange/HttpStatusCodeOutOfRangeData";
 export { HttpStatusCodeOutOfRangeError } from "./Errors/HttpStatusCodeOutOfRange/HttpStatusCodeOutOfRangeError";
+export { createHttpStatusCodeOutOfRangeError } from "./Errors/HttpStatusCodeOutOfRange/createHttpStatusCodeOutOfRangeError";
 export type { InvalidNodeJSModuleNameData } from "./Errors/InvalidNodeJSModuleName/InvalidNodeJSModuleNameData";
 export { InvalidNodeJSModuleNameError } from "./Errors/InvalidNodeJSModuleName/InvalidNodeJSModuleNameError";
 export type { NotImplementedData } from "./Errors/NotImplemented/NotImplementedData";
 export { NotImplementedError } from "./Errors/NotImplemented/NotImplementedError";
 export type { NumberOutOfRangeData } from "./Errors/NumberOutOfRange/NumberOutOfRangeData";
-export { NumberOutOfRangeError } from "./Errors/NumberOutOfRange/NumberOutOfRangeError";
+export { NumberOutOfRangeError, type NumberOutOfRangeErrorConstructor } from "./Errors/NumberOutOfRange/NumberOutOfRangeError";
+export { createNumberOutOfRangeError } from "./Errors/NumberOutOfRange/createNumberOutOfRangeError";
 export type { ObjectCannotBeEmptyData } from "./Errors/ObjectCannotBeEmpty/ObjectCannotBeEmptyData";
 export { ObjectCannotBeEmptyError } from "./Errors/ObjectCannotBeEmpty/ObjectCannotBeEmptyError";
 export type { ObjectHasMissingMethodsData } from "./Errors/ObjectHasMissingMethods/ObjectHasMissingMethodsData";
@@ -377,11 +394,7 @@ export { UnsupportedTypeError } from "./Errors/UnsupportedType/UnsupportedTypeEr
 
 export { everyGuard } from "./Operators/everyGuard/everyGuard";
 export { isData } from "./Operators/isData/isData";
-export type { IsDataOptions } from "./Operators/isData/IsDataOptions";
-export { IS_DATA_DEFAULT_OPTIONS } from "./Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
 export { isType } from "./Operators/isType/isType";
-export type { IsTypeOptions } from "./Operators/isType/IsTypeOptions";
-export { IS_TYPE_DEFAULT_OPTIONS } from "./Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 export { mustBe } from "./Operators/mustBe/mustBe";
 export type { MustBePipelineStep } from "./Operators/mustBe/MustBePipelineStep";
 export { recast } from "./Operators/recast/recast";

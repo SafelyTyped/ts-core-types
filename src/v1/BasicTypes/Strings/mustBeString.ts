@@ -61,5 +61,5 @@ export const mustBeString: TypeGuarantee<string> = (
         path = DEFAULT_DATA_PATH,
     }: Partial<TypeGuaranteeOptions> = {}
 ): string => mustBe(input, { onError })
-    .next((x) => validateString(path, x))
+    .next((x) => validateString(x, { path }))
     .value();

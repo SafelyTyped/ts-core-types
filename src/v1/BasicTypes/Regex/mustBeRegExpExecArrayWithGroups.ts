@@ -32,9 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { OnError } from "../../ErrorHandling/OnError/OnError";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { mustBe } from "../../Operators/mustBe/mustBe";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
@@ -62,13 +61,10 @@ export function mustBeRegExpExecArrayWithGroups(
     input: RegExpExecArray,
     {
         onError = THROW_THE_ERROR,
-        dataPath = DEFAULT_DATA_PATH
-    }: {
-        onError?: OnError,
-        dataPath?: DataPath
-    } = {}
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataGuaranteeOptions> = {}
 ): RegExpExecArrayWithGroups {
     return mustBe(input, {onError})
-        .next((x) => validateRegExpExecArrayWithGroups(regex, dataPath, x))
+        .next((x) => validateRegExpExecArrayWithGroups(regex, x, { path }))
         .value();
 }

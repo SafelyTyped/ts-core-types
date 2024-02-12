@@ -97,7 +97,7 @@ describe("validateBooleanishData()", () => {
             it("returns `true` when given " + inputValue + " (" + typeof inputValue + ")", () => {
                 const expectedValue = true;
 
-                const actualValue = validateBooleanishData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateBooleanishData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -122,7 +122,7 @@ describe("validateBooleanishData()", () => {
             it("returns `false` when given " + inputValue + " (" + typeof inputValue + ")", () => {
                 const expectedValue = false;
 
-                const actualValue = validateBooleanishData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateBooleanishData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -140,7 +140,7 @@ describe("validateBooleanishData()", () => {
                         actual: inputValue,
                     }
                 })
-                const actualValue = validateBooleanishData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateBooleanishData(inputValue);
                 expect(actualValue).to.be.instanceOf(UnsupportedBooleanishValueError);
                 if (actualValue instanceof UnsupportedBooleanishValueError) {
                     expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);
@@ -161,7 +161,7 @@ describe("validateBooleanishData()", () => {
                         actual: typeof inputValue === "object" ? inputValue.toString() : inputValue,
                     }
                 })
-                const actualValue = validateBooleanishData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateBooleanishData(inputValue);
                 expect(actualValue).to.be.instanceOf(UnsupportedBooleanishValueError);
                 if (actualValue instanceof UnsupportedBooleanishValueError) {
                     expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);
@@ -187,7 +187,7 @@ describe("validateBooleanishData()", () => {
                         actual: typeof inputValue,
                     }
                 })
-                const actualValue = validateBooleanishData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateBooleanishData(inputValue);
                 expect(actualValue).to.be.instanceOf(UnsupportedTypeError, "failed on " + inputValue);
                 if (actualValue instanceof UnsupportedTypeError) {
                     expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);
@@ -206,7 +206,7 @@ describe("validateBooleanishData()", () => {
             const inputValue = new UnitTestNonsense();
             const expectedValue = true;
 
-            const actualValue = validateBooleanishData(DEFAULT_DATA_PATH, inputValue, { booleanish: rules});
+            const actualValue = validateBooleanishData(inputValue, { booleanish: rules});
             expect(actualValue).to.equal(expectedValue);
         });
 
@@ -219,7 +219,7 @@ describe("validateBooleanishData()", () => {
             const inputValue = new UnitTestNonsenseChild();
             const expectedValue = true;
 
-            const actualValue = validateBooleanishData(DEFAULT_DATA_PATH, inputValue, { booleanish: rules});
+            const actualValue = validateBooleanishData(inputValue, { booleanish: rules});
             expect(actualValue).to.equal(expectedValue);
         });
     });

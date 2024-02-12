@@ -32,8 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+
+import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { extendDataPath } from "../../../ErrorHandling/DataPath/extendDataPath";
 import { implementsOwnOrInheritedToString } from "../../../Protocols/ToString/implementsOwnOrInheritedToString";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
@@ -62,8 +64,10 @@ import { type BooleanishStrings, validateBooleanishString } from "./validateBool
 export function validateBooleanishObject(
     booleanish: BooleanishStrings,
     supportedTypes: string[],
-    path: DataPath,
     input: object,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<boolean> {
     // many objects have default toString() methods
     //
@@ -72,13 +76,13 @@ export function validateBooleanishObject(
     if (implementsOwnOrInheritedToString(input)) {
         return validateBooleanishString(
             booleanish,
-            extendDataPath(path, "toString()"),
             input.toString(),
+            { path: extendDataPath(path, "toString()") },
         );
     }
 
     // if we get here, then either the rules are disabled, or the
     // object isn't suitable for further investigation.
-    return createUnsupportedTypeError(path, input, { supportedTypes });
+    return createUnsupportedTypeError(input, { path, supportedTypes });
 }
 

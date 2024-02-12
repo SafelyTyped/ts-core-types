@@ -60,5 +60,5 @@ export const mustBeNumber: TypeGuarantee<number> = (
         path = DEFAULT_DATA_PATH,
     }: Partial<TypeGuaranteeOptions> = {}
 ): number => mustBe(input, { onError })
-    .next((x) => validateNumber(path, x))
+    .next((x) => validateNumber(x, { path }))
     .value();

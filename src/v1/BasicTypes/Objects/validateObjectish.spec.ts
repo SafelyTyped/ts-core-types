@@ -41,7 +41,7 @@ describe("validateObjectish()", () => {
         const inputValue = { foo: "bar" };
         const expectedValue = inputValue;
 
-        const actualValue = validateObjectish(DEFAULT_DATA_PATH, inputValue);
+        const actualValue = validateObjectish(inputValue);
         expect(actualValue).to.eql(expectedValue);
     })
 
@@ -49,7 +49,7 @@ describe("validateObjectish()", () => {
         const inputValue = [ 1, 2, 3, 4, 5 ];
         const expectedValue = inputValue;
 
-        const actualValue = validateObjectish(DEFAULT_DATA_PATH, inputValue);
+        const actualValue = validateObjectish(inputValue);
         expect(actualValue).to.eql(expectedValue);
     })
 
@@ -77,7 +77,7 @@ describe("validateObjectish()", () => {
                     actual: expectedType(inputValue),
                 }
             })
-            const actualValue = validateObjectish(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateObjectish(inputValue);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);

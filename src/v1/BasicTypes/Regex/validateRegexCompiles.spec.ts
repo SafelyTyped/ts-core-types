@@ -34,15 +34,15 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateRegexCompiles } from "@safelytyped/core-types";
+import { AppError, validateRegexCompiles } from "@safelytyped/core-types";
 import { InvalidRegexData, ValidRegexData } from "../_fixtures/Regex";
 
 describe("validateRegex()", () => {
     describe("accepts valid regex strings", () => {
         ValidRegexData.forEach((inputValue) => {
             it("accepts example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateRegexCompiles(DEFAULT_DATA_PATH, inputValue);
-                expect(actualValue).equal(inputValue);
+                const actualValue = validateRegexCompiles(inputValue);
+                expect(actualValue).eqls(new RegExp(inputValue));
             });
         });
     });
@@ -50,7 +50,7 @@ describe("validateRegex()", () => {
     describe("rejects everything else", () => {
         InvalidRegexData.forEach((inputValue) => {
             it("rejects example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateRegexCompiles(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateRegexCompiles(inputValue);
                 expect(actualValue).to.be.instanceOf(AppError);
             });
         });

@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedNumericalValueError } from "../../Errors/UnsupportedNumericalValue/UnsupportedNumericalValueError";
 import type { NumericalConversionRules } from "./NumericalConversionRules";
 import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
@@ -56,11 +57,11 @@ import { resolveNumerical } from "./resolveNumerical";
  * @public
  */
 export function validateNumericalData(
-    path: DataPath,
     input: numerical,
     {
+        path = DEFAULT_DATA_PATH,
         conversionRules = DEFAULT_NUMERICAL_CONVERSION_RULES
-    }: {
+    }: Partial<TypeValidatorOptions> & {
         conversionRules?: NumericalConversionRules
     } = {}
 ): AppErrorOr<number> {

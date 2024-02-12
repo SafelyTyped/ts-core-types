@@ -67,5 +67,5 @@ export const mustBeBooleanishData: DataGuarantee = (
         booleanish = DEFAULT_BOOLEANISH_RULES,
     }: Partial<DataGuaranteeOptions> & Partial<BooleanishDataOptions> = {}
 ): boolean => mustBe(input, { onError })
-    .next((x) => validateBooleanishData(path, x, { booleanish }))
+    .next((x) => validateBooleanishData(x, { path, booleanish }))
     .value();

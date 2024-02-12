@@ -61,5 +61,5 @@ export const mustBeObjectish: TypeGuarantee<object, TypeGuaranteeOptions> = (
         path = DEFAULT_DATA_PATH
     }: Partial<TypeGuaranteeOptions> = {}
 ) => mustBe(input, { onError })
-    .next((x) => validateObjectish(path, x))
+    .next((x) => validateObjectish(x, { path }))
     .value();

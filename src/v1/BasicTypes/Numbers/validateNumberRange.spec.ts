@@ -35,11 +35,25 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, NumberOutOfRangeError, validateNumberRange } from "@safelytyped/core-types";
+import { NumberOutOfRangeError, validateNumberRange, type NumberOutOfRangeData, type NumberOutOfRangeErrorConstructor, type AppErrorData } from "@safelytyped/core-types";
 
 class UnitTestExample extends NumberOutOfRangeError {
     public unique: string = "hello there!";
 }
+
+const createUnitTestExample: NumberOutOfRangeErrorConstructor = (
+    params: NumberOutOfRangeData & AppErrorData,
+    {
+        description = "input falls outside the permitted range"
+    }:
+    {
+        description?: string
+    } = {}
+) =>
+    new UnitTestExample(
+        params,
+        { description }
+    );
 
 describe("validateNumberRange()", () => {
     describe("when the input value is in-range", () => {
@@ -52,7 +66,6 @@ describe("validateNumberRange()", () => {
 
             it("returns " + inputValue + " with range " + minInc + "-" + maxInc + " inclusive", () => {
                 const actualValue = validateNumberRange(
-                    DEFAULT_DATA_PATH,
                     inputValue,
                     minInc,
                     maxInc
@@ -67,7 +80,6 @@ describe("validateNumberRange()", () => {
         it("returns an AppError if the input is too small", () => {
             const inputValue = 100;
             const actualValue = validateNumberRange(
-                DEFAULT_DATA_PATH,
                 inputValue,
                 200,
                 300
@@ -79,7 +91,6 @@ describe("validateNumberRange()", () => {
         it("returns an AppError if the input is too large", () => {
             const inputValue = 100;
             const actualValue = validateNumberRange(
-                DEFAULT_DATA_PATH,
                 inputValue,
                 0,
                 10
@@ -93,11 +104,10 @@ describe("validateNumberRange()", () => {
         it("allows the caller to set the returned AppError", () => {
             const inputValue = 100;
             const actualValue = validateNumberRange(
-                DEFAULT_DATA_PATH,
                 inputValue,
                 0,
                 10,
-                { rangeError: UnitTestExample }
+                { rangeConstructor: createUnitTestExample }
             );
 
             expect(actualValue).to.be.instanceOf(UnitTestExample);

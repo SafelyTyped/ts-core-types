@@ -17,8 +17,9 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { RegexReturnedNoNamedGroupsError } from "../../Errors/RegexReturnedNoNamedGroups/RegexReturnedNoNamedGroupsError";
 import { isObject } from "../Objects/isObject";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
@@ -43,8 +44,10 @@ import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 export function validateRegExpExecArrayWithGroups
 (
     regex: RegExp,
-    path: DataPath,
-    input: RegExpMatchArray
+    input: RegExpMatchArray,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<RegExpExecArrayWithGroups>
 {
     if (!isObject(input.groups)) {

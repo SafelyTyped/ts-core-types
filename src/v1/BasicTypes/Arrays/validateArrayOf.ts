@@ -32,10 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
 import { AppError } from "../../ErrorHandling/AppError/AppError";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { extendDataPath } from "../../ErrorHandling/DataPath/extendDataPath";
 
 /**
@@ -56,8 +57,10 @@ import { extendDataPath } from "../../ErrorHandling/DataPath/extendDataPath";
  */
 export function validateArrayOf<T>(
     valueValidator: TypeValidator<T>,
-    path: DataPath,
-    input: unknown[]
+    input: unknown[],
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<T[]> {
     // our return value
     let retval: AppErrorOr<T[]> = input as T[];
@@ -65,7 +68,7 @@ export function validateArrayOf<T>(
     // this will stop at the first error we run into
     input.every((value, index) => {
         const key = extendDataPath(path, `[${index}]`);
-        const res = valueValidator(key, value, {});
+        const res = valueValidator(value, { path: key });
 
         // do we have a problem?
         if (res instanceof AppError) {

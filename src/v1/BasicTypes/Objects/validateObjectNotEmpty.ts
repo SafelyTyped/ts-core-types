@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { ObjectCannotBeEmptyError } from "../../Errors/ObjectCannotBeEmpty/ObjectCannotBeEmptyError";
 
 /**
@@ -51,8 +52,10 @@ import { ObjectCannotBeEmptyError } from "../../Errors/ObjectCannotBeEmpty/Objec
  * @public
  */
 export function validateObjectNotEmpty<T extends object = object>(
-    path: DataPath,
     input: object,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<T> {
     // there's probably a more efficient way to do this?
     // for now, let's just do the basics that we know will work

@@ -44,7 +44,6 @@ describe("validateString()", () => {
 
         const actualValue = validateStringStartsWith(
             searchTerm,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.eql(expectedValue);
@@ -62,7 +61,6 @@ describe("validateString()", () => {
         })
         const actualValue = validateStringStartsWith(
             searchTerm,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.be.instanceOf(UnsupportedStringPrefixError);

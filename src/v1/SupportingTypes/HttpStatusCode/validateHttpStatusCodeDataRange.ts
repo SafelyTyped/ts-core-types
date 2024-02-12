@@ -32,9 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { validateNumberRange } from "../../BasicTypes/Numbers/validateNumberRange";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import { HttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfRange/HttpStatusCodeOutOfRangeError";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
+import { createHttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfRange/createHttpStatusCodeOutOfRangeError";
 
 /**
  * `validateHttpStatusCodeDataRange()` is a {@link DataValidator}. It proves
@@ -52,14 +53,18 @@ import { HttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfR
  * @public
  */
 export function validateHttpStatusCodeDataRange (
-    path: DataPath,
-    input: number
+    input: number,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<number> {
     return validateNumberRange(
-        path,
         input,
         100,
         599,
-        { rangeError: HttpStatusCodeOutOfRangeError }
+        {
+            path,
+            rangeConstructor: createHttpStatusCodeOutOfRangeError
+        }
     );
 }

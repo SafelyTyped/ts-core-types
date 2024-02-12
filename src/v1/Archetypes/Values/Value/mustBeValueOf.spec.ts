@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,15 +31,42 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { IsDataOptions } from "../IsDataOptions";
 
-/**
- * `IS_DATA_DEFAULT_OPTIONS` are the default options you can pass to
- * {@link isData}.
- *
- * @public
- */
-export const IS_DATA_DEFAULT_OPTIONS: IsDataOptions = {
-    path: DEFAULT_DATA_PATH,
-};
+import { expect } from "chai";
+import { describe } from "mocha";
+
+import { ValueObject, mustBeValueOf, validateString } from "../../..";
+
+class ExampleValue extends ValueObject<string> {
+    public static from(input: string): ExampleValue {
+        return new ExampleValue(input);
+    }
+}
+
+describe("mustBeValueOf()", () => {
+    it("returns a correctly typecast `input` value", () => {
+        // ----------------------------------------------------------------
+        // explain your test
+
+        // this test proves that `mustBeValueOf()` returns the correct type
+
+        // ----------------------------------------------------------------
+        // setup your test
+
+        const expectedResult = "12345";
+        const inputValue = ExampleValue.from(expectedResult);
+
+        // ----------------------------------------------------------------
+        // perform the change
+
+        const unit = mustBeValueOf(validateString, inputValue);
+        // does not compile if `mustBeValueOf()` does not support type
+        // inference correctly
+        const actualResult: string = unit.valueOf();
+
+        // ----------------------------------------------------------------
+        // test the results
+
+        expect(actualResult).to.eql(expectedResult);
+    })
+})

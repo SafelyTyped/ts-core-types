@@ -46,7 +46,7 @@
  *
  * @public
  */
-export interface Value<T> {
+export interface Value<T = unknown> {
     /**
      * implementsValue() is a helper method for the {@link isValue} type guard
      * function.

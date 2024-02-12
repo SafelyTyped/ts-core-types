@@ -43,7 +43,6 @@ describe("validateStringMinLength()", () => {
 
         const actualValue = validateStringMinLength(
             0,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.eql(expectedValue);
@@ -60,7 +59,6 @@ describe("validateStringMinLength()", () => {
         })
         const actualValue = validateStringMinLength(
             10,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.be.instanceOf(StringIsTooShortError);

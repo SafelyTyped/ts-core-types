@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
-
 
 /**
  * `validateObjectish()` is a {@link TypeGuard}. Use it to prove that the
@@ -55,8 +55,10 @@ import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTy
  * @public
  */
 export function validateObjectish(
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<object> {
     // shorthand
     const expectedMsg = "non-null object";

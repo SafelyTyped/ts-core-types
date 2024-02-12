@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeGuardOptions } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { searchDispatchMap } from "../../../SupportingTypes/DispatchMap/searchDispatchMap";
 import { getTypeNames } from "../../Unknowns/getTypeNames";
 import type { BooleanishDataOptions } from "../BooleanishDataOptions";
@@ -62,9 +63,11 @@ import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
  * @public
  */
 export function validateBooleanishData(
-    path: DataPath,
     input: unknown,
-    { booleanish = DEFAULT_BOOLEANISH_RULES }: Partial<BooleanishDataOptions> = {},
+    {
+        path = DEFAULT_DATA_PATH,
+        booleanish = DEFAULT_BOOLEANISH_RULES
+    }: Partial<BooleanishDataOptions> & Partial<TypeGuardOptions> = {}
 ): AppErrorOr<boolean> {
     // we need a list of supported types
     const supportedTypes = Object.keys(booleanish);
@@ -76,10 +79,9 @@ export function validateBooleanishData(
     return searchDispatchMap(
         booleanish,
         possibleRuleNames,
-        (x, y, z) => createUnsupportedTypeError(x, y, z)
+        (x, opts) => createUnsupportedTypeError(x, opts)
     )(
-        path,
         input,
-        { supportedTypes }
+        { path, supportedTypes }
     );
 }

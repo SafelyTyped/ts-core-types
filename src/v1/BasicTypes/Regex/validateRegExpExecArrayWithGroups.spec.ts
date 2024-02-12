@@ -34,7 +34,7 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppError, DEFAULT_DATA_PATH, validateRegExpExecArrayWithGroups } from "@safelytyped/core-types";
+import { AppError, validateRegExpExecArrayWithGroups } from "@safelytyped/core-types";
 import { InvalidRegExpExecArrayWithGroupsData, ValidRegExpExecArrayWithGroupsData } from "../_fixtures/Regex";
 
 describe("validateRegExpExecArrayWithGroups()", () => {
@@ -51,7 +51,6 @@ describe("validateRegExpExecArrayWithGroups()", () => {
                 it("accepts example " + JSON.stringify(expectedValue), () => {
                     const actualValue = validateRegExpExecArrayWithGroups(
                         regex,
-                        DEFAULT_DATA_PATH,
                         expectedValue
                     );
                     expect(actualValue).equal(expectedValue);
@@ -73,7 +72,6 @@ describe("validateRegExpExecArrayWithGroups()", () => {
                 it("rejects example " + JSON.stringify(expectedValue), () => {
                     const actualValue = validateRegExpExecArrayWithGroups(
                         regex,
-                        DEFAULT_DATA_PATH,
                         expectedValue
                     );
                     expect(actualValue).to.be.instanceOf(AppError);

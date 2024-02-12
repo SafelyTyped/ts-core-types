@@ -33,21 +33,24 @@
 //
 
 import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import { AppError } from "../../ErrorHandling/AppError/AppError";
 import { isAppError } from "../../ErrorHandling/AppError/isAppError";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { extendDataPath } from "../../ErrorHandling/DataPath/extendDataPath";
 import { validateObject } from "../Objects/validateObject";
 import { HashMap } from "./HashMap";
 
 export function validateHashMap<T>(
     valueValidator: TypeValidator<T>,
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH,
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<HashMap<T>> {
     // do we have an object?
-    const objRes = validateObject(path, input);
+    const objRes = validateObject(input, { path });
     if (isAppError(objRes)) {
         return objRes;
     }
@@ -61,7 +64,7 @@ export function validateHashMap<T>(
     // this will stop at the first error we run into
     Object.keys(input as object).every((key, index) => {
         const keyPath = extendDataPath(path, `['${index}']`);
-        const res = valueValidator(keyPath, inputObj[key], {});
+        const res = valueValidator(inputObj[key], { path: keyPath });
 
         // do we have a problem?
         if (res instanceof AppError) {

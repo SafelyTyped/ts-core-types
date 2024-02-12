@@ -50,4 +50,8 @@
  *
  * @public
  */
-export type TypeGuard<T> = (input: unknown) => input is T;
+export type TypeGuard<T = unknown> = (input: unknown) => input is T;
+
+// export interface TypeGuard {
+//     <T>(input: unknown): input is T;
+// }

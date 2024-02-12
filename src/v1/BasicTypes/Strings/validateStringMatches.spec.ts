@@ -34,7 +34,7 @@
 
 import { expect } from "chai";
 import { describe } from "mocha";
-import { AppError, DEFAULT_DATA_PATH, validateStringMatches } from "@safelytyped/core-types";
+import { AppError, validateStringMatches } from "@safelytyped/core-types";
 import { InvalidStringMatchesData, ValidStringMatchesData } from "../_fixtures/StringMatches";
 
 describe("validateStringMatches()", () => {
@@ -42,7 +42,7 @@ describe("validateStringMatches()", () => {
         ValidStringMatchesData.forEach((example) => {
             const { inputValue, regex } = example;
             it("accepts example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateStringMatches(regex, DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateStringMatches(regex, inputValue);
                 expect(actualValue).equal(inputValue);
             });
         });
@@ -53,7 +53,7 @@ describe("validateStringMatches()", () => {
             const { inputValue, regex } = example;
 
             it("rejects example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateStringMatches(regex, DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateStringMatches(regex, inputValue);
                 expect(actualValue).to.be.instanceOf(AppError);
             });
         });

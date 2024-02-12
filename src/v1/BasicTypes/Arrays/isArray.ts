@@ -31,8 +31,10 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+
 import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
-import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
+import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { isType } from "../../Operators/isType/isType";
 import { validateArray } from "./validateArray";
 
@@ -45,5 +47,10 @@ import { validateArray } from "./validateArray";
  *
  * @public
  */
-export const isArray: TypeGuard<unknown[]> = (input: unknown): input is unknown[] =>
-    isType(validateArray, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isArray: TypeGuard<unknown[]> = (
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeGuardOptions> = {}
+): input is unknown[] =>
+    isType(validateArray, input, { path });

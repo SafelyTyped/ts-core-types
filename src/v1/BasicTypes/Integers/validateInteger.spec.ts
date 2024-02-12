@@ -45,7 +45,7 @@ describe("validateInteger()", () => {
         it("returns `input` when given a integer", () => {
             const expectedValue = inputValue;
 
-            const actualValue = validateInteger(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateInteger(inputValue);
             expect(actualValue).to.eql(expectedValue);
         });
     });
@@ -62,7 +62,7 @@ describe("validateInteger()", () => {
                     actual: "number (with a non-integer value)",
                 }
             })
-            const actualValue = validateInteger(DEFAULT_DATA_PATH, val);
+            const actualValue = validateInteger(val);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + val);
@@ -88,7 +88,7 @@ describe("validateInteger()", () => {
                     actual: typeof val,
                 }
             })
-            const actualValue = validateInteger(DEFAULT_DATA_PATH, val);
+            const actualValue = validateInteger(val);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + val);

@@ -37,6 +37,7 @@ import { validateBooleanishBoolean } from "../validateBooleanishData/validateBoo
 import { validateBooleanishNumber } from "../validateBooleanishData/validateBooleanishNumber";
 import { validateBooleanishString } from "../validateBooleanishData/validateBooleanishString";
 import { validateBooleanishObject } from "../validateBooleanishData/validateBooleanishObject";
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
 
 /**
  * `DEFAULT_BOOLEANISH_STRING_RULES` specify which strings we can convert
@@ -61,23 +62,23 @@ export const DEFAULT_BOOLEANISH_STRING_RULES = {
  */
 export const DEFAULT_BOOLEANISH_RULES: BooleanishRules = {
     boolean: validateBooleanishBoolean,
-    number: (path, input: number) => validateBooleanishNumber(
+    number: (input: number, { path }: { path: DataPath }) => validateBooleanishNumber(
         {
             false: 0,
             true: 1,
         },
-        path,
         input,
+        { path },
     ),
-    string: (path, input: string) => validateBooleanishString(
+    string: (input: string, { path }: { path: DataPath }) => validateBooleanishString(
         DEFAULT_BOOLEANISH_STRING_RULES,
-        path,
         input,
+        { path },
     ),
-    Object: (path, input: object, { supportedTypes }) => validateBooleanishObject(
+    Object: (input: object, { path, supportedTypes }: { path: DataPath, supportedTypes: string[] }) => validateBooleanishObject(
         DEFAULT_BOOLEANISH_STRING_RULES,
         supportedTypes,
-        path,
         input,
+        { path }
     )
 };

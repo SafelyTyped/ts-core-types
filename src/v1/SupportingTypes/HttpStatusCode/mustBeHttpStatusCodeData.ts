@@ -58,6 +58,6 @@ export const mustBeHttpStatusCodeData =(
     }: Partial<DataGuaranteeOptions> = {}
 ): HttpStatusCode =>
     mustBe(input, { onError })
-        .next((x) => validateHttpStatusCodeData(path, x))
+        .next((x) => validateHttpStatusCodeData(x, { path }))
         .next((x) => recast<number, HttpStatusCode>(x))
         .value();

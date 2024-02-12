@@ -41,7 +41,7 @@ describe("validateString()", () => {
         const inputValue = "hello world!";
         const expectedValue = inputValue;
 
-        const actualValue = validateString(DEFAULT_DATA_PATH, inputValue);
+        const actualValue = validateString(inputValue);
         expect(actualValue).to.eql(expectedValue);
     })
 
@@ -64,7 +64,7 @@ describe("validateString()", () => {
                     actual: typeof val,
                 }
             })
-            const actualValue = validateString(DEFAULT_DATA_PATH, val);
+            const actualValue = validateString(val);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + val);

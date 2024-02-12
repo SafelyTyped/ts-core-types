@@ -34,33 +34,33 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, HttpStatusCodeOutOfRangeError, UnsupportedTypeError, validateHttpStatusCodeData } from "@safelytyped/core-types";
+import { HttpStatusCodeOutOfRangeError, UnsupportedTypeError, validateHttpStatusCodeData } from "@safelytyped/core-types";
 
 describe("validateHttpStatusCodeData()", () => {
     it("accepts integers in the range 100-599 inclusive", () => {
         for (let inputValue = 100; inputValue < 600; inputValue++) {
-            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateHttpStatusCodeData(inputValue);
             expect(actualValue).to.equal(inputValue);
         }
     });
 
     it("rejects non-integers in the range 100-599 inclusive", () => {
         for (let inputValue = 100.5; inputValue < 600; inputValue++) {
-            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateHttpStatusCodeData(inputValue);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
         }
     });
 
     it("rejects numbers below 100", () => {
         for (let inputValue = -100; inputValue < 100; inputValue++) {
-            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateHttpStatusCodeData(inputValue);
             expect(actualValue).to.be.instanceOf(HttpStatusCodeOutOfRangeError);
         }
     });
 
     it("rejects numbers above 599", () => {
         for (let inputValue = 600; inputValue < 1000; inputValue++) {
-            const actualValue = validateHttpStatusCodeData(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateHttpStatusCodeData(inputValue);
             expect(actualValue).to.be.instanceOf(HttpStatusCodeOutOfRangeError);
         }
     });

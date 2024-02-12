@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateNodeJSModuleNameData } from "@safelytyped/core-types";
+import { AppError, validateNodeJSModuleNameData } from "@safelytyped/core-types";
 
 describe("validateNodeJSModuleNameData()", () => {
     describe("it validates non-scoped NPM package names", () => {
@@ -42,7 +42,7 @@ describe("validateNodeJSModuleNameData()", () => {
             "core-types",
         ].forEach((inputValue) => {
             it("returns `input` for non-scoped NPM package name " + inputValue, () => {
-                const actualValue = validateNodeJSModuleNameData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNodeJSModuleNameData(inputValue);
                 expect(actualValue).to.equal(inputValue);
             });
         });
@@ -53,7 +53,7 @@ describe("validateNodeJSModuleNameData()", () => {
             "@safelytyped/core-types",
         ].forEach((inputValue) => {
             it("returns `input` for scoped NPM package name " + inputValue, () => {
-                const actualValue = validateNodeJSModuleNameData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNodeJSModuleNameData(inputValue);
                 expect(actualValue).to.equal(inputValue);
             });
         });
@@ -64,7 +64,7 @@ describe("validateNodeJSModuleNameData()", () => {
             "@safelytyped/core-types",
         ].forEach((inputValue) => {
             it("returns `input` for NPM package name " + inputValue, () => {
-                const actualValue = validateNodeJSModuleNameData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNodeJSModuleNameData(inputValue);
                 expect(actualValue).to.equal(inputValue);
             });
         });
@@ -76,7 +76,7 @@ describe("validateNodeJSModuleNameData()", () => {
             "@safelytyped/core-types/v1/folder",
         ].forEach((inputValue) => {
             it("returns `input` for NPM package name " + inputValue, () => {
-                const actualValue = validateNodeJSModuleNameData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNodeJSModuleNameData(inputValue);
                 expect(actualValue).to.equal(inputValue);
             });
         });
@@ -88,7 +88,7 @@ describe("validateNodeJSModuleNameData()", () => {
             "@safelytyped/core-types/v1/FOLDER",
         ].forEach((inputValue) => {
             it("returns `input` for NPM package name " + inputValue, () => {
-                const actualValue = validateNodeJSModuleNameData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNodeJSModuleNameData(inputValue);
                 expect(actualValue).to.equal(inputValue);
             });
         });
@@ -102,7 +102,7 @@ describe("validateNodeJSModuleNameData()", () => {
             "@safelytyped/@CORE-TYPES",
         ].forEach((inputValue) => {
             it("returns an `AppError` for " + inputValue, () => {
-                const actualValue = validateNodeJSModuleNameData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNodeJSModuleNameData(inputValue);
                 expect(actualValue).to.be.instanceOf(AppError);
             });
         });

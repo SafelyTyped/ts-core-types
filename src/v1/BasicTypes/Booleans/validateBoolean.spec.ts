@@ -44,7 +44,7 @@ describe("validateBoolean()", () => {
         ].forEach((inputValue) => {
             const expectedValue = inputValue;
 
-            const actualValue = validateBoolean(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateBoolean(inputValue);
             expect(actualValue).to.eql(expectedValue, "failed on " + inputValue);
         });
     })
@@ -67,7 +67,7 @@ describe("validateBoolean()", () => {
                     actual: typeof inputValue,
                 }
             })
-            const actualValue = validateBoolean(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateBoolean(inputValue);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);

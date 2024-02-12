@@ -71,5 +71,5 @@ export function implementsProtocol<T extends object>(
         path?: DataPath
     } = {}
 ): target is T {
-    return !(validateImplementsProtocol(path, target, protocol) instanceof Error);
+    return !(validateImplementsProtocol(protocol, target, { path }) instanceof Error);
 }

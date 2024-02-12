@@ -16,10 +16,13 @@
 // License along with this program. If not, see
 // <https://www.gnu.org/licenses/>.
 //
-import { AppError } from "../../ErrorHandling/AppError/AppError";
+
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { OnError } from "../../ErrorHandling/OnError/OnError";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { RegexReturnedNoResultsError } from "../../Errors/RegexReturnedNoResults/RegexReturnedNoResultsError";
-import { validateRegexCompiles } from "./validateRegexCompiles";
+import { regexMustCompile } from "./regexMustCompile";
 
 /**
  * `Regex` is a safe type. It's a `RegExp` that throws errors so
@@ -34,15 +37,20 @@ export class Regex extends RegExp {
      * If the regular expression does not compile, a
      * {@link RegexDoesNotCompileError}  is thrown.
      */
-    public constructor(exp: string, flags?: string) {
+    public constructor(
+        exp: string,
+        {
+            path = DEFAULT_DATA_PATH,
+            onError = THROW_THE_ERROR,
+            flags = undefined,
+        }: {
+            path?: DataPath,
+            onError?: OnError,
+            flags?: string,
+        } = {}
+    ) {
         // robustness!
-        //
-        // we need something in @safelytyped/core-types/Regex to
-        // simplify this
-        const maybeError = validateRegexCompiles(DEFAULT_DATA_PATH, exp);
-        if (maybeError instanceof AppError) {
-            throw maybeError;
-        }
+        regexMustCompile(exp, flags, { onError, path });
 
         // at this point, we're confident that the regex will work
         super(exp, flags);

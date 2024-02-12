@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+
 /**
  * `BooleanishValidatorOptions` are the user-supplied options that a
  * {@link BooleanishValidator} accepts.
@@ -40,5 +42,6 @@
  */
 export type BooleanishValidatorOptions<OPT extends object = object> =
     {
+        path: DataPath,
         supportedTypes: string[]
     } & OPT;

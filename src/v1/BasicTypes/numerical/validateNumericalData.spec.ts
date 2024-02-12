@@ -36,7 +36,6 @@ import { expect } from "chai";
 import { describe } from "mocha";
 
 import {
-    DEFAULT_DATA_PATH,
     RefinedNumber,
     RefinedString,
     UnsupportedNumericalValueError,
@@ -91,7 +90,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, desc ] = example;
 
             it("returns `input` for " + desc, () => {
-                expect(validateNumericalData(DEFAULT_DATA_PATH, inputValue)).to.equal(inputValue);
+                expect(validateNumericalData(inputValue)).to.equal(inputValue);
             });
         });
     });
@@ -105,7 +104,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue, () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -122,7 +121,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue, () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -137,7 +136,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue, () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -152,7 +151,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue, () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -167,7 +166,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue, () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -182,7 +181,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue + " (" + inputValue.constructor.name + ")", () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -197,7 +196,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue, () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -212,7 +211,7 @@ describe("validateNumericalData()", () => {
             const [ inputValue, expectedValue ] = example;
 
             it("returns `" + expectedValue + "` for " + inputValue, () => {
-                const actualValue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNumericalData(inputValue);
                 expect(actualValue).to.equal(expectedValue);
             });
         });
@@ -227,7 +226,7 @@ describe("validateNumericalData()", () => {
             "hello world!",
         ].forEach((inputValue) => {
             it("returns an AppError for " + JSON.stringify(inputValue), () => {
-                const actualvalue = validateNumericalData(DEFAULT_DATA_PATH, inputValue);
+                const actualvalue = validateNumericalData(inputValue);
                 expect(actualvalue).to.be.instanceOf(UnsupportedNumericalValueError);
             });
         });

@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { ObjectHasMissingMethodsError } from "../../Errors/ObjectHasMissingMethods/ObjectHasMissingMethodsError";
 import { isNonEmptyArray } from "../Arrays/isNonEmptyArray";
 import { getMissingMethodNames } from "./getMissingMethodNames";
-
 
 /**
  * `validateObjectHasMethodsCalled()` is a data guard. Use it to make sure
@@ -56,9 +56,11 @@ import { getMissingMethodNames } from "./getMissingMethodNames";
  * @public
  */
 export function validateObjectHasAllMethodsCalled<T extends object>(
-    path: DataPath,
-    target: object,
     names: string[],
+    target: object,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<T> {
     // what's missing?
     const missingMethods = getMissingMethodNames(target, names);

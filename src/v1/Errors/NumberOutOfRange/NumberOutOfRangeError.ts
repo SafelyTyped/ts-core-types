@@ -38,6 +38,9 @@ import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProbl
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
 import type { NumberOutOfRangeData } from "./NumberOutOfRangeData";
 
+// unfortunately, ConstructorParams<NumberOutOfRangeError> does not produce the right result
+export type NumberOutOfRangeErrorConstructor = ( params: NumberOutOfRangeData & AppErrorData, { description }: { description?: string} ) => NumberOutOfRangeError;
+
 /**
  * `NumberOutOfRangeError` is thrown whenever we're given a number that
  * has failed a range change.

@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedStringPrefixError } from "../../Errors/UnsupportedStringPrefix/UnsupportedStringPrefixError";
 
 /**
@@ -51,8 +52,10 @@ import { UnsupportedStringPrefixError } from "../../Errors/UnsupportedStringPref
  */
 export function validateStringStartsWith(
     searchTerm: string,
-    path: DataPath,
-    input: string
+    input: string,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<string> {
     // does our input string validate?
     if (input.startsWith(searchTerm)) {

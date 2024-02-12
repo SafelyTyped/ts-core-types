@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,15 +32,22 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { mustBe } from "../../Operators/mustBe/mustBe";
+import { validateRegexCompiles } from "./validateRegexCompiles";
 
-
-/**
- * `IsTypeOptions` describes the user-supplied options that must be passed
- * into any {@link isType} function call.
- *
- * @public
- */
-export interface IsTypeOptions {
-    path: DataPath;
+export function regexMustCompile(
+    exp: string,
+    flags?: string,
+    {
+        path = DEFAULT_DATA_PATH,
+        onError = THROW_THE_ERROR,
+    }: Partial<DataGuaranteeOptions> = {}
+)
+{
+    return mustBe(exp, { onError })
+        .next((x) => validateRegexCompiles(x, flags, { path }))
+        .value();
 }

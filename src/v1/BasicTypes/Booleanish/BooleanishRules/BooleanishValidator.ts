@@ -33,7 +33,6 @@
 //
 
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
 import type { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
 
 /**
@@ -46,7 +45,6 @@ import type { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
  * @public
  */
 export type BooleanishValidator<T, OPT extends object = object> = (
-    path: DataPath,
     input: T,
     options: BooleanishValidatorOptions<OPT>
 ) => AppErrorOr<boolean>;

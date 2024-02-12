@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 import { AppError } from "../../ErrorHandling/AppError/AppError";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
@@ -55,14 +56,15 @@ import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWith
 export function isRegExpExecArrayWithGroups
 (
     regex: RegExp,
-    input: RegExpExecArray
+    input: RegExpExecArray,
+    { path = DEFAULT_DATA_PATH }: Partial<DataGuardOptions> = {}
 ): input is RegExpExecArrayWithGroups
 {
     return !(
         validateRegExpExecArrayWithGroups(
             regex,
-            DEFAULT_DATA_PATH,
-            input
+            input,
+            { path }
         ) instanceof AppError
     );
 }

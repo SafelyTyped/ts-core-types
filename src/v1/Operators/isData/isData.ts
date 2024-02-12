@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { DataValidator } from "../../Archetypes/FunctionTypes/DataValidator/DataValidator";
-import type { IsDataOptions } from "./IsDataOptions";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 
 /**
  * `isData()` is a helper function. Use it to quickly build {@link TypeGuard}
@@ -57,7 +57,7 @@ import type { IsDataOptions } from "./IsDataOptions";
 export function isData<IN, T, OPT extends object = object>(
     validator: DataValidator<IN, T>,
     input: IN,
-    options: IsDataOptions & OPT,
+    options: DataValidatorOptions & OPT,
 ): boolean {
-    return !((validator(options.path, input, options)) instanceof Error);
+    return !((validator(input, options)) instanceof Error);
 }

@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { ProtocolDefinition } from "../..";
+import { DEFAULT_DATA_PATH, type ProtocolDefinition } from "../..";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import { validateObjectHasAllMethodsCalled } from "../../BasicTypes/Objects/validateObjectHasAllMethodsCalled";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
 
 /**
  * `validateImplementsProtocol()` is a type validator. Use it to prove
@@ -64,14 +64,16 @@ import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
  * @public
  */
 export function validateImplementsProtocol<T>(
-    path: DataPath,
-    input: object,
     protocol: ProtocolDefinition,
+    input: object,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<T> {
     // okay, we're good to go here
     return validateObjectHasAllMethodsCalled(
-        path,
-        input,
         protocol,
+        input,
+        { path }
     ) as AppErrorOr<T>;
 }

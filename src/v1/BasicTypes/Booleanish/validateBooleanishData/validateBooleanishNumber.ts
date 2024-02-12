@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedBooleanishValueError } from "../../../Errors/UnsupportedBooleanishValue/UnsupportedBooleanishValueError";
 
 /**
@@ -63,8 +64,10 @@ export interface BooleanishNumbers {
  */
 export function validateBooleanishNumber(
     booleanish: BooleanishNumbers,
-    path: DataPath,
     input: number,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<boolean> {
     if (input === booleanish.false) {
         return false;

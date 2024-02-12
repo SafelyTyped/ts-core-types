@@ -38,6 +38,7 @@ import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGu
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { mustBe } from "../../Operators/mustBe/mustBe";
+import { validateString } from "../../BasicTypes/Strings/validateString";
 
 /**
  * `mustBeNodeJSModuleNameData()` is a data guarantee. It calls the supplied
@@ -54,12 +55,13 @@ import { mustBe } from "../../Operators/mustBe/mustBe";
  * @public
  */
 export const mustBeNodeJSModuleNameData = (
-    input: string,
+    input: unknown,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
     }: Partial<DataGuaranteeOptions> = {},
 ): NodeJSModuleName =>
     mustBe(input, { onError })
-        .next((x) => validateNodeJSModuleNameData(path, x))
+        .next((x) => validateString(x, { path }))
+        .next((x) => validateNodeJSModuleNameData(x, { path }))
         .value();

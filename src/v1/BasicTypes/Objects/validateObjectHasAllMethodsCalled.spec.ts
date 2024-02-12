@@ -35,7 +35,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, ObjectHasMissingMethodsError, validateObjectHasAllMethodsCalled } from "@safelytyped/core-types";
+import { ObjectHasMissingMethodsError, validateObjectHasAllMethodsCalled } from "@safelytyped/core-types";
 
 class UnitTestBaseClass {
     public fn1(): string {
@@ -83,9 +83,8 @@ describe("validateObjectHasAllMethodsCalled()", () => {
         const unit = new UnitTestBaseClass();
 
         const actualValue = validateObjectHasAllMethodsCalled(
-            DEFAULT_DATA_PATH,
+            [ "fn1" ],
             unit,
-            [ "fn1" ]
         );
         expect(actualValue).to.equal(unit);
     });
@@ -94,9 +93,8 @@ describe("validateObjectHasAllMethodsCalled()", () => {
         const unit = new UnitTestExample();
 
         const actualValue = validateObjectHasAllMethodsCalled(
-            DEFAULT_DATA_PATH,
+            [ "fn1" ],
             unit,
-            [ "fn1" ]
         );
         expect(actualValue).to.equal(unit);
     });
@@ -105,9 +103,8 @@ describe("validateObjectHasAllMethodsCalled()", () => {
         const unit = new UnitTestExample();
 
         const actualValue = validateObjectHasAllMethodsCalled(
-            DEFAULT_DATA_PATH,
+            [ "fn3" ],
             unit,
-            [ "fn3" ]
         );
         expect(actualValue).to.equal(unit);
     });
@@ -116,9 +113,8 @@ describe("validateObjectHasAllMethodsCalled()", () => {
         const unit = new UnitTestGetterExample();
 
         const actualValue = validateObjectHasAllMethodsCalled(
-            DEFAULT_DATA_PATH,
+            [ "attr2" ],
             unit,
-            [ "attr2" ]
         );
 
         expect(actualValue).to.be.instanceOf(ObjectHasMissingMethodsError);
@@ -131,9 +127,8 @@ describe("validateObjectHasAllMethodsCalled()", () => {
         const unit = new UnitTestExample();
 
         const actualValue = validateObjectHasAllMethodsCalled(
-            DEFAULT_DATA_PATH,
-            unit,
             [ "fn1", "DOES_NOT_EXIST" ],
+            unit,
         );
 
         expect(actualValue).to.be.instanceOf(ObjectHasMissingMethodsError);

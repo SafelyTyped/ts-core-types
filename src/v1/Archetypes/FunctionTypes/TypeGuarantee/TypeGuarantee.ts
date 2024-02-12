@@ -45,7 +45,8 @@ import type { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
  * make sure that the given input is the type you think it is, before you
  * try and use that input. They help prevent runtime errors.
  *
- * Internally, TypeGuarantees re-use existing {@link TypeGuard} functions.
+ * Internally, TypeGuarantees re-use corresponding {@link TypeValidator}
+ * functions.
  *
  * @public
  * @typeParam T -
@@ -57,5 +58,5 @@ import type { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
  * @param path -
  * We use this in thrown Errors to provide a meaningful name for `input`
  */
-export type TypeGuarantee<T, OPT extends TypeGuaranteeOptions = TypeGuaranteeOptions>
+export type TypeGuarantee<T = unknown, OPT extends TypeGuaranteeOptions = TypeGuaranteeOptions>
     = (input: unknown, options?: Partial<OPT>) => T;

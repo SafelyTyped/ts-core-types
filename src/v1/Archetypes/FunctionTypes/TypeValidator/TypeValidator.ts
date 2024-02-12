@@ -33,7 +33,7 @@
 //
 
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import type { TypeValidatorOptions } from "./TypeValidatorOptions";
 
 /**
  * `TypeValidator` is a function type. It describes the type signature of
@@ -56,8 +56,7 @@ import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
  * @typeParam OPT -
  * This is the type of options that the validator accepts
  */
-export type TypeValidator<T, OPT extends object = object> = (
-    path: DataPath,
+export type TypeValidator<T, OPT extends TypeValidatorOptions = TypeValidatorOptions> = (
     input: unknown,
-    options: OPT
+    opt: OPT
 ) => AppErrorOr<T>;

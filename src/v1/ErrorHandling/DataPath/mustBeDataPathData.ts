@@ -60,5 +60,5 @@ export const mustBeDataPathData = (
         path = DEFAULT_DATA_PATH,
     }: Partial<DataGuaranteeOptions> = {},
 ) => mustBe(input, { onError })
-    .next((x) => validateDataPathData(path, x))
+    .next((x) => validateDataPathData(x, { path }))
     .value();

@@ -55,9 +55,14 @@ import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/Unsupporte
  * @ignore
  */
 export function createUnsupportedTypeError(
-    path: DataPath,
     input: unknown,
-    { supportedTypes }: { supportedTypes: string[] },
+    {
+        path,
+        supportedTypes
+    }: {
+        path: DataPath,
+        supportedTypes: string[]
+    },
 ): AppErrorOr<boolean> {
     return new UnsupportedTypeError({
         public: {

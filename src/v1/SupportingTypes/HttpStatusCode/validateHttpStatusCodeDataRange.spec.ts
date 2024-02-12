@@ -34,13 +34,12 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, HttpStatusCodeOutOfRangeError, validateHttpStatusCodeDataRange } from "@safelytyped/core-types";
+import { HttpStatusCodeOutOfRangeError, validateHttpStatusCodeDataRange } from "@safelytyped/core-types";
 
 describe("validateHttpStatusCodeRange()", () => {
     it("accepts integers in the range 100-599 inclusive", () => {
         for (let inputValue = 100; inputValue < 600; inputValue++) {
             const actualValue = validateHttpStatusCodeDataRange(
-                DEFAULT_DATA_PATH,
                 inputValue
             );
 
@@ -51,7 +50,6 @@ describe("validateHttpStatusCodeRange()", () => {
     it("accepts non-integers in the range 100-598 inclusive", () => {
         for (let inputValue = 100.1; inputValue < 599; inputValue++) {
             const actualValue = validateHttpStatusCodeDataRange(
-                DEFAULT_DATA_PATH,
                 inputValue
             );
 
@@ -62,7 +60,6 @@ describe("validateHttpStatusCodeRange()", () => {
     it("rejects numbers below 100", () => {
         for (let inputValue = -100; inputValue < 100; inputValue++) {
             const actualValue = validateHttpStatusCodeDataRange(
-                DEFAULT_DATA_PATH,
                 inputValue
             );
 
@@ -73,7 +70,6 @@ describe("validateHttpStatusCodeRange()", () => {
     it("rejects numbers above 599", () => {
         for (let inputValue = 600; inputValue < 1000; inputValue++) {
             const actualValue = validateHttpStatusCodeDataRange(
-                DEFAULT_DATA_PATH,
                 inputValue
             );
 

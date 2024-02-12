@@ -62,5 +62,5 @@ export const mustBeNonEmptyArray: TypeGuarantee<NonEmptyArray<unknown>, TypeGuar
         path = DEFAULT_DATA_PATH,
     }: Partial<TypeGuaranteeOptions> = {}
 ) => mustBe(input, { onError })
-    .next((x) => validateNonEmptyArray(path, x))
+    .next((x) => validateNonEmptyArray(x, { path }))
     .value();

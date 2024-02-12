@@ -60,5 +60,5 @@ export const mustBeArray: TypeGuarantee<unknown[], TypeGuaranteeOptions> = (
         path = DEFAULT_DATA_PATH,
     }: Partial<TypeGuaranteeOptions> = {}
 ) => mustBe(input, { onError })
-    .next((x) => validateArray(path, x))
+    .next((x) => validateArray(x, { path }))
     .value();

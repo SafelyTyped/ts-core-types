@@ -33,8 +33,8 @@
 //
 
 import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
-import type { IsTypeOptions } from "../../Operators/isType/IsTypeOptions";
-import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
+import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { isType } from "../../Operators/isType/isType";
 import type { BooleanishDataOptions } from "./BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
@@ -55,11 +55,12 @@ import { validateBooleanishData } from "./validateBooleanishData/validateBoolean
 export const isBooleanishData: DataGuard = (
     input: unknown,
     {
+        path = DEFAULT_DATA_PATH,
         booleanish = DEFAULT_BOOLEANISH_RULES
-    }: Partial<BooleanishDataOptions> = {}
+    }: Partial<BooleanishDataOptions> & Partial<TypeGuardOptions> = {}
 ): boolean =>
-    isType<boolean, IsTypeOptions & BooleanishDataOptions>(
+    isType<boolean, TypeGuardOptions & BooleanishDataOptions>(
         validateBooleanishData,
         input,
-        { ...IS_TYPE_DEFAULT_OPTIONS, booleanish }
+        { path, booleanish }
     );

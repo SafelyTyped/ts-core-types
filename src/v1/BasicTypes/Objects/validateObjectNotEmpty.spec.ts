@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateObjectNotEmpty } from "@safelytyped/core-types";
+import { AppError, validateObjectNotEmpty } from "@safelytyped/core-types";
 
 describe("validateObjectNotEmpty()", () => {
     it("returns `input` if the input is not empty", () => {
@@ -44,7 +44,6 @@ describe("validateObjectNotEmpty()", () => {
             alfred: true,
         };
         const actualValue = validateObjectNotEmpty(
-            DEFAULT_DATA_PATH,
             unit,
         );
 
@@ -55,7 +54,6 @@ describe("validateObjectNotEmpty()", () => {
         const unit = {};
 
         const actualValue = validateObjectNotEmpty(
-            DEFAULT_DATA_PATH,
             unit,
         );
 

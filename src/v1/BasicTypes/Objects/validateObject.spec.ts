@@ -41,7 +41,7 @@ describe("validateObject()", () => {
         const inputValue = { foo: "bar" };
         const expectedValue = inputValue;
 
-        const actualValue = validateObject(DEFAULT_DATA_PATH, inputValue);
+        const actualValue = validateObject(inputValue);
         expect(actualValue).to.eql(expectedValue);
     })
 
@@ -72,7 +72,7 @@ describe("validateObject()", () => {
                     actual: expectedType(inputValue),
                 }
             })
-            const actualValue = validateObject(DEFAULT_DATA_PATH, inputValue);
+            const actualValue = validateObject(inputValue);
             expect(actualValue).to.be.instanceOf(UnsupportedTypeError);
             if (actualValue instanceof UnsupportedTypeError) {
                 expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);

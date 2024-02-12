@@ -32,10 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
 import type { AnyTypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../Operators/isType/isType";
 import { HashMap } from "./HashMap";
 import { validateHashMap } from "./validateHashMap";
@@ -63,13 +62,11 @@ export function isHashMap<T>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: {
-        path?: DataPath
-    } = {}
+    }: Partial<TypeGuardOptions> = {}
 ): input is HashMap<T> {
     return isType(
-        () => validateHashMap(valueValidator, path, input),
+        () => validateHashMap(valueValidator, input, { path }),
         input,
-        IS_TYPE_DEFAULT_OPTIONS
+        { path }
     );
 }

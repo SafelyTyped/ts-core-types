@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { InvalidNodeJSModuleNameError } from "../../Errors/InvalidNodeJSModuleName/InvalidNodeJSModuleNameError";
 import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { NodeJSModuleNameDataRegex } from "./regexes";
@@ -52,8 +53,10 @@ import { NodeJSModuleNameDataRegex } from "./regexes";
  * @public
  */
 export function validateNodeJSModuleNameData (
-    path: DataPath,
-    input: string
+    input: string,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
 ): AppErrorOr<NodeJSModuleName> {
     // what does our regex say?
     if (!NodeJSModuleNameDataRegex.test(input)) {

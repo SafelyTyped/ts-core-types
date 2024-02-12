@@ -32,11 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import { validateStringStartsWith } from "../../BasicTypes/Strings/validateStringStartsWith";
 import { recast } from "../../Operators/recast/recast";
 import { validate } from "../../Operators/validate/validate";
 import type { AppErrorOr } from "../AppErrorOr/AppErrorOr";
 import type { DataPath } from "./DataPath";
+import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 
 /**
  * `validateDataPathData()` is a {@link DataValidator}. Use it to prove that
@@ -52,9 +54,14 @@ import type { DataPath } from "./DataPath";
  *
  * @public
  */
-export function validateDataPathData(path: DataPath, input: string): AppErrorOr<DataPath> {
+export function validateDataPathData(
+    input: string,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
+): AppErrorOr<DataPath> {
     return validate(input)
-        .next((x) => validateStringStartsWith(".", path, x))
+        .next((x) => validateStringStartsWith(".", x, { path }))
         .next((x) => recast<string, AppErrorOr<DataPath>>(x))
         .value();
 }

@@ -32,8 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { extractReasonFromCaught } from "../../ErrorHandling/Helpers/extractReasonFromCaught";
 import { RegexDoesNotCompileError } from "../../Errors/RegexDoesNotCompile/RegexDoesNotCompileError";
 
@@ -49,19 +50,21 @@ import { RegexDoesNotCompileError } from "../../Errors/RegexDoesNotCompile/Regex
  * @param input -
  * The value to validate.
  * @returns
- * - `input` on success, or
+ * - the compiled RegExp on success, or
  * - an {@link AppError} explaining why validation failed
  *
  * @public
  */
 export function validateRegexCompiles(
-    path: DataPath,
-    input: string
-): AppErrorOr<string> {
+    input: string,
+    flags?: string,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<DataValidatorOptions> = {}
+): AppErrorOr<RegExp> {
     try {
         // tslint:disable-next-line: no-unused-expression
-        new RegExp(input);
-        return input;
+        return new RegExp(input, flags);
     } catch (e) {
         return new RegexDoesNotCompileError({
             public: {

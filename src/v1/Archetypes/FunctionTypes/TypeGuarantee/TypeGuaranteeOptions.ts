@@ -41,7 +41,7 @@ import type { OnError } from "../../../ErrorHandling/OnError/OnError";
  *
  * @public
  */
-export interface TypeGuaranteeOptions {
+export type TypeGuaranteeOptions = {
     onError: OnError,
-    path: DataPath
-}
+    path: DataPath,
+};

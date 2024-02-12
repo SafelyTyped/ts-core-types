@@ -31,8 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+
+import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
 import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
-import type { IsTypeOptions } from "./IsTypeOptions";
 
 /**
  * `isType()` is a helper function. Use it to quickly build {@link TypeGuard}
@@ -50,10 +51,10 @@ import type { IsTypeOptions } from "./IsTypeOptions";
  *
  * @public
  */
-export function isType<T, OPT extends object = object>(
-    validator: TypeValidator<T, OPT>,
+export function isType<T, OPT extends TypeGuardOptions = TypeGuardOptions>(
+    validator: TypeValidator<T>,
     input: unknown,
-    options: IsTypeOptions & OPT
+    options: OPT
 ): input is T {
-    return !((validator(options.path, input, options)) instanceof Error);
+    return !((validator(input, options)) instanceof Error);
 }

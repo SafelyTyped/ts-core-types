@@ -33,9 +33,10 @@
 //
 
 import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import { AppError } from "../../ErrorHandling/AppError/AppError";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { extractReasonFromCaught } from "../../ErrorHandling/Helpers/extractReasonFromCaught";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
 
@@ -65,17 +66,19 @@ import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTy
 export function validateOptionType<A, B>(
     aValidator: TypeValidator<A>,
     bValidator: TypeValidator<B>,
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<A|B> {
     // first time's a charm
-    const resA = aValidator(path, input, {});
+    const resA = aValidator(input, { path });
     if (!(resA instanceof AppError)) {
         return resA;
     }
 
     // that didn't work. second time's a charm?
-    const resB = bValidator(path, input, {});
+    const resB = bValidator(input, { path });
     if (!(resB instanceof AppError)) {
         return resB;
     }

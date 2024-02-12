@@ -43,10 +43,18 @@ import type { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeDat
  * @public
  */
 export class HttpStatusCodeOutOfRangeError extends NumberOutOfRangeError {
-    public constructor(params: HttpStatusCodeOutOfRangeData & AppErrorData) {
+    public constructor(
+        params: HttpStatusCodeOutOfRangeData & AppErrorData,
+        {
+            description = "input falls outside the range of a valid HTTP status code"
+        }:
+        {
+            description?: string,
+        } = {}
+    ) {
         super(
             params,
-            { description: "input falls outside the range of a valid HTTP status code" }
+            { description }
         );
     }
 }

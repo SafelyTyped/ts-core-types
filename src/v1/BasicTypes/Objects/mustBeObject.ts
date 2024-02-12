@@ -61,5 +61,5 @@ export const mustBeObject: TypeGuarantee<object, TypeGuaranteeOptions> = (
         path = DEFAULT_DATA_PATH
     }: Partial<TypeGuaranteeOptions> = {}
 ) => mustBe(input, { onError })
-    .next((x) => validateObject(path, x))
+    .next((x) => validateObject(x, { path }))
     .value();

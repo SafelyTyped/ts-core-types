@@ -33,11 +33,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
 import { getTypeNames } from "../Unknowns/getTypeNames";
-
 
 /**
  * `validateFunction()` is a {@link TypeGuard}. Use it to prove that the
@@ -54,8 +54,10 @@ import { getTypeNames } from "../Unknowns/getTypeNames";
  * @public
  */
 export function validateFunction(
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<Function> {
     // shorthand
     const expectedMsg = "function";

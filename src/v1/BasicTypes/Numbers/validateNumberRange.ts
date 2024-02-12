@@ -32,9 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
-import { NumberOutOfRangeError } from "../../Errors/NumberOutOfRange/NumberOutOfRangeError";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { NumberOutOfRangeErrorConstructor } from "../../Errors/NumberOutOfRange/NumberOutOfRangeError";
+import { createNumberOutOfRangeError } from "../../Errors/NumberOutOfRange/createNumberOutOfRangeError";
 
 /**
  * `validateNumberRange()` is a {@link TypeValidator}. Use it to prove that
@@ -46,22 +48,31 @@ import { NumberOutOfRangeError } from "../../Errors/NumberOutOfRange/NumberOutOf
  * @public
  */
 export function validateNumberRange(
-    path: DataPath,
     input: number,
     minInc: number,
     maxInc: number,
-    { rangeError = NumberOutOfRangeError } = {}
+    {
+        path = DEFAULT_DATA_PATH,
+        rangeConstructor = createNumberOutOfRangeError,
+        description = undefined,
+    }: Partial<DataValidatorOptions> & {
+        rangeConstructor?: NumberOutOfRangeErrorConstructor
+        description?: string,
+    } = {}
 ): AppErrorOr<number> {
     // just your basic range check
     if (input < minInc || input > maxInc) {
-        return new rangeError({
-            public: {
-                dataPath: path,
-                input,
-                minInc,
-                maxInc,
-            }
-        });
+        return rangeConstructor(
+            {
+                public: {
+                    dataPath: path,
+                    input,
+                    minInc,
+                    maxInc,
+                }
+            },
+            { description }
+        );
     }
 
     // all done

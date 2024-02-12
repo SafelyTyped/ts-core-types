@@ -43,7 +43,6 @@ describe("validateStringLength()", () => {
 
         const actualValue = validateStringLengthBetween(
             0, 10,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.eql(expectedValue);
@@ -55,7 +54,6 @@ describe("validateStringLength()", () => {
 
         const actualValue = validateStringLengthBetween(
             2, -1,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.eql(expectedValue);
@@ -73,7 +71,6 @@ describe("validateStringLength()", () => {
         })
         const actualValue = validateStringLengthBetween(
             10, 100,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.be.instanceOf(UnsupportedStringLengthRangeError);
@@ -94,7 +91,6 @@ describe("validateStringLength()", () => {
         })
         const actualValue = validateStringLengthBetween(
             0, 5,
-            DEFAULT_DATA_PATH,
             inputValue
         );
         expect(actualValue).to.be.instanceOf(UnsupportedStringLengthRangeError);

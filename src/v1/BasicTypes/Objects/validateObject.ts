@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
-
 
 /**
  * `validateObject()` is a {@link TypeGuard}. Use it to prove that the
@@ -44,10 +44,10 @@ import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTy
  * `array` is treated as NOT an object.
  * `null` is treated as NOT an object.
  *
- * @param path -
- * where are we in the data structure you are validating?
  * @param input -
  * the value to inspect
+ * @param path -
+ * where are we in the data structure you are validating?
  * @returns
  * - `input`, type-cast to an object, if validation succeeds, or
  * - an {@link AppError} explaining why validation failed
@@ -55,8 +55,10 @@ import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTy
  * @public
  */
 export function validateObject(
-    path: DataPath,
-    input: unknown
+    input: unknown,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<object> {
     // shorthand
     const expectedMsg = "non-null, non-array object";

@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, type TypeValidator, validateArrayOf, validateNumber, validateString } from "@safelytyped/core-types";
+import { AppError, type TypeValidator, validateArrayOf, validateNumber, validateString } from "@safelytyped/core-types";
 
 const ValidArrayOfData = [
     // empty array
@@ -67,7 +67,7 @@ describe("validateArrayOf()", () => {
             const {inputValue, valueValidator} = example;
 
             it("accepts example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateArrayOf(valueValidator, DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateArrayOf(valueValidator, inputValue);
                 expect(actualValue).equal(inputValue);
             });
         });
@@ -78,7 +78,7 @@ describe("validateArrayOf()", () => {
             const {inputValue, valueValidator} = example;
 
             it("rejects example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateArrayOf(valueValidator, DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateArrayOf(valueValidator, inputValue);
                 expect(actualValue).to.be.instanceOf(AppError);
             });
         });

@@ -33,8 +33,7 @@
 //
 
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
-
+import type { DataValidatorOptions } from "./DataValidatorOptions";
 
 /**
  * `DataValidator` is a function type. It describes the type signature of
@@ -58,8 +57,7 @@ import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
  *
  * @public
  */
-export type DataValidator<IN, T, OPT extends object = object> = (
-    path: DataPath,
+export type DataValidator<IN, T, OPT extends DataValidatorOptions = DataValidatorOptions> = (
     input: IN,
     options: OPT
 ) => AppErrorOr<T>;

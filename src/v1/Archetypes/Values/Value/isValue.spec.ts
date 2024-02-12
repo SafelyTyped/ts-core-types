@@ -66,7 +66,7 @@ describe("isValue()", () => {
         const inputValue = "123e4567-e89b-12d3-a456-426655440000";
         const expectedValue = inputValue;
 
-        const unit = ExampleValue.from(inputValue) as unknown;
+        const unit = ExampleValue.from(inputValue);
         let actualValue = "FAILED!!!";
         if (isValue(unit)) {
             // this does not compile if isValue() is not a type-predicate!

@@ -62,5 +62,5 @@ export const mustBeBoolean: TypeGuarantee<boolean>
             path = DEFAULT_DATA_PATH
         }: Partial<TypeGuaranteeOptions> = {}
     ): boolean => mustBe(input, { onError })
-        .next((x) => validateBoolean(path, x))
+        .next((x) => validateBoolean(x, { path }))
         .value();

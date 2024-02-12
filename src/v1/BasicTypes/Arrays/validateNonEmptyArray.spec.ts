@@ -35,14 +35,14 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { AppError, DEFAULT_DATA_PATH, validateNonEmptyArray } from "@safelytyped/core-types";
+import { AppError, validateNonEmptyArray } from "@safelytyped/core-types";
 import { InvalidNonEmptyArrayData, ValidNonEmptyArrayData } from "../_fixtures/NonEmptyArray";
 
 describe("validateNonEmptyArray()", () => {
     describe("accepts any array that has content", () => {
         ValidNonEmptyArrayData.forEach((inputValue) => {
             it("accepts example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateNonEmptyArray(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNonEmptyArray(inputValue);
                 expect(actualValue).equal(inputValue);
             });
         });
@@ -51,7 +51,7 @@ describe("validateNonEmptyArray()", () => {
     describe("rejects everything else", () => {
         InvalidNonEmptyArrayData.forEach((inputValue) => {
             it("rejects example " + JSON.stringify(inputValue), () => {
-                const actualValue = validateNonEmptyArray(DEFAULT_DATA_PATH, inputValue);
+                const actualValue = validateNonEmptyArray(inputValue);
                 expect(actualValue).to.be.instanceOf(AppError);
             });
         });

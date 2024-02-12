@@ -35,7 +35,6 @@ import { expect } from "chai";
 import { describe } from "mocha";
 
 import {
-    DEFAULT_DATA_PATH,
     ObjectHasMissingMethodsError,
     type ProtocolDefinition,
     validateImplementsProtocol
@@ -68,9 +67,8 @@ describe("validateImplementsProtocol()", () => {
         const inputValue = new UnitTestExample();
 
         const actualValue = validateImplementsProtocol<GuessMediaType>(
-            DEFAULT_DATA_PATH,
+            GuessMediaTypeProtocol,
             inputValue,
-            GuessMediaTypeProtocol
         );
         expect(actualValue).to.equal(inputValue);
     });
@@ -79,9 +77,8 @@ describe("validateImplementsProtocol()", () => {
         const inputValue = new UnitTestExample();
 
         const actualValue = validateImplementsProtocol<Retrieve>(
-            DEFAULT_DATA_PATH,
+            RetrieveProtocol,
             inputValue,
-            RetrieveProtocol
         );
         expect(actualValue).to.be.instanceOf(ObjectHasMissingMethodsError);
     });
