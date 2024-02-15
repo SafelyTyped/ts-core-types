@@ -54,10 +54,9 @@ import { validateHashMap } from "./validateHashMap";
  * @param input -
  * the data to guarantee
  * @param onError -
- * we will call this is data validation fails
+ * we will call this if data validation fails
  * @param path -
- * where you are in your data structures. If unsure, pass in
- * {@link DEFAULT_DATA_PATH}
+ * where you are in your data structures
  * @returns
  * `input` (typecast to HashMap<T>) on success
  */
