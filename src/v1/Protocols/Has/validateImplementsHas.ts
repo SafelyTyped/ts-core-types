@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,28 +31,40 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { isType } from "../../Operators/isType/isType";
-import type { Has } from "./Has";
-import { validateImplementsHas } from "./validateImplementsHas";
+import { validate } from "../../Operators/validate/validate";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+import { HasProtocolDefinition, type Has } from "./Has";
+import { validateImplementsProtocol } from "../../ProtocolsExtensions/Protocol/validateImplementsProtocol";
 
 /**
- * `implementsHas()` is a type guard. Use it to prove that the input:
+ * `validateImplementsHas()` is a {@link TypeValidator}.
  *
- * - is an object
- * - that has a `.has()` method
+ * Use it to prove to both Typescript and your code at runtime that the
+ * given `input` value implements the {@link Has} protocol.
  *
+ * If validation fails, an appropriate {@link AppError} is returned.
+ *
+ * @typeParam T
+ * - The type of the data we are checking for.
  * @param input -
- * The value to inspect.
- *
- * @public
+ * - the data to guarantee
+ * @param path -
+ * where you are in your data structures
+ * @returns
+ * - `input` (typecast to Has<T>) on success
+ * - an {@link AppError} otherwise
  */
-export function implementsHas<T>(
+export function validateImplementsHas<T = unknown>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
     }: Partial<TypeValidatorOptions> = {}
-): input is Has<T> {
-    return isType(validateImplementsHas, input, { path });
+): AppErrorOr<Has<T>>
+{
+    return validate(input)
+        .next((x) => validateImplementsProtocol<Has<T>>(HasProtocolDefinition, x, { path }))
+        .value();
 }

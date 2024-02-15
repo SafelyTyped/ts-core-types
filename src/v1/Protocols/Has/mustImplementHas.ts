@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,28 +31,41 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { isType } from "../../Operators/isType/isType";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { mustBe } from "../../Operators/mustBe/mustBe";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
 import type { Has } from "./Has";
 import { validateImplementsHas } from "./validateImplementsHas";
 
 /**
- * `implementsHas()` is a type guard. Use it to prove that the input:
+ * `mustImplementHas()` is a {@link TypeGuarantee}.
  *
- * - is an object
- * - that has a `.has()` method
+ * Use it to prove to both Typescript and your code at runtime that the
+ * given `input` value is a {@link Has}<T>.
  *
+ * If validation fails, the supplied `onError()` handler is called.
+ *
+ * @typeParam T
+ * - The type of the data that the `has()` method supports checking for.
  * @param input -
- * The value to inspect.
- *
- * @public
+ * - the data to guarantee
+ * @param onError -
+ * we will call this if validation fails
+ * @param path -
+ * where you are in your data structures
+ * @returns
+ * `input` (typecast to Has<T>) on success
  */
-export function implementsHas<T>(
+export function mustImplementHas<T = unknown>(
     input: unknown,
     {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
-): input is Has<T> {
-    return isType(validateImplementsHas, input, { path });
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<TypeGuaranteeOptions> = {}
+): Has<T> {
+    return mustBe(input, { onError })
+        .next((x) => validateImplementsHas<T>(x, { path }))
+        .value();
 }

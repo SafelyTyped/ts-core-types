@@ -410,8 +410,10 @@ export type { ValidationPipelineStep } from "./Operators/validate/ValidationPipe
 //
 // ----------------------------------------------------------------
 
-export type { Has } from "./Protocols/Has/Has";
+export type { Has, HasProtocolDefinition } from "./Protocols/Has/Has";
 export { implementsHas } from "./Protocols/Has/implementsHas";
+export { mustImplementHas } from "./Protocols/Has/mustImplementHas";
+export { validateImplementsHas } from "./Protocols/Has/validateImplementsHas";
 
 export type { Stack } from "./Protocols/Stack/Stack";
 export { implementsStack } from "./Protocols/Stack/implementsStack";

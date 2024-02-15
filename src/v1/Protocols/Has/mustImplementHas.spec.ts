@@ -31,28 +31,56 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { isType } from "../../Operators/isType/isType";
-import type { Has } from "./Has";
-import { validateImplementsHas } from "./validateImplementsHas";
 
-/**
- * `implementsHas()` is a type guard. Use it to prove that the input:
- *
- * - is an object
- * - that has a `.has()` method
- *
- * @param input -
- * The value to inspect.
- *
- * @public
- */
-export function implementsHas<T>(
-    input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
-): input is Has<T> {
-    return isType(validateImplementsHas, input, { path });
-}
+import { describe } from "mocha";
+import { expect } from "chai";
+import { AppError, mustImplementHas } from "@safelytyped/core-types";
+
+describe("mustImplementHas()", () => {
+    it("returns the input value if an object has a method called `has()`", () => {
+        const inputValue = {
+            has: (x: string) => true
+        }
+        expect(mustImplementHas(inputValue)).to.equal(inputValue);
+    });
+
+    it("calls the error handler if an object has an attribute called `has()`", () => {
+        const inputValue = {
+            has: true
+        }
+        let actualValue: any = false;
+        try {
+            mustImplementHas(inputValue);
+        } catch (e) {
+            actualValue = e;
+        }
+
+        expect(actualValue).to.be.instanceOf(AppError);
+    });
+
+    it("calls the error handler if an object has no property called `has()`", () => {
+        const inputValue = {
+            hasNot: true
+        }
+        let actualValue: any = false;
+        try {
+            mustImplementHas(inputValue);
+        } catch (e) {
+            actualValue = e;
+        }
+
+        expect(actualValue).to.be.instanceOf(AppError);
+    });
+
+    it("calls the error handler if the input is not an object", () => {
+        const inputValue = true;
+        let actualValue: any = false;
+        try {
+            mustImplementHas(inputValue);
+        } catch (e) {
+            actualValue = e;
+        }
+
+        expect(actualValue).to.be.instanceOf(AppError);
+    });
+});

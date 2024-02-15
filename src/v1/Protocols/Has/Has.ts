@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { ProtocolDefinition } from "../../ProtocolsExtensions/ProtocolDefinition/ProtocolDefinition";
+
 /**
  * `Has` is a protocol. It describes an object that has the function
  * `.has()`.
@@ -54,3 +56,7 @@ export interface Has<T> {
      */
     has(keyOrValue: T): boolean;
 }
+
+export const HasProtocolDefinition: ProtocolDefinition = [
+    "has"
+];
