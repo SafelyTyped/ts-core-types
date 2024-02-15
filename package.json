@@ -11,8 +11,8 @@
     "prepublishOnly": "npm run test",
     "prepack": "npm run build && && npm run lint && rimraf lib/**/_*",
     "test": "npm run build && mocha",
-    "cover": "npm run clean && nyc --cache=false npm run test",
-    "clean": "rimraf coverage lib .nyc_output ",
+    "cover": "npm run clean && c8 --cache=false npm run test",
+    "clean": "rimraf coverage lib",
     "docs": "npm run build && npx typedoc",
     "api-extractor": "npm run clean && tsc && api-extractor run --local --verbose"
   },
@@ -55,17 +55,27 @@
     "@types/node": "^20.0",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
+    "c8": "^9.1.0",
     "chai": "^4.3.0",
     "chai-bytes": "^0.1.2",
     "chai-string": "^1.5.0",
     "eslint": "^8.52.0",
     "mocha": "^10.0",
-    "nyc": "^15.0.0",
     "rimraf": "^3.0.0",
     "ts-node": "^10.9",
     "tsconfig-paths": "^4.2.0",
     "typedoc": "^0.25.2",
     "typedoc-theme-hierarchy": "^4.1.2",
     "typescript": "^5.0"
+  },
+  "c8": {
+    "all": true,
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/_fixtures/*",
+      "**/*.spec.ts"
+    ]
   }
 }

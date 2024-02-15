@@ -54,6 +54,11 @@ The following changes have been completed, and will be included in the next tagg
 * Simplified `AppError` and the like:
   - dropped `status` field from `StructuredProblemReportData`
 
+### Tools
+
+* switched from Istanbul NYC to c8 for code coverage
+  - sadly, NYC seems to have been abandoned :(
+
 ## v0.3.10
 
 Released Monday, 9th May, 2022.
