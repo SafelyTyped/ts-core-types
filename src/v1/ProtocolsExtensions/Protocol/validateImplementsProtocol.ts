@@ -32,10 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DEFAULT_DATA_PATH, type ProtocolDefinition } from "../..";
 import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+import { validateObject } from "../../BasicTypes/Objects/validateObject";
 import { validateObjectHasAllMethodsCalled } from "../../BasicTypes/Objects/validateObjectHasAllMethodsCalled";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { validate } from "../../Operators/validate/validate";
+import type { ProtocolDefinition } from "../ProtocolDefinition/ProtocolDefinition";
 
 /**
  * `validateImplementsProtocol()` is a type validator. Use it to prove
@@ -63,17 +66,15 @@ import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
  *
  * @public
  */
-export function validateImplementsProtocol<T>(
+export function validateImplementsProtocol<T extends object>(
     protocol: ProtocolDefinition,
-    input: object,
+    input: unknown,
     {
         path = DEFAULT_DATA_PATH
     }: Partial<TypeValidatorOptions> = {}
 ): AppErrorOr<T> {
-    // okay, we're good to go here
-    return validateObjectHasAllMethodsCalled(
-        protocol,
-        input,
-        { path }
-    ) as AppErrorOr<T>;
+    return validate(input)
+        .next((x) => validateObject(x, { path }))
+        .next((x) => validateObjectHasAllMethodsCalled<T>(protocol, x, { path }))
+        .value();
 }

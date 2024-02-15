@@ -42,6 +42,8 @@
 export type { Entity } from "./Archetypes/Entities/Entity/Entity";
 export type { AnyEntity } from "./Archetypes/Entities/Entity/AnyEntity";
 export { isEntity } from "./Archetypes/Entities/Entity/isEntity";
+export { mustBeEntity } from "./Archetypes/Entities/Entity/mustBeEntity";
+export { validateEntity } from "./Archetypes/Entities/Entity/validateEntity";
 export { EntityObject } from "./Archetypes/Entities/EntityObject/EntityObject";
 export type { AnyEntityObject } from "./Archetypes/Entities/EntityObject/AnyEntityObject";
 

@@ -31,35 +31,66 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+import { expect } from "chai";
+import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { isType } from "../../../Operators/isType/isType";
-import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
-import type { Entity } from "./Entity";
-import { validateEntity } from "./validateEntity";
+import { AppError, validateEntity } from "@safelytyped/core-types";
 
-/**
- * `isEntity()` is a type guard. It proves whether or not the given `input`
- * implements the {@link Entity} protocol.
- *
- * @public
- * @typeParam ID
- * - The type of the entity's ID property.
- * @typeParam T
- * - The type of the wrapped data.
- * @param input -
- * the data to inspect
- * @returns
- * - `true` if:
- *   - `input` implements {@link Entity},
- *   - and if the `implementsEntity()` method returns `true`
- * - `false` otherwise
- */
-export function isEntity<ID = unknown, T = unknown>(
-    input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
-): input is Entity<ID,T> {
-    return isType(validateEntity, input, { path });
+class UnitTestEntity
+{
+    public ID: string = "I identify as typesafe!";
+
+    public implementsEntity() {
+        return true;
+    }
+
+    public valueOf() {
+        return "hello unit test!";
+    }
 }
+
+class UnitTestAlmostEntity
+{
+    public ID: string = "I identify as typesafe!";
+
+    public implementsEntity() {
+        return false;
+    }
+
+    public valueOf() {
+        return "hello unit test!";
+    }
+}
+
+const InvalidInputs = [
+    undefined,
+    null,
+    [ 1, 2, 3, 4, 5 ],
+    [ new UnitTestAlmostEntity() ],
+    true,
+    false,
+    100,
+    100.101,
+    {
+        foo: "bar"
+    },
+    "hello world"
+];
+
+describe("validateEntity()", () => {
+    it("accepts objects that match the EntityProtocolDefinition", () => {
+        const inputValue = new UnitTestEntity();
+
+        const actualValue = validateEntity(inputValue);
+        expect(actualValue).to.equal(inputValue);
+    });
+
+    describe("rejects everything else", () => {
+        InvalidInputs.forEach((inputValue) => {
+            it("rejects example " + JSON.stringify(inputValue), () => {
+                const actualValue = validateEntity(inputValue);
+                expect(actualValue).to.be.instanceOf(AppError);
+            });
+        });
+    });
+});

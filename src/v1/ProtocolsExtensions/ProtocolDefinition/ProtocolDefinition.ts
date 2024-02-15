@@ -34,7 +34,6 @@
 
 import type { NonEmptyArray } from "../../BasicTypes/Arrays/NonEmptyArray";
 
-
 /**
  * `ProtocolDefinition` contains a list of the methods that make up an
  * Extension.

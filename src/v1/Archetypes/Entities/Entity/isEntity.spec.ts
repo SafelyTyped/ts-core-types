@@ -32,34 +32,70 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { isType } from "../../../Operators/isType/isType";
-import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
-import type { Entity } from "./Entity";
-import { validateEntity } from "./validateEntity";
+import { describe } from "mocha";
+import { expect } from "chai";
+import { isEntity } from "@safelytyped/core-types";
 
-/**
- * `isEntity()` is a type guard. It proves whether or not the given `input`
- * implements the {@link Entity} protocol.
- *
- * @public
- * @typeParam ID
- * - The type of the entity's ID property.
- * @typeParam T
- * - The type of the wrapped data.
- * @param input -
- * the data to inspect
- * @returns
- * - `true` if:
- *   - `input` implements {@link Entity},
- *   - and if the `implementsEntity()` method returns `true`
- * - `false` otherwise
- */
-export function isEntity<ID = unknown, T = unknown>(
-    input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
-): input is Entity<ID,T> {
-    return isType(validateEntity, input, { path });
+class UnitTestEntity
+{
+    public ID: string = "I identify as typesafe!";
+
+    public implementsEntity() {
+        return true;
+    }
+
+    public valueOf() {
+        return "hello unit test!";
+    }
 }
+
+class UnitTestAlmostEntity
+{
+    public ID: string = "I identify as typesafe!";
+
+    public implementsEntity() {
+        return false;
+    }
+
+    public valueOf() {
+        return "hello unit test!";
+    }
+}
+
+describe("isEntity()", () => {
+    it("returns `true` when given an entity", () => {
+        const inputValue = new UnitTestEntity();
+        const expectedValue = true;
+
+        const actualValue = isEntity(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    })
+
+    it("returns `false` when given an object where implementsEntity() returns false", () => {
+        const inputValue = new UnitTestAlmostEntity();
+        const expectedValue = false;
+
+        const actualValue = isEntity(inputValue);
+        expect(actualValue).to.equal(expectedValue);
+    })
+
+    it("returns `false` otherwise", () => {
+        [
+            undefined,
+            null,
+            [ 1, 2, 3, 4, 5 ],
+            [ new UnitTestEntity() ],
+            true,
+            false,
+            100,
+            100.101,
+            {
+                foo: "bar"
+            },
+            new UnitTestAlmostEntity(),
+            "hello world",
+        ].forEach((val) => {
+            expect(isEntity(val)).to.equal(false, "failed on " + val);
+        })
+    })
+});

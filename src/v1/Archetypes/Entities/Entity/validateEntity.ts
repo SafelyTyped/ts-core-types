@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,34 +32,65 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import { getClassNames } from "../../../BasicTypes/Classes/getClassNames";
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { isType } from "../../../Operators/isType/isType";
+import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/UnsupportedTypeError";
+import { validate } from "../../../Operators/validate/validate";
+import { validateImplementsProtocol } from "../../../ProtocolsExtensions/Protocol/validateImplementsProtocol";
 import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
-import type { Entity } from "./Entity";
-import { validateEntity } from "./validateEntity";
+import { EntityProtocolDefinition, type Entity } from "./Entity";
 
 /**
- * `isEntity()` is a type guard. It proves whether or not the given `input`
- * implements the {@link Entity} protocol.
+ * `validateEntity()` is a {@link TypeValidator}.
  *
- * @public
+ * Use it to prove to both Typescript and your code at runtime that the
+ * given `input` value is an {@link Entity}<ID,T>.
+ *
+ * If validation fails, an appropriate {@link AppError} is returned.
+ *
  * @typeParam ID
  * - The type of the entity's ID property.
  * @typeParam T
  * - The type of the wrapped data.
  * @param input -
- * the data to inspect
+ * - the data to guarantee
+ * @param path -
+ * where you are in your data structures
  * @returns
- * - `true` if:
- *   - `input` implements {@link Entity},
- *   - and if the `implementsEntity()` method returns `true`
- * - `false` otherwise
+ * - `input` (typecast to Entity<ID,T>) on success
+ * - an {@link AppError} otherwise
  */
-export function isEntity<ID = unknown, T = unknown>(
+export function validateEntity<ID = unknown, T = unknown>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
     }: Partial<TypeValidatorOptions> = {}
-): input is Entity<ID,T> {
-    return isType(validateEntity, input, { path });
+): AppErrorOr<Entity<ID,T>>
+{
+    return validate(input)
+        .next((x) => validateImplementsProtocol<Entity<ID,T>>(EntityProtocolDefinition, x, { path }))
+        .next((x) => validateHasImplementsEntityMethod<ID,T>(x, { path }))
+        .value();
+}
+
+function validateHasImplementsEntityMethod<ID, T>(
+    input: object,
+    {
+        path = DEFAULT_DATA_PATH
+    }: Partial<TypeValidatorOptions> = {}
+): AppErrorOr<Entity<ID,T>>
+{
+    if (typeof (input as Entity<ID,T>).implementsEntity === "function"
+        && (input as Entity<ID,T>).implementsEntity()) {
+        return input as Entity<ID,T>;
+    }
+
+    return new UnsupportedTypeError({
+        public: {
+            dataPath: path,
+            expected: "Entity",
+            actual: getClassNames(input)[0]
+        }
+    });
 }

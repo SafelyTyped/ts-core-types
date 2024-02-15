@@ -24,6 +24,8 @@ The following changes have been completed, and will be included in the next tagg
 ### New
 
 * Added `AnyArrayKey`
+* Added `mustBeEntity()`
+* Added `validateEntity()`
 * Added `getPropertyOf()`
 * Added `isObjectish()`
 * Added `mustBeObjectish()`
@@ -35,6 +37,9 @@ The following changes have been completed, and will be included in the next tagg
 * Added `Unknowns` to act as module for unknown type-related functions
 
 ### Fixes
+
+* `isEntity()` is now built on `validateEntity()`
+* `implementsProtocol()` is now built on `validateImplementsProtocol()`
 
 ### Refactors
 

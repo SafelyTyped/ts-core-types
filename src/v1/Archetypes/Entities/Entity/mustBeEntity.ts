@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2022-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -33,33 +33,41 @@
 //
 
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { isType } from "../../../Operators/isType/isType";
-import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
+import { THROW_THE_ERROR } from "../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
+import { mustBe } from "../../../Operators/mustBe/mustBe";
+import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
 import type { Entity } from "./Entity";
 import { validateEntity } from "./validateEntity";
 
 /**
- * `isEntity()` is a type guard. It proves whether or not the given `input`
- * implements the {@link Entity} protocol.
+ * `mustBeEntity()` is a {@link TypeGuarantee}.
  *
- * @public
+ * Use it to prove to both Typescript and your code at runtime that the
+ * given `input` value is an {@link Entity}<ID,T>.
+ *
+ * If validation fails, the supplied `onError()` handler is called.
+ *
  * @typeParam ID
  * - The type of the entity's ID property.
  * @typeParam T
  * - The type of the wrapped data.
  * @param input -
- * the data to inspect
+ * - the data to guarantee
+ * @param onError -
+ * we will call this if validation fails
+ * @param path -
+ * where you are in your data structures
  * @returns
- * - `true` if:
- *   - `input` implements {@link Entity},
- *   - and if the `implementsEntity()` method returns `true`
- * - `false` otherwise
+ * `input` (typecast to Entity<ID,T>) on success
  */
-export function isEntity<ID = unknown, T = unknown>(
+export function mustBeEntity<ID = unknown, T = unknown>(
     input: unknown,
     {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
-): input is Entity<ID,T> {
-    return isType(validateEntity, input, { path });
+        onError = THROW_THE_ERROR,
+        path = DEFAULT_DATA_PATH,
+    }: Partial<TypeGuaranteeOptions> = {}
+): Entity<ID,T> {
+    return mustBe(input, { onError })
+        .next((x) => validateEntity<ID,T>(x, { path }))
+        .value();
 }

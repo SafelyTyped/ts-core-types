@@ -31,14 +31,16 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { ProtocolDefinition } from "../..";
+
 import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { validate } from "../../Operators/validate/validate";
+import type { ProtocolDefinition } from "../ProtocolDefinition/ProtocolDefinition";
 import { validateImplementsProtocol } from "./validateImplementsProtocol";
 
 /**
- * `implementsProtocol()` is a type guard. Use it to prove that `target`
- * probably implements the Extension described by `protocol`.
+ * `implementsProtocol()` is a {@link TypeGuard}. Use it to prove that
+ * `target` probably implements the Extension described by `protocol`.
  *
  * We check:
  * - that the methods listed in `protocol` exist on `target`
@@ -46,6 +48,9 @@ import { validateImplementsProtocol } from "./validateImplementsProtocol";
  * We do not check:
  * - that the methods have the right type signatures
  * - for Symbols
+ *
+ * You should combine this with a protocol-specific validator for the
+ * best runtime results. See {@link isEntity}() for an example.
  *
  * @param target -
  * The object to inspect
@@ -63,7 +68,7 @@ import { validateImplementsProtocol } from "./validateImplementsProtocol";
  * @public
  */
 export function implementsProtocol<T extends object>(
-    target: object,
+    target: unknown,
     protocol: ProtocolDefinition,
     {
         path = DEFAULT_DATA_PATH
@@ -71,5 +76,9 @@ export function implementsProtocol<T extends object>(
         path?: DataPath
     } = {}
 ): target is T {
-    return !(validateImplementsProtocol(protocol, target, { path }) instanceof Error);
+    const validator = (input: unknown) => validate(input)
+        .next((x) => validateImplementsProtocol(protocol, x, { path }))
+        .value();
+
+    return !(validator(target) instanceof Error);
 }

@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { ProtocolDefinition } from "../../../ProtocolsExtensions/ProtocolDefinition/ProtocolDefinition";
+
 /**
  * Entity describes the behaviour of data that has an identity.
  *
@@ -74,3 +76,8 @@ export interface Entity<ID, T> {
      */
     valueOf(): T;
 }
+
+export const EntityProtocolDefinition: ProtocolDefinition = [
+    "implementsEntity",
+    "valueOf",
+];
