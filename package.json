@@ -9,7 +9,7 @@
     "build": "npm run clean && tsc -b ./tsconfig-build.json",
     "lint": "npx eslint .",
     "prepublishOnly": "npm run test",
-    "prepack": "npm run build && && npm run lint && rimraf lib/**/_*",
+    "prepack": "npm run build && npm run lint && rimraf lib/**/_*",
     "test": "npm run build && mocha",
     "cover": "npm run clean && c8 --cache=false npm run test",
     "clean": "rimraf coverage lib",
