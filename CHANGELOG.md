@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.4.2
+
+Released Sat, 2nd March 2024.
+
 ### Fixes
 
 - update entrypoints in `package.json`
