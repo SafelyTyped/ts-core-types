@@ -1,12 +1,13 @@
 {
   "name": "@safelytyped/core-types",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Core safe types for Typescript",
   "repository": "github:SafelyTyped/ts-core-types",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
   "scripts": {
-    "build": "npm run clean && tsc -b ./tsconfig-build.json",
+    "build": "npm run clean && tsc -b ./tsconfig-cjs.json ./tsconfig-esm.json ./tsconfig-types.json",
     "lint": "npx eslint .",
     "prepublishOnly": "npm run test",
     "prepack": "npm run build && npm run lint && rimraf lib/**/_*",

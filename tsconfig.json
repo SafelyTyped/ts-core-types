@@ -9,7 +9,6 @@
         // "esModuleInterop": true,
         "skipLibCheck": false,
         "forceConsistentCasingInFileNames": true,
-        "verbatimModuleSyntax": true,
         "isolatedModules": true,
 
         "declaration": true,                      /* Generates corresponding '.d.ts' file. */
@@ -37,6 +36,8 @@
     ],
     "ts-node": {
         "swc": true,
-        "require": ["tsconfig-paths/register"]
+        "esm": true,
+        "require": ["tsconfig-paths/register"],
+        "transpileOnly": true,
     }
 }
