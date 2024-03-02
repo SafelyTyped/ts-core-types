@@ -50,6 +50,7 @@ The following changes have been completed, and will be included in the next tagg
 * Moved `AppErrorOr` into the `ErrorHandling` folder
 * Moved `DataPath` into the `ErrorHandling` folder
 * Moved `numerical` into the `BasicTypes` folder
+* Moved the utility types up to be a top-level folder
 
 ### B/C Breaks
 

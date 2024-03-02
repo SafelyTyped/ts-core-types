@@ -94,30 +94,6 @@ export { makeNominalType } from "./Archetypes/Nominals/Factories/makeNominalType
 export type { AnyFlavoured } from "./Archetypes/Nominals/Flavoured/AnyFlavoured";
 export type { Flavoured } from "./Archetypes/Nominals/Flavoured/Flavoured";
 
-// Utility Types
-export type { AttributeFilterMap } from "./Archetypes/UtilityTypes/AttributeFilterMap";
-export type { AttributeKeys } from "./Archetypes/UtilityTypes/AttributeKeys";
-export type { AttributeTransformerMap } from "./Archetypes/UtilityTypes/AttributeTransformerMap";
-export type { DeepImmutable } from "./Archetypes/UtilityTypes/DeepImmutable";
-export type { Definitely } from "./Archetypes/UtilityTypes/Definitely";
-export type { EquivalentKeys } from "./Archetypes/UtilityTypes/EquivalentKeys";
-export type { EquivalentOptionalKeys } from "./Archetypes/UtilityTypes/EquivalentOptionalKeys";
-export type { EquivalentOptionalPart } from "./Archetypes/UtilityTypes/EquivalentOptionalPart";
-export type { EquivalentPart } from "./Archetypes/UtilityTypes/EquivalentPart";
-export type { IdenticallyNamedKeys } from "./Archetypes/UtilityTypes/IdenticallyNamedKeys";
-export type { IdenticallyNamedPart } from "./Archetypes/UtilityTypes/IdenticallyNamedPart";
-export type { IfEquals } from "./Archetypes/UtilityTypes/IfEquals";
-export type { Immutable } from "./Archetypes/UtilityTypes/Immutable";
-export type { Maybe } from "./Archetypes/UtilityTypes/Maybe";
-export type { NonNullable } from "./Archetypes/UtilityTypes/NonNullable";
-export type { Nullable } from "./Archetypes/UtilityTypes/Nullable";
-export type { OptionalKeys } from "./Archetypes/UtilityTypes/OptionalKeys";
-export type { OptionalPart } from "./Archetypes/UtilityTypes/OptionalPart";
-export type { RequireAllAttributesMap } from "./Archetypes/UtilityTypes/RequireAllAttributesMap";
-export type { ValueOf } from "./Archetypes/UtilityTypes/ValueOf";
-export type { WritableKeys } from "./Archetypes/UtilityTypes/WritableKeys";
-export type { WritablePart } from "./Archetypes/UtilityTypes/WritablePart";
-
 // Values
 export type { AnyValue } from "./Archetypes/Values/Value/AnyValue";
 export type { Value } from "./Archetypes/Values/Value/Value";
@@ -492,3 +468,32 @@ export { makeNodeJSModuleName } from "./SupportingTypes/NodeJSModuleName/makeNod
 export { mustBeNodeJSModuleNameData } from "./SupportingTypes/NodeJSModuleName/mustBeNodeJSModuleNameData";
 export { validateNodeJSModuleNameData } from "./SupportingTypes/NodeJSModuleName/validateNodeJSModuleNameData";
 export * from "./SupportingTypes/NodeJSModuleName/regexes";
+
+// ================================================================
+//
+// Utility Types
+//
+// ----------------------------------------------------------------
+
+export type { AttributeFilterMap } from "./UtilityTypes/AttributeFilterMap";
+export type { AttributeKeys } from "./UtilityTypes/AttributeKeys";
+export type { AttributeTransformerMap } from "./UtilityTypes/AttributeTransformerMap";
+export type { DeepImmutable } from "./UtilityTypes/DeepImmutable";
+export type { Definitely } from "./UtilityTypes/Definitely";
+export type { EquivalentKeys } from "./UtilityTypes/EquivalentKeys";
+export type { EquivalentOptionalKeys } from "./UtilityTypes/EquivalentOptionalKeys";
+export type { EquivalentOptionalPart } from "./UtilityTypes/EquivalentOptionalPart";
+export type { EquivalentPart } from "./UtilityTypes/EquivalentPart";
+export type { IdenticallyNamedKeys } from "./UtilityTypes/IdenticallyNamedKeys";
+export type { IdenticallyNamedPart } from "./UtilityTypes/IdenticallyNamedPart";
+export type { IfEquals } from "./UtilityTypes/IfEquals";
+export type { Immutable } from "./UtilityTypes/Immutable";
+export type { Maybe } from "./UtilityTypes/Maybe";
+export type { NonNullable } from "./UtilityTypes/NonNullable";
+export type { Nullable } from "./UtilityTypes/Nullable";
+export type { OptionalKeys } from "./UtilityTypes/OptionalKeys";
+export type { OptionalPart } from "./UtilityTypes/OptionalPart";
+export type { RequireAllAttributesMap } from "./UtilityTypes/RequireAllAttributesMap";
+export type { ValueOf } from "./UtilityTypes/ValueOf";
+export type { WritableKeys } from "./UtilityTypes/WritableKeys";
+export type { WritablePart } from "./UtilityTypes/WritablePart";

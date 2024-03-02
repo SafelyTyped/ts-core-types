@@ -7,7 +7,7 @@
 // This file is in the public domain.
 //
 
-import type { Primitivish } from "../../BasicTypes/Primitives/Primitivish";
+import type { Primitivish } from "../BasicTypes/Primitives/Primitivish";
 
 /**
  * `DeepImmutable` is a version of `Readonly` that works on all known types

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AttributeTransformerMap } from "../../Archetypes/UtilityTypes/AttributeTransformerMap";
+import type { AttributeTransformerMap } from "../../UtilityTypes/AttributeTransformerMap";
 import type { HashMap } from "../HashMaps/HashMap";
 
 /**

@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AttributeFilterMap } from "../../Archetypes/UtilityTypes/AttributeFilterMap";
-import type { EquivalentOptionalPart } from "../../Archetypes/UtilityTypes/EquivalentOptionalPart";
+import type { AttributeFilterMap } from "../../UtilityTypes/AttributeFilterMap";
+import type { EquivalentOptionalPart } from "../../UtilityTypes/EquivalentOptionalPart";
 
 /**
  * `updateObjectWithOptionalFields()` is a data modifier. It adds any
