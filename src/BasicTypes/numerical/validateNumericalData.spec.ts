@@ -1,4 +1,3 @@
-// tslint:disable: max-classes-per-file
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.

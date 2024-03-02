@@ -43,7 +43,6 @@ class UnitTestBaseClass {
     }
 }
 
-// tslint:disable-next-line: max-classes-per-file
 class UnitTestChildClass extends UnitTestBaseClass {
     public fn1(): string {
         return "hello there!";
@@ -56,7 +55,6 @@ class UnitTestChildClass extends UnitTestBaseClass {
     public fn3 = (x: string) => x;
 }
 
-// tslint:disable-next-line: max-classes-per-file
 class UnitTestExample extends UnitTestChildClass {
     public attr1: string = "";
     public get attr2(): string {
@@ -71,7 +69,6 @@ class UnitTestExample extends UnitTestChildClass {
     }
 }
 
-// tslint:disable-next-line: max-classes-per-file
 class UnitTestGetterExample {
     public get attr2(): string {
         return "hello world";

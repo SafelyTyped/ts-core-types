@@ -51,7 +51,6 @@ interface Retrieve {
 }
 const RetrieveProtocol: ProtocolDefinition = [ "retrieve" ];
 
-// tslint:disable-next-line: max-classes-per-file
 class UnitTestExample {
     public fn1() {
         return;

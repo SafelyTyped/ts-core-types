@@ -49,17 +49,14 @@ class UnitTestTrue {
     public toString() { return "yes"; }
 }
 
-// tslint:disable-next-line: max-classes-per-file
 class UnitTestFalse {
     public toString() { return "no"; }
 }
 
-// tslint:disable-next-line: max-classes-per-file
 class UnitTestNonsense {
     public toString() { return "tannoy"; }
 }
 
-// tslint:disable-next-line: max-classes-per-file
 class UnitTestNonsenseChild extends UnitTestNonsense {
     public toString() { return "no "};
 }
