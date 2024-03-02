@@ -46,6 +46,7 @@ The following changes have been completed, and will be included in the next tagg
 
 ### Refactors
 
+* Moved `AnyFunction` into the `BasicTypes` folder
 * Moved `AppErrorOr` into the `ErrorHandling` folder
 * Moved `DataPath` into the `ErrorHandling` folder
 * Moved `numerical` into the `BasicTypes` folder

@@ -48,7 +48,6 @@ export { EntityObject } from "./Archetypes/Entities/EntityObject/EntityObject";
 export type { AnyEntityObject } from "./Archetypes/Entities/EntityObject/AnyEntityObject";
 
 // FunctionTypes
-export type { AnyFunction } from "./Archetypes/FunctionTypes/AnyFunction/AnyFunction";
 export type { ComposableFunction } from "./Archetypes/FunctionTypes/ComposableFunction/ComposableFunction";
 
 export type { AnyDataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/AnyDataGuarantee";
@@ -171,6 +170,7 @@ export { validateBoolean } from "./BasicTypes/Booleans/validateBoolean";
 export { getClassNames } from "./BasicTypes/Classes/getClassNames";
 
 // Functions
+export type { AnyFunction } from "./BasicTypes/Functions/AnyFunction";
 export { isFunction } from "./BasicTypes/Functions/isFunction";
 export { mustBeFunction } from "./BasicTypes/Functions/mustBeFunction";
 export { validateFunction } from "./BasicTypes/Functions/validateFunction";

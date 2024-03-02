@@ -35,7 +35,7 @@
 
 import type { DispatchMap } from "./DispatchMap";
 import type { AnyDispatchMapKey } from "./AnyDispatchMapKey";
-import type { AnyFunction } from "../../Archetypes/FunctionTypes/AnyFunction/AnyFunction";
+import type { AnyFunction } from "../../BasicTypes/Functions/AnyFunction";
 import { getProperty } from "../../BasicTypes/Objects/getProperty";
 
 /**

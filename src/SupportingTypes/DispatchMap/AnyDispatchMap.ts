@@ -33,7 +33,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyFunction } from "../../Archetypes/FunctionTypes/AnyFunction/AnyFunction";
+import type { AnyFunction } from "../../BasicTypes/Functions/AnyFunction";
 import type { AnyDispatchMapKey } from "./AnyDispatchMapKey";
 import type { DispatchMap } from "./DispatchMap";
 
