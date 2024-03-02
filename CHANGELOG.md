@@ -21,6 +21,78 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.4.2
+
+Released Sat, 2nd March 2024.
+
+### Fixes
+
+- update entrypoints in `package.json`
+
+## v0.4.1
+
+Released Sat, 2nd March 2024.
+
+### Tools Fixes
+
+- fixed npmjs publishing workflow
+
+## v0.4.0
+
+Released Sat, 2nd March 2024.
+
+### New
+
+* Added `AnyArrayKey`
+* Added `mustBeEntity()`
+* Added `validateEntity()`
+* Added `getPropertyOf()`
+* Added `isObjectish()`
+* Added `mustBeObjectish()`
+* Added `validateObjectish()`
+* Added `mustImplementHas()`
+* Added `validateImplementsHas()`
+* Added `off`, `nack` and `narp` as recognised `false` values to the `DEFAULT_BOOLEANISH_RULES`
+* Added `on`, `ack`, `yarp` as recognised `true` values to the `DEFAULT_BOOLEANISH_RULES`
+* Added `Prototypes` to act as module for prototype-related functions
+* Added `Strings` to act as module for string-related functions
+* Added `Unknowns` to act as module for unknown type-related functions
+
+### Fixes
+
+* `isEntity()` is now built on `validateEntity()`
+* `implementsHas()` is now built on `validateImplementsHas()`
+* `implementsProtocol()` is now built on `validateImplementsProtocol()`
+
+### Refactors
+
+* Moved `AnyFunction` into the `BasicTypes` folder
+* Moved `AppErrorOr` into the `ErrorHandling` folder
+* Moved `DataPath` into the `ErrorHandling` folder
+* Moved `numerical` into the `BasicTypes` folder
+* Moved the utility types up to be a top-level folder
+
+### B/C Breaks
+
+* Upgrade to Typescript 5.2
+* Switch from tslint to @typescript-eslint
+  * Lots of tweaks to satisfy @typescript-eslint
+* Removed `everyFilter()`
+  - use `everyGuard()` instead
+* Removed `someFilters()`
+  - use `someGuards()` instead
+* Simplified `AppError` and the like:
+  - dropped `status` field from `StructuredProblemReportData`
+* Dropped `AnyPrimitiveType`
+  - it was a duplicate of `Primitive`
+* Dropped previously-deprecated `FunctionPointerTable` et al
+  - use `DispatchMap` instead
+
+### Tools
+
+* switched from Istanbul NYC to c8 for code coverage
+  - sadly, NYC seems to have been abandoned :(
+
 ## v0.3.10
 
 Released Monday, 9th May, 2022.
