@@ -373,6 +373,7 @@ export { UnsupportedTypeError } from "./Errors/UnsupportedType/UnsupportedTypeEr
 export { everyGuard } from "./Operators/everyGuard/everyGuard";
 export { isData } from "./Operators/isData/isData";
 export { isType } from "./Operators/isType/isType";
+export { IS_TYPE_DEFAULT_OPTIONS } from "./Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 export { mustBe } from "./Operators/mustBe/mustBe";
 export type { MustBePipelineStep } from "./Operators/mustBe/MustBePipelineStep";
 export { recast } from "./Operators/recast/recast";
