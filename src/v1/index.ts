@@ -473,11 +473,6 @@ export type { DispatchMap } from "./SupportingTypes/DispatchMap/DispatchMap";
 export type { DispatchMapReturnTypes } from "./SupportingTypes/DispatchMap/DispatchMapReturnTypes";
 export { searchDispatchMap } from "./SupportingTypes/DispatchMap/searchDispatchMap";
 
-// FunctionPointerTable
-export type { AnyFunctionPointerTable } from "./SupportingTypes/FunctionPointerTable/AnyFunctionPointerTable";
-export type { FunctionPointerTable } from "./SupportingTypes/FunctionPointerTable/FunctionPointerTable";
-export { searchFunctionPointerTable } from "./SupportingTypes/FunctionPointerTable/searchFunctionPointerTable";
-
 // HttpStatusCode
 export { MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS } from "./SupportingTypes/HttpStatusCode/defaults/MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS";
 export type { HttpStatusCode } from "./SupportingTypes/HttpStatusCode/HttpStatusCode";
