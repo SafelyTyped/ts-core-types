@@ -3,8 +3,8 @@
   "version": "0.4.1",
   "description": "Core safe types for Typescript",
   "repository": "github:SafelyTyped/ts-core-types",
-  "main": "lib/v1/index.js",
-  "types": "lib/v1/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "npm run clean && tsc -b ./tsconfig-build.json",
     "lint": "npx eslint .",

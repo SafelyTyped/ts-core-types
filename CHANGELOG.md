@@ -21,6 +21,22 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### Fixes
+
+- update entrypoints in `package.json`
+
+## v0.4.1
+
+Released Sat, 2nd March 2024.
+
+### Tools Fixes
+
+- fixed npmjs publishing workflow
+
+## v0.4.0
+
+Released Sat, 2nd March 2024.
+
 ### New
 
 * Added `AnyArrayKey`
