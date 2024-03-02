@@ -31,7 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AnyPrimitiveType } from "../AnyPrimitiveType/AnyPrimitiveType";
+
+import type { Primitive } from "../../BasicTypes/Primitives/Primitive";
 import { RefinedPrimitive } from "./RefinedPrimitive";
 
 /**
@@ -42,4 +43,4 @@ import { RefinedPrimitive } from "./RefinedPrimitive";
  *
  * @public
  */
-export type AnyRefinedPrimitive = RefinedPrimitive<AnyPrimitiveType, any>;
+export type AnyRefinedPrimitive = RefinedPrimitive<Primitive, any>;

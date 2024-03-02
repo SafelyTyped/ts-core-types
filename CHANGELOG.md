@@ -61,6 +61,8 @@ The following changes have been completed, and will be included in the next tagg
   - use `someGuards()` instead
 * Simplified `AppError` and the like:
   - dropped `status` field from `StructuredProblemReportData`
+* Dropped `AnyPrimitiveType`
+  - it was a duplicate of `Primitive`
 
 ### Tools
 

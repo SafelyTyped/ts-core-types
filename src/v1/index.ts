@@ -444,9 +444,6 @@ export { makeProtocolDefinition } from "./ProtocolsExtensions/ProtocolDefinition
 //
 // ----------------------------------------------------------------
 
-// AnyPrimitiveType
-export type { AnyPrimitiveType } from "./RefinedTypes/AnyPrimitiveType/AnyPrimitiveType";
-
 // RefinedNumber
 export type { AnyRefinedNumber } from "./RefinedTypes/RefinedNumber/AnyRefinedNumber";
 export { RefinedNumber } from "./RefinedTypes/RefinedNumber/RefinedNumber";
