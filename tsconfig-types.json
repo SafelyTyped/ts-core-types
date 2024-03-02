@@ -8,6 +8,7 @@
         "declaration": true,
         "declarationMap": true,
         "declarationDir": "./lib/types",
-        "emitDeclarationOnly": true
+        "emitDeclarationOnly": true,
+        "verbatimModuleSyntax": false
     }
   }
