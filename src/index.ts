@@ -377,6 +377,7 @@ export { IS_TYPE_DEFAULT_OPTIONS } from "./Operators/isType/defaults/IS_TYPE_DEF
 export { mustBe } from "./Operators/mustBe/mustBe";
 export type { MustBePipelineStep } from "./Operators/mustBe/MustBePipelineStep";
 export { recast } from "./Operators/recast/recast";
+export { recastIfValid } from "./Operators/recastIfValid/recastIfValid";
 export { someGuards } from "./Operators/someGuards/someGuards";
 export { validate } from "./Operators/validate/validate";
 export type { ValidationPipelineStep } from "./Operators/validate/ValidationPipelineStep";
