@@ -41,4 +41,4 @@ import type { DataGuaranteeOptions } from "./DataGuaranteeOptions";
  *
  * @public
  */
-export type AnyDataGuarantee<OPT extends DataGuaranteeOptions = DataGuaranteeOptions> = DataGuarantee<unknown, OPT>;
+export type AnyDataGuarantee<OPT extends DataGuaranteeOptions = DataGuaranteeOptions> = DataGuarantee<any, any, OPT>;

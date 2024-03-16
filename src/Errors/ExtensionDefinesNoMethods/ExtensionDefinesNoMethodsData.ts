@@ -40,7 +40,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface ExtensionDefinesNoMethodsData extends ExtraPublicData {
+export type ExtensionDefinesNoMethodsData = ExtraPublicData & {
     public: {
         extension: string;
     };

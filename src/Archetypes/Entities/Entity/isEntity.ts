@@ -32,15 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../../Operators/isType/isType";
-import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
 import type { Entity } from "./Entity";
 import { validateEntity } from "./validateEntity";
 
 /**
- * `isEntity()` is a type guard. It proves whether or not the given `input`
- * implements the {@link Entity} protocol.
+ * `isEntity()` is a {@link TypeGuard}. It proves whether or not the given
+ * `input` implements the {@link Entity} protocol.
  *
  * @public
  * @typeParam ID
@@ -57,9 +56,6 @@ import { validateEntity } from "./validateEntity";
  */
 export function isEntity<ID = unknown, T = unknown>(
     input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
 ): input is Entity<ID,T> {
-    return isType(validateEntity, input, { path });
+    return isType(validateEntity, input, IS_TYPE_DEFAULT_OPTIONS);
 }

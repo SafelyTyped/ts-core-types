@@ -33,6 +33,7 @@
 //
 
 import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import type { EmptyObject } from "../../Objects/EmptyObject";
 
 /**
  * `BooleanishValidatorOptions` are the user-supplied options that a
@@ -40,7 +41,7 @@ import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
  *
  * @public
  */
-export type BooleanishValidatorOptions<OPT extends object = object> =
+export type BooleanishValidatorOptions<OPT extends object = EmptyObject> =
     {
         path: DataPath,
         supportedTypes: string[]

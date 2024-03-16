@@ -33,9 +33,8 @@
 //
 
 import type { TypeGuard } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../../Operators/isType/isType";
-import type { TypeGuardOptions } from "../../FunctionTypes/TypeGuard/TypeGuardOptions";
 import type { TypeValidator } from "../../FunctionTypes/TypeValidator/TypeValidator";
 import type { Value } from "./Value";
 import { validateValueOf } from "./validateValueOf";
@@ -60,16 +59,13 @@ import { validateValueOf } from "./validateValueOf";
 export function isValueOf<T> (
     typeValidator: TypeValidator<T>,
     input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeGuardOptions> = {}
 ): input is Value<T>
 {
     // we've got an extra parameter, so we need to give isType() a bit of
     // help
-    const partial: TypeValidator<Value<T>> = (input: unknown, { path }) => validateValueOf(typeValidator, input, { path });
+    const partial: TypeValidator<Value<T>> = (input: unknown) => validateValueOf(typeValidator, input);
 
     // normal service can now resume :)
-    return isType(partial, input, { path });
+    return isType(partial, input, IS_TYPE_DEFAULT_OPTIONS);
 }
 

@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface UnsupportedNumericalValueData extends ExtraPublicData {
+export type UnsupportedNumericalValueData = ExtraPublicData & {
     public: {
         dataPath: DataPath,
         value: any,

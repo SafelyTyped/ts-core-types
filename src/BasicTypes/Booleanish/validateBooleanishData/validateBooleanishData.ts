@@ -67,7 +67,7 @@ export function validateBooleanishData(
     {
         path = DEFAULT_DATA_PATH,
         booleanish = DEFAULT_BOOLEANISH_RULES
-    }: Partial<BooleanishDataOptions> & Partial<TypeGuardOptions> = {}
+    }: BooleanishDataOptions & TypeGuardOptions = {}
 ): AppErrorOr<boolean> {
     // we need a list of supported types
     const supportedTypes = Object.keys(booleanish);
@@ -79,7 +79,7 @@ export function validateBooleanishData(
     return searchDispatchMap(
         booleanish,
         possibleRuleNames,
-        (x, opts) => createUnsupportedTypeError(x, opts)
+        (x) => createUnsupportedTypeError(x, path, supportedTypes)
     )(
         input,
         { path, supportedTypes }

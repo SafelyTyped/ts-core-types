@@ -53,6 +53,6 @@ import type { Primitive } from "../../BasicTypes/Primitives/Primitive";
 export abstract class RefinedPrimitive<
     T extends Primitive,
     OPT extends DataGuaranteeOptions = DataGuaranteeOptions
-> extends RefinedType<T, OPT> {
+> extends RefinedType<T, T, OPT> {
     public abstract [Symbol.toPrimitive](hint: PrimitiveHint): Primitive;
 }

@@ -40,7 +40,8 @@ import {
     RefinedNumber,
     RefinedString,
     ValueObject,
-    resolveNumerical
+    resolveNumerical,
+    identity
 } from "@safelytyped/core-types";
 
 const noPrototype = {}
@@ -48,13 +49,13 @@ Object.setPrototypeOf(noPrototype, null);
 
 class UnitTestRefinedNumber extends RefinedNumber {
     public constructor(input: number) {
-        super(() => true, input, {});
+        super(identity, input, {});
     }
 }
 
 class UnitTestRefinedString extends RefinedString {
     public constructor(input: string) {
-        super(() => true, input, {});
+        super(identity, input, {});
     }
 }
 

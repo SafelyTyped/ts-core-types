@@ -50,7 +50,9 @@ import type { MustBePipelineStep } from "./MustBePipelineStep";
  */
 export function mustBe<T>(
     val: AppErrorOr<T>,
-    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
+    {
+        onError = THROW_THE_ERROR
+    }: OnErrorOptions = {}
 ): MustBePipelineStep<T> {
     // these we can delegate
     if (val instanceof AppError) {

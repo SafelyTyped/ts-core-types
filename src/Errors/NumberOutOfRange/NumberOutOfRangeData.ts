@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface NumberOutOfRangeData extends ExtraPublicData {
+export type NumberOutOfRangeData = ExtraPublicData & {
     public: {
         /**
          * `dataPath` is your location in the data structure

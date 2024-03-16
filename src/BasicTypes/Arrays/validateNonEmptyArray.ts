@@ -59,7 +59,7 @@ export function validateNonEmptyArray(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<NonEmptyArray<unknown>> {
     return validate(input)
         .next((x) => validateArray(x, { path }))
@@ -74,7 +74,7 @@ function validateArrayIsNotEmpty(
     input: unknown[],
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<NonEmptyArray<unknown>> {
     if (input.length > 0) {
         return input as NonEmptyArray<unknown>;

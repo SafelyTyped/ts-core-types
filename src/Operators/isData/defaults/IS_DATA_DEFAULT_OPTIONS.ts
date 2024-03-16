@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import type { DataGuardOptions } from "../../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 
 /**
- * `MakeNominalTypeOptions` is the list of user-supplied options
- * that can be passed into {@link makeNominalType}.
+ * `IS_DATA_DEFAULT_OPTIONS` are the default options you can pass to
+ * {@link isData}.
  *
  * @public
  */
-export type MakeNominalTypeOptions = TypeGuaranteeOptions;
+export const IS_DATA_DEFAULT_OPTIONS: DataGuardOptions = {};

@@ -48,6 +48,8 @@ import { validateBoolean } from "./validateBoolean";
  * the value to inspect
  * @param onError -
  * if validation fails, we'll pass the resulting error to this OnError handler
+ * @param path -
+ * dot.notation.path through your nested data structure to where `input` is
  * @returns
  * - `input` type-cast to a `boolean` if validation passes
  * - does not return if validation fails
@@ -60,7 +62,7 @@ export const mustBeBoolean: TypeGuarantee<boolean>
         {
             onError = THROW_THE_ERROR,
             path = DEFAULT_DATA_PATH
-        }: Partial<TypeGuaranteeOptions> = {}
+        }: TypeGuaranteeOptions = {}
     ): boolean => mustBe(input, { onError })
         .next((x) => validateBoolean(x, { path }))
         .value();

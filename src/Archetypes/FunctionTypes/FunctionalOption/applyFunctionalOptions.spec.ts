@@ -34,7 +34,9 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { applyFunctionalOptions } from "@safelytyped/core-types";
+import { applyFunctionalOptions, type Branded } from "@safelytyped/core-types";
+
+type Message = Branded<string, "unit-test/message">;
 
 describe("applyFunctionalOptions()", () => {
     it("applies all of the functional options", () => {
@@ -64,5 +66,19 @@ describe("applyFunctionalOptions()", () => {
         );
 
         expect(actualOptions).to.eql(expectedOptions);
-    })
+    });
+
+    it("typecasts the output", () => {
+        const typeChecker = (input: Message) => input;
+
+        const res = applyFunctionalOptions<Message>(
+            "hello, world" as Message,
+            {},
+            (x) => x.toUpperCase() as Message
+        );
+
+        // will not compile if applyFunctionalOptions() does not do the
+        // return value type casting for us
+        typeChecker(res);
+    });
 });

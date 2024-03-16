@@ -49,6 +49,6 @@ import { validateObjectish } from "./validateObjectish";
  *
  * @public
  */
-export const isObjectish: TypeGuard<object> =
-    (input: unknown): input is object =>
-        isType(validateObjectish, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isObjectish: TypeGuard<object> = (
+    input: unknown
+): input is object => isType(validateObjectish, input, IS_TYPE_DEFAULT_OPTIONS);

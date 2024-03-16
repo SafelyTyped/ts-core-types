@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface InvalidNodeJSModuleNameData extends ExtraPublicData {
+export type InvalidNodeJSModuleNameData = ExtraPublicData & {
     public: {
         dataPath: DataPath;
         invalidName: string;

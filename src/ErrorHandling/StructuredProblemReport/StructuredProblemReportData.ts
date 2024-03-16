@@ -49,7 +49,7 @@ import type { NoExtraData } from "../ExtraData/NoExtraData";
  * This is the type that describes your error's per-instance data
  * (the unique data about the error that has occurred).
  */
-export interface StructuredProblemReportData<E extends ExtraData | NoExtraData> {
+export type StructuredProblemReportData<E extends ExtraData | NoExtraData> = {
     /**
      * `.definedBy` tells us which module defined the corresponding
      *  {@link AppError} class.

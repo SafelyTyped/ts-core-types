@@ -34,13 +34,12 @@
 
 import type { NextPrototypeChain } from "../../../Prototypes/NextPrototypeChain";
 
-
 /**
  * `PropertyNameFilterOptions` describes the user-supplied options that
  * are supported by {@link findPropertyNames} et al.
  *
  * @public
  */
-export interface PropertyNameFilterOptions {
-    nextPrototype: NextPrototypeChain
+export type PropertyNameFilterOptions = {
+    nextPrototype?: NextPrototypeChain
 }

@@ -32,17 +32,16 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
 import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { isType } from "../../Operators/isType/isType";
 import type { BooleanishDataOptions } from "./BooleanishDataOptions";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
 
 /**
- * `isBooleanishData()` is a {@link DataGuard}. Use it to prove that the
- * unknown `input` contains a value that can be converted into a boolean.
+ * `isBooleanishData()` is a weak data guard (it does not do any type casting).
+ * Use it to prove that the given `input` contains a value that can be
+ * converted into a boolean.
  *
  * @param input -
  * the value to inspect
@@ -52,15 +51,14 @@ import { validateBooleanishData } from "./validateBooleanishData/validateBoolean
  *
  * @public
  */
-export const isBooleanishData: DataGuard = (
+export const isBooleanishData = (
     input: unknown,
     {
-        path = DEFAULT_DATA_PATH,
         booleanish = DEFAULT_BOOLEANISH_RULES
-    }: Partial<BooleanishDataOptions> & Partial<TypeGuardOptions> = {}
+    }: BooleanishDataOptions = {}
 ): boolean =>
     isType<boolean, TypeGuardOptions & BooleanishDataOptions>(
         validateBooleanishData,
         input,
-        { path, booleanish }
+        { booleanish }
     );

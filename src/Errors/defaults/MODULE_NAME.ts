@@ -43,4 +43,4 @@ import type { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/No
  *
  * @public
  */
-export const MODULE_NAME = "@safelytyped/core-types/lib/v1" as NodeJSModuleName;
+export const MODULE_NAME = "@safelytyped/core-types" as NodeJSModuleName;

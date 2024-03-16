@@ -48,6 +48,6 @@ import { validateObject } from "./validateObject";
  *
  * @public
  */
-export const isObject: TypeGuard<object> =
-    (input: unknown): input is object =>
-        isType(validateObject, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isObject: TypeGuard<object> = (
+    input: unknown
+): input is object => isType(validateObject, input, IS_TYPE_DEFAULT_OPTIONS);

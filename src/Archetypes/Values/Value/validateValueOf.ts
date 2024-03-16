@@ -43,13 +43,18 @@ import { validateValue } from "./validateValue";
 
 /**
  * `validateValueOf()` is a {@link TypeValidator}. Use it to prove than an
- * unknown `input` really is some kind of `Value` object, and that it
+ * unknown `input` really is some kind of {@link Value} object, and that it
  * contains the expected wrapped type.
  *
- * @param path -
- * Where we are in the data structure you are validating
+ * @typeParam T -
+ * what kind of value are we expecting?
+ * @param typeValidator -
+ * an additional validator, that we'll use to make sure the `Value` object
+ * contains the type of {@link Value} we expect.
  * @param input -
  * the value to inspect
+ * @param path -
+ * Where we are in the data structure you are validating
  * @returns
  * - `input` if it is a {@link Value} object, or
  * - an {@link AppError} explaining why validation failed
@@ -59,7 +64,7 @@ export function validateValueOf<T>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<Value<T>> {
     return validate(input)
         .next((x) => validateValue(x, { path }))
@@ -72,7 +77,7 @@ function validateValueWraps<T>(
     input: Value<unknown>,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<Value<T>> {
     const retval = typeValidator(input.valueOf(), { path });
     if (retval instanceof AppError) {

@@ -31,14 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes/Nominals/Factories/defaults/MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS";
-import type { MakeHttpStatusCodeOptions } from "../MakeHttpStatusCodeOptions";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import type { StringIsTooLongData } from "./StringIsTooLongData";
 
 /**
- * `MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS` are the default options to pass
- * into {@link makeHttpStatusCode}.
+ * `StringIsTooLongError` is a throwable Error. It is thrown when
+ * a string's length is greater than the expected maximum value.
  *
  * @public
  */
-export const MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS: MakeHttpStatusCodeOptions
-    = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;
+export class StringIsTooLongError extends AppError<StringIsTooLongData> {
+    public constructor(params: StringIsTooLongData & AppErrorData) {
+        const spr = makeStructuredProblemReport<StringIsTooLongData>({
+            definedBy: MODULE_NAME,
+            description: "validation failed; string length larger than permitted",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+        });
+        super(spr);
+    }
+}

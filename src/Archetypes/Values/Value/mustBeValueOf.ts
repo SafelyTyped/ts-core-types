@@ -49,6 +49,8 @@ import { validateValueOf } from "./validateValueOf";
  * the value to inspect
  * @param onError -
  * if `input` fails validation, we'll pass the error onto this handler
+ * @param path -
+ * dot.notation.path through your nested data structure to this value
  * @returns
  * - `input` if validation is successful
  * - does not return if validation fails
@@ -59,7 +61,7 @@ export function mustBeValueOf<T>(
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ) {
     return mustBe(input, { onError})
         .next((x) => validateValueOf(typeValidator, x, { path }))

@@ -39,4 +39,4 @@ import type { BooleanishValidator } from "./BooleanishValidator";
  *
  * @public
  */
-export type AnyBooleanishValidator = BooleanishValidator<any>;
+export type AnyBooleanishValidator = BooleanishValidator<any, any>;

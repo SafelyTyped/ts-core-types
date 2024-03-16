@@ -42,7 +42,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface UnsupportedStringPrefixData extends ExtraPublicData {
+export type UnsupportedStringPrefixData = ExtraPublicData & {
     public: {
         dataPath: DataPath,
         expectedPrefix: string;

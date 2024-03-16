@@ -38,7 +38,6 @@ import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGu
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { mustBe } from "../../Operators/mustBe/mustBe";
-import { recast } from "../../Operators/recast/recast";
 
 /**
  * `mustBeHttpStatusCodeData` is a data guarantee. It ensures that `input` is
@@ -46,7 +45,9 @@ import { recast } from "../../Operators/recast/recast";
  *
  * @public
  * @param input -
- * The number to validate
+ * The value to validate.
+ * @path -
+ * Dot.notation.path through your nested data structures to `input`.
  * @param onError -
  * We will call this if `input` is not a valid HTTP status code.
  */
@@ -55,9 +56,8 @@ export const mustBeHttpStatusCodeData =(
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<DataGuaranteeOptions> = {}
+    }: DataGuaranteeOptions = {}
 ): HttpStatusCode =>
     mustBe(input, { onError })
         .next((x) => validateHttpStatusCodeData(x, { path }))
-        .next((x) => recast<number, HttpStatusCode>(x))
         .value();

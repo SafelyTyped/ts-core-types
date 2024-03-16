@@ -32,7 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AnyAppError } from "../../../ErrorHandling/AppError/AnyAppError";
+import type { AppError } from "../../../ErrorHandling/AppError/AppError";
 import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
 import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/UnsupportedTypeError";
 
@@ -46,8 +47,8 @@ import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/Unsupporte
  * where we are in the data structure that you are validating
  * @param input -
  * the value that failed inspection
- * @param booleanish -
- * the rules for converting `input` into a boolean value
+ * @param supportedTypes -
+ * the list of data types that are supported
  * @returns
  * - an {@link AppError} explaining why the input failed validation
  *
@@ -56,14 +57,9 @@ import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/Unsupporte
  */
 export function createUnsupportedTypeError(
     input: unknown,
-    {
-        path,
-        supportedTypes
-    }: {
-        path: DataPath,
-        supportedTypes: string[]
-    },
-): AppErrorOr<boolean> {
+    path: DataPath,
+    supportedTypes: string[],
+): AnyAppError {
     return new UnsupportedTypeError({
         public: {
             dataPath: path,

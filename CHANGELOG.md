@@ -21,6 +21,112 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.5.0
+
+Released Saturday, 16th March 2024.
+
+### New
+
+- added `recastIfValid()`
+- added `Filter` function type
+- added `AnyFilter` function type
+- added `everyFilter()`
+- added `someFilters()`
+- added `makeNominalTypeFromDataGuarantee()`
+- added `makeNominalTypeFromTypeGuarantee()`
+- added `identity()`
+- added `noop()`
+- added `IS_DATA_DEFAULT_OPTIONS`
+- added `EmptyObject` type
+- added `validateStringMaxLength()` data validator
+
+### Fixes
+
+- `AnyDataGuarantee`
+  - definition now uses `any` instead of `unknown`
+  - updated to be compatible with latest `DataGuarantee` definition
+- `DataGuard` now as generic type parameter for acceptable optional parameters
+  - useful if the underlying validator supports additional options being passed into it
+- `IS_TYPE_DEFAULT_OPTIONS` updated to latest definition
+- the following data guards and type guards no longer accept any options (because they're not needed at all)
+  - `isEntity()`
+- `AnyBooleanishValidator` now correctly sets the OPT generic type parameter
+  - was previously unset, and using the default of `BooleanishValidator` definition
+- `validateHttpStatusCodeData()` now returns a `HttpStatusCode` type
+  - previously, it returned a `number`
+- `validateStringLengthBetween()` now built on top of `validateStringMinLength()` and `validateStringMaxLength()`
+- `validateNumberIsInteger()` now returns the expected integer & actual number received if it returns an `AppError`
+
+... plus lots of updates to docblocks to make them more accurate, add missing parameter documentation etc etc.
+
+### License Changes
+
+The following functionality had 'GNU GPL-3' license headers at the top of the file. This was a mistake, and the code has now been correctly relicensed under the 3-Clause BSD license:
+
+- `Regex`
+- `validateRegExpArrayWithGroups()`
+
+### B/C Breaks
+
+As part of an overhaul of `makeNominalType()` (to make it useful for interfaces), the following backwards-compatibility breaks were introduced:
+
+- all option types have every property optional
+  - updated
+    - `DataGuardOptions`
+    - `DataGuaranteeOptions`
+    - `DataValidatorOptions`
+    - `TypeGuardOptions`
+    - `TypeGuaranteeOptions`
+    - `TypeValidatorOptions`
+    - `OnErrorOptions`
+    - `BooleanishDataOptions`
+  - with hindsight, this is how they should have always been
+    - if properties aren't option, it's not really an option type!
+- `DataGuarantee` functions must now return the input value
+  - makes them far more interchangeable with TypeGuarantees, and therefore far more useful
+- `DataGuard` functions no longer default to an `unknown` input type
+  - create `TypeGuard` functions if you want to accept `unknown` input types
+- `SmartConstructorOptions` are now an alias for `TypeGuaranteeOptions`
+  - this adds a `DataPath` option to all smart constructors
+- `applyFunctionalOptions()` now has an additional generic type parameter, to separate input and output types
+- `makeNominalType()` replaced by
+  - `makeNominalTypeFromDataGuarantee()` or
+  - `makeNominalTypeFromTypeGuarantee()`
+- removed `MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS`
+  - `makeNominalType()` already provides defaults for any options you don't provide
+- removed `MakeNominalTypeOptions` type
+  - use `TypeGuaranteeOptions` instead
+- removed `MAKE_DATA_PATH_DEFAULT_OPTIONS`
+  - `makeDataPath()` already provides defaults for any options you don't provide
+- removed `MakeDataPathOptions` type
+  - use `TypeGuaranteeOptions` instead
+- removed `MakeHttpStatusCodeOptions` type
+  - use `DataGuaranteeOptions` instead
+- removed `MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS`
+  - `makeHttpStatusCode()` already provides defaults for any options you don't provide
+- removed `MakeNodeJSModuleNameOptions` type
+  - use `DataGuaranteeOptions` instead
+- removed `MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS`
+  - `makeNodeJSModuleName()` already provides defaults for any options you don't provide
+- `mustBeBooleanishData()` is now a type guarantee
+  - it was previously (wrongly) declared as a data guarantee
+- `everyGuard()` and `someGuard()` are now stricter in the functions they accept
+  - the functions must return type predicates (e.g. `x is string`)
+    - this was not correctly enforced before
+  - use the new `everyFilter()` and `someFilters()` if you're using functions that do not return type predicates
+- `everyGuard()` and `someGuard()` now support an option parameter
+- most exported interfaces are now types, for better support for type manipulation
+  - only exceptions are:
+    - interfaces that describe class behaviours (aka contracts / protocols)
+    - interfaces that extend standard library interfaces
+
+The two replacements for `makeNominalType()` appear to make it far easier for the Typescript compiler to successfully do type inference. This should make the functions safer to use.
+
+`isData()` and `isType()` should also be more type-safe as a result too.
+
+- `validateNumberRange()` now takes the input as the third parameter
+- `everyGuard()` and `someGuards()` now expect the filters array as the first parameter
+
 ## v0.4.5
 
 Released Saturday, 2nd March 2024.

@@ -40,6 +40,6 @@ import type { NextPrototypeChain } from "../../../Prototypes/NextPrototypeChain"
  *
  * @public
  */
-export interface PropertyDescriptorFilterOptions {
-    nextPrototype: NextPrototypeChain
+export type PropertyDescriptorFilterOptions = {
+    nextPrototype?: NextPrototypeChain
 }

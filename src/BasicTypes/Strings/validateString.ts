@@ -51,7 +51,7 @@ export function validateString(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<string> {
     // does the input validate?
     if (typeof input !== "string") {

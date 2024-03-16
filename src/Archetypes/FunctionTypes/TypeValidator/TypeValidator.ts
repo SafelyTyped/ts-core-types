@@ -52,11 +52,15 @@ import type { TypeValidatorOptions } from "./TypeValidatorOptions";
  *
  * @public
  * @typeParam T -
- * This is the type of data that will be returned on success
+ * This is the type of data that will be returned on success.
  * @typeParam OPT -
- * This is the type of options that the validator accepts
+ * This is the type of options that the validator accepts.
+ * @param input -
+ * This is the data to be validated.
+ * @param options -
+ * This is the set of optional parameters that the validator accepts.
  */
 export type TypeValidator<T, OPT extends TypeValidatorOptions = TypeValidatorOptions> = (
     input: unknown,
-    opt: OPT
+    options?: OPT
 ) => AppErrorOr<T>;

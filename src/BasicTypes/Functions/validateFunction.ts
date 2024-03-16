@@ -57,7 +57,7 @@ export function validateFunction(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<Function> {
     // shorthand
     const expectedMsg = "function";

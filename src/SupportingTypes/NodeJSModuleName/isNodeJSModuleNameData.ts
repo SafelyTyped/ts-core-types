@@ -32,13 +32,17 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
+import { IS_DATA_DEFAULT_OPTIONS } from "../../Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
 import { isData } from "../../Operators/isData/isData";
+import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
 
 /**
- * `isNodeJSModuleNameData()` is a data guard. It confirms if a proposed name for
- * a NodeJSModuleName is a valid NodeJS module name.
+ * `isNodeJSModuleNameData()` is a {@link DataGuard}. It confirms if a
+ * proposed name for a NodeJSModuleName is a valid NodeJS module name.
+ *
+ * (Technically, it's checking for valid NPMJS module names ...)
  *
  * @param input -
  * The input data to validate.
@@ -48,5 +52,6 @@ import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
  *
  * @public
  */
-export const isNodeJSModuleNameData = (input: string): boolean =>
-    isData(validateNodeJSModuleNameData, input, { path: DEFAULT_DATA_PATH });
+export const isNodeJSModuleNameData: DataGuard<string, NodeJSModuleName> = (
+    input: string
+): input is NodeJSModuleName => isData(validateNodeJSModuleNameData, input, IS_DATA_DEFAULT_OPTIONS);

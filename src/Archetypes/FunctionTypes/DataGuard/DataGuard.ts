@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataGuardOptions } from "./DataGuardOptions";
+
 /**
  * A `DataGuard` inspects a piece of data to see if the data meets a
  * given contract / specification.
@@ -45,8 +47,12 @@
  * That makes them very reusable, and it allows you to build up rich
  * error reporting in your code.
  *
- * @typeParam T -
+ * @typeParam IN -
  * The type of data to be inspected.
+ * @typeParam OUT -
+ * What data type do we want to tell the compiler `input` is?
+ * @typeParam OPT -
+ * What optional parameters does the underlying validator accept?
  * @param input
  * - The data to guarantee.
  * @returns
@@ -55,4 +61,7 @@
  *
  * @public
  */
-export type DataGuard<T = unknown> = (input: T) => boolean;
+export type DataGuard<IN, OUT extends IN = IN, OPT extends DataGuardOptions = DataGuardOptions> = (
+    input: IN,
+    options?: OPT,
+) => input is OUT;

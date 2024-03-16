@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeGuardOptions } from "./TypeGuardOptions";
+
 /**
  * A `TypeGuard` inspects a piece of data to see if the data is the given
  * type.
@@ -50,8 +52,7 @@
  *
  * @public
  */
-export type TypeGuard<T = unknown> = (input: unknown) => input is T;
-
-// export interface TypeGuard {
-//     <T>(input: unknown): input is T;
-// }
+export type TypeGuard<T = unknown, OPT extends TypeGuardOptions = TypeGuardOptions> = (
+    input: unknown,
+    options?: OPT,
+) => input is T;

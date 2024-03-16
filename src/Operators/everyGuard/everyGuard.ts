@@ -33,28 +33,40 @@
 //
 
 import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
-
+import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 
 /**
  * `everyGuard()` is an operator. Use it to apply a set of {@link DataGuard}
- * to the `input` value.
+ * functions to the `input` value.
  *
  * We stop (and return `false`) as soon as the first DataGuard we apply
  * returns `false`.
  *
+ * @typeParam IN
+ * the type of input value that each guard accepts
+ * @typeParam OUT
+ * the return type of your guards
+ * @typeParam OPT
+ * the type of options that your guards accept
  * @param input -
  * the value to be inspected
  * @param guards -
  * a list of guards to be applied
+ * @param options -
+ * the options to pass to your guards
  * @returns
  * - `true` if every guard returns `true`
  * - `false` otherwise
  *
  * @public
  */
-export function everyGuard<T>(input: T, guards: DataGuard<T>[]): boolean {
+export function everyGuard<IN, OUT extends IN = IN, OPT extends DataGuardOptions = DataGuardOptions>(
+    guards: DataGuard<IN, OUT, OPT>[],
+    input: IN,
+    options?: OPT,
+): boolean {
     for (const guard of guards) {
-        if (!guard(input)) {
+        if (!guard(input, options)) {
             return false;
         }
     }

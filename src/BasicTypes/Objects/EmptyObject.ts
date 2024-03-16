@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2024-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,15 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { MakeNominalTypeOptions } from "../../Archetypes/Nominals/Factories/MakeNominalTypeOptions";
-
 /**
- * `MakeHttpStatusCodeOptions` are the user-supplied options that
- * {@link makeHttpStatusCode} accepts.
+ * EmptyObject is a type alias. It defines an object that has no properties
+ * whatsoever.
  *
- * Use {@link MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS} if you need to pass
- * in a set of default options.
- *
- * @public
+ * It is useful as a default for generic option types.
  */
-export type MakeHttpStatusCodeOptions = MakeNominalTypeOptions;
+export type EmptyObject = Record<PropertyKey, never>;

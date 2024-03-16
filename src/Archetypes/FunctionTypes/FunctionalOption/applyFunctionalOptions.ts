@@ -32,6 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject";
 import type { FunctionalOption } from "./FunctionalOption";
 
 /**
@@ -46,14 +47,16 @@ import type { FunctionalOption } from "./FunctionalOption";
  * must support
  * @param input
  * - The initial value to apply functional options to.
+ * @param options
+ * - The optional parameters to pass into the functional options.
  * @param fnOpts
  * - The list of functional options to apply.
  * @returns
  * The (possibly) modified `input`.
  */
-export const applyFunctionalOptions = <T, OPT>(
+export const applyFunctionalOptions = <T, OPT extends object = EmptyObject>(
     input: T,
-    options: OPT,
+    options?: OPT,
     ...fnOpts: FunctionalOption<T,OPT>[]
 ) => {
     // apply the options (if we have any)

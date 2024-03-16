@@ -37,7 +37,6 @@ import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
 
-
 /**
  * `validateBoolean()` is a {@link TypeValidator}. Use it to prove that the
  * unknown `input` really is a boolean.
@@ -56,7 +55,7 @@ export function validateBoolean(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<boolean> {
     if (typeof input === "boolean") {
         return input;

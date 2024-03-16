@@ -51,10 +51,10 @@ import { type BooleanishStrings, validateBooleanishString } from "./validateBool
  *
  * See {@link implementsOwnOrInheritedToString} for the definitive list of rules.
  *
+ * @param input -
+ * the number to try to convert into a boolean
  * @param path -
  * where we are in the data structure you are validating
-* @param input -
- * the number to try to convert into a boolean
  * @returns
  * - `true` or `false` on success
  * - an {@link AppError} explaining why conversion failed otherwise
@@ -67,7 +67,7 @@ export function validateBooleanishObject(
     input: object,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<boolean> {
     // many objects have default toString() methods
     //
@@ -83,6 +83,5 @@ export function validateBooleanishObject(
 
     // if we get here, then either the rules are disabled, or the
     // object isn't suitable for further investigation.
-    return createUnsupportedTypeError(input, { path, supportedTypes });
+    return createUnsupportedTypeError(input, path, supportedTypes);
 }
-

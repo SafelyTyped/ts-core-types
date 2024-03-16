@@ -55,7 +55,7 @@ export function validateStringStartsWith(
     input: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<string> {
     // does our input string validate?
     if (input.startsWith(searchTerm)) {

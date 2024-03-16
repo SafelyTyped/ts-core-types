@@ -32,14 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { OnErrorOptions } from "../../../ErrorHandling/OnError/OnErrorOptions";
+import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject";
 
 /**
  * FunctionalOption is a function signature. It describes a function that
  * (possibly) modifies the input value, before returning it.
- *
- * If anything goes wrong, the user-supplied `onError` handler is called,
- * with details about the error that occurred.
  *
  * @public
  * @typeParam T -
@@ -49,4 +46,4 @@ import type { OnErrorOptions } from "../../../ErrorHandling/OnError/OnErrorOptio
  * @returns
  * The possibly modified / possibly replaced input value.
  */
-export type FunctionalOption<T, OPT=OnErrorOptions> = (input: T, options?: OPT) => T;
+export type FunctionalOption<T, OPT extends object = EmptyObject> = (input: T, options?: OPT) => T;

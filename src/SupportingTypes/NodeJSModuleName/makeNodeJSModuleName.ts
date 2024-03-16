@@ -33,22 +33,17 @@
 //
 import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
 import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
-import type { MakeNominalTypeOptions } from "../../Archetypes/Nominals/Factories/MakeNominalTypeOptions";
-import { makeNominalType } from "../../Archetypes/Nominals/Factories/makeNominalType";
-import type { MakeNodeJSModuleNameOptions } from "./MakeNodeJSModuleNameOptions";
 import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
 import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import { makeNominalTypeFromDataGuarantee } from "../../Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
 
 /**
- * `makeNodeJSModuleName()` is a smart constructor. It verifies that the
- * `input` string contains a valid NodeJS module name, by calling
+ * `makeNodeJSModuleName()` is a {@link SmartConstructor}. It verifies that
+ * the `input` string contains a valid NodeJS module name, by calling
  * {@link mustBeNodeJSModuleNameData}.
- *
- * Use {@link MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS} if you need to
- * pass default options in.
  *
  * @param input -
  * This is the string that contains the module name.
@@ -61,14 +56,14 @@ import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions"
  *
  * @public
  */
-export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, MakeNominalTypeOptions, string | NodeJSModuleName> = (
+export const makeNodeJSModuleName: SmartConstructor<string, NodeJSModuleName, DataGuaranteeOptions> = (
     input: string,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH
-    }: Partial<MakeNodeJSModuleNameOptions> = {},
-    ...fnOpts: FunctionalOption<string | NodeJSModuleName, OnErrorOptions>[]
-): NodeJSModuleName => makeNominalType<string, NodeJSModuleName>(
+    }: DataGuaranteeOptions = {},
+    ...fnOpts: FunctionalOption<NodeJSModuleName, DataGuaranteeOptions>[]
+): NodeJSModuleName => makeNominalTypeFromDataGuarantee(
     mustBeNodeJSModuleNameData,
     input,
     { onError, path },

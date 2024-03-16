@@ -33,7 +33,6 @@
 //
 
 import type { TypeGuardOptions } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 
 /**
  * `IS_TYPE_DEFAULT_OPTIONS` are the default options you can pass to
@@ -41,6 +40,4 @@ import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFA
  *
  * @public
  */
-export const IS_TYPE_DEFAULT_OPTIONS: TypeGuardOptions = {
-    path: DEFAULT_DATA_PATH,
-};
+export const IS_TYPE_DEFAULT_OPTIONS: TypeGuardOptions = {};

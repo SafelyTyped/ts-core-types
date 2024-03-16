@@ -33,6 +33,7 @@
 //
 
 import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
+import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 
 /**
  * `someGuards()` is an operator. Use it to apply a set of {@link DataGuard}
@@ -40,6 +41,12 @@ import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGua
  *
  * We stop (and return `true`) as soon as one of the guards returns `true`.
  *
+ * @typeParam IN
+ * the type of input value that each guard accepts
+ * @typeParam OUT
+ * the return type of your guards
+ * @typeParam OPT
+ * the type of options that your guards accept
  * @param input -
  * the value to be inspected
  * @param guards -
@@ -50,9 +57,13 @@ import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGua
  *
  * @public
  */
-export function someGuards<T>(input: T, guards: DataGuard<T>[]): boolean {
+export function someGuards<IN, OUT extends IN = IN, OPT extends DataGuardOptions = DataGuardOptions>(
+    guards: DataGuard<IN, OUT, OPT>[],
+    input: IN,
+    options?: OPT,
+): boolean {
     for (const guard of guards) {
-        if (guard(input)) {
+        if (guard(input, options)) {
             return true;
         }
     }

@@ -58,7 +58,7 @@ export function validateObjectish(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<object> {
     // shorthand
     const expectedMsg = "non-null object";

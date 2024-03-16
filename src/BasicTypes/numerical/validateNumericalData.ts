@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedNumericalValueError } from "../../Errors/UnsupportedNumericalValue/UnsupportedNumericalValueError";
@@ -42,7 +42,7 @@ import type { numerical } from "./numerical";
 import { resolveNumerical } from "./resolveNumerical";
 
 /**
- * `validateNumericalData()` is a data validator. Use it to prove that
+ * `validateNumericalData()` is a {@link DataValidator}. Use it to prove that
  * the input data can be converted to a valid number.
  *
  * @param path -
@@ -61,7 +61,7 @@ export function validateNumericalData(
     {
         path = DEFAULT_DATA_PATH,
         conversionRules = DEFAULT_NUMERICAL_CONVERSION_RULES
-    }: Partial<TypeValidatorOptions> & {
+    }: DataValidatorOptions & {
         conversionRules?: NumericalConversionRules
     } = {}
 ): AppErrorOr<number> {

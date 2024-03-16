@@ -33,9 +33,8 @@
 //
 
 import type { TypeGuard } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../../Operators/isType/isType";
-import type { TypeGuardOptions } from "../../FunctionTypes/TypeGuard/TypeGuardOptions";
 import type { Value } from "./Value";
 import { validateValue } from "./validateValue";
 
@@ -52,10 +51,7 @@ import { validateValue } from "./validateValue";
  *   - and if that method returns `true`
  * - `false` otherwise
  */
-export const isValue: TypeGuard = <T extends Value>(
+export const isValue: TypeGuard = <T extends Value> (
     input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeGuardOptions> = {}
-): input is T => isType(validateValue, input, { path });
+): input is T => isType(validateValue, input, IS_TYPE_DEFAULT_OPTIONS);
 

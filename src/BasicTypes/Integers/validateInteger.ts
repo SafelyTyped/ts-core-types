@@ -53,7 +53,7 @@ export function validateInteger(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<number> {
     return validate(input)
         .next((x) => validateNumber(x, { path }))

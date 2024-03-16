@@ -51,7 +51,7 @@ export function validateNumber(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<number> {
     // does the input validate?
     if (typeof input !== "number") {

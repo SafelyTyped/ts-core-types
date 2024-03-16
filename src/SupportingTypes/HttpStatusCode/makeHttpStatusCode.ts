@@ -32,42 +32,45 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
 import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
 import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
-import { makeNominalType } from "../../Archetypes/Nominals/Factories/makeNominalType";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import { makeNominalTypeFromDataGuarantee } from "../../Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import type { HttpStatusCode } from "./HttpStatusCode";
-import type { MakeHttpStatusCodeOptions } from "./MakeHttpStatusCodeOptions";
 import { mustBeHttpStatusCodeData } from "./mustBeHttpStatusCodeData";
 
 /**
- * `makeHttpStatusCode()` is a smart constructor. It turns a `number` type
- * into a {@link HttpStatusCode} type.
+ * `makeHttpStatusCode()` is a {@link SmartConstructor}. It turns a `number`
+ * type into a {@link HttpStatusCode} type.
  *
- * Internally, it calls {@link mustBeHttpStatusCodeData} to validate `number`.
+ * Internally, it calls {@link mustBeHttpStatusCodeData} to validate the
+ * given `input` value.
  *
  * @param input -
- * The number to convert into a `HttpStatusCode` type
- * @param options -
- * The user-supplied options
+ * The number to convert into a `HttpStatusCode` type.
+ * @param onError -
+ * We will call this if validation fails.
+ * @param path -
+ * Dot.notation.path through your nested data structure to where `input` is.
  * @param fnOpts -
- * User-supplied functional options
+ * User-supplied Golang-style functional options.
  * @returns
- * the HttpStatusCode
+ * `input` as a HttpStatusCode type.
  *
  * @public
  */
-export const makeHttpStatusCode: SmartConstructor<number, HttpStatusCode, OnErrorOptions, number|HttpStatusCode>
+export const makeHttpStatusCode: SmartConstructor<number, HttpStatusCode, DataGuaranteeOptions, HttpStatusCode>
     = (
         input: number,
         {
             onError = THROW_THE_ERROR,
             path = DEFAULT_DATA_PATH,
-        }: Partial<MakeHttpStatusCodeOptions> = {},
-        ...fnOpts: FunctionalOption<number|HttpStatusCode>[]
-    ): HttpStatusCode => makeNominalType<number, HttpStatusCode, MakeHttpStatusCodeOptions>(
+        }: TypeGuaranteeOptions = {},
+        ...fnOpts: FunctionalOption<HttpStatusCode, TypeGuaranteeOptions>[]
+    ): HttpStatusCode => makeNominalTypeFromDataGuarantee(
         mustBeHttpStatusCodeData,
         input,
         { onError, path },

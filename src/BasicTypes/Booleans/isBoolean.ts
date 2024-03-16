@@ -32,8 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
-import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../Operators/isType/isType";
 import { validateBoolean } from "./validateBoolean";
 
@@ -46,9 +45,6 @@ import { validateBoolean } from "./validateBoolean";
  *
  * @public
  */
-export const isBoolean: TypeGuard<boolean> =
-    (
-        input: unknown,
-        { path = DEFAULT_DATA_PATH }: Partial<TypeGuardOptions> = {}
-    ): input is boolean =>
-        isType(validateBoolean, input, { path });
+export const isBoolean: TypeGuard<boolean> = (
+    input: unknown,
+): input is boolean => isType(validateBoolean, input, IS_TYPE_DEFAULT_OPTIONS);

@@ -32,9 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
 import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
 import { mustBe } from "../../Operators/mustBe/mustBe";
 import { THROW_THE_ERROR } from "../OnError/defaults/THROW_THE_ERROR";
+import type { DataPath } from "./DataPath";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 import { validateDataPathData } from "./validateDataPathData";
 
@@ -48,17 +50,19 @@ import { validateDataPathData } from "./validateDataPathData";
  * The value you want to prove is a valid {@link DataPath} input
  * @param onError -
  * We call this if `input` fails validation
+ * @param path -
+ * Dot.notation.path through your nested data structure to where `input` is
  * @returns
  * The validated `input`, recast as a {@link DataPath}
  *
  * @public
  */
-export const mustBeDataPathData = (
+export const mustBeDataPathData: DataGuarantee<string, DataPath> = (
     input: string,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<DataGuaranteeOptions> = {},
+    }: DataGuaranteeOptions = {},
 ) => mustBe(input, { onError })
     .next((x) => validateDataPathData(x, { path }))
     .value();

@@ -56,7 +56,7 @@ export function validateNodeJSModuleNameData (
     input: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<NodeJSModuleName> {
     // what does our regex say?
     if (!NodeJSModuleNameDataRegex.test(input)) {

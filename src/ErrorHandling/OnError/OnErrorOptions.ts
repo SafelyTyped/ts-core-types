@@ -41,4 +41,4 @@ import type { OnError } from "./OnError";
  *
  * @public
  */
-export type OnErrorOptions = { onError: OnError };
+export type OnErrorOptions = { onError?: OnError };

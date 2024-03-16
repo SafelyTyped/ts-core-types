@@ -51,16 +51,19 @@ import type { DataGuaranteeOptions } from "./DataGuaranteeOptions";
  * DataGuarantees if appropriate. It's the best way to make your code
  * as reusable as possible.
  *
- * @typeParam T -
+ * @typeParam IN -
  * The acceptable data type to inspect.
+ * @typeParam OUT -
+ * The data type returned by the DataGuarantee. Can be same as IN, or can
+ * be a {@link Branded} type (ie, it can do type narrowing).
+ * @typeParam OPT -
+ * The optional parameters accepted by the DataGuarantee.
  * @param input
  * - The data to guarantee.
- * @param onError
- * - We call this if `input` fails the inspection.
- * @param path
- * - This is where we are in the data structure that you are inspecting.
+ * @param options
+ * - The optional parameters that your function needs to operate.
  *
  * @public
  */
-export type DataGuarantee<T = unknown, OPT extends DataGuaranteeOptions = DataGuaranteeOptions>
-  = (input: T, options?: Partial<OPT>) => void;
+export type DataGuarantee<IN, OUT, OPT extends DataGuaranteeOptions = DataGuaranteeOptions>
+  = (input: IN, options?: OPT) => OUT;

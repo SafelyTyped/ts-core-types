@@ -35,11 +35,11 @@
 import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
 
 /**
- * `TypeGuardOptions` describes the user-supplied options supported
- * by all {@link TypeGuard}s.
+ * `TypeGuardOptions` describes the minimum set of user-supplied options
+ * supported by all {@link TypeGuard} functions.
  *
  * @public
  */
-export interface TypeGuardOptions {
-    path: DataPath
+export type TypeGuardOptions = {
+    path?: DataPath
 }

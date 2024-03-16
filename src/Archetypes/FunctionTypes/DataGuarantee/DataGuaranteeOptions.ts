@@ -36,12 +36,12 @@ import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
 import type { OnError } from "../../../ErrorHandling/OnError/OnError";
 
 /**
- * `DataGuaranteeOptions` describes the user-supplied options supported
- * by all {@link DataGuarantee}s.
+ * `DataGuaranteeOptions` describes the minimum set of user-supplied options
+ * supported by all {@link DataGuarantee} functions.
  *
  * @public
  */
-export interface DataGuaranteeOptions {
-    onError: OnError,
-    path: DataPath,
+export type DataGuaranteeOptions = {
+    onError?: OnError,
+    path?: DataPath,
 }

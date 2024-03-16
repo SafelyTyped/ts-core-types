@@ -66,9 +66,9 @@ describe("validateNumberRange()", () => {
 
             it("returns " + inputValue + " with range " + minInc + "-" + maxInc + " inclusive", () => {
                 const actualValue = validateNumberRange(
-                    inputValue,
                     minInc,
-                    maxInc
+                    maxInc,
+                    inputValue,
                 );
 
                 expect(actualValue).to.equal(inputValue);
@@ -80,9 +80,9 @@ describe("validateNumberRange()", () => {
         it("returns an AppError if the input is too small", () => {
             const inputValue = 100;
             const actualValue = validateNumberRange(
-                inputValue,
                 200,
-                300
+                300,
+                inputValue,
             );
 
             expect(actualValue).to.be.instanceOf(NumberOutOfRangeError);
@@ -91,9 +91,9 @@ describe("validateNumberRange()", () => {
         it("returns an AppError if the input is too large", () => {
             const inputValue = 100;
             const actualValue = validateNumberRange(
-                inputValue,
                 0,
-                10
+                10,
+                inputValue,
             );
 
             expect(actualValue).to.be.instanceOf(NumberOutOfRangeError);
@@ -104,9 +104,9 @@ describe("validateNumberRange()", () => {
         it("allows the caller to set the returned AppError", () => {
             const inputValue = 100;
             const actualValue = validateNumberRange(
-                inputValue,
                 0,
                 10,
+                inputValue,
                 { rangeConstructor: createUnitTestExample }
             );
 

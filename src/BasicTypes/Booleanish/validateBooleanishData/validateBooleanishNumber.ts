@@ -43,7 +43,7 @@ import { UnsupportedBooleanishValueError } from "../../../Errors/UnsupportedBool
  *
  * @public
  */
-export interface BooleanishNumbers {
+export type BooleanishNumbers = {
     true: number;
     false: number;
 }
@@ -67,7 +67,7 @@ export function validateBooleanishNumber(
     input: number,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<boolean> {
     if (input === booleanish.false) {
         return false;

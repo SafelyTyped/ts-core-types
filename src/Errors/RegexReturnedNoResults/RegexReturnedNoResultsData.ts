@@ -41,7 +41,7 @@ import type { ExtraLogsOnlyData } from "../../ErrorHandling/ExtraData/ExtraLogsO
  *
  * @public
  */
-export interface RegexReturnedNoResultsData extends ExtraLogsOnlyData {
+export type RegexReturnedNoResultsData = ExtraLogsOnlyData & {
     logsOnly: {
         dataPath: DataPath,
         regex: string,

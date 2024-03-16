@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { everyGuard } from "../../../../Operators/everyGuard/everyGuard";
+import { everyFilter } from "../../../../Operators/everyFilter/everyFilter";
 import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
 import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
 import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
@@ -67,7 +67,7 @@ export function findProperties(
     target: object,
     {
         nextPrototype = NEXT_PROTOTYPE
-    }: Partial<PropertyDescriptorFilterOptions> = {},
+    }: PropertyDescriptorFilterOptions = {},
     ...filters: PropertyDescriptorFilter[]
 ): Map<string, PropertyDescriptor> {
     // our return value
@@ -83,7 +83,8 @@ export function findProperties(
 
         // and which ones do we want to keep?
         const propNames = Object.getOwnPropertyNames(obj).filter(
-            (propName) => everyGuard(
+            (propName) => everyFilter(
+                filters,
                 {
                     // for some reason, TypeScript thinks obj isn't
                     // an object here
@@ -91,7 +92,6 @@ export function findProperties(
                     propName,
                     found: retval
                 },
-                filters
             )
         );
 

@@ -41,11 +41,11 @@ describe("everyGuard()", () => {
         let fn1Called = false;
         let fn2Called = false;
         const guards: DataGuard<string>[] = [
-            (x) => { fn1Called = true; return true },
-            (x) => { fn2Called = true; return true },
+            (x): x is string => { fn1Called = true; return true },
+            (x): x is string => { fn2Called = true; return true },
         ];
 
-        const actualValue = everyGuard("this is a test", guards);
+        const actualValue = everyGuard(guards, "this is a test");
         expect(actualValue).to.equal(true);
         expect(fn1Called).to.equal(true);
         expect(fn2Called).to.equal(true);
@@ -55,11 +55,11 @@ describe("everyGuard()", () => {
         let fn1Called = false;
         let fn2Called = false;
         const guards: DataGuard<string>[] = [
-            (x) => { fn1Called = true; return true },
-            (x) => { fn2Called = true; return false },
+            (x): x is string => { fn1Called = true; return true },
+            (x): x is string => { fn2Called = true; return false },
         ];
 
-        const actualValue = everyGuard("this is a test", guards);
+        const actualValue = everyGuard(guards, "this is a test");
         expect(actualValue).to.equal(false);
         expect(fn1Called).to.equal(true);
         expect(fn2Called).to.equal(true);
@@ -69,11 +69,11 @@ describe("everyGuard()", () => {
         let fn1Called = false;
         let fn2Called = false;
         const guards: DataGuard<string>[] = [
-            (x) => { fn1Called = true; return false },
-            (x) => { fn2Called = true; return true },
+            (x): x is string => { fn1Called = true; return false },
+            (x): x is string => { fn2Called = true; return true },
         ];
 
-        const actualValue = everyGuard("this is a test", guards);
+        const actualValue = everyGuard(guards, "this is a test");
         expect(actualValue).to.equal(false);
         expect(fn1Called).to.equal(true);
         expect(fn2Called).to.equal(false);

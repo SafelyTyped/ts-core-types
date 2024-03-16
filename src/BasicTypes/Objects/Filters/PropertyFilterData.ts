@@ -41,7 +41,7 @@ import type { Has } from "../../../Protocols/Has/Has";
  *
  * @public
  */
-export interface PropertyFilterData {
+export type PropertyFilterData = {
     /**
      * `obj` is the object (or, most likely, the object prototype) that
      * the filter is being asked to examine.

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { OnError } from "../../../ErrorHandling/OnError/OnError";
+import type { TypeGuaranteeOptions } from "../TypeGuarantee/TypeGuaranteeOptions";
 
 /**
  * `SmartConstructorOptions` is the default user-supplied options type for
@@ -40,6 +40,4 @@ import type { OnError } from "../../../ErrorHandling/OnError/OnError";
  *
  * @public
  */
-export type SmartConstructorOptions = {
-    onError: OnError
-}
+export type SmartConstructorOptions = TypeGuaranteeOptions;

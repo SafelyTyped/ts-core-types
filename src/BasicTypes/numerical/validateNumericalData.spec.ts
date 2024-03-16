@@ -39,6 +39,7 @@ import {
     RefinedString,
     UnsupportedNumericalValueError,
     ValueObject,
+    identity,
     validateNumericalData
 } from "@safelytyped/core-types";
 
@@ -47,13 +48,13 @@ Object.setPrototypeOf(noPrototype, null);
 
 class UnitTestRefinedNumber extends RefinedNumber {
     public constructor(input: number) {
-        super(() => true, input, {});
+        super(identity, input, {});
     }
 }
 
 class UnitTestRefinedString extends RefinedString {
     public constructor(input: string) {
-        super(() => true, input, {});
+        super(identity, input, {});
     }
 }
 

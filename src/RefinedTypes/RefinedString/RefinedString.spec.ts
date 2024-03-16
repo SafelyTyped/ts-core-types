@@ -39,15 +39,26 @@ import {
     type OnErrorOptions,
     RefinedString,
     THROW_THE_ERROR,
-    ValueObject
+    ValueObject,
+    DEFAULT_DATA_PATH,
+    type DataGuaranteeOptions,
+    type Branded
 } from "@safelytyped/core-types";
 import { NeverABrandedUuidError } from "../../_fixtures/NeverABrandedUuid/NeverABrandedUuidError";
 
-function mustBeUuid(input: string): void {
-    return;
+type _Uuid = Branded<string, 'unit-tests/uuid'>;
+
+function mustBeUuid(
+    input: string,
+    {
+        path = DEFAULT_DATA_PATH,
+        onError = THROW_THE_ERROR
+    }: DataGuaranteeOptions = {}
+): _Uuid {
+    return input as _Uuid;
 }
 
-function neverAUuid(input: string, { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}): never {
+function neverAUuid(input: string, { onError = THROW_THE_ERROR }: OnErrorOptions = {}): never {
     throw onError(new NeverABrandedUuidError());
 }
 

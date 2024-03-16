@@ -32,15 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
 import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 
 /**
- * `isRegExpExecArrayWithGroups()` is a type guard. Use it to convince the
- * TypeScript compiler that your `RegExpExecArray` definitely does
+ * `isRegExpExecArrayWithGroups()` is a {@link DataGuard}. Use it to convince
+ * the TypeScript compiler that your `RegExpExecArray` definitely does
  * contain a `.groups` property that isn't null.
  *
  * @param regex -
@@ -57,14 +55,12 @@ export function isRegExpExecArrayWithGroups
 (
     regex: RegExp,
     input: RegExpExecArray,
-    { path = DEFAULT_DATA_PATH }: Partial<DataGuardOptions> = {}
 ): input is RegExpExecArrayWithGroups
 {
     return !(
         validateRegExpExecArrayWithGroups(
             regex,
             input,
-            { path }
         ) instanceof AppError
     );
 }

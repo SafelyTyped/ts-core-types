@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2024-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,16 +31,37 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes/Nominals/Factories/defaults/MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS";
-import type { MakeNodeJSModuleNameOptions } from "../MakeNodeJSModuleNameOptions";
+
+import { isAppError } from "../../ErrorHandling/AppError/isAppError";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 
 /**
- * `MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS` are the default options you can pass into
- * {@link makeNodeJSModuleName}.
+ * `recastIfValid()` is an operator. Use it to convince Typescript
+ * that the given `input` value is type `OUT` if the `validator()` function
+ * does NOT return an {@link AppError}.
  *
- * Use this if you want to pass in functional options.
+ * This is very useful when using {@link validate} chains to look at nested
+ * fields inside an object.
  *
- * @public
+ * @typeparam OUT -
+ * the type to cast the output to
+ * @param input -
+ * the data to be recast
+ * @param validator -
+ * the function to determine if `input` should be recast or not
+ * @returns
+ * - `input as OUT` if `validator()` does NOT return an {@link AppError}
+ * - an {@link AppError} otherwise
  */
-export const MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS: MakeNodeJSModuleNameOptions
-    = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;
+export function recastIfValid<OUT>(
+    input: unknown,
+    validator: () => AppErrorOr<unknown>
+): AppErrorOr<OUT>
+{
+    const res = validator();
+    if (isAppError(res)) {
+        return res;
+    }
+
+    return input as OUT;
+}

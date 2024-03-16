@@ -60,7 +60,7 @@ export function validateObjectHasAllMethodsCalled<T extends object>(
     target: object,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<T> {
     // what's missing?
     const missingMethods = getMissingMethodNames(target, names);

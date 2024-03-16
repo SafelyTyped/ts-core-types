@@ -59,7 +59,7 @@ export const mustBeInteger: TypeGuarantee<number> = (
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ): number => mustBe(input, { onError })
     .next((x) => validateInteger(x, { path }))
     .value();

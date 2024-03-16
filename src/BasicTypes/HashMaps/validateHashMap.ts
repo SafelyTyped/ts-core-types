@@ -47,7 +47,7 @@ export function validateHashMap<T>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<HashMap<T>> {
     // do we have an object?
     const objRes = validateObject(input, { path });

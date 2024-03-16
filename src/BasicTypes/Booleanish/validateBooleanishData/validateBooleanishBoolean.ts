@@ -54,7 +54,7 @@ export function validateBooleanishBoolean(
     input: boolean,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<boolean> {
     return input;
 }

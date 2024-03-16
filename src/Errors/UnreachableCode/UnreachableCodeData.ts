@@ -40,7 +40,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface UnreachableCodeData extends ExtraPublicData {
+export type UnreachableCodeData = ExtraPublicData & {
     public: {
         reason: string;
     };

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2024-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,15 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { MakeNominalTypeOptions } from "../../Archetypes/Nominals/Factories/MakeNominalTypeOptions";
+import type { Filter } from "./Filter";
 
 /**
- * `MakeDataPathOptions` are the user-supplied options that
- * {@link makeDataPath} accepts.
- *
- * Use {@link MAKE_DATA_PATH_DEFAULT_OPTIONS} if you need to pass
- * in a set of default options.
- *
- * @public
+ * `AnyFilter` is a type alias. Use it wherever you can accept (or return)
+ * any type of {@link Filter} function.
  */
-export type MakeDataPathOptions = MakeNominalTypeOptions;
+export type AnyFilter = Filter<any>;

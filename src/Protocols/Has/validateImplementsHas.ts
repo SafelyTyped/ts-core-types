@@ -61,7 +61,7 @@ export function validateImplementsHas<T = unknown>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<Has<T>>
 {
     return validate(input)

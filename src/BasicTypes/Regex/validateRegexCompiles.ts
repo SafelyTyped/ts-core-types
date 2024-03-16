@@ -60,7 +60,7 @@ export function validateRegexCompiles(
     flags?: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<RegExp> {
     try {
         // tslint:disable-next-line: no-unused-expression

@@ -31,33 +31,34 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+
 import type { DataValidator } from "../../Archetypes/FunctionTypes/DataValidator/DataValidator";
 import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 
 /**
- * `isData()` is a helper function. Use it to quickly build {@link TypeGuard}
- * functions out of your {@link TypeValidator} functions.
+ * `isData()` is a helper function. Use it to quickly build {@link DataGuard}
+ * functions out of your {@link DataValidator} functions.
  *
  * @typeParam IN -
  * This is the type that your validator expects
  * @typeParam T -
  * This is the type that your validator returns
  * @param validator -
- * This is the {@link TypeValidator} function to use
+ * This is the {@link DataValidator} function to use
  * @param input -
  * This is value to inspect
- * @param path -
- * Where are we in the data structure that you are validating?
+ * @param options -
+ * The options that your validator requires.
  * @returns
  * - `true` if input is successfully validated
  * - `false` otherwise
  *
  * @public
  */
-export function isData<IN, T, OPT extends object = object>(
-    validator: DataValidator<IN, T>,
+export function isData<IN, T, OPT extends DataValidatorOptions = DataValidatorOptions>(
+    validator: DataValidator<IN, T, OPT>,
     input: IN,
-    options: DataValidatorOptions & OPT,
+    options: OPT,
 ): boolean {
     return !((validator(input, options)) instanceof Error);
 }

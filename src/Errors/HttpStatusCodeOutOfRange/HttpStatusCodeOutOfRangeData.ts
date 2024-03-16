@@ -41,4 +41,4 @@ import type { NumberOutOfRangeData } from "../NumberOutOfRange/NumberOutOfRangeD
  *
  * @public
  */
-export interface HttpStatusCodeOutOfRangeData extends NumberOutOfRangeData {}
+export type HttpStatusCodeOutOfRangeData = NumberOutOfRangeData;

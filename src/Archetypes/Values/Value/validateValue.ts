@@ -42,6 +42,8 @@ import type { Value } from "./Value";
  * `validateValue()` is a {@link TypeValidator}. Use it to prove than an
  * unknown `input` really is some kind of `Value` object.
  *
+ * @typeParam T -
+ * What kind of value are we validating?
  * @param path -
  * Where we are in the data structure you are validating
  * @param input -
@@ -54,7 +56,7 @@ export function validateValue<T = unknown>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<Value<T>> {
     if (typeof (input as Value<T>).implementsValue === "function"
         && (input as Value<T>).implementsValue()) {

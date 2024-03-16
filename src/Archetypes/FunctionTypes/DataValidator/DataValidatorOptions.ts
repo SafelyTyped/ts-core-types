@@ -35,11 +35,11 @@
 import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
 
 /**
- * `DataValidatorOptions` describes the user-supplied options supported
- * by all {@link DataGuarantee}s.
+ * `DataValidatorOptions` describes the minimum set of user-supplied options
+ * supported by all {@link DataValidator} functions.
  *
  * @public
  */
 export type DataValidatorOptions = {
-    path: DataPath,
+    path?: DataPath,
 };

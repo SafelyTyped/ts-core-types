@@ -56,12 +56,12 @@ export function validateHttpStatusCodeDataRange (
     input: number,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<number> {
     return validateNumberRange(
-        input,
         100,
         599,
+        input,
         {
             path,
             rangeConstructor: createHttpStatusCodeOutOfRangeError

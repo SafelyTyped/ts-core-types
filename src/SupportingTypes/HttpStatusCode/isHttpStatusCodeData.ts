@@ -32,13 +32,15 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
+import { IS_DATA_DEFAULT_OPTIONS } from "../../Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
 import { isData } from "../../Operators/isData/isData";
+import type { HttpStatusCode } from "./HttpStatusCode";
 import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
 
 /**
- * `isHttpStatusCodeData()` is a data guard. It checks to see if the `input`
- * value is in the range of valid HTTP status codes.
+ * `isHttpStatusCodeData()` is a {@link DataGuard}. It checks to see if the
+ * `input` value is in the range of valid HTTP status codes.
  *
  * @param input -
  * The number to check
@@ -48,5 +50,6 @@ import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
  *
  * @public
  */
-export const isHttpStatusCodeData = (input: number): boolean =>
-    isData(validateHttpStatusCodeData, input, { path: DEFAULT_DATA_PATH });
+export const isHttpStatusCodeData: DataGuard<number, HttpStatusCode> = (
+    input: number
+): input is HttpStatusCode => isData(validateHttpStatusCodeData, input, IS_DATA_DEFAULT_OPTIONS);

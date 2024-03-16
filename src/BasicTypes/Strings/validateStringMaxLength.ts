@@ -32,22 +32,51 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
-import { isBooleanishData } from "./isBooleanishData";
-import { mustBeBooleanishData } from "./mustBeBooleanishData";
-import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { StringIsTooLongError } from "../../Errors/StringIsTooLong/StringIsTooLongError";
 
 /**
- * Booleanish allows you to treat non-boolean data types as-if they are
- * booleans.
+ * `validateStringMinLength()` is a {@link DataValidator}. It proves that
+ * the `input` string is at least `minLength` characters long.
+ *
+ * @param maxLength -
+ * how short can the string be?
+ * @param path -
+ * where you are in your data structure. Use {@link DEFAULT_DATA_PATH}
+ * if you're not sure what value to provide.
+ * @param input -
+ * the string to validate
+ * @returns
+ * - `input` if the input successfully validates
+ * - an AppError if the input did not validate
+ *
+ * @public
  */
-export class Booleanish
-{
-    static defaults = {
-        DEFAULT_BOOLEANISH_RULES: DEFAULT_BOOLEANISH_RULES,
-    };
+export function validateStringMaxLength(
+    maxLength: number,
+    input: string,
+    {
+        path = DEFAULT_DATA_PATH
+    }: DataValidatorOptions = {}
+): AppErrorOr<string> {
+    // we treat negative maxLength as infinite string
+    if (maxLength < 0) {
+        return input;
+    }
+    // does our input string validate?
+    if (input.length <= maxLength) {
+        // all good
+        return input;
+    }
 
-    static isBooleanishData = isBooleanishData;
-    static mustBeBooleanishData = mustBeBooleanishData;
-    static validateBooleanishData = validateBooleanishData;
+    // let's give them the bad news
+    return new StringIsTooLongError({
+        public: {
+            dataPath: path,
+            maxLength: maxLength,
+            actualLength: input.length,
+        }
+    });
 }

@@ -50,11 +50,20 @@ import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator
  * - `false` otherwise
  *
  * @public
+ *
+ * Unfortunately, there isn't a way to allow `isType()` to provide
+ * default values for the {@link TypeGuardOptions} (because we're allowing
+ * callers to pass extra options into the validator if they need to).
+ *
+ * As a result, you *have* to provide the `options` parameter too when
+ * you call `isType()`. If you're using the default definition of `OPT`,
+ * you can use {@link IS_TYPE_DEFAULT_OPTIONS} as the third parameter
+ * to `isType()`.
  */
 export function isType<T, OPT extends TypeGuardOptions = TypeGuardOptions>(
-    validator: TypeValidator<T>,
+    validator: TypeValidator<T, OPT>,
     input: unknown,
-    options: OPT
+    options: OPT,
 ): input is T {
     return !((validator(input, options)) instanceof Error);
 }

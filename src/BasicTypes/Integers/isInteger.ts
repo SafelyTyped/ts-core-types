@@ -46,6 +46,6 @@ import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE
  *
  * @public
  */
-export const isInteger: TypeGuard<number>
-    = (input: unknown): input is number =>
-        isType(validateInteger, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isInteger: TypeGuard<number> = (
+    input: unknown
+): input is number => isType(validateInteger, input, IS_TYPE_DEFAULT_OPTIONS);

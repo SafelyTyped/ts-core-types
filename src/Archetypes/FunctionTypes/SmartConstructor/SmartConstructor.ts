@@ -31,6 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
+
 import type { FunctionalOption } from "../FunctionalOption/FunctionalOption";
 import type { SmartConstructorOptions } from "./SmartConstructorOptions";
 
@@ -50,7 +51,6 @@ import type { SmartConstructorOptions } from "./SmartConstructorOptions";
  * The data type for the user-supplied options.
  * Defaults to `SmartConstructorOptions`.
  * @typeParam FN - The input data type that the functional options can process.
- * {@link makeNominalType} sets this to `IN|OUT`
  * Defaults to `OUT`.
  * @typeParam FN_OPT -
  * The type of user-supplied options that the functional options can process.
@@ -66,6 +66,6 @@ import type { SmartConstructorOptions } from "./SmartConstructorOptions";
  */
 export type SmartConstructor<IN, OUT, OPT extends SmartConstructorOptions = SmartConstructorOptions, FN = OUT, FN_OPT extends SmartConstructorOptions = OPT> = (
     input: IN,
-    options?: Partial<OPT>,
-    ...fnOptions: FunctionalOption<FN, Partial<FN_OPT>>[]
+    options?: OPT,
+    ...fnOptions: FunctionalOption<FN, FN_OPT>[]
 ) => OUT;

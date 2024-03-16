@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2024-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,19 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import { DEFAULT_DATA_PATH } from "../../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { THROW_THE_ERROR } from "../../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import type { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
-
 /**
- * `MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS` is a set of reasonable defaults
- * that you can pass into {@link makeNominalType}.
+ * A `Filter` inspects the given `input` data, and determines whether or
+ * not that data passes the implemented contract / specification.
  *
- * Using this in your own code guarantees forward-compatibility.
- *
- * @public
+ * A `Filter` is a weak {@link DataGuard} that doesn't work as Typescript
+ * compiler type guard.
  */
-export const MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS: MakeNominalTypeOptions = {
-    onError: THROW_THE_ERROR,
-    path: DEFAULT_DATA_PATH,
-};
+export type Filter<T> = (input: T) => boolean;
