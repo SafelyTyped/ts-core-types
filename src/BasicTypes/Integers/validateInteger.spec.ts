@@ -58,8 +58,8 @@ describe("validateInteger()", () => {
             const expectedValue = new UnsupportedTypeError({
                 public: {
                     dataPath: DEFAULT_DATA_PATH,
-                    expected: "number (with an integer value)",
-                    actual: "number (with a non-integer value)",
+                    expected: Math.trunc(val).toString(),
+                    actual: val.toString(),
                 }
             })
             const actualValue = validateInteger(val);
