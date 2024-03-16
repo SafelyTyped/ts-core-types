@@ -59,7 +59,9 @@ import { ExtensionDefinesNoMethodsError } from "../../Errors/ExtensionDefinesNoM
  */
 export function makeProtocolDefinition<T extends object>(
     input: T,
-    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
+    {
+        onError = THROW_THE_ERROR
+    }: OnErrorOptions = {}
 ): ProtocolDefinition {
     // what methods does this object define?
     const methodsList = getPublicMethodNames(input);

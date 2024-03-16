@@ -46,4 +46,4 @@ import type { ExtraPublicData } from "./ExtraPublicData";
  *
  * @public
  */
-export interface AllExtraData extends ExtraPublicData, ExtraLogsOnlyData { }
+export type AllExtraData = ExtraPublicData & ExtraLogsOnlyData;

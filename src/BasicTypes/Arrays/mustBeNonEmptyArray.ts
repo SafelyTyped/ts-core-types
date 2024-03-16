@@ -47,6 +47,8 @@ import { validateNonEmptyArray } from "./validateNonEmptyArray";
  *
  * @param input -
  * the value to inspect
+ * @param path -
+ * dot.notation.path through your data structure to where `input` is
  * @param onError -
  * If `input` fails validation, we'll pass the error onto this handler.
  * @returns
@@ -55,12 +57,12 @@ import { validateNonEmptyArray } from "./validateNonEmptyArray";
  *
  * @public
  */
-export const mustBeNonEmptyArray: TypeGuarantee<NonEmptyArray<unknown>, TypeGuaranteeOptions> = (
+export const mustBeNonEmptyArray: TypeGuarantee<NonEmptyArray<unknown>> = (
     input: unknown,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ) => mustBe(input, { onError })
     .next((x) => validateNonEmptyArray(x, { path }))
     .value();

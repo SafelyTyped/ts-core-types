@@ -34,7 +34,7 @@
 import type { PropertyNameFilter } from "./PropertyNameFilter";
 import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
 import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
-import { everyGuard } from "../../../../Operators/everyGuard/everyGuard";
+import { everyFilter } from "../../../../Operators/everyFilter/everyFilter";
 
 /**
  * `findPropertyNames()` is a data filter. It returns a list of all properties
@@ -59,7 +59,7 @@ export function findPropertyNames(
     target: object,
     {
         nextPrototype = NEXT_PROTOTYPE
-    }: Partial<PropertyNameFilterOptions> = {},
+    }: PropertyNameFilterOptions = {},
     ...filters: PropertyNameFilter[]
 ): string[] {
     // our return value
@@ -72,14 +72,14 @@ export function findPropertyNames(
     while(obj !== null) {
         // what does this prototype have for us today?
         const propNames = Object.getOwnPropertyNames(obj).filter(
-            (propName) => everyGuard(
+            (propName) => everyFilter(
+                filters,
                 {
                     obj: obj as object,
                     propName,
                     found
                 },
-                filters
-            )
+            ),
         );
         // let's get them added into our result
         for (const propName of propNames) {

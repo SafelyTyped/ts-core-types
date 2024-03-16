@@ -36,8 +36,8 @@ import { describe } from "mocha";
 
 import {
     type AnyAppError,
-    MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS,
-    makeNodeJSModuleName
+    makeNodeJSModuleName,
+    type NodeJSModuleName
 } from "@safelytyped/core-types";
 
 const onError = (e: AnyAppError): never => {
@@ -78,8 +78,8 @@ describe("makeNodeJSModuleName()", () => {
 
         const actualValue = makeNodeJSModuleName(
             inputValue,
-            MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS,
-            (x) => x.toLocaleLowerCase()
+            {},
+            (x) => x.toLocaleLowerCase() as NodeJSModuleName
         );
 
         expect(actualValue).to.equal(expectedValue);

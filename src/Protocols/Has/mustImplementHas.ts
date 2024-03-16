@@ -63,7 +63,7 @@ export function mustImplementHas<T = unknown>(
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ): Has<T> {
     return mustBe(input, { onError })
         .next((x) => validateImplementsHas<T>(x, { path }))

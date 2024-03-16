@@ -41,15 +41,23 @@ import {
     RefinedNumber,
     THROW_THE_ERROR,
     ValueObject,
-    applyFunctionalOptions
+    applyFunctionalOptions,
+    DEFAULT_DATA_PATH,
+    type DataGuaranteeOptions
 } from "@safelytyped/core-types";
 import { NeverAdultAgeError } from "../../_fixtures/NeverAdultAge/NeverAdultAgeError";
 
-function mustBeAdultAge(input: number): void {
-    return;
+function mustBeAdultAge(
+    input: number,
+    {
+        path = DEFAULT_DATA_PATH,
+        onError = THROW_THE_ERROR
+    }: DataGuaranteeOptions = {}
+): number {
+    return input;
 }
 
-function neverAdultAge(input: number, { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}): never {
+function neverAdultAge(input: number, { onError = THROW_THE_ERROR }: OnErrorOptions = {}): never {
     throw onError(new NeverAdultAgeError({public: { input }}));
 }
 
@@ -59,7 +67,7 @@ function defaultOnErrorHandler(e: AnyAppError): never {
 
 export const makeAdultAge = (
     input: number,
-    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {},
+    { onError = THROW_THE_ERROR }: OnErrorOptions = {},
     ...fnOpts: FunctionalOption<AdultAge>[]
 ) => applyFunctionalOptions(
     new AdultAge(input, { onError }),
@@ -75,7 +83,7 @@ class AdultAge extends RefinedNumber {
 
 export const makeNeverAdultAge = (
     input: number,
-    { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {},
+    { onError = THROW_THE_ERROR }: OnErrorOptions = {},
     ...fnOpts: FunctionalOption<AdultAge>[]
 ) => applyFunctionalOptions(
     new NeverAdultAge(input, { onError }),

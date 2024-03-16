@@ -56,7 +56,7 @@ export function validateArray(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<unknown[]> {
     // do we have an array?
     if (Array.isArray(input)) {

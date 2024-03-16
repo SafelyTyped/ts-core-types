@@ -66,7 +66,7 @@ export function mustBeHashMap<T>(
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<DataGuaranteeOptions> = {}
+    }: DataGuaranteeOptions = {}
 ): HashMap<T> {
     return mustBe(input, { onError })
         .next((x) => validateHashMap(valueValidator, x, { path }))

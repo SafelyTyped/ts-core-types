@@ -32,13 +32,15 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicData";
+
 /**
  * `NotImplementedData` is the input data that {@link NotImplementedError}
  * requires.
  *
  * @public
  */
-export interface NotImplementedData {
+export type NotImplementedData = ExtraPublicData & {
     public: {
         reason: string;
     };

@@ -33,8 +33,7 @@
 //
 
 import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
-import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../Operators/isType/isType";
 import { validateArray } from "./validateArray";
 
@@ -49,8 +48,4 @@ import { validateArray } from "./validateArray";
  */
 export const isArray: TypeGuard<unknown[]> = (
     input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeGuardOptions> = {}
-): input is unknown[] =>
-    isType(validateArray, input, { path });
+): input is unknown[] => isType(validateArray, input, IS_TYPE_DEFAULT_OPTIONS);

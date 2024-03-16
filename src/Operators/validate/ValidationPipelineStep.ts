@@ -27,7 +27,6 @@
 
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 
-
 /**
  * `ValidationPipelineStep` describes the structure of a wrapper around
  * a {@link TypeValidator} function.

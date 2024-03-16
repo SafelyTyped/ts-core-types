@@ -31,20 +31,28 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-
-import { DEFAULT_DATA_PATH } from "../../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { THROW_THE_ERROR } from "../../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import type { MakeNominalTypeOptions } from "../MakeNominalTypeOptions";
+import { AppError } from "../../ErrorHandling/AppError/AppError";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
+import { MODULE_NAME } from "../defaults/MODULE_NAME";
+import type { StringIsTooLongData } from "./StringIsTooLongData";
 
 /**
- * `MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS` is a set of reasonable defaults
- * that you can pass into {@link makeNominalType}.
- *
- * Using this in your own code guarantees forward-compatibility.
+ * `StringIsTooLongError` is a throwable Error. It is thrown when
+ * a string's length is greater than the expected maximum value.
  *
  * @public
  */
-export const MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS: MakeNominalTypeOptions = {
-    onError: THROW_THE_ERROR,
-    path: DEFAULT_DATA_PATH,
-};
+export class StringIsTooLongError extends AppError<StringIsTooLongData> {
+    public constructor(params: StringIsTooLongData & AppErrorData) {
+        const spr = makeStructuredProblemReport<StringIsTooLongData>({
+            definedBy: MODULE_NAME,
+            description: "validation failed; string length larger than permitted",
+            errorId: params.errorId,
+            extra: {
+                public: params.public
+            },
+        });
+        super(spr);
+    }
+}

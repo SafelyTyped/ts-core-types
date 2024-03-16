@@ -40,9 +40,9 @@ import {
     type AnySmartConstructor,
     type Branded,
     type Flavoured,
-    makeNominalType,
+    makeNominalTypeFromDataGuarantee,
     type OnErrorOptions,
-    THROW_THE_ERROR
+    THROW_THE_ERROR,
 } from "@safelytyped/core-types";
 
 function defaultErrorHandler(e: AnyAppError): never {
@@ -51,11 +51,11 @@ function defaultErrorHandler(e: AnyAppError): never {
 
 type BrandedUuid = Branded<string, "uuid">;
 
-function mustBeBrandedUuid(input: string): void {
-    return;
+function mustBeBrandedUuid(input: string): BrandedUuid {
+    return input as BrandedUuid;
 }
 
-function neverABrandedUuid(input: string, { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}): void {
+function neverABrandedUuid(input: string, { onError = THROW_THE_ERROR }: OnErrorOptions = {}): BrandedUuid {
     throw onError(new NeverABrandedUuidError());
 }
 
@@ -65,8 +65,8 @@ function brandedUuidIdentity(input: BrandedUuid): BrandedUuid {
 
 type FlavouredUuid = Flavoured<string, "uuid">;
 
-function mustBeFlavouredUuid(input: string): void {
-    return;
+function mustBeFlavouredUuid(input: string): FlavouredUuid {
+    return input as FlavouredUuid;
 }
 
 function flavouredUuidIdentity(input: FlavouredUuid): FlavouredUuid {
@@ -81,8 +81,8 @@ describe("makeNominalType()", () => {
 
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
-        ) => makeNominalType<string, BrandedUuid>(
+            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+        ) => makeNominalTypeFromDataGuarantee(
                 mustBeBrandedUuid,
                 x,
                 { onError }
@@ -105,8 +105,8 @@ describe("makeNominalType()", () => {
         // if there is a defect, the test will fail to compile
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
-        ) => makeNominalType<string, BrandedUuid>(
+            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+        ) => makeNominalTypeFromDataGuarantee(
             mustBeBrandedUuid,
             x,
             { onError }
@@ -128,8 +128,8 @@ describe("makeNominalType()", () => {
         // if there is a defect, the test will fail to compile
         const uuidFrom = (
             x: string,
-            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
-        ) => makeNominalType<string, FlavouredUuid>(
+            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+        ) => makeNominalTypeFromDataGuarantee(
             mustBeFlavouredUuid,
             x,
             { onError }
@@ -144,12 +144,12 @@ describe("makeNominalType()", () => {
     it("calls the provided functional options", () => {
         const uuidFrom = (
             input: string,
-            { onError = THROW_THE_ERROR }: Partial<OnErrorOptions> = {}
-        ) => makeNominalType<string, BrandedUuid>(
+            { onError = THROW_THE_ERROR }: OnErrorOptions = {}
+        ) => makeNominalTypeFromDataGuarantee(
             mustBeBrandedUuid,
             input,
             { onError },
-            ( x ) => x.toLowerCase(),
+            ( x ) => x.toLowerCase() as BrandedUuid,
         );
 
         const inputValue = "123E4567-E89B-12D3-A456-426655440000";
@@ -164,8 +164,8 @@ describe("makeNominalType()", () => {
     it("calls the default error handler when the guarantee fails", () => {
         const uuidFrom = (
             x: string,
-            { onError = defaultErrorHandler }: Partial<OnErrorOptions> = {}
-        ) => makeNominalType<string, BrandedUuid>(
+            { onError = defaultErrorHandler }: OnErrorOptions = {}
+        ) => makeNominalTypeFromDataGuarantee(
             neverABrandedUuid,
             x,
             { onError }
@@ -178,9 +178,10 @@ describe("makeNominalType()", () => {
     it("provides its own default error handler", () => {
         const uuidFrom = (
             x: string,
-        ) => makeNominalType<string, BrandedUuid>(
+        ) => makeNominalTypeFromDataGuarantee(
             neverABrandedUuid,
-            x
+            x,
+            {}
         );
 
         const inputValue = "123e4567-e89b-12d3-a456-426655440000";
@@ -197,7 +198,7 @@ describe("makeNominalType()", () => {
         const uuidFrom = (
             x: string,
             { onError }: OnErrorOptions
-        ) => makeNominalType<string, BrandedUuid>(
+        ) => makeNominalTypeFromDataGuarantee(
             neverABrandedUuid,
             x,
             { onError }

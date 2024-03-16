@@ -31,14 +31,14 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+
+import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../Operators/isType/isType";
 import type { Has } from "./Has";
 import { validateImplementsHas } from "./validateImplementsHas";
 
 /**
- * `implementsHas()` is a type guard. Use it to prove that the input:
+ * `implementsHas()` is a {@link TypeGuard}. Use it to prove that the input:
  *
  * - is an object
  * - that has a `.has()` method
@@ -50,9 +50,6 @@ import { validateImplementsHas } from "./validateImplementsHas";
  */
 export function implementsHas<T>(
     input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
 ): input is Has<T> {
-    return isType(validateImplementsHas, input, { path });
+    return isType(validateImplementsHas, input, IS_TYPE_DEFAULT_OPTIONS);
 }

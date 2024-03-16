@@ -33,11 +33,12 @@
 //
 import type { DataPath } from "./DataPath";
 import { mustBeDataPathData } from "./mustBeDataPathData";
-import type { MakeDataPathOptions } from "./MakeDataPathOptions";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
-import { makeNominalType } from "../../Archetypes/Nominals/Factories/makeNominalType";
+import { makeNominalTypeFromDataGuarantee } from "../../Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
 import { THROW_THE_ERROR } from "../OnError/defaults/THROW_THE_ERROR";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
 
 /**
  * `makeDataPath()` is a {@link SmartConstructor}. Use it to turn a string
@@ -53,14 +54,14 @@ import { THROW_THE_ERROR } from "../OnError/defaults/THROW_THE_ERROR";
  *
  * @public
  */
-export const makeDataPath = (
+export const makeDataPath: SmartConstructor<string, DataPath> = (
     input: string,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<MakeDataPathOptions> = {},
-    ...fnOpts: FunctionalOption<string|DataPath>[]
-) => makeNominalType<string, DataPath>(
+    }: TypeGuaranteeOptions = {},
+    ...fnOpts: FunctionalOption<DataPath>[]
+) => makeNominalTypeFromDataGuarantee(
     mustBeDataPathData,
     input,
     { onError, path },

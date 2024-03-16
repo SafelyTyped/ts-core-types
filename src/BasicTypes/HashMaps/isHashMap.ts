@@ -32,15 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
 import type { AnyTypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator";
-import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { isType } from "../../Operators/isType/isType";
 import { HashMap } from "./HashMap";
 import { validateHashMap } from "./validateHashMap";
 
 /**
- * `isHashMap()` is a type guard.
+ * `isHashMap()` is a {@link TypeGuard}.
  *
  * Use it to convince the Typescript compiler that `input` really is
  * a HashMap<T>
@@ -48,9 +46,6 @@ import { validateHashMap } from "./validateHashMap";
  * @param valueValidator -
  * the validator to use to make sure your HashMap contains the kind of
  * data that you expect
- * @param path -
- * where you are in your data structures. Use {@link DEFAULT_DATA_PATH}
- * if you don't know what else to pass in here.
  * @param input -
  * the value to check
  * @returns
@@ -60,13 +55,10 @@ import { validateHashMap } from "./validateHashMap";
 export function isHashMap<T>(
     valueValidator: AnyTypeValidator,
     input: unknown,
-    {
-        path = DEFAULT_DATA_PATH
-    }: Partial<TypeGuardOptions> = {}
 ): input is HashMap<T> {
     return isType(
-        () => validateHashMap(valueValidator, input, { path }),
+        () => validateHashMap(valueValidator, input),
         input,
-        { path }
+        {}
     );
 }

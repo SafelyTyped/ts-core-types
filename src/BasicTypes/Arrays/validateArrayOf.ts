@@ -60,7 +60,7 @@ export function validateArrayOf<T>(
     input: unknown[],
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<T[]> {
     // our return value
     let retval: AppErrorOr<T[]> = input as T[];

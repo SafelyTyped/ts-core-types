@@ -41,13 +41,14 @@ import { validate } from "../../Operators/validate/validate";
 import type { ProtocolDefinition } from "../ProtocolDefinition/ProtocolDefinition";
 
 /**
- * `validateImplementsProtocol()` is a type validator. Use it to prove
+ * `validateImplementsProtocol()` is a {@link TypeValidator}. Use it to prove
  * that `input` (probably!) has the public API described by `protocol`.
  *
  * We say "probably" because JavaScript currently has very limited
  * reflection support at runtime.
  *
  * We check:
+ * - that `input` is an object
  * - that the methods all exist on input
  *
  * We do not check:
@@ -71,7 +72,7 @@ export function validateImplementsProtocol<T extends object>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<T> {
     return validate(input)
         .next((x) => validateObject(x, { path }))

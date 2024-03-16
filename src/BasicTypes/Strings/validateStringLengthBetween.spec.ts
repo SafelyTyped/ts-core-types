@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, UnsupportedStringLengthRangeError, validateStringLengthBetween } from "@safelytyped/core-types";
+import { DEFAULT_DATA_PATH, StringIsTooLongError, StringIsTooShortError, validateStringLengthBetween } from "@safelytyped/core-types";
 
 describe("validateStringLength()", () => {
     it("returns `input` when the input validates", () => {
@@ -61,11 +61,10 @@ describe("validateStringLength()", () => {
 
     it("returns an `AppError` when the input is too short", () => {
         const inputValue = "goodbye!";
-        const expectedValue = new UnsupportedStringLengthRangeError({
+        const expectedValue = new StringIsTooShortError({
             public: {
                 dataPath: DEFAULT_DATA_PATH,
                 minLength: 10,
-                maxLength: 100,
                 actualLength: 8,
             }
         })
@@ -73,18 +72,17 @@ describe("validateStringLength()", () => {
             10, 100,
             inputValue
         );
-        expect(actualValue).to.be.instanceOf(UnsupportedStringLengthRangeError);
-        if (actualValue instanceof UnsupportedStringLengthRangeError) {
+        expect(actualValue).to.be.instanceOf(StringIsTooShortError);
+        if (actualValue instanceof StringIsTooShortError) {
             expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);
         }
     });
 
     it("returns an `AppError` when the input is too long", () => {
         const inputValue = "goodbye!";
-        const expectedValue = new UnsupportedStringLengthRangeError({
+        const expectedValue = new StringIsTooLongError({
             public: {
                 dataPath: DEFAULT_DATA_PATH,
-                minLength: 0,
                 maxLength: 5,
                 actualLength: 8,
             }
@@ -93,8 +91,8 @@ describe("validateStringLength()", () => {
             0, 5,
             inputValue
         );
-        expect(actualValue).to.be.instanceOf(UnsupportedStringLengthRangeError);
-        if (actualValue instanceof UnsupportedStringLengthRangeError) {
+        expect(actualValue).to.be.instanceOf(StringIsTooLongError);
+        if (actualValue instanceof StringIsTooLongError) {
             expect(actualValue.details).to.eql(expectedValue.details, "failed on " + inputValue);
         }
     });

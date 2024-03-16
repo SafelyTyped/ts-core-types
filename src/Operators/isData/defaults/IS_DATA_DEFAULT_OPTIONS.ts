@@ -31,14 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes/Nominals/Factories/defaults/MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS";
-import type { MakeHttpStatusCodeOptions } from "../MakeHttpStatusCodeOptions";
+
+import type { DataGuardOptions } from "../../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
 
 /**
- * `MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS` are the default options to pass
- * into {@link makeHttpStatusCode}.
+ * `IS_DATA_DEFAULT_OPTIONS` are the default options you can pass to
+ * {@link isData}.
  *
  * @public
  */
-export const MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS: MakeHttpStatusCodeOptions
-    = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;
+export const IS_DATA_DEFAULT_OPTIONS: DataGuardOptions = {};

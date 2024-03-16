@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { BooleanishValidator } from "./BooleanishValidator";
+import type { AnyBooleanishValidator } from "./AnyBooleanishValidator";
 
 /**
  * `BooleanishRules` describes how to convert from different types to a
@@ -51,8 +51,8 @@ import type { BooleanishValidator } from "./BooleanishValidator";
  *
  * @public
  */
-export interface BooleanishRules {
-    [key: string]: BooleanishValidator<any>;
+export type BooleanishRules = {
+    [key: string]: AnyBooleanishValidator;
 }
 
 

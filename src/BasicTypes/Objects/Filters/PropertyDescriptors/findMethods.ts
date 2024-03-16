@@ -62,7 +62,7 @@ export function findMethods(
     input: object,
     {
         nextPrototype = NEXT_PROTOTYPE,
-    }: Partial<PropertyDescriptorFilterOptions> = {},
+    }: PropertyDescriptorFilterOptions = {},
     ...filters: PropertyDescriptorFilter[]
 ): Map<string, PropertyDescriptor> {
     return findProperties(

@@ -32,12 +32,19 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { MakeNominalTypeOptions } from "../../Archetypes/Nominals/Factories/MakeNominalTypeOptions.js";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicData";
 
 /**
- * `MakeNodeJSModuleNameOptions` defines the options that you can pass into
- * {@link makeNodeJSModuleName}.
+ * `StringIsTooLongData` is the input that {@link StringIsTooLongError}
+ * requires.
  *
  * @public
  */
-export type MakeNodeJSModuleNameOptions = MakeNominalTypeOptions;
+export type StringIsTooLongData = ExtraPublicData & {
+    public: {
+        dataPath: DataPath,
+        maxLength: number;
+        actualLength: number;
+    }
+}

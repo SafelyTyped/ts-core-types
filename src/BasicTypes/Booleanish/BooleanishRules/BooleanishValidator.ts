@@ -33,6 +33,7 @@
 //
 
 import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { EmptyObject } from "../../Objects/EmptyObject";
 import type { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
 
 /**
@@ -44,7 +45,7 @@ import type { BooleanishValidatorOptions } from "./BooleanishValidatorOptions";
  *
  * @public
  */
-export type BooleanishValidator<T, OPT extends object = object> = (
+export type BooleanishValidator<T, OPT extends object = EmptyObject> = (
     input: T,
     options: BooleanishValidatorOptions<OPT>
 ) => AppErrorOr<boolean>;

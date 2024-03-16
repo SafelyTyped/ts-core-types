@@ -65,7 +65,7 @@ export function validateEntity<ID = unknown, T = unknown>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<Entity<ID,T>>
 {
     return validate(input)
@@ -78,7 +78,7 @@ function validateHasImplementsEntityMethod<ID, T>(
     input: object,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<Entity<ID,T>>
 {
     if (typeof (input as Entity<ID,T>).implementsEntity === "function"

@@ -44,7 +44,7 @@
  *
  * @public
  */
-export interface ExtraData {
+export type ExtraData = {
     /**
      * `public` holds any extra information that should be sent back
      * to the application / API end-user.

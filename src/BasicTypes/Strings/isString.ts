@@ -46,6 +46,6 @@ import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE
  *
  * @public
  */
-export const isString: TypeGuard<string>
-    = (input: unknown): input is string =>
-        isType(validateString, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isString: TypeGuard<string> = (
+    input: unknown
+): input is string => isType(validateString, input, IS_TYPE_DEFAULT_OPTIONS);

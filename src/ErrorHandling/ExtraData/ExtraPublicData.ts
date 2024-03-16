@@ -42,7 +42,7 @@
  *
  * @public
  */
-export interface ExtraPublicData {
+export type ExtraPublicData = {
     /**
      * `public` holds any extra information that should be sent back
      * to the application / API end-user.

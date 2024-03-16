@@ -57,7 +57,7 @@ export const mustBeFunction: TypeGuarantee<Function, TypeGuaranteeOptions> = (
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ) => mustBe(input, { onError })
     .next((x) => validateFunction(x, { path }))
     .value();

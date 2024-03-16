@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface UnsupportedBooleanishValueData extends ExtraPublicData {
+export type UnsupportedBooleanishValueData = ExtraPublicData & {
     public: {
         dataPath: DataPath,
         type: string,

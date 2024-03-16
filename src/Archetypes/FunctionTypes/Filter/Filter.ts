@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2020-present Ganbaro Digital Ltd
+// Copyright (c) 2024-present Ganbaro Digital Ltd
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,16 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes/Nominals/Factories/defaults/MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS";
-import type { MakeNodeJSModuleNameOptions } from "../MakeNodeJSModuleNameOptions";
 
 /**
- * `MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS` are the default options you can pass into
- * {@link makeNodeJSModuleName}.
+ * A `Filter` inspects the given `input` data, and determines whether or
+ * not that data passes the implemented contract / specification.
  *
- * Use this if you want to pass in functional options.
- *
- * @public
+ * A `Filter` is a weak {@link DataGuard} that doesn't work as Typescript
+ * compiler type guard.
  */
-export const MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS: MakeNodeJSModuleNameOptions
-    = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;
+export type Filter<T> = (input: T) => boolean;

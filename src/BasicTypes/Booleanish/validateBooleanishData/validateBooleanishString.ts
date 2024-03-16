@@ -43,7 +43,7 @@ import { UnsupportedBooleanishValueError } from "../../../Errors/UnsupportedBool
  *
  * @public
  */
-export interface BooleanishStrings {
+export type BooleanishStrings = {
     true: string[];
     false: string[];
 }
@@ -67,7 +67,7 @@ export function validateBooleanishString(
     input: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<boolean> {
     // shorthand
     const normInput = input.toLowerCase().trim();

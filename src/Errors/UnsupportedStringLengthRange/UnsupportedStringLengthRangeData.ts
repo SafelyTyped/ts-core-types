@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface UnsupportedStringLengthRangeData extends ExtraPublicData {
+export type UnsupportedStringLengthRangeData = ExtraPublicData & {
     public: {
         dataPath: DataPath,
         minLength: number;

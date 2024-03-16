@@ -32,6 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject";
+
 /**
  * A `ComposableFunction` is any function that:
  *
@@ -48,7 +50,7 @@
  * @typeParam OUT -
  * Type of data that the function produces.
  * @typeParam OPT -
- * Type of user-supplied options that the function accepts.
+ * Type of user-supplied options that the function accepts (if any)
  * @param input
  * - The data that the function accepts.
  * @returns
@@ -56,4 +58,4 @@
  *
  * @public
  */
-export type ComposableFunction<IN, OUT, OPT = object> = (input: IN, options?: OPT) => OUT;
+export type ComposableFunction<IN, OUT, OPT extends object = EmptyObject> = (input: IN, options?: OPT) => OUT;

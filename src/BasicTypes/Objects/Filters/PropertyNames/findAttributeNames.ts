@@ -59,7 +59,7 @@ export function findAttributeNames(
     input: object,
     {
         nextPrototype = NEXT_PROTOTYPE
-    }: Partial<PropertyNameFilterOptions> = {},
+    }: PropertyNameFilterOptions = {},
     ...filters: PropertyNameFilter[]
 ): string[] {
     return findPropertyNames(

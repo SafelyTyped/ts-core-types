@@ -38,6 +38,8 @@ import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 import { validate } from "../../Operators/validate/validate";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
+import type { HttpStatusCode } from "./HttpStatusCode";
+import { recast } from "../../Operators/recast/recast";
 
 /**
  * `validateHttpStatusCodeData()` is a {@link DataValidator}. Use it to
@@ -51,13 +53,14 @@ import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataVa
  * @public
  */
 export function validateHttpStatusCodeData (
-    input: unknown,
+    input: number,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
-): AppErrorOr<number> {
+    }: DataValidatorOptions = {}
+): AppErrorOr<HttpStatusCode> {
     return validate(input)
         .next((x) => validateInteger(x, { path }))
         .next((x) => validateHttpStatusCodeDataRange(x, { path }))
+        .next((x) => recast<number, HttpStatusCode>(input))
         .value();
 }

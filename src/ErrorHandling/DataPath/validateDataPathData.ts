@@ -58,10 +58,10 @@ export function validateDataPathData(
     input: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<DataPath> {
     return validate(input)
         .next((x) => validateStringStartsWith(".", x, { path }))
-        .next((x) => recast<string, AppErrorOr<DataPath>>(x))
+        .next((x) => recast<string, DataPath>(x))
         .value();
 }

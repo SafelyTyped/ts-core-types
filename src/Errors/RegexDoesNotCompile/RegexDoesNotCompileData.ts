@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface RegexDoesNotCompileData extends ExtraPublicData {
+export type RegexDoesNotCompileData = ExtraPublicData & {
     public: {
         dataPath: DataPath;
         input: string;

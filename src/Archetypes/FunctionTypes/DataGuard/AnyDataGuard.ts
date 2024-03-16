@@ -40,4 +40,4 @@ import type { DataGuard } from "./DataGuard";
  *
  * @public
  */
-export type AnyDataGuard = DataGuard<unknown>;
+export type AnyDataGuard = DataGuard<any>;

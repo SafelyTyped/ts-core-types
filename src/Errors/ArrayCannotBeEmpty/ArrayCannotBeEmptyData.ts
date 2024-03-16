@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface ArrayCannotBeEmptyData extends ExtraPublicData {
+export type ArrayCannotBeEmptyData = ExtraPublicData & {
     public: {
         /**
          * `dataPath` is your location in the data structure

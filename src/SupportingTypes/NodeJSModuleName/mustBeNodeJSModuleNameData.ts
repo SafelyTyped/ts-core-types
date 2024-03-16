@@ -34,15 +34,14 @@
 
 import type { NodeJSModuleName } from "./NodeJSModuleName";
 import { validateNodeJSModuleNameData } from "./validateNodeJSModuleNameData";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.js";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { mustBe } from "../../Operators/mustBe/mustBe";
-import { validateString } from "../../BasicTypes/Strings/validateString";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
 
 /**
- * `mustBeNodeJSModuleNameData()` is a data guarantee. It calls the supplied
- * {@link OnError} handler if the input string isn't an acceptable
+ * `mustBeNodeJSModuleNameData()` is a {@link DataGuarantee}. It calls the
+ * supplied {@link OnError} handler if the input string isn't an acceptable
  * {@link NodeJSModuleName}.
  *
  * @param input -
@@ -55,13 +54,12 @@ import { validateString } from "../../BasicTypes/Strings/validateString";
  * @public
  */
 export const mustBeNodeJSModuleNameData = (
-    input: unknown,
+    input: string,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<DataGuaranteeOptions> = {},
+    }: DataGuaranteeOptions = {},
 ): NodeJSModuleName =>
     mustBe(input, { onError })
-        .next((x) => validateString(x, { path }))
         .next((x) => validateNodeJSModuleNameData(x, { path }))
         .value();

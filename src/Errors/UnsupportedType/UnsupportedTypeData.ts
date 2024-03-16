@@ -42,7 +42,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface UnsupportedTypeData extends ExtraPublicData {
+export type UnsupportedTypeData = ExtraPublicData & {
     public: {
         dataPath: DataPath;
         expected: string;

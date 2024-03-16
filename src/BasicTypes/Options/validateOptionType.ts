@@ -69,7 +69,7 @@ export function validateOptionType<A, B>(
     input: unknown,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<A|B> {
     // first time's a charm
     const resA = aValidator(input, { path });

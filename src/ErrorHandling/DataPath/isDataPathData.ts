@@ -32,13 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
+import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
+import { IS_DATA_DEFAULT_OPTIONS } from "../../Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
 import { isData } from "../../Operators/isData/isData";
-import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
+import type { DataPath } from "./DataPath";
 import { validateDataPathData } from "./validateDataPathData";
 
 /**
- * `isDataPathData()` is a {@link DataGuard}. Use it to prove that an unknown
+ * `isDataPathData()` is a {@link DataGuard}. Use it to prove that the given
  * `input` is valid {@link DataPath} data.
  *
  * @param input -
@@ -46,8 +47,6 @@ import { validateDataPathData } from "./validateDataPathData";
  *
  * @public
  */
-export const isDataPathData = (
+export const isDataPathData: DataGuard<string, DataPath> = (
     input: string,
-    { path = DEFAULT_DATA_PATH }: Partial<DataGuardOptions> = {}
-): boolean =>
-    isData(validateDataPathData, input, { path });
+): input is DataPath => isData(validateDataPathData, input, IS_DATA_DEFAULT_OPTIONS);

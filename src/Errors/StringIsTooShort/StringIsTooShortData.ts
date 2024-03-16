@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface StringIsTooShortData extends ExtraPublicData {
+export type StringIsTooShortData = ExtraPublicData & {
     public: {
         dataPath: DataPath,
         minLength: number;

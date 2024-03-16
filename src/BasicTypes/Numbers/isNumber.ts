@@ -46,6 +46,6 @@ import { validateNumber } from "./validateNumber";
  *
  * @public
  */
-export const isNumber: TypeGuard<number>
-    = (input: unknown): input is number =>
-        isType(validateNumber, input, IS_TYPE_DEFAULT_OPTIONS);
+export const isNumber: TypeGuard<number> = (
+    input: unknown
+): input is number => isType(validateNumber, input, IS_TYPE_DEFAULT_OPTIONS);

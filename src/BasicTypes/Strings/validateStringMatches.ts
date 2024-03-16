@@ -61,7 +61,7 @@ export function validateStringMatches(
     input: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<string> {
     if (regex.test(input)) {
         return input;

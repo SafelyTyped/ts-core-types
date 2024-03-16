@@ -45,6 +45,8 @@ import { validateArray } from "./validateArray";
  *
  * @param input -
  * the value to inspect
+ * @param path -
+ * dot.notation.path through your data structure to where `input` is
  * @param onError -
  * If `input` fails validation, we'll pass the error onto this handler.
  * @returns
@@ -53,12 +55,12 @@ import { validateArray } from "./validateArray";
  *
  * @public
  */
-export const mustBeArray: TypeGuarantee<unknown[], TypeGuaranteeOptions> = (
+export const mustBeArray: TypeGuarantee<unknown[]> = (
     input: unknown,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ) => mustBe(input, { onError })
     .next((x) => validateArray(x, { path }))
     .value();

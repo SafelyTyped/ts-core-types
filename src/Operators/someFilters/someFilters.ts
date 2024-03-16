@@ -32,12 +32,35 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import type { Filter } from "../../Archetypes/FunctionTypes/Filter/Filter";
 
 /**
- * `MakeNominalTypeOptions` is the list of user-supplied options
- * that can be passed into {@link makeNominalType}.
+ * `someGuards()` is an operator. Use it to apply a set of {@link Filter}
+ * functions to the `input` value.
+ *
+ * We stop (and return `true`) as soon as one of the filters returns `true`.
+ *
+ * @typeParam T -
+ * the type of input that your filters accept
+ * @param input -
+ * the value to be inspected
+ * @param filters -
+ * a list of filters to be applied
+ * @returns
+ * - `true` if any filter returns `true`
+ * - `false` otherwise
  *
  * @public
  */
-export type MakeNominalTypeOptions = TypeGuaranteeOptions;
+export function someFilters<T>(
+    filters: Filter<T>[],
+    input: T,
+): boolean {
+    for (const filter of filters) {
+        if (filter(input)) {
+            return true;
+        }
+    }
+
+    return false;
+}

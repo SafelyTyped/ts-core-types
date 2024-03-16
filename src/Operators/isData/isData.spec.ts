@@ -34,7 +34,7 @@
 import { expect } from "chai";
 import { describe } from "mocha";
 
-import { DEFAULT_DATA_PATH, isData } from "@safelytyped/core-types";
+import { IS_DATA_DEFAULT_OPTIONS, isData } from "@safelytyped/core-types";
 
 describe("isData()", () => {
     it("returns `true` if the validator does not return an Error", () => {
@@ -52,7 +52,7 @@ describe("isData()", () => {
             const inputValue = "";
             const expectedValue = true;
 
-            const actualValue = isData(validator, inputValue, { path: DEFAULT_DATA_PATH });
+            const actualValue = isData(validator, inputValue, IS_DATA_DEFAULT_OPTIONS);
             expect(actualValue).to.equal(expectedValue);
         });
     });
@@ -64,7 +64,7 @@ describe("isData()", () => {
         const actualValue = isData(
             () => new TypeError("this is a test"),
             inputValue,
-            { path: DEFAULT_DATA_PATH }
+            {}
         );
         expect(actualValue).to.equal(expectedValue);
     });

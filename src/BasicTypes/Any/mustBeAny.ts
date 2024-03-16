@@ -55,5 +55,5 @@ export const mustBeAny: TypeGuarantee<any, TypeGuaranteeOptions> = (
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ) => input;

@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import type { TypeGuarantee } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { mustBe } from "../../Operators/mustBe/mustBe";
@@ -41,7 +41,7 @@ import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
 
 /**
- * `mustBeBooleanishData()` is a {@link DataGuarantee}. Use it to ensure
+ * `mustBeBooleanishData()` is a {@link TypeGuarantee}. Use it to ensure
  * that the unknown `input` contains a value that can be converted into
  * `true` or `false`.
  *
@@ -52,6 +52,8 @@ import { validateBooleanishData } from "./validateBooleanishData/validateBoolean
  * the value to inspect
  * @param onError -
  * if validation fails, we'll pass the error to this OnError handler
+ * @param path -
+ * dot.notation.path through your nested data structure to where `input` is
  * @returns
  * - `true` if `input` can be converted into `true`
  * - `false` if `input` can be converted into `false`
@@ -59,13 +61,13 @@ import { validateBooleanishData } from "./validateBooleanishData/validateBoolean
  *
  * @public
  */
-export const mustBeBooleanishData: DataGuarantee = (
+export const mustBeBooleanishData: TypeGuarantee = (
     input: unknown,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
         booleanish = DEFAULT_BOOLEANISH_RULES,
-    }: Partial<DataGuaranteeOptions> & Partial<BooleanishDataOptions> = {}
+    }: TypeGuaranteeOptions & BooleanishDataOptions = {}
 ): boolean => mustBe(input, { onError })
     .next((x) => validateBooleanishData(x, { path, booleanish }))
     .value();

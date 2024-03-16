@@ -61,7 +61,7 @@ export function validateStringValue(
     input: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<string> {
     // this will bail on the first match
     const res = validValues.some((value) => {

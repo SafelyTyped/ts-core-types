@@ -40,7 +40,7 @@ import type { ExtraLogsOnlyData } from "../../ErrorHandling/ExtraData/ExtraLogsO
  *
  * @public
  */
-export interface ObjectIsImmutableData extends ExtraLogsOnlyData {
+export type ObjectIsImmutableData = ExtraLogsOnlyData & {
     logsOnly: {
         objectType: string;
     };

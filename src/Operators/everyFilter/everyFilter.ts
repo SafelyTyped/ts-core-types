@@ -31,16 +31,37 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "../../../Archetypes/Nominals/Factories/defaults/MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS";
-import type { MakeDataPathOptions } from "../MakeDataPathOptions";
+
+import type { Filter } from "../../Archetypes/FunctionTypes/Filter/Filter";
 
 /**
- * `MAKE_DATA_PATH_DEFAULT_OPTIONS` are the default options you can pass into
- * {@link makeDataPath}.
+ * `everyFilter()` is an operator. Use it to apply a set of {@link Filter}
+ * functions to the `input` value.
  *
- * Use this if you want to pass in functional options.
+ * We stop (and return `false`) as soon as the first Filter we apply
+ * returns `false`.
+ *
+ * @typeParam T -
+ * the type of input that your filters accept
+ * @param input -
+ * the value to be inspected
+ * @param filters -
+ * a list of filter functions to be applied
+ * @returns
+ * - `true` if every filter function returns `true`
+ * - `false` otherwise
  *
  * @public
  */
-export const MAKE_DATA_PATH_DEFAULT_OPTIONS: MakeDataPathOptions
-    = MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS;
+export function everyFilter<T>(
+    filters: Filter<T>[],
+    input: T,
+): boolean {
+    for (const filter of filters) {
+        if (!filter(input)) {
+            return false;
+        }
+    }
+
+    return true;
+}

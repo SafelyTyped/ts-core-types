@@ -65,7 +65,7 @@ export function mustBeEntity<ID = unknown, T = unknown>(
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
-    }: Partial<TypeGuaranteeOptions> = {}
+    }: TypeGuaranteeOptions = {}
 ): Entity<ID,T> {
     return mustBe(input, { onError })
         .next((x) => validateEntity<ID,T>(x, { path }))

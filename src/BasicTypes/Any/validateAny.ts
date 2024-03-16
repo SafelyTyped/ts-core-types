@@ -55,7 +55,7 @@ export function validateAny(
     input: any,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: TypeValidatorOptions = {}
 ): AppErrorOr<any> {
     return input;
 }

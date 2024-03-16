@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface ObjectCannotBeEmptyData extends ExtraPublicData {
+export type ObjectCannotBeEmptyData = ExtraPublicData & {
     public: {
         dataPath: DataPath,
     }

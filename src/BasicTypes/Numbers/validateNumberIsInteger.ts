@@ -32,15 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";
 
 /**
- * `validateInteger()` is a {@link TypeValidator}. Use it to prove that
- * the given input is really a `number`, or to find out why we think it
- * isn't a number.
+ * `validateInteger()` is a {@link DataValidator}. Use it to prove that
+ * the given `input` number is an integer.
  *
  * @param path -
  * @param input -
@@ -51,15 +50,18 @@ export function validateNumberIsInteger(
     input: number,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<TypeValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<number> {
     // slower than bitwise operations, but always safe
-    if (Math.trunc(input) !== input) {
+    const expected = Math.trunc(input);
+
+    // did we get the same number back?
+    if (expected !== input) {
         return new UnsupportedTypeError({
             public: {
                 dataPath: path,
-                expected: "number (with an integer value)",
-                actual: "number (with a non-integer value)"
+                expected: expected.toString(),
+                actual: input.toString(),
             }
         });
     }

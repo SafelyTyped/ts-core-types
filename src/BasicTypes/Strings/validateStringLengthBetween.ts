@@ -35,7 +35,9 @@
 import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import { UnsupportedStringLengthRangeError } from "../../Errors/UnsupportedStringLengthRange/UnsupportedStringLengthRangeError";
+import { validate } from "../../Operators/validate/validate";
+import { validateStringMaxLength } from "./validateStringMaxLength";
+import { validateStringMinLength } from "./validateStringMinLength";
 
 /**
  * `validateStringLengthBetween()` is a {@link DataValidator}. It proves that
@@ -64,22 +66,10 @@ export function validateStringLengthBetween(
     input: string,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<string> {
-    // does our input string validate?
-    if (input.length >= minLength) {
-        // so far, so good
-        if (maxLength < 0 || input.length <= maxLength) {
-            // all good
-            return input;
-        }
-    }
-
-    // let's give them the bad news
-    return new UnsupportedStringLengthRangeError({ public: {
-        dataPath: path,
-        minLength,
-        maxLength,
-        actualLength: input.length,
-    }});
+    return validate(input)
+        .next((x) => validateStringMinLength(minLength, x, { path }))
+        .next((x) => validateStringMaxLength(maxLength, x, { path }))
+        .value();
 }

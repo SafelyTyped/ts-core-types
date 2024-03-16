@@ -40,6 +40,6 @@ import type { BooleanishRules } from "./BooleanishRules/BooleanishRules";
  *
  * @public
  */
-export interface BooleanishDataOptions {
-    booleanish: BooleanishRules;
+export type BooleanishDataOptions = {
+    booleanish?: BooleanishRules;
 }

@@ -32,12 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { MakeNominalTypeOptions } from "./MakeNominalTypeOptions";
-import type { DataGuarantee } from "../../FunctionTypes/DataGuarantee/DataGuarantee";
+import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject";
+import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { THROW_THE_ERROR } from "../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import type { FunctionalOption } from "../../FunctionTypes/FunctionalOption/FunctionalOption";
 import { applyFunctionalOptions } from "../../FunctionTypes/FunctionalOption/applyFunctionalOptions";
-import { THROW_THE_ERROR } from "../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import type { TypeGuarantee } from "../../FunctionTypes/TypeGuarantee/TypeGuarantee";
+import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
 
 /**
  * `makeNominalType()` converts your input type into a branded or
@@ -47,7 +48,7 @@ import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFA
  * @param contract -
  * This will be called to make sure that `input` contains valid data for
  * your nominal type.
- * Make sure that it has no side-effects whatsoever.
+ * Side-effects are allowed, but discouraged.
  * @param input -
  * The data to brand or flavour.
  * @param onError -
@@ -61,31 +62,34 @@ import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFA
  * A (possibly empty) list of user-supplied functional options. These will
  * be applied once the `contract()` has successfully validated the `input`
  * data.
- * @typeParam IN -
- * The data type that the smart constructor accepts.
  * @typeParam OUT -
  * The data type that the smart constructor produces.
  * @typeParam OPT -
  * The data type for the user-supplied options.
+ * @typeParam FN_OPT -
+ * The data type for user-supplied options that the functional options accept.
  */
-export function makeNominalType<IN, OUT, OPT extends MakeNominalTypeOptions = MakeNominalTypeOptions>(
-    contract: DataGuarantee<IN, OPT>,
-    input: IN,
+export function makeNominalTypeFromTypeGuarantee<OUT, OPT extends TypeGuaranteeOptions = TypeGuaranteeOptions, FN_OPT extends object = EmptyObject>(
+    contract: TypeGuarantee<OUT, OPT>,
+    input: unknown,
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH,
         ...options
     }: Partial<OPT> = {},
-    ...fnOpts: FunctionalOption<IN|OUT, OPT>[]
-): OUT {
+    ...fnOpts: FunctionalOption<OUT, FN_OPT>[]
+): OUT
+{
     // shorthand
-    //
-    // the typecast is required since Typescript 4.0
     const opts = { onError, path, ...options } as OPT;
 
     // enforce the contract
-    contract(input, opts);
+    const retval = contract(input, opts);
 
     // apply any functional options we've been given
-    return applyFunctionalOptions<IN|OUT, OPT>(input, opts, ...fnOpts) as OUT;
+    return applyFunctionalOptions<OUT, FN_OPT>(
+        retval,
+        (opts as unknown) as FN_OPT,
+        ...fnOpts
+    );
 }

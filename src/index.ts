@@ -62,6 +62,9 @@ export type { AnyDataValidator } from "./Archetypes/FunctionTypes/DataValidator/
 export type { DataValidator } from "./Archetypes/FunctionTypes/DataValidator/DataValidator";
 export type { DataValidatorOptions } from "./Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
 
+export type { AnyFilter } from "./Archetypes/FunctionTypes/Filter/AnyFilter";
+export type { Filter } from "./Archetypes/FunctionTypes/Filter/Filter";
+
 export type { AnyFunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/AnyFunctionalOption";
 export type { FunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
 export { applyFunctionalOptions } from "./Archetypes/FunctionTypes/FunctionalOption/applyFunctionalOptions";
@@ -87,9 +90,8 @@ export type { AnyNominal } from "./Archetypes/Nominals/AnyNominal/AnyNominal";
 export type { AnyBranded } from "./Archetypes/Nominals/Branded/AnyBranded";
 export type { Branded } from "./Archetypes/Nominals/Branded/Branded";
 
-export { MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS } from "./Archetypes/Nominals/Factories/defaults/MAKE_NOMINAL_TYPE_DEFAULT_OPTIONS";
-export type { MakeNominalTypeOptions } from "./Archetypes/Nominals/Factories/MakeNominalTypeOptions";
-export { makeNominalType } from "./Archetypes/Nominals/Factories/makeNominalType";
+export { makeNominalTypeFromDataGuarantee } from "./Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
+export { makeNominalTypeFromTypeGuarantee } from "./Archetypes/Nominals/Factories/makeNominalTypeFromTypeGuarantee";
 
 export type { AnyFlavoured } from "./Archetypes/Nominals/Flavoured/AnyFlavoured";
 export type { Flavoured } from "./Archetypes/Nominals/Flavoured/Flavoured";
@@ -204,6 +206,7 @@ export type { PropertyNameFilterOptions } from "./BasicTypes/Objects/Filters/Pro
 export { assignOptionalFields } from "./BasicTypes/Objects/assignOptionalFields";
 export { assignOptionalFieldsUsingTransformers } from "./BasicTypes/Objects/assignOptionalFieldsUsingTransformers";
 export { deleteProperty } from "./BasicTypes/Objects/deleteProperty";
+export type { EmptyObject } from "./BasicTypes/Objects/EmptyObject";
 export { getAllMethodNames } from "./BasicTypes/Objects/getAllMethodNames";
 export { getAllMethods } from "./BasicTypes/Objects/getAllMethods";
 export { getMissingMethodNames } from "./BasicTypes/Objects/getMissingMethodNames";
@@ -256,6 +259,7 @@ export { mustBeString } from "./BasicTypes/Strings/mustBeString";
 export { validateString } from "./BasicTypes/Strings/validateString";
 export { validateStringLengthBetween } from "./BasicTypes/Strings/validateStringLengthBetween";
 export { validateStringMatches } from "./BasicTypes/Strings/validateStringMatches";
+export { validateStringMaxLength } from "./BasicTypes/Strings/validateStringMaxLength";
 export { validateStringMinLength } from "./BasicTypes/Strings/validateStringMinLength";
 export { validateStringStartsWith } from "./BasicTypes/Strings/validateStringStartsWith";
 export { validateStringValue } from "./BasicTypes/Strings/validateStringValue";
@@ -282,11 +286,9 @@ export type { AppErrorOr } from "./ErrorHandling/AppErrorOr/AppErrorOr";
 // DataPath
 export type { DataPath } from "./ErrorHandling/DataPath/DataPath";
 export { DEFAULT_DATA_PATH } from "./ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-export { MAKE_DATA_PATH_DEFAULT_OPTIONS } from "./ErrorHandling/DataPath/defaults/MAKE_DATA_PATH_DEFAULT_OPTIONS";
 export { extendDataPath } from "./ErrorHandling/DataPath/extendDataPath";
 export { isDataPathData } from "./ErrorHandling/DataPath/isDataPathData";
 export { makeDataPath } from "./ErrorHandling/DataPath/makeDataPath";
-export type { MakeDataPathOptions } from "./ErrorHandling/DataPath/MakeDataPathOptions";
 export { mustBeDataPathData } from "./ErrorHandling/DataPath/mustBeDataPathData";
 export { validateDataPathData } from "./ErrorHandling/DataPath/validateDataPathData";
 
@@ -347,6 +349,8 @@ export type { RegexReturnedNoNamedGroupsData } from "./Errors/RegexReturnedNoNam
 export { RegexReturnedNoNamedGroupsError } from "./Errors/RegexReturnedNoNamedGroups/RegexReturnedNoNamedGroupsError";
 export type { RegexReturnedNoResultsData } from "./Errors/RegexReturnedNoResults/RegexReturnedNoResultsData";
 export { RegexReturnedNoResultsError } from "./Errors/RegexReturnedNoResults/RegexReturnedNoResultsError";
+export type { StringIsTooLongData } from "./Errors/StringIsTooLong/StringIsTooLongData";
+export { StringIsTooLongError } from "./Errors/StringIsTooLong/StringIsTooLongError";
 export type { StringIsTooShortData } from "./Errors/StringIsTooShort/StringIsTooShortData";
 export { StringIsTooShortError } from "./Errors/StringIsTooShort/StringIsTooShortError";
 export type { UnreachableCodeData } from "./Errors/UnreachableCode/UnreachableCodeData";
@@ -371,7 +375,11 @@ export { UnsupportedTypeError } from "./Errors/UnsupportedType/UnsupportedTypeEr
 // ----------------------------------------------------------------
 
 export { everyGuard } from "./Operators/everyGuard/everyGuard";
+export { everyFilter } from "./Operators/everyFilter/everyFilter";
+export { identity } from "./Operators/identity/identity";
+export { noop } from "./Operators/identity/identity";
 export { isData } from "./Operators/isData/isData";
+export { IS_DATA_DEFAULT_OPTIONS } from "./Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
 export { isType } from "./Operators/isType/isType";
 export { IS_TYPE_DEFAULT_OPTIONS } from "./Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 export { mustBe } from "./Operators/mustBe/mustBe";
@@ -379,6 +387,7 @@ export type { MustBePipelineStep } from "./Operators/mustBe/MustBePipelineStep";
 export { recast } from "./Operators/recast/recast";
 export { recastIfValid } from "./Operators/recastIfValid/recastIfValid";
 export { someGuards } from "./Operators/someGuards/someGuards";
+export { someFilters } from "./Operators/someFilters/someFilters";
 export { validate } from "./Operators/validate/validate";
 export type { ValidationPipelineStep } from "./Operators/validate/ValidationPipelineStep";
 
@@ -452,19 +461,15 @@ export type { DispatchMapReturnTypes } from "./SupportingTypes/DispatchMap/Dispa
 export { searchDispatchMap } from "./SupportingTypes/DispatchMap/searchDispatchMap";
 
 // HttpStatusCode
-export { MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS } from "./SupportingTypes/HttpStatusCode/defaults/MAKE_HTTP_STATUS_CODE_DEFAULT_OPTIONS";
 export type { HttpStatusCode } from "./SupportingTypes/HttpStatusCode/HttpStatusCode";
 export { isHttpStatusCodeData } from "./SupportingTypes/HttpStatusCode/isHttpStatusCodeData";
 export { makeHttpStatusCode } from "./SupportingTypes/HttpStatusCode/makeHttpStatusCode";
-export type { MakeHttpStatusCodeOptions } from "./SupportingTypes/HttpStatusCode/MakeHttpStatusCodeOptions";
 export { mustBeHttpStatusCodeData } from "./SupportingTypes/HttpStatusCode/mustBeHttpStatusCodeData";
 export { validateHttpStatusCodeData } from "./SupportingTypes/HttpStatusCode/validateHttpStatusCodeData";
 export { validateHttpStatusCodeDataRange } from "./SupportingTypes/HttpStatusCode/validateHttpStatusCodeDataRange";
 
 // NodeJsModuleName
-export { MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS } from "./SupportingTypes/NodeJSModuleName/defaults/MAKE_NODEJS_MODULE_NAME_DEFAULT_OPTIONS";
 export type { NodeJSModuleName } from "./SupportingTypes/NodeJSModuleName/NodeJSModuleName";
-export type { MakeNodeJSModuleNameOptions } from "./SupportingTypes/NodeJSModuleName/MakeNodeJSModuleNameOptions";
 export { isNodeJSModuleNameData } from "./SupportingTypes/NodeJSModuleName/isNodeJSModuleNameData";
 export { makeNodeJSModuleName } from "./SupportingTypes/NodeJSModuleName/makeNodeJSModuleName";
 export { mustBeNodeJSModuleNameData } from "./SupportingTypes/NodeJSModuleName/mustBeNodeJSModuleNameData";

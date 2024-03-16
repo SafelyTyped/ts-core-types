@@ -51,12 +51,13 @@ import type { TypeGuaranteeOptions } from "./TypeGuaranteeOptions";
  * @public
  * @typeParam T -
  * `T` is the type of data we are guaranteeing.
+ * @typeParam OPT -
+ * `OPT` is the type of optional parameters supported by the underlying
+ * {@link TypeValidator} function.
  * @param input -
  * The data to guarantee.
- * @param onError -
- * We call this if `input` fails the inspection.
- * @param path -
- * We use this in thrown Errors to provide a meaningful name for `input`
+ * @param options -
+ * The optional parameters to pass to the underlying {@link TypeValidator}.
  */
 export type TypeGuarantee<T = unknown, OPT extends TypeGuaranteeOptions = TypeGuaranteeOptions>
-    = (input: unknown, options?: Partial<OPT>) => T;
+    = (input: unknown, options?: OPT) => T;

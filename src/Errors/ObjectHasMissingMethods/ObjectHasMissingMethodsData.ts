@@ -41,7 +41,7 @@ import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicD
  *
  * @public
  */
-export interface ObjectHasMissingMethodsData extends ExtraPublicData {
+export type ObjectHasMissingMethodsData = ExtraPublicData & {
     public: {
         path: DataPath;
         missingMethods: NonEmptyArray<string>;

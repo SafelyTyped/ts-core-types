@@ -62,7 +62,7 @@ export function mustBeRegExpExecArrayWithGroups(
     {
         onError = THROW_THE_ERROR,
         path = DEFAULT_DATA_PATH
-    }: Partial<DataGuaranteeOptions> = {}
+    }: DataGuaranteeOptions = {}
 ): RegExpExecArrayWithGroups {
     return mustBe(input, {onError})
         .next((x) => validateRegExpExecArrayWithGroups(regex, x, { path }))

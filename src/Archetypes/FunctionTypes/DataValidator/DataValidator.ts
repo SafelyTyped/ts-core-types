@@ -52,12 +52,14 @@ import type { DataValidatorOptions } from "./DataValidatorOptions";
  *
  * @typeParam IN -
  * The input type that your validator expects.
- * @typeParam T -
+ * @typeParam OUT -
  * The return type from your validator.
+ * @typeParam OPT -
+ * The optional parameters that your validator supports.
  *
  * @public
  */
-export type DataValidator<IN, T, OPT extends DataValidatorOptions = DataValidatorOptions> = (
+export type DataValidator<IN, OUT, OPT extends DataValidatorOptions = DataValidatorOptions> = (
     input: IN,
-    options: OPT
-) => AppErrorOr<T>;
+    options: OPT,
+) => AppErrorOr<OUT>;

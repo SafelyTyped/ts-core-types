@@ -44,7 +44,7 @@ export function regexMustCompile(
     {
         path = DEFAULT_DATA_PATH,
         onError = THROW_THE_ERROR,
-    }: Partial<DataGuaranteeOptions> = {}
+    }: DataGuaranteeOptions = {}
 )
 {
     return mustBe(exp, { onError })

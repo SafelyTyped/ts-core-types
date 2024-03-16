@@ -55,7 +55,7 @@ export function validateObjectNotEmpty<T extends object = object>(
     input: object,
     {
         path = DEFAULT_DATA_PATH
-    }: Partial<DataValidatorOptions> = {}
+    }: DataValidatorOptions = {}
 ): AppErrorOr<T> {
     // there's probably a more efficient way to do this?
     // for now, let's just do the basics that we know will work

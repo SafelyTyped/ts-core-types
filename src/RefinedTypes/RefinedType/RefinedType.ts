@@ -51,7 +51,7 @@ import { ValueObject } from "../../Archetypes/Values/ValueObject/ValueObject";
  *
  * @public
  */
-export class RefinedType<T, OPT extends DataGuaranteeOptions = DataGuaranteeOptions> extends ValueObject<T> {
+export class RefinedType<IN, OUT, OPT extends DataGuaranteeOptions = DataGuaranteeOptions> extends ValueObject<OUT> {
     /**
      * Constructor. Creates a new `RefinedType`.
      *
@@ -65,24 +65,20 @@ export class RefinedType<T, OPT extends DataGuaranteeOptions = DataGuaranteeOpti
      * @param input -
      * This is the value that will be stored, if it passes the `contract`.
      *
-     * @param onError -
-     * The error handler that gets called if the `contract` rejects the
-     * `input` value.
-     *
-     * This is normally supplied by the end-caller.
-     *
-     * Child classes can make this optional, and provide a default
-     * error handler.
+     * @param options -
+     * The options that need to be passed into the contract. Pass in
+     * {@link IS_DATA_DEFAULT_OPTIONS} if you want to use the contract's
+     * default options.
      */
     public constructor(
-        contract: DataGuarantee<T, OPT>,
-        input: T,
-        options: Partial<OPT>,
+        contract: DataGuarantee<IN, OUT, OPT>,
+        input: IN,
+        options: OPT,
     ) {
         // enforce the contract
-        contract(input, options);
+        const res = contract(input, options);
 
         // we're good to go
-        super(input);
+        super(res);
     }
 }

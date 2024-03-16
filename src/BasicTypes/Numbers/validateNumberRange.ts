@@ -48,14 +48,14 @@ import { createNumberOutOfRangeError } from "../../Errors/NumberOutOfRange/creat
  * @public
  */
 export function validateNumberRange(
-    input: number,
     minInc: number,
     maxInc: number,
+    input: number,
     {
         path = DEFAULT_DATA_PATH,
         rangeConstructor = createNumberOutOfRangeError,
         description = undefined,
-    }: Partial<DataValidatorOptions> & {
+    }: DataValidatorOptions & {
         rangeConstructor?: NumberOutOfRangeErrorConstructor
         description?: string,
     } = {}
