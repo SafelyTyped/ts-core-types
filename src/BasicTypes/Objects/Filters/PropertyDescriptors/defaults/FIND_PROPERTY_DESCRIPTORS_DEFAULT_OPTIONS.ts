@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { NEXT_PROTOTYPE } from "../../../../Prototypes/defaults/NEXT_PROTOTYPE";
-import type { PropertyDescriptorFilterOptions } from "../PropertyDescriptorFilterOptions";
+import type { PropertyDescriptorFilterOptions } from "../PropertyDescriptorFilterOptions.type";
 
 /**
  * `FIND_PROPERTIES_DEFAULT_OPTIONS` are the default user-supplied options

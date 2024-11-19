@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { validate } from "../../Operators/validate/validate";
-import type { ProtocolDefinition } from "../ProtocolDefinition/ProtocolDefinition";
+import type { ProtocolDefinition } from "../ProtocolDefinition/ProtocolDefinition.type";
 import { validateImplementsProtocol } from "./validateImplementsProtocol";
 
 /**

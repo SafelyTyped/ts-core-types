@@ -33,13 +33,13 @@
 //
 
 import { getClassNames } from "../../../BasicTypes/Classes/getClassNames";
-import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/UnsupportedTypeError";
 import { validate } from "../../../Operators/validate/validate";
 import { validateImplementsProtocol } from "../../../ProtocolsExtensions/Protocol/validateImplementsProtocol";
-import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
-import { EntityProtocolDefinition, type Entity } from "./Entity";
+import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions.type";
+import { EntityProtocolDefinition, type Entity } from "./Entity.type";
 
 /**
  * `validateEntity()` is a {@link TypeValidator}.

@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { HttpStatusCode } from "./HttpStatusCode";
+import type { HttpStatusCode } from "./HttpStatusCode.type";
 import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { mustBe } from "../../Operators/mustBe/mustBe";

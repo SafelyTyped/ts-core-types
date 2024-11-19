@@ -33,10 +33,10 @@
 //
 
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
 import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import type { NumberOutOfRangeData } from "./NumberOutOfRangeData";
+import type { NumberOutOfRangeData } from "./NumberOutOfRangeData.type";
 
 // unfortunately, ConstructorParams<NumberOutOfRangeError> does not produce the right result
 export type NumberOutOfRangeErrorConstructor = ( params: NumberOutOfRangeData & AppErrorData, { description }: { description?: string} ) => NumberOutOfRangeError;

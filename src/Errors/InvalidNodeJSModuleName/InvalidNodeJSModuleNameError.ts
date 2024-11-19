@@ -33,10 +33,10 @@
 //
 
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
 import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import type { InvalidNodeJSModuleNameData } from "./InvalidNodeJSModuleNameData";
+import type { InvalidNodeJSModuleNameData } from "./InvalidNodeJSModuleNameData.type";
 
 /**
  * `InvalidNodeJSModuleNameError` is thrown when we've been given data that

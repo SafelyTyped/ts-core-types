@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyHashMap } from "../../BasicTypes/HashMaps/AnyHashMap";
+import type { AnyHashMap } from "../../BasicTypes/HashMaps/AnyHashMap.type";
 import { findAttributes } from "../../BasicTypes/Objects/Filters/PropertyDescriptors/findAttributes";
 import { findMethods } from "../../BasicTypes/Objects/Filters/PropertyDescriptors/findMethods";
 import { STOP_AT_NEXT_PROTOTYPE } from "../../BasicTypes/Prototypes/defaults/STOP_AT_NEXT_PROTOTYPE";

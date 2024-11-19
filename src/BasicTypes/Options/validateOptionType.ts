@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator.type";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions.type";
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { extractReasonFromCaught } from "../../ErrorHandling/Helpers/extractReasonFromCaught";
 import { UnsupportedTypeError } from "../../Errors/UnsupportedType/UnsupportedTypeError";

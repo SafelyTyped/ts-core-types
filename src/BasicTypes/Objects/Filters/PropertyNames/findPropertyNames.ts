@@ -31,8 +31,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { PropertyNameFilter } from "./PropertyNameFilter";
-import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
+import type { PropertyNameFilter } from "./PropertyNameFilter.type";
+import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions.type";
 import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
 import { everyFilter } from "../../../../Operators/everyFilter/everyFilter";
 

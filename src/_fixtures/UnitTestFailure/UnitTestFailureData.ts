@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AllExtraData } from "../../ErrorHandling/ExtraData/AllExtraData";
+import type { AllExtraData } from "../../ErrorHandling/ExtraData/AllExtraData.type";
 
 /**
  * @ignore

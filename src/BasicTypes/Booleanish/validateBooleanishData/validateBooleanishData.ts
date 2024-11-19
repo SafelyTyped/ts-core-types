@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuardOptions } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
-import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { TypeGuardOptions } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions.type";
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { searchDispatchMap } from "../../../SupportingTypes/DispatchMap/searchDispatchMap";
 import { getTypeNames } from "../../Unknowns/getTypeNames";
-import type { BooleanishDataOptions } from "../BooleanishDataOptions";
+import type { BooleanishDataOptions } from "../BooleanishDataOptions.type";
 import { DEFAULT_BOOLEANISH_RULES } from "../defaults/DEFAULT_BOOLEANISH_RULES";
 import { createUnsupportedTypeError } from "./createUnsupportedTypeError";
 

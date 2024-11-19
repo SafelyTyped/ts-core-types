@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataPath } from "../../ErrorHandling/DataPath/DataPath";
+import type { DataPath } from "../../ErrorHandling/DataPath/DataPath.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { OnError } from "../../ErrorHandling/OnError/OnError";
+import type { OnError } from "../../ErrorHandling/OnError/OnError.type";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { RegexReturnedNoResultsError } from "../../Errors/RegexReturnedNoResults/RegexReturnedNoResultsError";
 import { regexMustCompile } from "./regexMustCompile";

@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuarantee } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee";
-import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import type { TypeGuarantee } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee.type";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { mustBe } from "../../Operators/mustBe/mustBe";
-import type { NonEmptyArray } from "./NonEmptyArray";
+import type { NonEmptyArray } from "./NonEmptyArray.type";
 import { validateNonEmptyArray } from "./validateNonEmptyArray";
 
 /**

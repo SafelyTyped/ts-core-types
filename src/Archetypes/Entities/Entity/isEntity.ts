@@ -34,7 +34,7 @@
 
 import { IS_TYPE_DEFAULT_OPTIONS } from "../../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../../Operators/isType/isType";
-import type { Entity } from "./Entity";
+import type { Entity } from "./Entity.type";
 import { validateEntity } from "./validateEntity";
 
 /**

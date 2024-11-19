@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { Entity } from "../Entity/Entity";
+import type { Entity } from "../Entity/Entity.type";
 
 /**
  * EntityObject is the base class for defining your Entity hierarchies.

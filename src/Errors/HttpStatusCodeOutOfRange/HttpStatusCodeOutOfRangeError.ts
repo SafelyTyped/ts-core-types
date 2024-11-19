@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
 import { NumberOutOfRangeError } from "../NumberOutOfRange/NumberOutOfRangeError";
-import type { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData";
+import type { HttpStatusCodeOutOfRangeData } from "./HttpStatusCodeOutOfRangeData.type";
 
 /**
  * `HttpStatusCodeOutOfRangeError` is thrown whenever we're given an

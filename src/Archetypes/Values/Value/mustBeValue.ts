@@ -35,9 +35,9 @@
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { mustBe } from "../../../Operators/mustBe/mustBe";
-import type { TypeGuarantee } from "../../FunctionTypes/TypeGuarantee/TypeGuarantee";
-import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
-import type { Value } from "./Value";
+import type { TypeGuarantee } from "../../FunctionTypes/TypeGuarantee/TypeGuarantee.type";
+import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
+import type { Value } from "./Value.type";
 import { validateValue } from "./validateValue";
 
 /**

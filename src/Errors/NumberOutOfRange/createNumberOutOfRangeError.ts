@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
-import type { NumberOutOfRangeData } from "./NumberOutOfRangeData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
+import type { NumberOutOfRangeData } from "./NumberOutOfRangeData.type";
 import { NumberOutOfRangeError, type NumberOutOfRangeErrorConstructor } from "./NumberOutOfRangeError";
 
 export const createNumberOutOfRangeError: NumberOutOfRangeErrorConstructor = (

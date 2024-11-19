@@ -32,11 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/UnsupportedTypeError";
-import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
-import type { Value } from "./Value";
+import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions.type";
+import type { Value } from "./Value.type";
 
 /**
  * `validateValue()` is a {@link TypeValidator}. Use it to prove than an

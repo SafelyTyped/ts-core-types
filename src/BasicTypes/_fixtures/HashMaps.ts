@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyTypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator";
+import type { AnyTypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator.type";
 import { validateAny } from "../Any/validateAny";
 import { validateBoolean } from "../Booleans/validateBoolean";
-import type { AnyHashMap } from "../HashMaps/AnyHashMap";
+import type { AnyHashMap } from "../HashMaps/AnyHashMap.type";
 import { validateHashMap } from "../HashMaps/validateHashMap";
 import { validateObject } from "../Objects/validateObject";
 import { validateString } from "../Strings/validateString";

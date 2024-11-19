@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuardOptions } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
+import type { TypeGuardOptions } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions.type";
 
 /**
  * `IS_TYPE_DEFAULT_OPTIONS` are the default options you can pass to

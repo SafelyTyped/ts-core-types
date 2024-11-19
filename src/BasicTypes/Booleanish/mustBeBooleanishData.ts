@@ -31,12 +31,12 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeGuarantee } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee";
-import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import type { TypeGuarantee } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee.type";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { mustBe } from "../../Operators/mustBe/mustBe";
-import type { BooleanishDataOptions } from "./BooleanishDataOptions";
+import type { BooleanishDataOptions } from "./BooleanishDataOptions.type";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
 

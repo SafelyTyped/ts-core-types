@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { ToString } from "./ToString";
+import type { ToString } from "./ToString.type";
 import { implementsToString } from "./implementsToString";
 
 /**

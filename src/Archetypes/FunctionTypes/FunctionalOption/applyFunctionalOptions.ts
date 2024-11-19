@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject";
-import type { FunctionalOption } from "./FunctionalOption";
+import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject.type";
+import type { FunctionalOption } from "./FunctionalOption.type";
 
 /**
  * `applyFunctionalOptions()` is a helper function. Wrap this around

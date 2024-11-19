@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { Value } from "../Value/Value";
+import type { Value } from "../Value/Value.type";
 
 /**
  * ValueObject is the base class for defining your Value Object

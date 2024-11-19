@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { Prototype } from "./Prototype";
+import type { Prototype } from "./Prototype.type";
 import { isObjectish } from "../Objects/isObjectish";
 import { isArray } from "../Arrays/isArray";
 

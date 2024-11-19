@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicData";
+import type { ExtraPublicData } from "../../ErrorHandling/ExtraData/ExtraPublicData.type";
 
 /**
  * @ignore

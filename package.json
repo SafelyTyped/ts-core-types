@@ -74,7 +74,8 @@
     ],
     "exclude": [
       "**/_fixtures/*",
-      "**/*.spec.ts"
+      "**/*.spec.ts",
+      "**/*.type.ts"
     ]
   }
 }

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuardOptions } from "../../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
+import type { DataGuardOptions } from "../../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions.type";
 
 /**
  * `IS_DATA_DEFAULT_OPTIONS` are the default options you can pass to

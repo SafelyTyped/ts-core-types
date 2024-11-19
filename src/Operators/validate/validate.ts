@@ -25,9 +25,9 @@
 // We (Ganbaro Digital) have modified it to short-circuit if the value
 // has become an Error.
 
-import type { ValidationPipelineStep } from "./ValidationPipelineStep";
+import type { ValidationPipelineStep } from "./ValidationPipelineStep.type";
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 
 /**
  * `validate()` executes a series of functions, one after the next.

@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { Filter } from "../../Archetypes/FunctionTypes/Filter/Filter";
+import type { Filter } from "../../Archetypes/FunctionTypes/Filter/Filter.type";
 
 /**
  * `everyFilter()` is an operator. Use it to apply a set of {@link Filter}

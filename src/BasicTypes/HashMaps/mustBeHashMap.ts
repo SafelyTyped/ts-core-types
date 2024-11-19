@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
-import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { mustBe } from "../../Operators/mustBe/mustBe";

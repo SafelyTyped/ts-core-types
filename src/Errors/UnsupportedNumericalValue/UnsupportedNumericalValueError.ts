@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
 import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import type { UnsupportedNumericalValueData } from "./UnsupportedNumericalValueData";
+import type { UnsupportedNumericalValueData } from "./UnsupportedNumericalValueData.type";
 
 
 /**

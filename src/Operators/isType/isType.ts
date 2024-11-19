@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
-import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions.type";
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator.type";
 
 /**
  * `isType()` is a helper function. Use it to quickly build {@link TypeGuard}

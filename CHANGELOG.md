@@ -25,6 +25,11 @@ The following changes have been completed, and will be included in the next tagg
 
 - added `DataAccessorOptions` type
 
+### Refactor
+
+- moved all types to be out-of-scope for `c8` code coverage tool
+  - `c8` doesn't support code coverage of types at this time
+
 ### Tools
 
 - removed dev dependency on @swc/cli, due to upstream security vulnerability

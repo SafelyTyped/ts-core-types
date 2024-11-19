@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions.type";
 import { validateStringStartsWith } from "../../BasicTypes/Strings/validateStringStartsWith";
 import { recast } from "../../Operators/recast/recast";
 import { validate } from "../../Operators/validate/validate";
-import type { AppErrorOr } from "../AppErrorOr/AppErrorOr";
-import type { DataPath } from "./DataPath";
+import type { AppErrorOr } from "../AppErrorOr/AppErrorOr.type";
+import type { DataPath } from "./DataPath.type";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 
 /**

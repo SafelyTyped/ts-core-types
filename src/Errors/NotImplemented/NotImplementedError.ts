@@ -33,10 +33,10 @@
 //
 
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
 import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import type { NotImplementedData } from "./NotImplementedData";
+import type { NotImplementedData } from "./NotImplementedData.type";
 
 /**
  * `NotImplementedError` is thrown whenever we end up falling out of

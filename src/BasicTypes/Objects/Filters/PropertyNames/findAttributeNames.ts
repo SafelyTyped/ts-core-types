@@ -33,8 +33,8 @@
 //
 import { FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES } from "../defaults/FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES";
 import { findPropertyNames } from "./findPropertyNames";
-import type { PropertyNameFilter } from "./PropertyNameFilter";
-import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions";
+import type { PropertyNameFilter } from "./PropertyNameFilter.type";
+import type { PropertyNameFilterOptions } from "./PropertyNameFilterOptions.type";
 import { FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE } from "../defaults/FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE";
 import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
 

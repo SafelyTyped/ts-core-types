@@ -32,11 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee.type";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
 import { mustBe } from "../../Operators/mustBe/mustBe";
 import { THROW_THE_ERROR } from "../OnError/defaults/THROW_THE_ERROR";
-import type { DataPath } from "./DataPath";
+import type { DataPath } from "./DataPath.type";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
 import { validateDataPathData } from "./validateDataPathData";
 

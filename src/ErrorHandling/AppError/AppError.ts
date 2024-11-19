@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyExtraData } from "../ExtraData/AnyExtraData";
+import type { AnyExtraData } from "../ExtraData/AnyExtraData.type";
 import type { StructuredProblemReport } from "../StructuredProblemReport/StructuredProblemReport";
 
 /**

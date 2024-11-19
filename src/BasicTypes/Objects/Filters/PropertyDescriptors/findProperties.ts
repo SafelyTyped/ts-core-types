@@ -34,8 +34,8 @@
 
 import { everyFilter } from "../../../../Operators/everyFilter/everyFilter";
 import { NEXT_PROTOTYPE } from "../../../Prototypes/defaults/NEXT_PROTOTYPE";
-import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
-import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
+import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter.type";
+import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions.type";
 
 /**
  * `findProperties()` is a data filter. It returns a list of all properties

@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { BooleanishRules } from "../BooleanishRules/BooleanishRules";
+import type { BooleanishRules } from "../BooleanishRules/BooleanishRules.type";
 import { validateBooleanishBoolean } from "../validateBooleanishData/validateBooleanishBoolean";
 import { validateBooleanishNumber } from "../validateBooleanishData/validateBooleanishNumber";
 import { validateBooleanishString } from "../validateBooleanishData/validateBooleanishString";
 import { validateBooleanishObject } from "../validateBooleanishData/validateBooleanishObject";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath.type";
 
 /**
  * `DEFAULT_BOOLEANISH_STRING_RULES` specify which strings we can convert

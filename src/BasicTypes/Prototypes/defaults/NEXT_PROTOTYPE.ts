@@ -34,7 +34,7 @@
 //
 
 import { getPrototypeOf } from "../getPrototypeOf";
-import type { NextPrototypeChain } from "../NextPrototypeChain";
+import type { NextPrototypeChain } from "../NextPrototypeChain.type";
 
 /**
  * `NEXT_PROTOTYPE()` is a function that returns the next prototype

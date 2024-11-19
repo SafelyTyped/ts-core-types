@@ -33,12 +33,12 @@
 //
 
 import { AppError } from "../../../ErrorHandling/AppError/AppError";
-import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { validate } from "../../../Operators/validate/validate";
-import type { TypeValidator } from "../../FunctionTypes/TypeValidator/TypeValidator";
-import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions";
-import type { Value } from "./Value";
+import type { TypeValidator } from "../../FunctionTypes/TypeValidator/TypeValidator.type";
+import type { TypeValidatorOptions } from "../../FunctionTypes/TypeValidator/TypeValidatorOptions.type";
+import type { Value } from "./Value.type";
 import { validateValue } from "./validateValue";
 
 /**

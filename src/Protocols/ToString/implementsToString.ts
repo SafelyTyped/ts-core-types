@@ -33,7 +33,7 @@
 //
 
 import { isObject } from "../../BasicTypes/Objects/isObject";
-import type { ToString } from "./ToString";
+import type { ToString } from "./ToString.type";
 
 /**
  * `implementsToString()` is a type guard. Use it to prove that the input:

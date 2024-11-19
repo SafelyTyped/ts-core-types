@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { validateNumberRange } from "../../BasicTypes/Numbers/validateNumberRange";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions.type";
 import { createHttpStatusCodeOutOfRangeError } from "../../Errors/HttpStatusCodeOutOfRange/createHttpStatusCodeOutOfRangeError";
 
 /**
