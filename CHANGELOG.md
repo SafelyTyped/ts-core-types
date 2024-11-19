@@ -21,6 +21,11 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+### Tools
+
+- removed dev dependency on @swc/cli, due to upstream security vulnerability
+- upgraded to Typescript 5.6 
+
 ## v0.5.0
 
 Released Saturday, 16th March 2024.
