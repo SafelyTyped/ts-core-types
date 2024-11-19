@@ -50,6 +50,8 @@ export type { AnyEntityObject } from "./Archetypes/Entities/EntityObject/AnyEnti
 // FunctionTypes
 export type { ComposableFunction } from "./Archetypes/FunctionTypes/ComposableFunction/ComposableFunction";
 
+export type { DataAccessorOptions } from "./Archetypes/FunctionTypes/DataAccessor/DataAccessorOptions";
+
 export type { AnyDataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/AnyDataGuarantee";
 export type { DataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
 export type { DataGuaranteeOptions } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
