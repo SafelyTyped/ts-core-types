@@ -24,6 +24,8 @@ The following changes have been completed, and will be included in the next tagg
 ### New
 
 - added `DataAccessorOptions` type
+- added `DeferredValue` type
+- added `resolveValue()` function
 
 ### Refactor
 
