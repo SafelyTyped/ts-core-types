@@ -30,6 +30,7 @@ The following changes have been completed, and will be included in the next tagg
 - added `resolveValueWithContext()` type
 - added `setProperty()` helper function
 - added `HashMap.set()` static helper method
+- added `ObjectKey` type
 
 ### Refactor
 
