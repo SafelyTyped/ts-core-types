@@ -225,6 +225,7 @@ export { mustBeObject } from "./BasicTypes/Objects/mustBeObject";
 export { mustBeObjectish } from "./BasicTypes/Objects/mustBeObjectish";
 export type { NonNullableObject } from "./BasicTypes/Objects/NonNullObject.type";
 export type { ObjectKey } from "./BasicTypes/Objects/ObjectKey.type";
+export { pickProperties } from "./BasicTypes/Objects/pickProperties";
 export { setProperty } from "./BasicTypes/Objects/setProperty";
 export { validateObject } from "./BasicTypes/Objects/validateObject";
 export { validateObjectHasAllMethodsCalled } from "./BasicTypes/Objects/validateObjectHasAllMethodsCalled";
