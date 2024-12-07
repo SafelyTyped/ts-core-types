@@ -1365,5 +1365,72 @@ describe("HashMap()", () => {
 
             expect(actualInput).eqls(expectedInput);
         });
-    })
+    });
+
+    describe(".omit()", () => {
+        it("returns an object only containing the requested properties", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that omitProperties() returns only the properties
+            // that we requested
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+                e: 500,
+            }
+            const expectedResult = {
+                a: unit.a,
+                c: unit.c
+            }
+            const keysToOmit = [ "b", "d", "e" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.omit(unit, keysToOmit)
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("does not modify the input object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that our input object is not changed by
+            // the omitProperties() function
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+                e: 500,
+            }
+            const input = { ...unit };
+            const keysToOmit = [ "b", "d", "e" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.omit(input, keysToOmit)
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(input).eql(unit);
+        });
+    });
 });

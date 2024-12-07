@@ -35,6 +35,7 @@ The following changes have been completed, and will be included in the next tagg
 - added `getOwnKeys()` helper function
 - added `omitProperties()` helper function
 - added `HashMap.partial()` static helper method
+- added `HashMap.omit()` static helper method
 
 ### Refactor
 

@@ -37,6 +37,7 @@ import { deleteProperty } from "../Objects/deleteProperty";
 import { getOwnKeys } from "../Objects/getOwnKeys";
 import { getProperty } from "../Objects/getProperty";
 import { hasProperty } from "../Objects/hasProperty";
+import { omitProperties } from "../Objects/omitProperties";
 import { pickProperties } from "../Objects/pickProperties";
 import { setProperty } from "../Objects/setProperty";
 
@@ -638,5 +639,23 @@ export class HashMap<T> {
         propertyNames: string[]
     ) {
         return pickProperties(input, propertyNames) as HashMap<T>;
+    }
+
+    /**
+     * `omit()` returns a copy of the input HashMap that does not contain
+     * any of the given list of `propertiesToOmit`.
+     *
+     * The `input` HashMap is not modified at all by this call.
+     *
+     * @param input -
+     * the HashMap you want to create a partial copy of
+     * @param propertiesToOmit -
+     * the list of properties that you do NOT want in the returned HashMap
+     */
+    public static omit<T>(
+        input: HashMap<T>,
+        propertiesToOmit: string[]
+    ) {
+        return omitProperties(input, propertiesToOmit) as HashMap<T>;
     }
 }
