@@ -37,6 +37,7 @@ import { findPropertyNames } from "../Objects/Filters/PropertyNames/findProperty
 import { deleteProperty } from "../Objects/deleteProperty";
 import { getProperty } from "../Objects/getProperty";
 import { hasProperty } from "../Objects/hasProperty";
+import { setProperty } from "../Objects/setProperty";
 import { STOP_AT_NEXT_PROTOTYPE } from "../Prototypes/defaults/STOP_AT_NEXT_PROTOTYPE";
 
 /**
@@ -320,6 +321,29 @@ export class HashMap<T> {
         propName: string
     ) {
         return getProperty<T>(target, propName);
+    }
+
+    /**
+     * `set()` changes the value of the given property on the given
+     * HashMap.
+     *
+     * This is inspired by {@link Map.set}
+     *
+     * @param target
+     * - the HashMap to retrive from
+     * @param propName
+     * - the name of the property you want to set
+     * @param value
+     * - the value you want to assign to `target[propName]`
+     * @returns
+     */
+    public static set<T>(
+        target: HashMap<T>,
+        propName: string,
+        value: T,
+    ):T
+    {
+        return setProperty(target, propName, value);
     }
 
     /**

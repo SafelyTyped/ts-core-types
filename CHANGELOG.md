@@ -28,6 +28,8 @@ The following changes have been completed, and will be included in the next tagg
 - added `resolveValue()` function
 - added `DeferredValueWithContext` type
 - added `resolveValueWithContext()` type
+- added `setProperty()` helper function
+- added `HashMap.set()` static helper method
 
 ### Refactor
 

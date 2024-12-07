@@ -713,6 +713,36 @@ describe("HashMap()", () => {
         });
     });
 
+    describe(".set()", () => {
+        it("sets the specified property on the target object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            //
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: "1",
+                b: "2",
+                c: "3"
+            }
+            const expectedValue = "4";
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.set(unit, "c", expectedValue);
+            const actualValue = unit.c;
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualValue).eql(expectedValue);
+        })
+    });
+
     describe(".clear()", () => {
         it("empties the given HashMap", () => {
             // ----------------------------------------------------------------
