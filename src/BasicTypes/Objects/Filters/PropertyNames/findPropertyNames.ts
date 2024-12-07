@@ -46,7 +46,7 @@ import { everyFilter } from "../../../../Operators/everyFilter/everyFilter";
  * The object to inspect.
  * @param nextPrototype -
  * We use this function to walk the object prototype chain. Use
- * {@link Prototypes.defaults.STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
+ * {@link STOP_AT_OBJECT_PROTOTYPE} if you don't want attributes
  * inherited from Object.
  * @param filters -
  * The filters to apply.
