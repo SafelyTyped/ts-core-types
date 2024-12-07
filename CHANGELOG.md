@@ -33,6 +33,7 @@ The following changes have been completed, and will be included in the next tagg
 - added `ObjectKey` type
 - added `pickProperties()` helper function
 - added `getOwnKeys()` helper function
+- added `omitProperties()` helper function
 
 ### Refactor
 
