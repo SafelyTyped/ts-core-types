@@ -212,6 +212,7 @@ export type { EmptyObject } from "./BasicTypes/Objects/EmptyObject.type";
 export { getAllMethodNames } from "./BasicTypes/Objects/getAllMethodNames";
 export { getAllMethods } from "./BasicTypes/Objects/getAllMethods";
 export { getMissingMethodNames } from "./BasicTypes/Objects/getMissingMethodNames";
+export { getOwnKeys } from "./BasicTypes/Objects/getOwnKeys";
 export { getProperty } from "./BasicTypes/Objects/getProperty";
 export { getPublicMethodNames } from "./BasicTypes/Objects/getPublicMethodNames";
 export { getPublicMethods } from "./BasicTypes/Objects/getPublicMethods";
