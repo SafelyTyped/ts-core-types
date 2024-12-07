@@ -37,6 +37,7 @@ import { deleteProperty } from "../Objects/deleteProperty";
 import { getOwnKeys } from "../Objects/getOwnKeys";
 import { getProperty } from "../Objects/getProperty";
 import { hasProperty } from "../Objects/hasProperty";
+import { pickProperties } from "../Objects/pickProperties";
 import { setProperty } from "../Objects/setProperty";
 
 /**
@@ -619,5 +620,23 @@ export class HashMap<T> {
         });
 
         // all done
+    }
+
+    /**
+     * `partial()` returns a new HashMap that only contains the properties
+     * that you request from the `input` HashMap.
+     *
+     * The `input` HashMap is not modified at all by this call.
+     *
+     * @param input -
+     * the HashMap you want to create a partial copy of
+     * @param propertyNames -
+     * the list of properties that you want in the returned HashMap
+     */
+    public static partial<T>(
+        input: HashMap<T>,
+        propertyNames: string[]
+    ) {
+        return pickProperties(input, propertyNames) as HashMap<T>;
     }
 }

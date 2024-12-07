@@ -1266,4 +1266,104 @@ describe("HashMap()", () => {
             expect(inputValue).eql(expectedResult);
         });
     });
+
+    describe(".partial()", () => {
+        it("copies the given properties to a new object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that pickProperties() does actually copy over
+            // the properties that we want
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+            }
+            const expectedValue = {
+                a: 100,
+                d: 400,
+            }
+            const expectedKeys = [ "a", "d" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualValue = HashMap.partial(unit, expectedKeys);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualValue).eqls(expectedValue);
+        });
+
+        it("only returns the properties that are requested", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that pickProperties() doesn't return any
+            // unexpected properties
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+            }
+            const expectedKeys = [ "a", "d" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualValue = HashMap.partial(unit, expectedKeys);
+            const actualKeys = Object.getOwnPropertyNames(actualValue);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualKeys).eqls(expectedKeys);
+        });
+
+        it('does not modify the input object', () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that our original input object is not changed
+            // when we call pickProperties()
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const expectedInput = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+            }
+            const expectedKeys = [ "a", "d" ];
+
+            // create a copy of our object, so that we have something to use
+            // in the comparison
+            const actualInput = {
+                ...expectedInput
+            }
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.partial(actualInput, expectedKeys);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualInput).eqls(expectedInput);
+        });
+    })
 });
