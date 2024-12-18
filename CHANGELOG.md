@@ -46,6 +46,7 @@ The following changes have been completed, and will be included in the next tagg
 
 - removed dev dependency on @swc/cli, due to upstream security vulnerability
 - upgraded to Typescript 5.6
+- upgraded to ESLint v9
 
 ## v0.5.0
 
