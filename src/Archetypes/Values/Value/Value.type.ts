@@ -51,7 +51,7 @@ export interface Value<T = unknown> {
      * implementsValue() is a helper method for the {@link isValue} type guard
      * function.
      */
-    implementsValue(): this is Value<T>;
+    implementsValue: () => this is Value<T>;
 
     /**
      * valueOf() returns the wrapped value.
@@ -61,5 +61,5 @@ export interface Value<T = unknown> {
      *
      * @returns the wrapped value
      */
-    valueOf(): T;
+    valueOf: () => T;
 }

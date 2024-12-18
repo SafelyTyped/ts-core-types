@@ -64,7 +64,7 @@ export interface Entity<ID, T> {
      *
      * @returns `true` every time.
      */
-    implementsEntity(): boolean;
+    implementsEntity: () => boolean;
 
     /**
      * valueOf() returns the wrapped value.
@@ -74,7 +74,7 @@ export interface Entity<ID, T> {
      *
      * @returns the wrapped value.
      */
-    valueOf(): T;
+    valueOf: () => T;
 }
 
 export const EntityProtocolDefinition: ProtocolDefinition = [

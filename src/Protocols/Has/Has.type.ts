@@ -54,7 +54,7 @@ export interface Has<T> {
      * - `true` if the collection includes `keyOrValue`
      * - `false` otherwise
      */
-    has(keyOrValue: T): boolean;
+    has: (keyOrValue: T) => boolean;
 }
 
 export const HasProtocolDefinition: ProtocolDefinition = [

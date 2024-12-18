@@ -44,6 +44,7 @@ The following changes have been completed, and will be included in the next tagg
 
 ### Fixes
 
+- avoid bivariant methods in interfaces
 - fix all linting errors caught by ESLint v9
 
 ### Tools

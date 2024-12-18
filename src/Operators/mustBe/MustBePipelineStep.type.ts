@@ -48,6 +48,6 @@ export interface MustBePipelineStep<T> {
      * @param fn -
      * the next {@link TypeValidator} function to call
      */
-    next<R>(fn: (x: T) => AppErrorOr<R>): MustBePipelineStep<R>;
+    next: <R>(fn: (x: T) => AppErrorOr<R>) => MustBePipelineStep<R>;
 }
 

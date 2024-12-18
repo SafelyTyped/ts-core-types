@@ -39,5 +39,5 @@
  * @public
  */
 export interface ToString {
-    toString(): string;
+    toString: () => string;
 }

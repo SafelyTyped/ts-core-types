@@ -55,7 +55,7 @@ export default [{
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-import-type-side-effects": "error",
-        // "@typescript-eslint/method-signature-style": ["error", "property"],
+        "@typescript-eslint/method-signature-style": ["error", "property"],
     },
 }, ...compat.extends("plugin:@typescript-eslint/recommended-requiring-type-checking").map(config => ({
     ...config,
