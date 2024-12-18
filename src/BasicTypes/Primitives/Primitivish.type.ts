@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.

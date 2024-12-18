@@ -55,10 +55,11 @@ export function pickProperties(
     keysToPick: string[]
 ): object
 {
-    const retval: HashMap<string> = {}
+    const retval: HashMap<string> = {};
+    let keyToPick: string = "";
 
-    for(var i = 0, length = keysToPick.length; i < length; i++) {
-        var keyToPick = keysToPick[i];
+    for(let i = 0, length = keysToPick.length; i < length; i++) {
+        keyToPick = keysToPick[i];
         if (hasProperty(input, keyToPick)) {
             retval[keyToPick] = (input as HashMap<string>)[keyToPick];
         }

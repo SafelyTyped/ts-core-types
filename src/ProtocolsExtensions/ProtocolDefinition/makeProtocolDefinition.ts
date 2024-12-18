@@ -71,7 +71,7 @@ export function makeProtocolDefinition<T extends object>(
         return methodsList;
     }
 
-    throw onError(new ExtensionDefinesNoMethodsError({
+    return onError(new ExtensionDefinesNoMethodsError({
         public: {
             extension: input.constructor?.name || "object has no prototype",
         }

@@ -56,7 +56,7 @@ export function mustBe<T>(
 ): MustBePipelineStep<T> {
     // these we can delegate
     if (val instanceof AppError) {
-        throw onError(val);
+        onError(val);
     }
 
     // these we know nothing about, but must watch out for

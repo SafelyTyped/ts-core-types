@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 //
 // Copyright (c) 2020-present Ganbaro Digital Ltd
 // All rights reserved.

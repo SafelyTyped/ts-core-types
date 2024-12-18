@@ -61,7 +61,6 @@ export function getClassNames(
     }
 
     // we need to keep track of where we are in the inheritence chain
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     let item = getPrototypeOf(input);
 
     // walk the inheritence chain
