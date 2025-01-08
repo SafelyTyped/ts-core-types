@@ -222,17 +222,21 @@ export { isGetterName } from "./BasicTypes/Objects/isGetterName";
 export { isMethodName } from "./BasicTypes/Objects/isMethodName";
 export { isObject } from "./BasicTypes/Objects/isObject";
 export { isObjectish } from "./BasicTypes/Objects/isObjectish";
+export { isStrictObject } from "./BasicTypes/StrictObject/isStrictObject";
 export { mustBeObject } from "./BasicTypes/Objects/mustBeObject";
 export { mustBeObjectish } from "./BasicTypes/Objects/mustBeObjectish";
+export { mustBeStrictObject } from "./BasicTypes/StrictObject/mustBeStrictObject";
 export type { NonNullableObject } from "./BasicTypes/Objects/NonNullObject.type";
 export type { ObjectKey } from "./BasicTypes/Objects/ObjectKey.type";
 export { omitProperties } from "./BasicTypes/Objects/omitProperties";
 export { pickProperties } from "./BasicTypes/Objects/pickProperties";
+export type { StrictObject } from "./BasicTypes/StrictObject/StrictObject.type";
 export { setProperty } from "./BasicTypes/Objects/setProperty";
 export { validateObject } from "./BasicTypes/Objects/validateObject";
 export { validateObjectHasAllMethodsCalled } from "./BasicTypes/Objects/validateObjectHasAllMethodsCalled";
 export { validateObjectish } from "./BasicTypes/Objects/validateObjectish";
 export { validateObjectNotEmpty } from "./BasicTypes/Objects/validateObjectNotEmpty";
+export { validateStrictObject } from "./BasicTypes/StrictObject/validateStrictObject";
 
 // Option Types
 export { validateOptionType } from "./BasicTypes/Options/validateOptionType";

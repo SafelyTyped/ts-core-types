@@ -36,6 +36,11 @@ The following changes have been completed, and will be included in the next tagg
 - added `omitProperties()` helper function
 - added `HashMap.partial()` static helper method
 - added `HashMap.omit()` static helper method
+- added `HashMap.flatMap()` static helper method
+- added `StrictObject()` type
+- added `isStrictObject()` type guard
+- added `mustBeStrictObject()` type guarantee
+- added `validateStrictObject()` type validator
 
 ### Refactor
 

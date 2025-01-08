@@ -33,6 +33,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
+import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
+import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { deleteProperty } from "../Objects/deleteProperty";
 import { getOwnKeys } from "../Objects/getOwnKeys";
 import { getProperty } from "../Objects/getProperty";
@@ -40,6 +43,7 @@ import { hasProperty } from "../Objects/hasProperty";
 import { omitProperties } from "../Objects/omitProperties";
 import { pickProperties } from "../Objects/pickProperties";
 import { setProperty } from "../Objects/setProperty";
+import { mustBeStrictObject } from "../StrictObject/mustBeStrictObject";
 
 /**
  * `HashMap` describes an object that doesn't have a set list of keys.
@@ -657,5 +661,53 @@ export class HashMap<T> {
         propertiesToOmit: string[]
     ) {
         return omitProperties(input, propertiesToOmit) as HashMap<T>;
+    }
+
+    /**
+     * `flatMap()` builds a new HashMap, by calling the given `callbackfn()`
+     * once for every property on the given `source` HashMap, and then
+     * flattening the result by one level.
+     *
+     * The returned HashMap is a new object.
+     *
+     * It is inspired by {@link Array.flatMap}.
+     *
+     * @param source -
+     * the HashMap we want to map from
+     * @param callbackfn -
+     * the function to transform a property to go into the new HashMap
+     * @returns
+     * the newly-constructed HashMap
+     *
+     * @typeParam T -
+     * the type of value held in the input `target` HashMap
+     * @typeParam R -
+     * the type of value held in the returned HashMap
+     */
+    public static flatMap<T extends object,R=T>(
+        source: HashMap<T>,
+        callbackfn: (value: T, name: string, obj: HashMap<T>) => R,
+        {
+            path = DEFAULT_DATA_PATH,
+            onError = THROW_THE_ERROR
+        }: Partial<TypeGuaranteeOptions> = {}
+    ) {
+        // our new HashMap
+        let retval: HashMap<R> = {};
+
+        // use the callbackfn to build our return value
+        HashMap.keys(source).forEach((key) => {
+            // robustness!
+            // alas, we cannot stop this using types alone
+            const nestedObj = mustBeStrictObject(source[key], { path, onError }) as T;
+
+            retval = {
+                ...retval,
+                ...callbackfn(nestedObj, key, source)
+            };
+        });
+
+        // all done
+        return retval;
     }
 }
