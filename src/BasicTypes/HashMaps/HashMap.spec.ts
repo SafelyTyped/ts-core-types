@@ -1572,7 +1572,7 @@ describe("HashMap()", () => {
             // perform the change
 
             let caughtError = false;
-            let actualResult;
+            let actualResult = undefined;
             try {
                 actualResult = HashMap.flatMap(
                     unit,
@@ -1587,6 +1587,7 @@ describe("HashMap()", () => {
             // test the results
 
             expect(caughtError).to.be.true;
+            expect(actualResult).to.be.undefined;
         });
 
     });
