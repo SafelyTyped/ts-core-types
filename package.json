@@ -66,9 +66,8 @@
     "rimraf": "^3.0.0",
     "ts-node": "^10.9",
     "tsconfig-paths": "^4.2.0",
-    "typedoc": "^0.26",
-    "typedoc-theme-hierarchy": "^4.1.2",
-    "typescript": "^5.0"
+    "typedoc": "^0.27",
+    "typescript": "^5.7"
   },
   "c8": {
     "all": true,
