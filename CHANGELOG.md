@@ -55,6 +55,7 @@ Released Monday, 13th January 2025.
 
 - avoid bivariant methods in interfaces
 - fix all linting errors caught by ESLint v9
+- fixes for compatibility with NodeJS v23.6 🙄
 
 ### Tools
 
