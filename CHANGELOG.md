@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.5.1
+
+Released Monday, 13th January 2025.
+
 ### New
 
 - added `DataAccessorOptions` type
