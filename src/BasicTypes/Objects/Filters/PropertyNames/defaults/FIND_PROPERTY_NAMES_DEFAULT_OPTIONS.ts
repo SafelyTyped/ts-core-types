@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { NEXT_PROTOTYPE } from "../../../../Prototypes/defaults/NEXT_PROTOTYPE";
-import type { PropertyNameFilterOptions } from "../PropertyNameFilterOptions";
+import type { PropertyNameFilterOptions } from "../PropertyNameFilterOptions.type";
 
 /**
  * `FIND_PROPERTY_NAMES_DEFAULT_OPTIONS` are the default user-supplied options

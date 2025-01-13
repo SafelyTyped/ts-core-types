@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
-import type { NumberOutOfRangeData } from "../NumberOutOfRange/NumberOutOfRangeData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
+import type { NumberOutOfRangeData } from "../NumberOutOfRange/NumberOutOfRangeData.type";
 import type { NumberOutOfRangeErrorConstructor } from "../NumberOutOfRange/NumberOutOfRangeError";
 import { HttpStatusCodeOutOfRangeError } from "./HttpStatusCodeOutOfRangeError";
 

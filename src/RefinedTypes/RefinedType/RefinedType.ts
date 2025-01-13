@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import type { DataGuarantee } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuarantee.type";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
 import { ValueObject } from "../../Archetypes/Values/ValueObject/ValueObject";
 
 /**

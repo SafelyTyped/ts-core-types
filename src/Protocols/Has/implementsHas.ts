@@ -34,7 +34,7 @@
 
 import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../Operators/isType/isType";
-import type { Has } from "./Has";
+import type { Has } from "./Has.type";
 import { validateImplementsHas } from "./validateImplementsHas";
 
 /**

@@ -31,9 +31,9 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { AnyExtraData } from "../ExtraData/AnyExtraData";
+import type { AnyExtraData } from "../ExtraData/AnyExtraData.type";
 import { StructuredProblemReport } from "./StructuredProblemReport";
-import type { StructuredProblemReportData } from "./StructuredProblemReportData";
+import type { StructuredProblemReportData } from "./StructuredProblemReportData.type";
 
 /**
  * `makeStructuredProblemReport()` is a smart constructor. It will create

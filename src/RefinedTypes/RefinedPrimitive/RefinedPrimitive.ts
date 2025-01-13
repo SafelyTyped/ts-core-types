@@ -33,9 +33,9 @@
 //
 
 import { RefinedType } from "../RefinedType/RefinedType";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
-import type { PrimitiveHint } from "../../Protocols/ToPrimitive/PrimitiveHint";
-import type { Primitive } from "../../BasicTypes/Primitives/Primitive";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
+import type { PrimitiveHint } from "../../Protocols/ToPrimitive/PrimitiveHint.type";
+import type { Primitive } from "../../BasicTypes/Primitives/Primitive.type";
 
 /**
  * `RefinedPrimitive` is a base class for defining a subset of any primitive

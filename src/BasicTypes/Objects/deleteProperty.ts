@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyArrayKey } from "../Arrays/AnyArrayKey";
+import type { AnyArrayKey } from "../Arrays/AnyArrayKey.type";
 import { hasProperty } from "./hasProperty";
 
 /**

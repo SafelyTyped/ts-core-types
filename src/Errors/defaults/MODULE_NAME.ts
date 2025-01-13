@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/NodeJSModuleName";
+import type { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/NodeJSModuleName.type";
 
 /**
  * `MODULE_NAME` is used by all of our errors to show which package they

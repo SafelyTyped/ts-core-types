@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { PropertyFilter } from "../PropertyFilter";
+import type { PropertyFilter } from "../PropertyFilter.type";
 
 /**
  * `FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE` is a {@link PropertyFilter}

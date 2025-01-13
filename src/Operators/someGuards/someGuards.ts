@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
-import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
+import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard.type";
+import type { DataGuardOptions } from "../../Archetypes/FunctionTypes/DataGuard/DataGuardOptions.type";
 
 /**
  * `someGuards()` is an operator. Use it to apply a set of {@link DataGuard}

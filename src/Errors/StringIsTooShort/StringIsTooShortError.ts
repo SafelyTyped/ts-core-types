@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData";
+import type { AppErrorData } from "../../ErrorHandling/AppError/AppErrorData.type";
 import { makeStructuredProblemReport } from "../../ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 import { MODULE_NAME } from "../defaults/MODULE_NAME";
-import type { StringIsTooShortData } from "./StringIsTooShortData";
+import type { StringIsTooShortData } from "./StringIsTooShortData.type";
 
 /**
  * `StringIsTooShortError` is a throwable Error. It is thrown when

@@ -32,8 +32,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataValidator } from "../../Archetypes/FunctionTypes/DataValidator/DataValidator";
-import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
+import type { DataValidator } from "../../Archetypes/FunctionTypes/DataValidator/DataValidator.type";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions.type";
 
 /**
  * `isData()` is a helper function. Use it to quickly build {@link DataGuard}

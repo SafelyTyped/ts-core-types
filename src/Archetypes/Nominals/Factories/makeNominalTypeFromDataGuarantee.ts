@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject";
+import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject.type";
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import type { DataGuarantee } from "../../FunctionTypes/DataGuarantee/DataGuarantee";
-import type { DataGuaranteeOptions } from "../../FunctionTypes/DataGuarantee/DataGuaranteeOptions";
-import type { FunctionalOption } from "../../FunctionTypes/FunctionalOption/FunctionalOption";
+import type { DataGuarantee } from "../../FunctionTypes/DataGuarantee/DataGuarantee.type";
+import type { DataGuaranteeOptions } from "../../FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
+import type { FunctionalOption } from "../../FunctionTypes/FunctionalOption/FunctionalOption.type";
 import { applyFunctionalOptions } from "../../FunctionTypes/FunctionalOption/applyFunctionalOptions";
 
 /**

@@ -21,6 +21,52 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.5.1
+
+Released Monday, 13th January 2025.
+
+### New
+
+- added `DataAccessorOptions` type
+- added `DeferredValue` type
+- added `resolveValue()` function
+- added `DeferredValueWithContext` type
+- added `resolveValueWithContext()` type
+- added `setProperty()` helper function
+- added `HashMap.set()` static helper method
+- added `ObjectKey` type
+- added `pickProperties()` helper function
+- added `getOwnKeys()` helper function
+- added `omitProperties()` helper function
+- added `HashMap.partial()` static helper method
+- added `HashMap.omit()` static helper method
+- added `HashMap.flatMap()` static helper method
+- added `StrictObject()` type
+- added `isStrictObject()` type guard
+- added `mustBeStrictObject()` type guarantee
+- added `validateStrictObject()` type validator
+
+### Refactor
+
+- moved all types to be out-of-scope for `c8` code coverage tool
+  - `c8` doesn't support code coverage of types at this time
+
+### Fixes
+
+- avoid bivariant methods in interfaces
+- fix all linting errors caught by ESLint v9
+- fixes for compatibility with NodeJS v23.6 🙄
+
+### Tools
+
+- removed dev dependency on @swc/cli, due to upstream security vulnerability
+- upgraded to Typescript 5.7
+- upgraded to ESLint v9
+- update CI to use Node v22 & v23
+- upgraded to rimraf v6
+- upgraded to c8 v10
+- upgraded to mocha v11
+
 ## v0.5.0
 
 Released Saturday, 16th March 2024.

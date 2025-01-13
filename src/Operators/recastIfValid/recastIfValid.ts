@@ -33,7 +33,7 @@
 //
 
 import { isAppError } from "../../ErrorHandling/AppError/isAppError";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 
 /**
  * `recastIfValid()` is an operator. Use it to convince Typescript

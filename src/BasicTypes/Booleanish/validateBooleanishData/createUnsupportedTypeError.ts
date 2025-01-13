@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyAppError } from "../../../ErrorHandling/AppError/AnyAppError";
+import type { AnyAppError } from "../../../ErrorHandling/AppError/AnyAppError.type";
 import type { AppError } from "../../../ErrorHandling/AppError/AppError";
-import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath";
+import type { DataPath } from "../../../ErrorHandling/DataPath/DataPath.type";
 import { UnsupportedTypeError } from "../../../Errors/UnsupportedType/UnsupportedTypeError";
 
 /**

@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { RefinedPrimitive } from "../RefinedPrimitive/RefinedPrimitive";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
-import type { ToPrimitive } from "../../Protocols/ToPrimitive/ToPrimitive";
-import type { PrimitiveHint } from "../../Protocols/ToPrimitive/PrimitiveHint";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
+import type { ToPrimitive } from "../../Protocols/ToPrimitive/ToPrimitive.type";
+import type { PrimitiveHint } from "../../Protocols/ToPrimitive/PrimitiveHint.type";
 
 /**
  * `RefinedString` is a base class for defining a subset of strings.

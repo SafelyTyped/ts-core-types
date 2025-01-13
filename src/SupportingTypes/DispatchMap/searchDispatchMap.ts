@@ -33,9 +33,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DispatchMap } from "./DispatchMap";
-import type { AnyDispatchMapKey } from "./AnyDispatchMapKey";
-import type { AnyFunction } from "../../BasicTypes/Functions/AnyFunction";
+import type { DispatchMap } from "./DispatchMap.type";
+import type { AnyDispatchMapKey } from "./AnyDispatchMapKey.type";
+import type { AnyFunction } from "../../BasicTypes/Functions/AnyFunction.type";
 import { getProperty } from "../../BasicTypes/Objects/getProperty";
 
 /**

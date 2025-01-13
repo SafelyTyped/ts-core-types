@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
+import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard.type";
 import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../Operators/isType/isType";
 import { validateBoolean } from "./validateBoolean";

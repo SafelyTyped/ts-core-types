@@ -1,5 +1,6 @@
 {
-    "entryPoints": [ "src/v1/index.ts" ],
+    "entryPoints": [ "src/index.ts" ],
+    "tsconfig": "tsconfig-esm.json",
     "out": "reference-docs",
     "categorizeByGroup": true,
     "externalPattern": [
@@ -10,6 +11,5 @@
     "excludeReferences": true,
 
     "entryPointStrategy": "resolve",
-    "plugin": ["typedoc-theme-hierarchy"],
     "name": "SafelyTyped core types"
 }

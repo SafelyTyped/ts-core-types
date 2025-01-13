@@ -32,14 +32,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
-import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
-import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
-import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
+import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption.type";
+import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor.type";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
 import { makeNominalTypeFromDataGuarantee } from "../../Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import type { HttpStatusCode } from "./HttpStatusCode";
+import type { HttpStatusCode } from "./HttpStatusCode.type";
 import { mustBeHttpStatusCodeData } from "./mustBeHttpStatusCodeData";
 
 /**

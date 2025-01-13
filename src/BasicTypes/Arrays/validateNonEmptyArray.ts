@@ -32,12 +32,12 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions.type";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { ArrayCannotBeEmptyError } from "../../Errors/ArrayCannotBeEmpty/ArrayCannotBeEmptyError";
 import { validate } from "../../Operators/validate/validate";
-import type { NonEmptyArray } from "./NonEmptyArray";
+import type { NonEmptyArray } from "./NonEmptyArray.type";
 import { validateArray } from "./validateArray";
 
 /**

@@ -33,7 +33,7 @@
 //
 
 import { validateString } from "./validateString";
-import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
+import type { TypeGuard } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuard.type";
 import { isType } from "../../Operators/isType/isType";
 import { IS_TYPE_DEFAULT_OPTIONS } from "../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 

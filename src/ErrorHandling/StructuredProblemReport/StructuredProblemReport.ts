@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { ValueObject } from "../../Archetypes/Values/ValueObject/ValueObject";
-import type { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/NodeJSModuleName";
-import type { AnyExtraData } from "../ExtraData/AnyExtraData";
-import type { StructuredProblemReportData } from "./StructuredProblemReportData";
+import type { NodeJSModuleName } from "../../SupportingTypes/NodeJSModuleName/NodeJSModuleName.type";
+import type { AnyExtraData } from "../ExtraData/AnyExtraData.type";
+import type { StructuredProblemReportData } from "./StructuredProblemReportData.type";
 
 /**
  * `StructuredProblemReport` is a value object. It represents a problem

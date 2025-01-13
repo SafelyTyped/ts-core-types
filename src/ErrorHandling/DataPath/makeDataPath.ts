@@ -31,14 +31,14 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataPath } from "./DataPath";
+import type { DataPath } from "./DataPath.type";
 import { mustBeDataPathData } from "./mustBeDataPathData";
 import { DEFAULT_DATA_PATH } from "./defaults/DEFAULT_DATA_PATH";
-import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
+import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption.type";
 import { makeNominalTypeFromDataGuarantee } from "../../Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
 import { THROW_THE_ERROR } from "../OnError/defaults/THROW_THE_ERROR";
-import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
-import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
+import type { TypeGuaranteeOptions } from "../../Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
+import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor.type";
 
 /**
  * `makeDataPath()` is a {@link SmartConstructor}. Use it to turn a string

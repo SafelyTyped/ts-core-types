@@ -32,9 +32,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
+import type { TypeGuardOptions } from "../../Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions.type";
 import { isType } from "../../Operators/isType/isType";
-import type { BooleanishDataOptions } from "./BooleanishDataOptions";
+import type { BooleanishDataOptions } from "./BooleanishDataOptions.type";
 import { DEFAULT_BOOLEANISH_RULES } from "./defaults/DEFAULT_BOOLEANISH_RULES";
 import { validateBooleanishData } from "./validateBooleanishData/validateBooleanishData";
 

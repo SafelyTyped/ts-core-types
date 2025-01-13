@@ -32,13 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions.type";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { UnsupportedNumericalValueError } from "../../Errors/UnsupportedNumericalValue/UnsupportedNumericalValueError";
-import type { NumericalConversionRules } from "./NumericalConversionRules";
+import type { NumericalConversionRules } from "./NumericalConversionRules.type";
 import { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
-import type { numerical } from "./numerical";
+import type { numerical } from "./numerical.type";
 import { resolveNumerical } from "./resolveNumerical";
 
 /**

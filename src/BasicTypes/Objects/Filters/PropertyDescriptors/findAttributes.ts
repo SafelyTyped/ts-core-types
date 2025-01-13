@@ -39,8 +39,8 @@ import {
     FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE,
 } from "../defaults/FIND_PROPERTIES_FILTER_PREFER_CHILD_PROTOTYPE";
 import { findProperties } from "./findProperties";
-import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter";
-import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions";
+import type { PropertyDescriptorFilter } from "./PropertyDescriptorFilter.type";
+import type { PropertyDescriptorFilterOptions } from "./PropertyDescriptorFilterOptions.type";
 
 /**
  * `findAttributes()` is a data filter. It returns a list of all attributes

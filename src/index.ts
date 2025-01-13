@@ -39,66 +39,68 @@
 // ----------------------------------------------------------------
 
 // Entities
-export type { Entity } from "./Archetypes/Entities/Entity/Entity";
-export type { AnyEntity } from "./Archetypes/Entities/Entity/AnyEntity";
+export type { Entity } from "./Archetypes/Entities/Entity/Entity.type";
+export type { AnyEntity } from "./Archetypes/Entities/Entity/AnyEntity.type";
 export { isEntity } from "./Archetypes/Entities/Entity/isEntity";
 export { mustBeEntity } from "./Archetypes/Entities/Entity/mustBeEntity";
 export { validateEntity } from "./Archetypes/Entities/Entity/validateEntity";
 export { EntityObject } from "./Archetypes/Entities/EntityObject/EntityObject";
-export type { AnyEntityObject } from "./Archetypes/Entities/EntityObject/AnyEntityObject";
+export type { AnyEntityObject } from "./Archetypes/Entities/EntityObject/AnyEntityObject.type";
 
 // FunctionTypes
-export type { ComposableFunction } from "./Archetypes/FunctionTypes/ComposableFunction/ComposableFunction";
+export type { ComposableFunction } from "./Archetypes/FunctionTypes/ComposableFunction/ComposableFunction.type";
 
-export type { AnyDataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/AnyDataGuarantee";
-export type { DataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuarantee";
-export type { DataGuaranteeOptions } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+export type { DataAccessorOptions } from "./Archetypes/FunctionTypes/DataAccessor/DataAccessorOptions.type";
 
-export type { AnyDataGuard } from "./Archetypes/FunctionTypes/DataGuard/AnyDataGuard";
-export type { DataGuard } from "./Archetypes/FunctionTypes/DataGuard/DataGuard";
-export type { DataGuardOptions } from "./Archetypes/FunctionTypes/DataGuard/DataGuardOptions";
+export type { AnyDataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/AnyDataGuarantee.type";
+export type { DataGuarantee } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuarantee.type";
+export type { DataGuaranteeOptions } from "./Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
 
-export type { AnyDataValidator } from "./Archetypes/FunctionTypes/DataValidator/AnyDataValidator";
-export type { DataValidator } from "./Archetypes/FunctionTypes/DataValidator/DataValidator";
-export type { DataValidatorOptions } from "./Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
+export type { AnyDataGuard } from "./Archetypes/FunctionTypes/DataGuard/AnyDataGuard.type";
+export type { DataGuard } from "./Archetypes/FunctionTypes/DataGuard/DataGuard.type";
+export type { DataGuardOptions } from "./Archetypes/FunctionTypes/DataGuard/DataGuardOptions.type";
 
-export type { AnyFilter } from "./Archetypes/FunctionTypes/Filter/AnyFilter";
-export type { Filter } from "./Archetypes/FunctionTypes/Filter/Filter";
+export type { AnyDataValidator } from "./Archetypes/FunctionTypes/DataValidator/AnyDataValidator.type";
+export type { DataValidator } from "./Archetypes/FunctionTypes/DataValidator/DataValidator.type";
+export type { DataValidatorOptions } from "./Archetypes/FunctionTypes/DataValidator/DataValidatorOptions.type";
 
-export type { AnyFunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/AnyFunctionalOption";
-export type { FunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
+export type { AnyFilter } from "./Archetypes/FunctionTypes/Filter/AnyFilter.type";
+export type { Filter } from "./Archetypes/FunctionTypes/Filter/Filter.type";
+
+export type { AnyFunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/AnyFunctionalOption.type";
+export type { FunctionalOption } from "./Archetypes/FunctionTypes/FunctionalOption/FunctionalOption.type";
 export { applyFunctionalOptions } from "./Archetypes/FunctionTypes/FunctionalOption/applyFunctionalOptions";
 
-export type { AnySmartConstructor } from "./Archetypes/FunctionTypes/SmartConstructor/AnySmartConstructor";
-export type { SmartConstructor } from "./Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
-export type { SmartConstructorOptions } from "./Archetypes/FunctionTypes/SmartConstructor/SmartConstructorOptions";
+export type { AnySmartConstructor } from "./Archetypes/FunctionTypes/SmartConstructor/AnySmartConstructor.type";
+export type { SmartConstructor } from "./Archetypes/FunctionTypes/SmartConstructor/SmartConstructor.type";
+export type { SmartConstructorOptions } from "./Archetypes/FunctionTypes/SmartConstructor/SmartConstructorOptions.type";
 
-export type { AnyTypeGuarantee } from "./Archetypes/FunctionTypes/TypeGuarantee/AnyTypeGuarantee";
-export type { TypeGuarantee } from "./Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee";
-export type { TypeGuaranteeOptions } from "./Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+export type { AnyTypeGuarantee } from "./Archetypes/FunctionTypes/TypeGuarantee/AnyTypeGuarantee.type";
+export type { TypeGuarantee } from "./Archetypes/FunctionTypes/TypeGuarantee/TypeGuarantee.type";
+export type { TypeGuaranteeOptions } from "./Archetypes/FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
 
-export type { AnyTypeGuard } from "./Archetypes/FunctionTypes/TypeGuard/AnyTypeGuard";
-export type { TypeGuard } from "./Archetypes/FunctionTypes/TypeGuard/TypeGuard";
-export type { TypeGuardOptions } from "./Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions";
+export type { AnyTypeGuard } from "./Archetypes/FunctionTypes/TypeGuard/AnyTypeGuard.type";
+export type { TypeGuard } from "./Archetypes/FunctionTypes/TypeGuard/TypeGuard.type";
+export type { TypeGuardOptions } from "./Archetypes/FunctionTypes/TypeGuard/TypeGuardOptions.type";
 
-export type { AnyTypeValidator } from "./Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator";
-export type { TypeValidator } from "./Archetypes/FunctionTypes/TypeValidator/TypeValidator";
-export type { TypeValidatorOptions } from "./Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+export type { AnyTypeValidator } from "./Archetypes/FunctionTypes/TypeValidator/AnyTypeValidator.type";
+export type { TypeValidator } from "./Archetypes/FunctionTypes/TypeValidator/TypeValidator.type";
+export type { TypeValidatorOptions } from "./Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions.type";
 
 // Nominals
-export type { AnyNominal } from "./Archetypes/Nominals/AnyNominal/AnyNominal";
-export type { AnyBranded } from "./Archetypes/Nominals/Branded/AnyBranded";
-export type { Branded } from "./Archetypes/Nominals/Branded/Branded";
+export type { AnyNominal } from "./Archetypes/Nominals/AnyNominal/AnyNominal.type";
+export type { AnyBranded } from "./Archetypes/Nominals/Branded/AnyBranded.type";
+export type { Branded } from "./Archetypes/Nominals/Branded/Branded.type";
 
 export { makeNominalTypeFromDataGuarantee } from "./Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
 export { makeNominalTypeFromTypeGuarantee } from "./Archetypes/Nominals/Factories/makeNominalTypeFromTypeGuarantee";
 
-export type { AnyFlavoured } from "./Archetypes/Nominals/Flavoured/AnyFlavoured";
-export type { Flavoured } from "./Archetypes/Nominals/Flavoured/Flavoured";
+export type { AnyFlavoured } from "./Archetypes/Nominals/Flavoured/AnyFlavoured.type";
+export type { Flavoured } from "./Archetypes/Nominals/Flavoured/Flavoured.type";
 
 // Values
-export type { AnyValue } from "./Archetypes/Values/Value/AnyValue";
-export type { Value } from "./Archetypes/Values/Value/Value";
+export type { AnyValue } from "./Archetypes/Values/Value/AnyValue.type";
+export type { Value } from "./Archetypes/Values/Value/Value.type";
 export { isValue } from "./Archetypes/Values/Value/isValue";
 export { isValueOf } from "./Archetypes/Values/Value/isValueOf";
 export { mustBeValue } from "./Archetypes/Values/Value/mustBeValue";
@@ -117,8 +119,8 @@ export { isAny } from "./BasicTypes/Any/isAny";
 export { mustBeAny } from "./BasicTypes/Any/mustBeAny";
 export { validateAny } from "./BasicTypes/Any/validateAny";
 
-export type { AnyArrayKey } from "./BasicTypes/Arrays/AnyArrayKey";
-export type { NonEmptyArray } from "./BasicTypes/Arrays/NonEmptyArray";
+export type { AnyArrayKey } from "./BasicTypes/Arrays/AnyArrayKey.type";
+export type { NonEmptyArray } from "./BasicTypes/Arrays/NonEmptyArray.type";
 export { isArray } from "./BasicTypes/Arrays/isArray";
 export { isNonEmptyArray } from "./BasicTypes/Arrays/isNonEmptyArray";
 export { mustBeArray } from "./BasicTypes/Arrays/mustBeArray";
@@ -127,15 +129,15 @@ export { validateArray } from "./BasicTypes/Arrays/validateArray";
 export { validateArrayOf } from "./BasicTypes/Arrays/validateArrayOf";
 export { validateNonEmptyArray } from "./BasicTypes/Arrays/validateNonEmptyArray";
 
-export type { AnyBooleanishValidator } from "./BasicTypes/Booleanish/BooleanishRules/AnyBooleanishValidator";
-export type { BooleanishRules } from "./BasicTypes/Booleanish/BooleanishRules/BooleanishRules";
-export type { BooleanishValidator } from "./BasicTypes/Booleanish/BooleanishRules/BooleanishValidator";
-export type { BooleanishValidatorOptions } from "./BasicTypes/Booleanish/BooleanishRules/BooleanishValidatorOptions";
+export type { AnyBooleanishValidator } from "./BasicTypes/Booleanish/BooleanishRules/AnyBooleanishValidator.type";
+export type { BooleanishRules } from "./BasicTypes/Booleanish/BooleanishRules/BooleanishRules.type";
+export type { BooleanishValidator } from "./BasicTypes/Booleanish/BooleanishRules/BooleanishValidator.type";
+export type { BooleanishValidatorOptions } from "./BasicTypes/Booleanish/BooleanishRules/BooleanishValidatorOptions.type";
 export { DEFAULT_BOOLEANISH_RULES } from "./BasicTypes/Booleanish/defaults/DEFAULT_BOOLEANISH_RULES";
 
 export { validateBooleanishData } from "./BasicTypes/Booleanish/validateBooleanishData/validateBooleanishData";
 
-export type { BooleanishDataOptions } from "./BasicTypes/Booleanish/BooleanishDataOptions";
+export type { BooleanishDataOptions } from "./BasicTypes/Booleanish/BooleanishDataOptions.type";
 export { isBooleanishData } from "./BasicTypes/Booleanish/isBooleanishData";
 export { mustBeBooleanishData } from "./BasicTypes/Booleanish/mustBeBooleanishData";
 
@@ -148,13 +150,13 @@ export { validateBoolean } from "./BasicTypes/Booleans/validateBoolean";
 export { getClassNames } from "./BasicTypes/Classes/getClassNames";
 
 // Functions
-export type { AnyFunction } from "./BasicTypes/Functions/AnyFunction";
+export type { AnyFunction } from "./BasicTypes/Functions/AnyFunction.type";
 export { isFunction } from "./BasicTypes/Functions/isFunction";
 export { mustBeFunction } from "./BasicTypes/Functions/mustBeFunction";
 export { validateFunction } from "./BasicTypes/Functions/validateFunction";
 
 // HashMaps
-export type { AnyHashMap } from "./BasicTypes/HashMaps/AnyHashMap";
+export type { AnyHashMap } from "./BasicTypes/HashMaps/AnyHashMap.type";
 export { HashMap } from "./BasicTypes/HashMaps/HashMap";
 export { isHashMap } from "./BasicTypes/HashMaps/isHashMap";
 export { mustBeHashMap } from "./BasicTypes/HashMaps/mustBeHashMap";
@@ -173,15 +175,15 @@ export { validateNumberIsInteger } from "./BasicTypes/Numbers/validateNumberIsIn
 export { validateNumberRange } from "./BasicTypes/Numbers/validateNumberRange";
 
 // Numerical
-export type { numerical } from "./BasicTypes/numerical/numerical";
-export type { NumericalConversionRules } from "./BasicTypes/numerical/NumericalConversionRules";
+export type { numerical } from "./BasicTypes/numerical/numerical.type";
+export type { NumericalConversionRules } from "./BasicTypes/numerical/NumericalConversionRules.type";
 export { DEFAULT_NUMERICAL_CONVERSION_RULES } from "./BasicTypes/numerical/defaults/DEFAULT_NUMERICAL_CONVERSION_RULES";
 export { resolveNumerical } from "./BasicTypes/numerical/resolveNumerical";
 export { validateNumericalData } from "./BasicTypes/numerical/validateNumericalData";
 
 // Object Filters
-export type { PropertyFilter } from "./BasicTypes/Objects/Filters/PropertyFilter";
-export type { PropertyFilterData } from "./BasicTypes/Objects/Filters/PropertyFilterData";
+export type { PropertyFilter } from "./BasicTypes/Objects/Filters/PropertyFilter.type";
+export type { PropertyFilterData } from "./BasicTypes/Objects/Filters/PropertyFilterData.type";
 export { FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS } from "./BasicTypes/Objects/Filters/defaults/FIND_PROPERTIES_FILTER_DROP_CONSTRUCTORS";
 export { FIND_PROPERTIES_FILTER_DROP_INTERNAL } from "./BasicTypes/Objects/Filters/defaults/FIND_PROPERTIES_FILTER_DROP_INTERNAL";
 export { FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES } from "./BasicTypes/Objects/Filters/defaults/FIND_PROPERTIES_FILTER_KEEP_ATTRIBUTES";
@@ -191,25 +193,26 @@ export { FIND_PROPERTY_DESCRIPTORS_DEFAULT_OPTIONS } from "./BasicTypes/Objects/
 export { findAttributes } from "./BasicTypes/Objects/Filters/PropertyDescriptors/findAttributes";
 export { findMethods } from "./BasicTypes/Objects/Filters/PropertyDescriptors/findMethods";
 export { findProperties } from "./BasicTypes/Objects/Filters/PropertyDescriptors/findProperties";
-export type { PropertyDescriptorFilter } from "./BasicTypes/Objects/Filters/PropertyDescriptors/PropertyDescriptorFilter";
-export type { PropertyDescriptorFilterData } from "./BasicTypes/Objects/Filters/PropertyDescriptors/PropertyDescriptorFilterData";
-export type { PropertyDescriptorFilterOptions } from "./BasicTypes/Objects/Filters/PropertyDescriptors/PropertyDescriptorFilterOptions";
+export type { PropertyDescriptorFilter } from "./BasicTypes/Objects/Filters/PropertyDescriptors/PropertyDescriptorFilter.type";
+export type { PropertyDescriptorFilterData } from "./BasicTypes/Objects/Filters/PropertyDescriptors/PropertyDescriptorFilterData.type";
+export type { PropertyDescriptorFilterOptions } from "./BasicTypes/Objects/Filters/PropertyDescriptors/PropertyDescriptorFilterOptions.type";
 export { FIND_PROPERTY_NAMES_DEFAULT_OPTIONS } from "./BasicTypes/Objects/Filters/PropertyNames/defaults/FIND_PROPERTY_NAMES_DEFAULT_OPTIONS";
 export { findAttributeNames } from "./BasicTypes/Objects/Filters/PropertyNames/findAttributeNames";
 export { findMethodNames } from "./BasicTypes/Objects/Filters/PropertyNames/findMethodNames";
 export { findPropertyNames } from "./BasicTypes/Objects/Filters/PropertyNames/findPropertyNames";
-export type { PropertyNameFilter } from "./BasicTypes/Objects/Filters/PropertyNames/PropertyNameFilter";
-export type { PropertyNameFilterData } from "./BasicTypes/Objects/Filters/PropertyNames/PropertyNameFilterData";
-export type { PropertyNameFilterOptions } from "./BasicTypes/Objects/Filters/PropertyNames/PropertyNameFilterOptions";
+export type { PropertyNameFilter } from "./BasicTypes/Objects/Filters/PropertyNames/PropertyNameFilter.type";
+export type { PropertyNameFilterData } from "./BasicTypes/Objects/Filters/PropertyNames/PropertyNameFilterData.type";
+export type { PropertyNameFilterOptions } from "./BasicTypes/Objects/Filters/PropertyNames/PropertyNameFilterOptions.type";
 
 // Objects
 export { assignOptionalFields } from "./BasicTypes/Objects/assignOptionalFields";
 export { assignOptionalFieldsUsingTransformers } from "./BasicTypes/Objects/assignOptionalFieldsUsingTransformers";
 export { deleteProperty } from "./BasicTypes/Objects/deleteProperty";
-export type { EmptyObject } from "./BasicTypes/Objects/EmptyObject";
+export type { EmptyObject } from "./BasicTypes/Objects/EmptyObject.type";
 export { getAllMethodNames } from "./BasicTypes/Objects/getAllMethodNames";
 export { getAllMethods } from "./BasicTypes/Objects/getAllMethods";
 export { getMissingMethodNames } from "./BasicTypes/Objects/getMissingMethodNames";
+export { getOwnKeys } from "./BasicTypes/Objects/getOwnKeys";
 export { getProperty } from "./BasicTypes/Objects/getProperty";
 export { getPublicMethodNames } from "./BasicTypes/Objects/getPublicMethodNames";
 export { getPublicMethods } from "./BasicTypes/Objects/getPublicMethods";
@@ -219,34 +222,42 @@ export { isGetterName } from "./BasicTypes/Objects/isGetterName";
 export { isMethodName } from "./BasicTypes/Objects/isMethodName";
 export { isObject } from "./BasicTypes/Objects/isObject";
 export { isObjectish } from "./BasicTypes/Objects/isObjectish";
+export { isStrictObject } from "./BasicTypes/StrictObject/isStrictObject";
 export { mustBeObject } from "./BasicTypes/Objects/mustBeObject";
 export { mustBeObjectish } from "./BasicTypes/Objects/mustBeObjectish";
-export type { NonNullableObject } from "./BasicTypes/Objects/NonNullObject";
+export { mustBeStrictObject } from "./BasicTypes/StrictObject/mustBeStrictObject";
+export type { NonNullableObject } from "./BasicTypes/Objects/NonNullObject.type";
+export type { ObjectKey } from "./BasicTypes/Objects/ObjectKey.type";
+export { omitProperties } from "./BasicTypes/Objects/omitProperties";
+export { pickProperties } from "./BasicTypes/Objects/pickProperties";
+export type { StrictObject } from "./BasicTypes/StrictObject/StrictObject.type";
+export { setProperty } from "./BasicTypes/Objects/setProperty";
 export { validateObject } from "./BasicTypes/Objects/validateObject";
 export { validateObjectHasAllMethodsCalled } from "./BasicTypes/Objects/validateObjectHasAllMethodsCalled";
 export { validateObjectish } from "./BasicTypes/Objects/validateObjectish";
 export { validateObjectNotEmpty } from "./BasicTypes/Objects/validateObjectNotEmpty";
+export { validateStrictObject } from "./BasicTypes/StrictObject/validateStrictObject";
 
 // Option Types
 export { validateOptionType } from "./BasicTypes/Options/validateOptionType";
 
 // Primitives
-export type { Primitive } from "./BasicTypes/Primitives/Primitive";
-export type { PrimitiveOrFunction } from "./BasicTypes/Primitives/PrimitiveOrFunction";
-export type { PrimitiveOrUndefined } from "./BasicTypes/Primitives/PrimitiveOrUndefined";
-export type { Primitivish } from "./BasicTypes/Primitives/Primitivish";
+export type { Primitive } from "./BasicTypes/Primitives/Primitive.type";
+export type { PrimitiveOrFunction } from "./BasicTypes/Primitives/PrimitiveOrFunction.type";
+export type { PrimitiveOrUndefined } from "./BasicTypes/Primitives/PrimitiveOrUndefined.type";
+export type { Primitivish } from "./BasicTypes/Primitives/Primitivish.type";
 
 // Prototypes
 export { NEXT_PROTOTYPE } from "./BasicTypes/Prototypes/defaults/NEXT_PROTOTYPE";
 export { STOP_AT_NEXT_PROTOTYPE } from "./BasicTypes/Prototypes/defaults/STOP_AT_NEXT_PROTOTYPE";
 export { STOP_AT_OBJECT_PROTOTYPE } from "./BasicTypes/Prototypes/defaults/STOP_AT_OBJECT_PROTOTYPE";
-export type { Prototype } from "./BasicTypes/Prototypes/Prototype";
-export type { NextPrototypeChain } from "./BasicTypes/Prototypes/NextPrototypeChain";
+export type { Prototype } from "./BasicTypes/Prototypes/Prototype.type";
+export type { NextPrototypeChain } from "./BasicTypes/Prototypes/NextPrototypeChain.type";
 export { getPrototypeOf } from "./BasicTypes/Prototypes/getPrototypeOf";
 
 // Regex
 export { Regex } from "./BasicTypes/Regex/Regex";
-export type { RegExpExecArrayWithGroups } from "./BasicTypes/Regex/RegExpExecArrayWithGroups";
+export type { RegExpExecArrayWithGroups } from "./BasicTypes/Regex/RegExpExecArrayWithGroups.type";
 export { isRegExpExecArrayWithGroups } from "./BasicTypes/Regex/isRegExpExecArrayWithGroups";
 export { mustBeRegExpExecArrayWithGroups } from "./BasicTypes/Regex/mustBeRegExpExecArrayWithGroups";
 export { regexMustCompile } from "./BasicTypes/Regex/regexMustCompile";
@@ -274,17 +285,17 @@ export { getTypeNames } from "./BasicTypes/Unknowns/getTypeNames";
 // ----------------------------------------------------------------
 
 // AppError
-export type { AnyAppError } from "./ErrorHandling/AppError/AnyAppError";
-export type { AnyAppErrorConstructor } from "./ErrorHandling/AppError/AnyAppErrorConstructor";
+export type { AnyAppError } from "./ErrorHandling/AppError/AnyAppError.type";
+export type { AnyAppErrorConstructor } from "./ErrorHandling/AppError/AnyAppErrorConstructor.type";
 export { AppError } from "./ErrorHandling/AppError/AppError";
-export type { AppErrorData } from "./ErrorHandling/AppError/AppErrorData";
+export type { AppErrorData } from "./ErrorHandling/AppError/AppErrorData.type";
 export { isAppError } from "./ErrorHandling/AppError/isAppError";
 
 // AppErrorOr
-export type { AppErrorOr } from "./ErrorHandling/AppErrorOr/AppErrorOr";
+export type { AppErrorOr } from "./ErrorHandling/AppErrorOr/AppErrorOr.type";
 
 // DataPath
-export type { DataPath } from "./ErrorHandling/DataPath/DataPath";
+export type { DataPath } from "./ErrorHandling/DataPath/DataPath.type";
 export { DEFAULT_DATA_PATH } from "./ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 export { extendDataPath } from "./ErrorHandling/DataPath/extendDataPath";
 export { isDataPathData } from "./ErrorHandling/DataPath/isDataPathData";
@@ -293,12 +304,12 @@ export { mustBeDataPathData } from "./ErrorHandling/DataPath/mustBeDataPathData"
 export { validateDataPathData } from "./ErrorHandling/DataPath/validateDataPathData";
 
 // ExtraData
-export type { AllExtraData } from "./ErrorHandling/ExtraData/AllExtraData";
-export type { AnyExtraData } from "./ErrorHandling/ExtraData/AnyExtraData";
-export type { ExtraData } from "./ErrorHandling/ExtraData/ExtraData";
-export type { ExtraLogsOnlyData } from "./ErrorHandling/ExtraData/ExtraLogsOnlyData";
-export type { ExtraPublicData } from "./ErrorHandling/ExtraData/ExtraPublicData";
-export type { NoExtraData } from "./ErrorHandling/ExtraData/NoExtraData";
+export type { AllExtraData } from "./ErrorHandling/ExtraData/AllExtraData.type";
+export type { AnyExtraData } from "./ErrorHandling/ExtraData/AnyExtraData.type";
+export type { ExtraData } from "./ErrorHandling/ExtraData/ExtraData.type";
+export type { ExtraLogsOnlyData } from "./ErrorHandling/ExtraData/ExtraLogsOnlyData.type";
+export type { ExtraPublicData } from "./ErrorHandling/ExtraData/ExtraPublicData.type";
+export type { NoExtraData } from "./ErrorHandling/ExtraData/NoExtraData.type";
 
 // Helpers
 export { DEFAULT_ERROR_REASON } from "./ErrorHandling/Helpers/defaults/DEFAULT_ERROR_REASON";
@@ -308,13 +319,13 @@ export { extractStackFromCaught } from "./ErrorHandling/Helpers/extractStackFrom
 // OnError
 export { ON_ERROR_DEFAULT_OPTIONS } from "./ErrorHandling/OnError/defaults/ON_ERROR_DEFAULT_OPTIONS";
 export { THROW_THE_ERROR } from "./ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-export type { OnError } from "./ErrorHandling/OnError/OnError";
-export type { OnErrorOptions } from "./ErrorHandling/OnError/OnErrorOptions";
+export type { OnError } from "./ErrorHandling/OnError/OnError.type";
+export type { OnErrorOptions } from "./ErrorHandling/OnError/OnErrorOptions.type";
 
 // StructuredProblemReport
 export { makeStructuredProblemReport } from "./ErrorHandling/StructuredProblemReport/makeStructuredProblemReport";
 export { StructuredProblemReport } from "./ErrorHandling/StructuredProblemReport/StructuredProblemReport";
-export type { StructuredProblemReportData } from "./ErrorHandling/StructuredProblemReport/StructuredProblemReportData";
+export type { StructuredProblemReportData } from "./ErrorHandling/StructuredProblemReport/StructuredProblemReportData.type";
 
 // ================================================================
 //
@@ -323,49 +334,49 @@ export type { StructuredProblemReportData } from "./ErrorHandling/StructuredProb
 // ----------------------------------------------------------------
 
 export { MODULE_NAME } from "./Errors/defaults/MODULE_NAME";
-export type { ArrayCannotBeEmptyData } from "./Errors/ArrayCannotBeEmpty/ArrayCannotBeEmptyData";
+export type { ArrayCannotBeEmptyData } from "./Errors/ArrayCannotBeEmpty/ArrayCannotBeEmptyData.type";
 export { ArrayCannotBeEmptyError } from "./Errors/ArrayCannotBeEmpty/ArrayCannotBeEmptyError";
-export type { ExtensionDefinesNoMethodsData } from "./Errors/ExtensionDefinesNoMethods/ExtensionDefinesNoMethodsData";
+export type { ExtensionDefinesNoMethodsData } from "./Errors/ExtensionDefinesNoMethods/ExtensionDefinesNoMethodsData.type";
 export { ExtensionDefinesNoMethodsError } from "./Errors/ExtensionDefinesNoMethods/ExtensionDefinesNoMethodsError";
-export type { HttpStatusCodeOutOfRangeData } from "./Errors/HttpStatusCodeOutOfRange/HttpStatusCodeOutOfRangeData";
+export type { HttpStatusCodeOutOfRangeData } from "./Errors/HttpStatusCodeOutOfRange/HttpStatusCodeOutOfRangeData.type";
 export { HttpStatusCodeOutOfRangeError } from "./Errors/HttpStatusCodeOutOfRange/HttpStatusCodeOutOfRangeError";
 export { createHttpStatusCodeOutOfRangeError } from "./Errors/HttpStatusCodeOutOfRange/createHttpStatusCodeOutOfRangeError";
-export type { InvalidNodeJSModuleNameData } from "./Errors/InvalidNodeJSModuleName/InvalidNodeJSModuleNameData";
+export type { InvalidNodeJSModuleNameData } from "./Errors/InvalidNodeJSModuleName/InvalidNodeJSModuleNameData.type";
 export { InvalidNodeJSModuleNameError } from "./Errors/InvalidNodeJSModuleName/InvalidNodeJSModuleNameError";
-export type { NotImplementedData } from "./Errors/NotImplemented/NotImplementedData";
+export type { NotImplementedData } from "./Errors/NotImplemented/NotImplementedData.type";
 export { NotImplementedError } from "./Errors/NotImplemented/NotImplementedError";
-export type { NumberOutOfRangeData } from "./Errors/NumberOutOfRange/NumberOutOfRangeData";
+export type { NumberOutOfRangeData } from "./Errors/NumberOutOfRange/NumberOutOfRangeData.type";
 export { NumberOutOfRangeError, type NumberOutOfRangeErrorConstructor } from "./Errors/NumberOutOfRange/NumberOutOfRangeError";
 export { createNumberOutOfRangeError } from "./Errors/NumberOutOfRange/createNumberOutOfRangeError";
-export type { ObjectCannotBeEmptyData } from "./Errors/ObjectCannotBeEmpty/ObjectCannotBeEmptyData";
+export type { ObjectCannotBeEmptyData } from "./Errors/ObjectCannotBeEmpty/ObjectCannotBeEmptyData.type";
 export { ObjectCannotBeEmptyError } from "./Errors/ObjectCannotBeEmpty/ObjectCannotBeEmptyError";
-export type { ObjectHasMissingMethodsData } from "./Errors/ObjectHasMissingMethods/ObjectHasMissingMethodsData";
+export type { ObjectHasMissingMethodsData } from "./Errors/ObjectHasMissingMethods/ObjectHasMissingMethodsData.type";
 export { ObjectHasMissingMethodsError } from "./Errors/ObjectHasMissingMethods/ObjectHasMissingMethodsError";
-export type { ObjectIsImmutableData } from "./Errors/ObjectIsImmutable/ObjectIsImmutableData";
+export type { ObjectIsImmutableData } from "./Errors/ObjectIsImmutable/ObjectIsImmutableData.type";
 export { ObjectIsImmutableError } from "./Errors/ObjectIsImmutable/ObjectIsImmutableError";
-export type { RegexDoesNotCompileData } from "./Errors/RegexDoesNotCompile/RegexDoesNotCompileData";
+export type { RegexDoesNotCompileData } from "./Errors/RegexDoesNotCompile/RegexDoesNotCompileData.type";
 export { RegexDoesNotCompileError } from "./Errors/RegexDoesNotCompile/RegexDoesNotCompileError";
-export type { RegexReturnedNoNamedGroupsData } from "./Errors/RegexReturnedNoNamedGroups/RegexReturnedNoNamedGroupsData";
+export type { RegexReturnedNoNamedGroupsData } from "./Errors/RegexReturnedNoNamedGroups/RegexReturnedNoNamedGroupsData.type";
 export { RegexReturnedNoNamedGroupsError } from "./Errors/RegexReturnedNoNamedGroups/RegexReturnedNoNamedGroupsError";
-export type { RegexReturnedNoResultsData } from "./Errors/RegexReturnedNoResults/RegexReturnedNoResultsData";
+export type { RegexReturnedNoResultsData } from "./Errors/RegexReturnedNoResults/RegexReturnedNoResultsData.type";
 export { RegexReturnedNoResultsError } from "./Errors/RegexReturnedNoResults/RegexReturnedNoResultsError";
-export type { StringIsTooLongData } from "./Errors/StringIsTooLong/StringIsTooLongData";
+export type { StringIsTooLongData } from "./Errors/StringIsTooLong/StringIsTooLongData.type";
 export { StringIsTooLongError } from "./Errors/StringIsTooLong/StringIsTooLongError";
-export type { StringIsTooShortData } from "./Errors/StringIsTooShort/StringIsTooShortData";
+export type { StringIsTooShortData } from "./Errors/StringIsTooShort/StringIsTooShortData.type";
 export { StringIsTooShortError } from "./Errors/StringIsTooShort/StringIsTooShortError";
-export type { UnreachableCodeData } from "./Errors/UnreachableCode/UnreachableCodeData";
+export type { UnreachableCodeData } from "./Errors/UnreachableCode/UnreachableCodeData.type";
 export { UnreachableCodeError } from "./Errors/UnreachableCode/UnreachableCodeError";
-export type { UnsupportedBooleanishValueData } from "./Errors/UnsupportedBooleanishValue/UnsupportedBooleanishValueData";
+export type { UnsupportedBooleanishValueData } from "./Errors/UnsupportedBooleanishValue/UnsupportedBooleanishValueData.type";
 export { UnsupportedBooleanishValueError } from "./Errors/UnsupportedBooleanishValue/UnsupportedBooleanishValueError";
-export type { UnsupportedNumericalValueData } from "./Errors/UnsupportedNumericalValue/UnsupportedNumericalValueData";
+export type { UnsupportedNumericalValueData } from "./Errors/UnsupportedNumericalValue/UnsupportedNumericalValueData.type";
 export { UnsupportedNumericalValueError } from "./Errors/UnsupportedNumericalValue/UnsupportedNumericalValueError";
-export type { UnsupportedStringLengthRangeData } from "./Errors/UnsupportedStringLengthRange/UnsupportedStringLengthRangeData";
+export type { UnsupportedStringLengthRangeData } from "./Errors/UnsupportedStringLengthRange/UnsupportedStringLengthRangeData.type";
 export { UnsupportedStringLengthRangeError } from "./Errors/UnsupportedStringLengthRange/UnsupportedStringLengthRangeError";
-export type { UnsupportedStringPrefixData } from "./Errors/UnsupportedStringPrefix/UnsupportedStringPrefixData";
+export type { UnsupportedStringPrefixData } from "./Errors/UnsupportedStringPrefix/UnsupportedStringPrefixData.type";
 export { UnsupportedStringPrefixError } from "./Errors/UnsupportedStringPrefix/UnsupportedStringPrefixError";
-export type { UnsupportedStringValueData } from "./Errors/UnsupportedStringValue/UnsupportedStringValueData";
+export type { UnsupportedStringValueData } from "./Errors/UnsupportedStringValue/UnsupportedStringValueData.type";
 export { UnsupportedStringValueError } from "./Errors/UnsupportedStringValue/UnsupportedStringValueError";
-export type { UnsupportedTypeData } from "./Errors/UnsupportedType/UnsupportedTypeData";
+export type { UnsupportedTypeData } from "./Errors/UnsupportedType/UnsupportedTypeData.type";
 export { UnsupportedTypeError } from "./Errors/UnsupportedType/UnsupportedTypeError";
 
 // ================================================================
@@ -383,13 +394,13 @@ export { IS_DATA_DEFAULT_OPTIONS } from "./Operators/isData/defaults/IS_DATA_DEF
 export { isType } from "./Operators/isType/isType";
 export { IS_TYPE_DEFAULT_OPTIONS } from "./Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 export { mustBe } from "./Operators/mustBe/mustBe";
-export type { MustBePipelineStep } from "./Operators/mustBe/MustBePipelineStep";
+export type { MustBePipelineStep } from "./Operators/mustBe/MustBePipelineStep.type";
 export { recast } from "./Operators/recast/recast";
 export { recastIfValid } from "./Operators/recastIfValid/recastIfValid";
 export { someGuards } from "./Operators/someGuards/someGuards";
 export { someFilters } from "./Operators/someFilters/someFilters";
 export { validate } from "./Operators/validate/validate";
-export type { ValidationPipelineStep } from "./Operators/validate/ValidationPipelineStep";
+export type { ValidationPipelineStep } from "./Operators/validate/ValidationPipelineStep.type";
 
 // ================================================================
 //
@@ -397,19 +408,19 @@ export type { ValidationPipelineStep } from "./Operators/validate/ValidationPipe
 //
 // ----------------------------------------------------------------
 
-export type { Has, HasProtocolDefinition } from "./Protocols/Has/Has";
+export type { Has, HasProtocolDefinition } from "./Protocols/Has/Has.type";
 export { implementsHas } from "./Protocols/Has/implementsHas";
 export { mustImplementHas } from "./Protocols/Has/mustImplementHas";
 export { validateImplementsHas } from "./Protocols/Has/validateImplementsHas";
 
-export type { Stack } from "./Protocols/Stack/Stack";
+export type { Stack } from "./Protocols/Stack/Stack.type";
 export { implementsStack } from "./Protocols/Stack/implementsStack";
 
-export type { ToPrimitive } from "./Protocols/ToPrimitive/ToPrimitive";
-export type { PrimitiveHint } from "./Protocols/ToPrimitive/PrimitiveHint";
+export type { ToPrimitive } from "./Protocols/ToPrimitive/ToPrimitive.type";
+export type { PrimitiveHint } from "./Protocols/ToPrimitive/PrimitiveHint.type";
 export { implementsToPrimitive } from "./Protocols/ToPrimitive/implementsToPrimitive";
 
-export type { ToString } from "./Protocols/ToString/ToString";
+export type { ToString } from "./Protocols/ToString/ToString.type";
 export { implementsOwnOrInheritedToString } from "./Protocols/ToString/implementsOwnOrInheritedToString";
 export { implementsToString } from "./Protocols/ToString/implementsToString";
 
@@ -422,7 +433,7 @@ export { implementsToString } from "./Protocols/ToString/implementsToString";
 export { addExtension } from "./ProtocolsExtensions/Extensions/addExtension";
 export { implementsProtocol } from "./ProtocolsExtensions/Protocol/implementsProtocol";
 export { validateImplementsProtocol } from "./ProtocolsExtensions/Protocol/validateImplementsProtocol";
-export type { ProtocolDefinition } from "./ProtocolsExtensions/ProtocolDefinition/ProtocolDefinition";
+export type { ProtocolDefinition } from "./ProtocolsExtensions/ProtocolDefinition/ProtocolDefinition.type";
 export { makeProtocolDefinition } from "./ProtocolsExtensions/ProtocolDefinition/makeProtocolDefinition";
 
 // ================================================================
@@ -432,19 +443,19 @@ export { makeProtocolDefinition } from "./ProtocolsExtensions/ProtocolDefinition
 // ----------------------------------------------------------------
 
 // RefinedNumber
-export type { AnyRefinedNumber } from "./RefinedTypes/RefinedNumber/AnyRefinedNumber";
+export type { AnyRefinedNumber } from "./RefinedTypes/RefinedNumber/AnyRefinedNumber.type";
 export { RefinedNumber } from "./RefinedTypes/RefinedNumber/RefinedNumber";
 
 // RefinedPrimitive
-export type { AnyRefinedPrimitive } from "./RefinedTypes/RefinedPrimitive/AnyRefinedPrimitive";
+export type { AnyRefinedPrimitive } from "./RefinedTypes/RefinedPrimitive/AnyRefinedPrimitive.type";
 export { RefinedPrimitive } from "./RefinedTypes/RefinedPrimitive/RefinedPrimitive";
 
 // RefinedString
-export type { AnyRefinedString } from "./RefinedTypes/RefinedString/AnyRefinedString";
+export type { AnyRefinedString } from "./RefinedTypes/RefinedString/AnyRefinedString.type";
 export { RefinedString } from "./RefinedTypes/RefinedString/RefinedString";
 
 // RefinedType
-export type { AnyRefinedType } from "./RefinedTypes/RefinedType/AnyRefinedType";
+export type { AnyRefinedType } from "./RefinedTypes/RefinedType/AnyRefinedType.type";
 export { RefinedType } from "./RefinedTypes/RefinedType/RefinedType";
 
 // ================================================================
@@ -454,14 +465,14 @@ export { RefinedType } from "./RefinedTypes/RefinedType/RefinedType";
 // ----------------------------------------------------------------
 
 // DispatchMap
-export type { AnyDispatchMap } from "./SupportingTypes/DispatchMap/AnyDispatchMap";
-export type { AnyDispatchMapKey } from "./SupportingTypes/DispatchMap/AnyDispatchMapKey";
-export type { DispatchMap } from "./SupportingTypes/DispatchMap/DispatchMap";
-export type { DispatchMapReturnTypes } from "./SupportingTypes/DispatchMap/DispatchMapReturnTypes";
+export type { AnyDispatchMap } from "./SupportingTypes/DispatchMap/AnyDispatchMap.type";
+export type { AnyDispatchMapKey } from "./SupportingTypes/DispatchMap/AnyDispatchMapKey.type";
+export type { DispatchMap } from "./SupportingTypes/DispatchMap/DispatchMap.type";
+export type { DispatchMapReturnTypes } from "./SupportingTypes/DispatchMap/DispatchMapReturnTypes.type";
 export { searchDispatchMap } from "./SupportingTypes/DispatchMap/searchDispatchMap";
 
 // HttpStatusCode
-export type { HttpStatusCode } from "./SupportingTypes/HttpStatusCode/HttpStatusCode";
+export type { HttpStatusCode } from "./SupportingTypes/HttpStatusCode/HttpStatusCode.type";
 export { isHttpStatusCodeData } from "./SupportingTypes/HttpStatusCode/isHttpStatusCodeData";
 export { makeHttpStatusCode } from "./SupportingTypes/HttpStatusCode/makeHttpStatusCode";
 export { mustBeHttpStatusCodeData } from "./SupportingTypes/HttpStatusCode/mustBeHttpStatusCodeData";
@@ -469,7 +480,7 @@ export { validateHttpStatusCodeData } from "./SupportingTypes/HttpStatusCode/val
 export { validateHttpStatusCodeDataRange } from "./SupportingTypes/HttpStatusCode/validateHttpStatusCodeDataRange";
 
 // NodeJsModuleName
-export type { NodeJSModuleName } from "./SupportingTypes/NodeJSModuleName/NodeJSModuleName";
+export type { NodeJSModuleName } from "./SupportingTypes/NodeJSModuleName/NodeJSModuleName.type";
 export { isNodeJSModuleNameData } from "./SupportingTypes/NodeJSModuleName/isNodeJSModuleNameData";
 export { makeNodeJSModuleName } from "./SupportingTypes/NodeJSModuleName/makeNodeJSModuleName";
 export { mustBeNodeJSModuleNameData } from "./SupportingTypes/NodeJSModuleName/mustBeNodeJSModuleNameData";
@@ -482,25 +493,25 @@ export * from "./SupportingTypes/NodeJSModuleName/regexes";
 //
 // ----------------------------------------------------------------
 
-export type { AttributeFilterMap } from "./UtilityTypes/AttributeFilterMap";
-export type { AttributeKeys } from "./UtilityTypes/AttributeKeys";
-export type { AttributeTransformerMap } from "./UtilityTypes/AttributeTransformerMap";
-export type { DeepImmutable } from "./UtilityTypes/DeepImmutable";
-export type { Definitely } from "./UtilityTypes/Definitely";
-export type { EquivalentKeys } from "./UtilityTypes/EquivalentKeys";
-export type { EquivalentOptionalKeys } from "./UtilityTypes/EquivalentOptionalKeys";
-export type { EquivalentOptionalPart } from "./UtilityTypes/EquivalentOptionalPart";
-export type { EquivalentPart } from "./UtilityTypes/EquivalentPart";
-export type { IdenticallyNamedKeys } from "./UtilityTypes/IdenticallyNamedKeys";
-export type { IdenticallyNamedPart } from "./UtilityTypes/IdenticallyNamedPart";
-export type { IfEquals } from "./UtilityTypes/IfEquals";
-export type { Immutable } from "./UtilityTypes/Immutable";
-export type { Maybe } from "./UtilityTypes/Maybe";
-export type { NonNullable } from "./UtilityTypes/NonNullable";
-export type { Nullable } from "./UtilityTypes/Nullable";
-export type { OptionalKeys } from "./UtilityTypes/OptionalKeys";
-export type { OptionalPart } from "./UtilityTypes/OptionalPart";
-export type { RequireAllAttributesMap } from "./UtilityTypes/RequireAllAttributesMap";
-export type { ValueOf } from "./UtilityTypes/ValueOf";
-export type { WritableKeys } from "./UtilityTypes/WritableKeys";
-export type { WritablePart } from "./UtilityTypes/WritablePart";
+export type { AttributeFilterMap } from "./UtilityTypes/AttributeFilterMap.type";
+export type { AttributeKeys } from "./UtilityTypes/AttributeKeys.type";
+export type { AttributeTransformerMap } from "./UtilityTypes/AttributeTransformerMap.type";
+export type { DeepImmutable } from "./UtilityTypes/DeepImmutable.type";
+export type { Definitely } from "./UtilityTypes/Definitely.type";
+export type { EquivalentKeys } from "./UtilityTypes/EquivalentKeys.type";
+export type { EquivalentOptionalKeys } from "./UtilityTypes/EquivalentOptionalKeys.type";
+export type { EquivalentOptionalPart } from "./UtilityTypes/EquivalentOptionalPart.type";
+export type { EquivalentPart } from "./UtilityTypes/EquivalentPart.type";
+export type { IdenticallyNamedKeys } from "./UtilityTypes/IdenticallyNamedKeys.type";
+export type { IdenticallyNamedPart } from "./UtilityTypes/IdenticallyNamedPart.type";
+export type { IfEquals } from "./UtilityTypes/IfEquals.type";
+export type { Immutable } from "./UtilityTypes/Immutable.type";
+export type { Maybe } from "./UtilityTypes/Maybe.type";
+export type { NonNullable } from "./UtilityTypes/NonNullable.type";
+export type { Nullable } from "./UtilityTypes/Nullable.type";
+export type { OptionalKeys } from "./UtilityTypes/OptionalKeys.type";
+export type { OptionalPart } from "./UtilityTypes/OptionalPart.type";
+export type { RequireAllAttributesMap } from "./UtilityTypes/RequireAllAttributesMap.type";
+export type { ValueOf } from "./UtilityTypes/ValueOf.type";
+export type { WritableKeys } from "./UtilityTypes/WritableKeys.type";
+export type { WritablePart } from "./UtilityTypes/WritablePart.type";

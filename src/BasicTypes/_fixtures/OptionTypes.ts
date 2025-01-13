@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator";
+import type { TypeValidator } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidator.type";
 import { validateBoolean } from "../Booleans/validateBoolean";
 import { validateNumber } from "../Numbers/validateNumber";
 import { validateString } from "../Strings/validateString";

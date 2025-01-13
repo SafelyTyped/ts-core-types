@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { AnyHashMap } from "../HashMaps/AnyHashMap";
+import type { AnyHashMap } from "../HashMaps/AnyHashMap.type";
 
 /**
  * `isMethodName()` is a data guard. Use it to prove that property

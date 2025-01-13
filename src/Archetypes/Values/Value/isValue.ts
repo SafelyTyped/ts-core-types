@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeGuard } from "../../../Archetypes/FunctionTypes/TypeGuard/TypeGuard";
+import type { TypeGuard } from "../../FunctionTypes/TypeGuard/TypeGuard.type";
 import { IS_TYPE_DEFAULT_OPTIONS } from "../../../Operators/isType/defaults/IS_TYPE_DEFAULT_OPTIONS";
 import { isType } from "../../../Operators/isType/isType";
-import type { Value } from "./Value";
+import type { Value } from "./Value.type";
 import { validateValue } from "./validateValue";
 
 /**

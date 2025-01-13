@@ -32,11 +32,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { ProtocolDefinition } from "./ProtocolDefinition";
+import type { ProtocolDefinition } from "./ProtocolDefinition.type";
 import { getPublicMethodNames } from "../../BasicTypes/Objects/getPublicMethodNames";
 import { isNonEmptyArray } from "../../BasicTypes/Arrays/isNonEmptyArray";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
+import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions.type";
 import { ExtensionDefinesNoMethodsError } from "../../Errors/ExtensionDefinesNoMethods/ExtensionDefinesNoMethodsError";
 
 /**
@@ -71,7 +71,7 @@ export function makeProtocolDefinition<T extends object>(
         return methodsList;
     }
 
-    throw onError(new ExtensionDefinesNoMethodsError({
+    return onError(new ExtensionDefinesNoMethodsError({
         public: {
             extension: input.constructor?.name || "object has no prototype",
         }

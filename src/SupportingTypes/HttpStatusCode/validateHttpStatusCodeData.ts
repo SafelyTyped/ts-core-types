@@ -34,11 +34,11 @@
 
 import { validateHttpStatusCodeDataRange } from "./validateHttpStatusCodeDataRange";
 import { validateInteger } from "../../BasicTypes/Integers/validateInteger";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { validate } from "../../Operators/validate/validate";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
-import type { HttpStatusCode } from "./HttpStatusCode";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions.type";
+import type { HttpStatusCode } from "./HttpStatusCode.type";
 import { recast } from "../../Operators/recast/recast";
 
 /**

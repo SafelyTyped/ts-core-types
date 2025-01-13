@@ -713,6 +713,36 @@ describe("HashMap()", () => {
         });
     });
 
+    describe(".set()", () => {
+        it("sets the specified property on the target object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            //
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: "1",
+                b: "2",
+                c: "3"
+            }
+            const expectedValue = "4";
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.set(unit, "c", expectedValue);
+            const actualValue = unit.c;
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualValue).eql(expectedValue);
+        })
+    });
+
     describe(".clear()", () => {
         it("empties the given HashMap", () => {
             // ----------------------------------------------------------------
@@ -1235,5 +1265,330 @@ describe("HashMap()", () => {
 
             expect(inputValue).eql(expectedResult);
         });
+    });
+
+    describe(".partial()", () => {
+        it("copies the given properties to a new object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that pickProperties() does actually copy over
+            // the properties that we want
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+            }
+            const expectedValue = {
+                a: 100,
+                d: 400,
+            }
+            const expectedKeys = [ "a", "d" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualValue = HashMap.partial(unit, expectedKeys);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualValue).eqls(expectedValue);
+        });
+
+        it("only returns the properties that are requested", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that pickProperties() doesn't return any
+            // unexpected properties
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+            }
+            const expectedKeys = [ "a", "d" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualValue = HashMap.partial(unit, expectedKeys);
+            const actualKeys = Object.getOwnPropertyNames(actualValue);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualKeys).eqls(expectedKeys);
+        });
+
+        it('does not modify the input object', () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that our original input object is not changed
+            // when we call pickProperties()
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const expectedInput = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+            }
+            const expectedKeys = [ "a", "d" ];
+
+            // create a copy of our object, so that we have something to use
+            // in the comparison
+            const actualInput = {
+                ...expectedInput
+            }
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.partial(actualInput, expectedKeys);
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualInput).eqls(expectedInput);
+        });
+    });
+
+    describe(".omit()", () => {
+        it("returns an object only containing the requested properties", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that omitProperties() returns only the properties
+            // that we requested
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+                e: 500,
+            }
+            const expectedResult = {
+                a: unit.a,
+                c: unit.c
+            }
+            const keysToOmit = [ "b", "d", "e" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.omit(unit, keysToOmit)
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).eql(expectedResult);
+        });
+
+        it("does not modify the input object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that our input object is not changed by
+            // the omitProperties() function
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+                e: 500,
+            }
+            const input = { ...unit };
+            const keysToOmit = [ "b", "d", "e" ];
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            HashMap.omit(input, keysToOmit)
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(input).eql(unit);
+        });
+    });
+
+    describe(".flatMap()", () => {
+        it("applies the callback to all properties of the input object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that the callback function (the mapper) is
+            // run against all properties of the input object
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: { z: [ 1, 2, 3 ] },
+                b: { y: [ 4, 5, 6 ] },
+            }
+            const expectedResult = {
+                z: [ 2, 4, 6 ],
+                y: [ 8, 10, 12 ],
+            }
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.flatMap(
+                unit,
+                (nestedObj) =>
+                    HashMap.map(
+                        nestedObj,
+                        (value) => value.map((num) => num * 2)
+                    )
+
+            );
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("flattens the result of the map operation by one level", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that the property keys in the returned object
+            // are the keys from the nested objects
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: { z: [ 1, 2, 3 ] },
+                b: { y: [ 4, 5, 6 ] },
+            }
+            const expectedResult = {
+                z: [ 2, 4, 6 ],
+                y: [ 8, 10, 12 ],
+            }
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.flatMap(
+                unit,
+                (nestedObj) =>
+                    HashMap.map(
+                        nestedObj,
+                        (value) => value.map((num) => num * 2)
+                    )
+
+            );
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).to.eql(expectedResult);
+        });
+
+        it("does not modify the input object", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that the input object is left untouched
+            // by the flatMap() method
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: { z: [ 1, 2, 3 ] },
+                b: { y: [ 4, 5, 6 ] },
+            }
+
+            // create a copy of out input object, to compare against
+            // afterward
+            const expectedResult = {
+                ...unit
+            }
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            const actualResult = HashMap.flatMap(
+                unit,
+                (nestedObj) =>
+                    HashMap.map(
+                        nestedObj,
+                        (value) => value.map((num) => num * 2)
+                    )
+
+            );
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(actualResult).to.not.eql(expectedResult);
+            expect(unit).to.eql(expectedResult);
+        });
+
+        it("only supports nested objects", () => {
+            // ----------------------------------------------------------------
+            // explain your test
+
+            // this test proves that HashMap.flatMap() will throw an error
+            // if we pass in an array
+
+            // ----------------------------------------------------------------
+            // setup your test
+
+            const unit = {
+                a: [ 1, 2, 3 ],
+                b: [ 4, 5, 6 ],
+            }
+
+
+            // ----------------------------------------------------------------
+            // perform the change
+
+            let caughtError = false;
+            let actualResult = undefined;
+            try {
+                actualResult = HashMap.flatMap(
+                    unit,
+                    (nestedObj) => nestedObj
+                );
+            }
+            catch (e) {
+                caughtError = true;
+            }
+
+            // ----------------------------------------------------------------
+            // test the results
+
+            expect(caughtError).to.be.true;
+            expect(actualResult).to.be.undefined;
+        });
+
     });
 });

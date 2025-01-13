@@ -32,10 +32,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard";
+import type { DataGuard } from "../../Archetypes/FunctionTypes/DataGuard/DataGuard.type";
 import { IS_DATA_DEFAULT_OPTIONS } from "../../Operators/isData/defaults/IS_DATA_DEFAULT_OPTIONS";
 import { isData } from "../../Operators/isData/isData";
-import type { HttpStatusCode } from "./HttpStatusCode";
+import type { HttpStatusCode } from "./HttpStatusCode.type";
 import { validateHttpStatusCodeData } from "./validateHttpStatusCodeData";
 
 /**

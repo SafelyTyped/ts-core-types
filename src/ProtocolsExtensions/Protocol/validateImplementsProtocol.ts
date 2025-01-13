@@ -32,13 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions";
+import type { TypeValidatorOptions } from "../../Archetypes/FunctionTypes/TypeValidator/TypeValidatorOptions.type";
 import { validateObject } from "../../BasicTypes/Objects/validateObject";
 import { validateObjectHasAllMethodsCalled } from "../../BasicTypes/Objects/validateObjectHasAllMethodsCalled";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { validate } from "../../Operators/validate/validate";
-import type { ProtocolDefinition } from "../ProtocolDefinition/ProtocolDefinition";
+import type { ProtocolDefinition } from "../ProtocolDefinition/ProtocolDefinition.type";
 
 /**
  * `validateImplementsProtocol()` is a {@link TypeValidator}. Use it to prove

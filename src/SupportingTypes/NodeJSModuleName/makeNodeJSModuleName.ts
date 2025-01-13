@@ -31,13 +31,13 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption";
-import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor";
+import type { FunctionalOption } from "../../Archetypes/FunctionTypes/FunctionalOption/FunctionalOption.type";
+import type { SmartConstructor } from "../../Archetypes/FunctionTypes/SmartConstructor/SmartConstructor.type";
 import { mustBeNodeJSModuleNameData } from "./mustBeNodeJSModuleNameData";
-import type { NodeJSModuleName } from "./NodeJSModuleName";
+import type { NodeJSModuleName } from "./NodeJSModuleName.type";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
-import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions";
+import type { DataGuaranteeOptions } from "../../Archetypes/FunctionTypes/DataGuarantee/DataGuaranteeOptions.type";
 import { makeNominalTypeFromDataGuarantee } from "../../Archetypes/Nominals/Factories/makeNominalTypeFromDataGuarantee";
 
 /**

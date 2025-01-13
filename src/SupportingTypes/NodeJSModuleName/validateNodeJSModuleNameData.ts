@@ -31,11 +31,11 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
+import type { DataValidatorOptions } from "../../Archetypes/FunctionTypes/DataValidator/DataValidatorOptions.type";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
 import { DEFAULT_DATA_PATH } from "../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { InvalidNodeJSModuleNameError } from "../../Errors/InvalidNodeJSModuleName/InvalidNodeJSModuleNameError";
-import type { NodeJSModuleName } from "./NodeJSModuleName";
+import type { NodeJSModuleName } from "./NodeJSModuleName.type";
 import { NodeJSModuleNameDataRegex } from "./regexes";
 
 /**

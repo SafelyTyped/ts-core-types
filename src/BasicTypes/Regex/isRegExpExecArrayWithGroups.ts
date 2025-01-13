@@ -33,7 +33,7 @@
 //
 
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups";
+import type { RegExpExecArrayWithGroups } from "./RegExpExecArrayWithGroups.type";
 import { validateRegExpExecArrayWithGroups } from "./validateRegExpExecArrayWithGroups";
 
 /**

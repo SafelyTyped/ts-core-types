@@ -32,13 +32,13 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject";
+import type { EmptyObject } from "../../../BasicTypes/Objects/EmptyObject.type";
 import { DEFAULT_DATA_PATH } from "../../../ErrorHandling/DataPath/defaults/DEFAULT_DATA_PATH";
 import { THROW_THE_ERROR } from "../../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import type { FunctionalOption } from "../../FunctionTypes/FunctionalOption/FunctionalOption";
+import type { FunctionalOption } from "../../FunctionTypes/FunctionalOption/FunctionalOption.type";
 import { applyFunctionalOptions } from "../../FunctionTypes/FunctionalOption/applyFunctionalOptions";
-import type { TypeGuarantee } from "../../FunctionTypes/TypeGuarantee/TypeGuarantee";
-import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions";
+import type { TypeGuarantee } from "../../FunctionTypes/TypeGuarantee/TypeGuarantee.type";
+import type { TypeGuaranteeOptions } from "../../FunctionTypes/TypeGuarantee/TypeGuaranteeOptions.type";
 
 /**
  * `makeNominalType()` converts your input type into a branded or

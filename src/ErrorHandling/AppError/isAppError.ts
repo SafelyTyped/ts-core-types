@@ -32,7 +32,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 import { AppError } from "./AppError";
-import type { AnyAppError } from "./AnyAppError";
+import type { AnyAppError } from "./AnyAppError.type";
 
 /**
  * `isAppError()` is a type guard. It confirms if the given input is

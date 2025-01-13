@@ -34,7 +34,7 @@
 
 import { implementsToPrimitive } from "../../../Protocols/ToPrimitive/implementsToPrimitive";
 import { implementsToString } from "../../../Protocols/ToString/implementsToString";
-import type { NumericalConversionRules } from "../NumericalConversionRules";
+import type { NumericalConversionRules } from "../NumericalConversionRules.type";
 
 /**
  * `DEFAULT_NUMERICAL_CONVERSION_RULES` are the default rules that

@@ -25,10 +25,10 @@
 // We (Ganbaro Digital) have modified it to short-circuit if the value
 // has become an Error.
 import { AppError } from "../../ErrorHandling/AppError/AppError";
-import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr";
-import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions";
+import type { AppErrorOr } from "../../ErrorHandling/AppErrorOr/AppErrorOr.type";
+import type { OnErrorOptions } from "../../ErrorHandling/OnError/OnErrorOptions.type";
 import { THROW_THE_ERROR } from "../../ErrorHandling/OnError/defaults/THROW_THE_ERROR";
-import type { MustBePipelineStep } from "./MustBePipelineStep";
+import type { MustBePipelineStep } from "./MustBePipelineStep.type";
 
 /**
  * `mustBe()` executes a series of functions, one after the next.
@@ -56,7 +56,7 @@ export function mustBe<T>(
 ): MustBePipelineStep<T> {
     // these we can delegate
     if (val instanceof AppError) {
-        throw onError(val);
+        onError(val);
     }
 
     // these we know nothing about, but must watch out for
