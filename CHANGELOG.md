@@ -63,6 +63,7 @@ Released Monday, 13th January 2025.
 - upgraded to ESLint v9
 - update CI to use Node v22 & v23
 - upgraded to rimraf v6
+- upgraded to c8 v10
 
 ## v0.5.0
 
