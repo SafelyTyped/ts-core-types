@@ -62,6 +62,7 @@ Released Monday, 13th January 2025.
 - upgraded to Typescript 5.7
 - upgraded to ESLint v9
 - update CI to use Node v22 & v23
+- upgraded to rimraf v6
 
 ## v0.5.0
 
