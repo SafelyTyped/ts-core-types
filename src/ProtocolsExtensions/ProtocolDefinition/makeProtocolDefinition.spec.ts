@@ -59,7 +59,12 @@ class UnitTestGuessMediaType {
 
 // tslint:disable-next-line: max-classes-per-file
 class UnitTestExample {
-    public constructor(private value: string) {}
+
+    private value;
+
+    public constructor(value: string) {
+        this.value = value;
+    }
 
     public valueOf() { return this.value; }
 }

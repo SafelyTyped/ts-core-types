@@ -21,6 +21,10 @@ For each release, changes are grouped under these headings:
 
 The following changes have been completed, and will be included in the next tagged release.
 
+## v0.5.1
+
+Released Monday, 13th January 2025.
+
 ### New
 
 - added `DataAccessorOptions` type
@@ -51,6 +55,7 @@ The following changes have been completed, and will be included in the next tagg
 
 - avoid bivariant methods in interfaces
 - fix all linting errors caught by ESLint v9
+- fixes for compatibility with NodeJS v23.6 🙄
 
 ### Tools
 
@@ -58,6 +63,9 @@ The following changes have been completed, and will be included in the next tagg
 - upgraded to Typescript 5.7
 - upgraded to ESLint v9
 - update CI to use Node v22 & v23
+- upgraded to rimraf v6
+- upgraded to c8 v10
+- upgraded to mocha v11
 
 ## v0.5.0
 
